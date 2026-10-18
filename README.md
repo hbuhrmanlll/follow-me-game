@@ -14,7 +14,9 @@ Netlify rebuilds the game and puts it at your game link (it takes about a minute
 2. Turn the phone sideways.
 3. Tap **Begin**. On a phone this switches to full screen.
 
-**Tip:** In Chrome, tap the ⋮ menu → **Add to Home screen** to get an icon for the game.
+**Put it on your home screen (works offline):** in Chrome, tap the ⋮ menu → **Add to Home screen**
+(or **Install app**). It gets its own icon and opens full screen. After it has been opened once
+with internet, it works with no internet at all, which is good for car rides.
 
 **Not seeing the newest version?** Pull down to refresh the page. The version number is
 in the bottom-left corner of the title screen.

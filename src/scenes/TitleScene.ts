@@ -2,8 +2,10 @@ import Phaser from 'phaser';
 import { FONT, makeButton, restartOnResize } from '../ui/common';
 import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
 import { ui } from '../systems/content';
+import { showSettings } from '../ui/dom';
+import { askParent } from '../ui/parent';
 
-export const VERSION = 'Phase 5 · v0.5.2';
+export const VERSION = 'Phase 6A · v0.6.0';
 
 export class TitleScene extends Phaser.Scene {
   private layers: Layer[] = [];
@@ -32,6 +34,8 @@ export class TitleScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     makeButton(this, W / 2, 440, ui.begin, () => this.begin(), { width: 420, height: 120, fontSize: 50 });
+    makeButton(this, W - 110, 60, '⚙', () => void showSettings(), { width: 110, height: 90, fontSize: 44 });
+    makeButton(this, W - 250, 60, `👪`, () => void askParent().then((ok) => ok && this.scene.start('Parents')), { width: 110, height: 90, fontSize: 44 });
 
     this.add
       .text(W / 2, H - 36, ui.studio, { fontFamily: FONT, fontSize: '28px', color: '#f3e6c8' })

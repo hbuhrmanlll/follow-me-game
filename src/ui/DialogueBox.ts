@@ -3,6 +3,7 @@ import { COLORS, FONT, makePortrait, whenTapped } from './common';
 import { estimateDuration, speak, stopSpeaking } from '../systems/speech';
 import { ui } from '../systems/content';
 import type { LineAudio, WordTimings } from '../systems/voice';
+import { loadSettings, type Settings } from '../systems/save';
 
 export interface DialogueLine {
   speakerName: string;
@@ -45,6 +46,8 @@ export class DialogueBox {
   private autoTimer?: Phaser.Time.TimerEvent;
   private player?: HTMLAudioElement;
   private timings?: WordTimings;
+  private look: Settings = loadSettings();
+  private muted?: Phaser.GameObjects.Text;
 
   constructor(private scene: Phaser.Scene) {
     const W = scene.scale.width;
@@ -76,12 +79,21 @@ export class DialogueBox {
   // Shows and speaks a line. Resolves when the player moves on.
   play(line: DialogueLine): Promise<void> {
     this.line = line;
+    this.look = loadSettings(); // text size, contrast and subtitles can change at any time
     this.drawBox(line.kind);
     this.portrait.set(line.color, line.initials);
     this.nameText.setText(line.speakerName);
     this.tag.setText(line.kind === 'narration' ? ui.narration : '').setVisible(line.kind === 'narration');
     this.tag.setX(this.nameText.x + this.nameText.width + 12);
     this.layoutWords(line.text, line.kind === 'narration');
+    // Subtitles off: the voice still reads the line, but the words are hidden.
+    this.wordLayer.setVisible(this.look.subtitles);
+    this.muted?.destroy();
+    if (!this.look.subtitles) {
+      this.muted = this.scene.add.text(this.scene.scale.width / 2, (TOP + BOTTOM) / 2, '🔊 …', {
+        fontFamily: FONT, fontSize: '48px', color: this.look.highContrast ? '#000000' : '#7a4f17',
+      }).setOrigin(0.5);
+    }
     this.refText.setText(line.refLabel ?? '');
     return new Promise((resolve) => {
       this.resolve = resolve;
@@ -103,9 +115,11 @@ export class DialogueBox {
   }
 
   setVisible(v: boolean): void {
-    for (const o of [this.bg, this.highlight, this.wordLayer, this.portrait.container, this.nameText, this.tag, this.refText]) {
+    for (const o of [this.bg, this.highlight, this.portrait.container, this.nameText, this.tag, this.refText]) {
       o.setVisible(v);
     }
+    this.wordLayer.setVisible(v && this.look.subtitles);
+    this.muted?.setVisible(v);
     if (!v) this.continueText.setVisible(false);
   }
 
@@ -151,6 +165,7 @@ export class DialogueBox {
       this.setCurrent(0);
       const a = new Audio(line.audio.url);
       a.playbackRate = this.speed;
+      a.volume = this.look.voiceVolume;
       a.onended = () => this.onSpoken();
       // If the file can't play, fall back to the browser voice.
       a.onerror = () => { this.stopPlayer(); this.speakWithBrowser(line); };
@@ -215,16 +230,19 @@ export class DialogueBox {
     this.highlight.clear();
     const w = this.words[idx];
     if (!w) return;
-    this.highlight.fillStyle(COLORS.gold, 0.55).fillRoundedRect(w.obj.x - 4, w.obj.y - 2, w.obj.width + 8, w.obj.height + 4, 6);
+    this.highlight.fillStyle(this.look.highContrast ? 0xffe600 : COLORS.gold, this.look.highContrast ? 1 : 0.55).fillRoundedRect(w.obj.x - 4, w.obj.y - 2, w.obj.width + 8, w.obj.height + 4, 6);
   }
 
   private drawBox(kind: DialogueLine['kind']): void {
     const W = this.scene.scale.width;
-    const fill = kind === 'narration' ? 0xe9dcc0 : COLORS.parchment;
+    const hc = this.look.highContrast;
+    const fill = hc ? (kind === 'narration' ? 0xe8e8e8 : 0xffffff) : kind === 'narration' ? 0xe9dcc0 : COLORS.parchment;
     this.bg.clear();
     this.bg.fillStyle(0x000000, 0.35).fillRoundedRect(24, TOP + 6, W - 40, BOTTOM - TOP, 22);
     this.bg.fillStyle(fill, 1).fillRoundedRect(20, TOP, W - 40, BOTTOM - TOP, 22);
-    this.bg.lineStyle(4, kind === 'narration' ? 0x8f8270 : COLORS.goldDark, 1).strokeRoundedRect(20, TOP, W - 40, BOTTOM - TOP, 22);
+    this.bg.lineStyle(hc ? 6 : 4, hc ? 0x000000 : kind === 'narration' ? 0x8f8270 : COLORS.goldDark, 1).strokeRoundedRect(20, TOP, W - 40, BOTTOM - TOP, 22);
+    this.nameText.setBackgroundColor(hc ? '#000000' : '#5a3a1c').setColor(hc ? '#ffe600' : '#fff8e6');
+    this.refText.setColor(hc ? '#000000' : '#7a4f17');
   }
 
   // Each word is its own text object so it can be highlighted while spoken.
@@ -238,14 +256,17 @@ export class DialogueBox {
     const re = /\S+/g;
     for (let m = re.exec(text); m; m = re.exec(text)) tokens.push({ word: m[0], start: m.index, end: m.index + m[0].length });
 
-    for (const size of [34, 30, 27, 24]) {
+    // Start at the chosen text size and shrink only if a long verse won't fit.
+    const base = { normal: 34, large: 40, xlarge: 46 }[this.look.textSize];
+    const ink = this.look.highContrast ? '#000000' : '#2b1d12';
+    for (const size of [base, base - 4, base - 8, base - 12, 24].filter((n, i, a) => n >= 24 && a.indexOf(n) === i)) {
       this.wordLayer.removeAll(true);
       this.words = [];
       const lineH = Math.round(size * 1.35);
       let x = left;
       let y = TOP + 32;
       let lines = 1;
-      const style = { fontFamily: FONT, fontSize: `${size}px`, color: '#2b1d12', fontStyle: italic ? 'italic' : 'normal' };
+      const style = { fontFamily: FONT, fontSize: `${size}px`, color: ink, fontStyle: italic ? 'italic' : 'normal' };
       const space = size * 0.3;
       for (const t of tokens) {
         const obj = this.scene.add.text(0, 0, t.word, style);

@@ -1,0 +1,13 @@
+[
+  { "id": "first-steps", "icon": "👣", "title": "First Steps", "description": "Finish Chapter 1.", "rule": { "type": "chapter", "chapter": "ch01" } },
+  { "id": "four-fishermen", "icon": "🎣", "title": "Fishers of Men", "description": "Finish Chapter 7.", "rule": { "type": "chapter", "chapter": "ch07" } },
+  { "id": "the-twelve", "icon": "👥", "title": "Met All Twelve", "description": "Meet all twelve disciples.", "rule": { "type": "disciples", "count": 12 } },
+  { "id": "sermon", "icon": "⛰️", "title": "Sermon on the Mount", "description": "Know every Sermon on the Mount verse by heart (3 stars each in the Verse Journal).", "rule": { "type": "chapterVerses", "chapter": "ch10" } },
+  { "id": "halfway", "icon": "🧭", "title": "Halfway There", "description": "Finish 14 chapters.", "rule": { "type": "chapters", "count": 14 } },
+  { "id": "risen", "icon": "🌅", "title": "He Is Risen!", "description": "Finish Chapter 25.", "rule": { "type": "chapter", "chapter": "ch25" } },
+  { "id": "whole-journey", "icon": "✝️", "title": "The Whole Journey", "description": "Finish all 28 chapters.", "rule": { "type": "chapters", "count": 28 } },
+  { "id": "verse-keeper", "icon": "📖", "title": "Verse Keeper", "description": "Know 5 verses by heart (3 stars or more).", "rule": { "type": "versesKnown", "count": 5 } },
+  { "id": "treasure", "icon": "💎", "title": "Treasure in My Heart", "description": "Know 20 verses by heart (3 stars or more).", "rule": { "type": "versesKnown", "count": 20 } },
+  { "id": "scroll-seeker", "icon": "📜", "title": "Scroll Seeker", "description": "Find 10 hidden scroll pieces.", "rule": { "type": "scrolls", "count": 10 } },
+  { "id": "whole-picture", "icon": "🗺️", "title": "The Whole Picture", "description": "Find every hidden scroll piece.", "rule": { "type": "scrolls", "count": 0 } }
+]

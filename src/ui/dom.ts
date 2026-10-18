@@ -1,7 +1,8 @@
 // Pop-up windows built from regular web page elements. They are used where
 // real text boxes or scrolling are needed (typing a name, reading a passage).
 import { ui } from '../systems/content';
-import type { Difficulty } from '../systems/save';
+import { loadSettings, saveSettings, type Difficulty, type Settings, type Speed, type TextSize } from '../systems/save';
+import { speak } from '../systems/speech';
 
 function overlay(): { root: HTMLDivElement; panel: HTMLDivElement; close(): void } {
   const root = document.createElement('div');
@@ -157,4 +158,67 @@ export function showTalkTogether(title: string, questions: string[], prayer: str
     button(ui.close, close, true),
   );
   panel.append(h, body, row);
+}
+
+// Settings: volumes, text size, contrast, subtitles and voice speed.
+export function showSettings(): Promise<void> {
+  return new Promise((resolve) => {
+    const { panel, close } = overlay();
+    panel.classList.add('fm-scripture', 'fm-settings');
+    const st: Settings = loadSettings();
+    const save = () => saveSettings(st);
+    const h = document.createElement('h2');
+    h.textContent = `⚙ ${ui.settings}`;
+    const body = document.createElement('div');
+    body.className = 'fm-passage';
+
+    const row = (label: string, control: HTMLElement) => {
+      const r = document.createElement('div');
+      r.className = 'fm-setting';
+      const l = document.createElement('label');
+      l.textContent = label;
+      r.append(l, control);
+      body.appendChild(r);
+    };
+    const slider = (key: 'voiceVolume' | 'musicVolume' | 'sfxVolume') => {
+      const input = document.createElement('input');
+      input.type = 'range'; input.min = '0'; input.max = '100';
+      input.value = String(Math.round(st[key] * 100));
+      input.className = 'fm-slider';
+      input.oninput = () => { st[key] = Number(input.value) / 100; save(); };
+      return input;
+    };
+    const choice = <T extends string>(options: [T, string][], get: () => T, set: (v: T) => void) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'fm-switch';
+      const draw = () => {
+        wrap.innerHTML = '';
+        for (const [v, label] of options) {
+          wrap.appendChild(button(label, () => { set(v); save(); draw(); }, get() !== v));
+        }
+      };
+      draw();
+      return wrap;
+    };
+    const toggle = (key: 'highContrast' | 'subtitles' | 'autoAdvance') =>
+      choice<'on' | 'off'>([['on', ui.on], ['off', ui.off]], () => (st[key] ? 'on' : 'off'), (v) => { st[key] = v === 'on'; });
+
+    const voice = document.createElement('div');
+    voice.className = 'fm-row';
+    voice.append(slider('voiceVolume'), button(ui.test, () => speak(ui.testSentence), true));
+    row(`🗣 ${ui.voiceVolume}`, voice);
+    row(`🎵 ${ui.musicVolume}`, slider('musicVolume'));
+    row(`🔔 ${ui.sfxVolume}`, slider('sfxVolume'));
+    const note = document.createElement('small');
+    note.textContent = ui.musicSoon;
+    body.appendChild(note);
+    row(`🔤 ${ui.textSize}`, choice<TextSize>([['normal', ui.textSizes.normal], ['large', ui.textSizes.large], ['xlarge', ui.textSizes.xlarge]],
+      () => st.textSize, (v) => { st.textSize = v; }));
+    row(`🐢 ${ui.speechSpeed}`, choice<Speed>([['slow', '🐢'], ['normal', '🚶'], ['fast', '🐇']], () => st.speed, (v) => { st.speed = v; }));
+    row(`💬 ${ui.subtitles}`, toggle('subtitles'));
+    row(`◐ ${ui.highContrast}`, toggle('highContrast'));
+    row(`▶ ${ui.autoAdvance}`, toggle('autoAdvance'));
+
+    panel.append(h, body, button(ui.close, () => { close(); resolve(); }));
+  });
 }

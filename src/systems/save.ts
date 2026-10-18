@@ -9,6 +9,7 @@ export interface Progress {
   visited: string[]; // places in the order the player traveled (for the map route)
   disciples: string[]; // disciples who have joined so far
   departed: string[]; // disciples who have left the group (Judas)
+  scrolls: string[]; // scenes whose hidden scroll piece was found
 }
 
 export type Difficulty = 'kids' | 'family' | 'adult';
@@ -25,12 +26,28 @@ export interface Slot {
   translation: TranslationId;
   difficulty: Difficulty;
   journal: JournalEntry[];
+  achievements: string[]; // ids of achievements earned
   progress: Progress;
   updated: number;
 }
 
 export type Speed = 'slow' | 'normal' | 'fast';
-export interface Settings { autoAdvance: boolean; speed: Speed }
+export type TextSize = 'normal' | 'large' | 'xlarge';
+export interface Settings {
+  autoAdvance: boolean;
+  speed: Speed;
+  voiceVolume: number; // 0 to 1
+  musicVolume: number;
+  sfxVolume: number;
+  textSize: TextSize;
+  highContrast: boolean;
+  subtitles: boolean;
+}
+
+const DEFAULT_SETTINGS: Settings = {
+  autoAdvance: true, speed: 'normal', voiceVolume: 1, musicVolume: 0.6, sfxVolume: 0.8,
+  textSize: 'normal', highContrast: false, subtitles: true,
+};
 
 export const SLOT_COUNT = 3;
 const SLOTS_KEY = 'followme.slots.v1';
@@ -62,6 +79,8 @@ export function loadSlots(): (Slot | null)[] {
     s.progress.visited ??= [];
     s.progress.disciples ??= [];
     s.progress.departed ??= [];
+    s.progress.scrolls ??= [];
+    s.achievements ??= [];
     s.difficulty ??= 'family'; // added in Phase 4
     s.journal ??= [];
     return s;
@@ -79,14 +98,15 @@ export function newSlot(name: string, difficulty: Difficulty): Slot {
     name,
     difficulty,
     journal: [],
+    achievements: [],
     translation: 'bsb',
-    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [], departed: [] },
+    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [], departed: [], scrolls: [] },
     updated: Date.now(),
   };
 }
 
 export function loadSettings(): Settings {
-  return { autoAdvance: true, speed: 'normal', ...read<Partial<Settings>>(SETTINGS_KEY) };
+  return { ...DEFAULT_SETTINGS, ...read<Partial<Settings>>(SETTINGS_KEY) };
 }
 
 export function saveSettings(s: Settings): void {

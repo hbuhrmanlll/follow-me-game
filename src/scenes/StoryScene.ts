@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { COLORS, FONT, makeButton, restartOnResize } from '../ui/common';
+import { COLORS, FONT, makeButton, restartOnResize, whenTapped } from '../ui/common';
 import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
 import { DialogueBox } from '../ui/DialogueBox';
 import { runPuzzle } from '../puzzles';
@@ -7,12 +7,13 @@ import { showPassage, showTalkTogether, type PassageView } from '../ui/dom';
 import { speak, stopSpeaking } from '../systems/speech';
 import {
   chapterOrder, characters, fill, getChapter, getVerses, lineText, loadTranslation, locations,
-  scenePuzzles, scriptureText, translations, ui, type Chapter, type SceneData, type TranslationId,
+  disciples, scenePuzzles, scriptureText, translations, ui, type Chapter, type SceneData, type TranslationId,
 } from '../systems/content';
 import { addVerse } from '../systems/journal';
 import { openMenu } from '../ui/menu';
 import { audioForLine } from '../systems/voice';
-import { loadSettings, loadSlots, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
+import { checkAchievements, totalScrolls } from '../systems/achievements';
+import { loadSettings, loadSlots, newSlot, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
 
 const SPEEDS: Speed[] = ['slow', 'normal', 'fast'];
 const SPEED_RATE: Record<Speed, number> = { slow: 0.75, normal: 1, fast: 1.25 };
@@ -24,6 +25,7 @@ const FEET_Y = 440;
 // so the game resumes exactly where the player left off.
 export class StoryScene extends Phaser.Scene {
   private slotIndex = 0;
+  private leader?: { chapter: string; scene: number }; // Leader Mode: nothing is saved
   private slot!: Slot;
   private settings!: Settings;
   private chapter!: Chapter;
@@ -39,15 +41,25 @@ export class StoryScene extends Phaser.Scene {
     super('Story');
   }
 
-  init(data: { slot: number }): void {
-    this.slotIndex = data.slot;
-    this.slot = loadSlots()[data.slot]!;
+  init(data: { slot?: number; leader?: { chapter: string; scene: number } }): void {
+    this.leader = data.leader;
+    this.slotIndex = data.slot ?? -1;
+    if (this.leader) {
+      // A temporary player who has met all twelve, so every scene looks complete.
+      this.slot = newSlot(ui.leaderBadge, 'family');
+      Object.assign(this.slot.progress, { chapter: this.leader.chapter, scene: this.leader.scene, step: 0 });
+      this.slot.progress.disciples = disciples.order.filter((d) => this.leaderHasMet(d));
+      if (Number(this.leader.chapter.slice(2)) > 21) this.slot.progress.departed = ['judas-iscariot'];
+    } else {
+      this.slot = loadSlots()[this.slotIndex]!;
+    }
     this.settings = loadSettings();
     this.chapter = getChapter(this.slot.progress.chapter);
   }
 
   create(): void {
-    restartOnResize(this, { slot: this.slotIndex });
+    restartOnResize(this, this.restartData());
+    this.showLeaderBadge();
     const run = ++this.run;
     this.events.once('shutdown', () => { this.run++; stopSpeaking(); });
     loadTranslation(this.slot.translation).then(() => {
@@ -68,7 +80,28 @@ export class StoryScene extends Phaser.Scene {
     return SPEED_RATE[this.settings.speed];
   }
 
+  private restartData(): object {
+    return this.leader ? { leader: { chapter: this.slot.progress.chapter, scene: this.slot.progress.scene } } : { slot: this.slotIndex };
+  }
+
+  // In Leader Mode, disciples appear once the story has reached the chapter where they join.
+  private leaderHasMet(id: string): boolean {
+    const joinChapter: Record<string, number> = { peter: 3, andrew: 3, philip: 3, nathanael: 3, james: 7, john: 7, matthew: 8 };
+    return Number(this.leader!.chapter.slice(2)) > (joinChapter[id] ?? 9);
+  }
+
+  private showLeaderBadge(): void {
+    document.querySelector('.fm-leader')?.remove();
+    if (!this.leader) return;
+    const badge = document.createElement('div');
+    badge.className = 'fm-leader';
+    badge.textContent = `🎓 ${ui.leaderBadge}`;
+    (document.fullscreenElement ?? document.body).appendChild(badge);
+    this.events.once('shutdown', () => badge.remove());
+  }
+
   private save(): void {
+    if (this.leader) return;
     saveSlot(this.slotIndex, this.slot);
   }
 
@@ -144,6 +177,7 @@ export class StoryScene extends Phaser.Scene {
       if (joiners.includes(id) && !joined.includes(id) && !scene.lines.some((l) => l.speaker === id)) fig.setAlpha(0);
       this.figures.set(id, fig);
     });
+    this.hideScroll(scene);
     if (scene.effect === 'transfigure') this.transfigure();
     if (scene.weather === 'storm') this.storm();
     this.shadow = this.add.rectangle(0, 0, W, this.scale.height, 0x1a1028, 0.45).setOrigin(0).setAlpha(0);
@@ -151,7 +185,9 @@ export class StoryScene extends Phaser.Scene {
     // Top bar: menu on the left, dialogue controls and Scripture on the right.
     makeButton(this, 70, 54, '☰', () => {
       stopSpeaking();
-      openMenu(this, this.slotIndex, () => this.box?.replay());
+      // Coming back from the menu redraws the scene (settings may have changed) and replays the line.
+      if (this.leader) { this.scene.start('Parents'); return; }
+      openMenu(this, this.slotIndex, () => this.scene.restart({ slot: this.slotIndex }));
     }, { width: 100, height: 84, fontSize: 44 });
     this.add.text(140, 54, scene.title, {
       fontFamily: FONT, fontSize: '28px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 6,
@@ -162,7 +198,7 @@ export class StoryScene extends Phaser.Scene {
     const opts = { width: bw, height: 84, fontSize: 30 };
     makeButton(this, x, 54, '📜', () => this.openScripture(scene), { ...opts, fontSize: 40 });
     x -= bw + 12;
-    makeButton(this, x, 54, '🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story' }), { ...opts, fontSize: 40 });
+    if (!this.leader) makeButton(this, x, 54, '🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story' }), { ...opts, fontSize: 40 });
     x -= bw + 12;
     const auto = makeButton(this, x, 54, this.settings.autoAdvance ? ui.auto : ui.tap, () => {
       this.settings.autoAdvance = !this.settings.autoAdvance;
@@ -186,6 +222,50 @@ export class StoryScene extends Phaser.Scene {
     this.box.autoAdvance = this.settings.autoAdvance;
     this.box.speed = this.rate;
     this.box.setVisible(false);
+  }
+
+  // Each scene hides one small scroll piece somewhere on the stage.
+  private hideScroll(scene: SceneData): void {
+    if (this.leader || this.slot.progress.scrolls.includes(scene.id)) return;
+    let h = 0;
+    for (const c of scene.id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    const W = this.scale.width;
+    const x = W * (0.06 + ((h % 1000) / 1000) * 0.88);
+    const y = 250 + ((h >> 10) % 170);
+    const scroll = this.add.text(x, y, '📜', { fontSize: '38px' }).setOrigin(0.5).setAlpha(0.9).setAngle((h % 40) - 20);
+    scroll.setInteractive({ hitArea: new Phaser.Geom.Circle(20, 22, 40), hitAreaCallback: Phaser.Geom.Circle.Contains, useHandCursor: true });
+    this.tweens.add({ targets: scroll, angle: scroll.angle + 6, yoyo: true, repeat: -1, duration: 1300 });
+    whenTapped(scroll, () => {
+      scroll.disableInteractive();
+      const p = this.slot.progress;
+      if (!p.scrolls.includes(scene.id)) p.scrolls.push(scene.id);
+      this.tweens.add({ targets: scroll, y: 40, x: this.scale.width / 2, scale: 1.8, alpha: 0, duration: 900, onComplete: () => scroll.destroy() });
+      this.announce(`📜 ${fill(ui.foundScroll, { n: p.scrolls.length, total: totalScrolls() })}`);
+      const extra = this.celebrate();
+      this.save();
+      // The announcement interrupts the voice, so read the current line again afterwards.
+      this.time.delayedCall(3200 * (extra + 1), () => this.box?.replay());
+    });
+  }
+
+  // A message across the top of the screen, read aloud.
+  private announce(msg: string, delay = 0): void {
+    this.time.delayedCall(delay, () => {
+      const t = this.add.text(this.scale.width / 2, 170, msg, {
+        fontFamily: FONT, fontSize: '36px', color: '#fff4d6', fontStyle: 'bold', stroke: '#3b2410', strokeThickness: 8,
+        align: 'center', wordWrap: { width: this.scale.width - 120 },
+      }).setOrigin(0.5).setDepth(60).setAlpha(0);
+      this.tweens.add({ targets: t, alpha: 1, duration: 400, hold: 2400, yoyo: true, onComplete: () => t.destroy() });
+      speak(msg.replace(/^\W+/, ''), { rate: this.rate });
+    });
+  }
+
+  // Announce any achievements the player just earned.
+  private celebrate(): number {
+    if (this.leader) return 0;
+    const fresh = checkAchievements(this.slot);
+    fresh.forEach((a, i) => this.announce(`🏆 ${fill(ui.newAchievement, { title: a.title })}`, 3200 * (i + 1)));
+    return fresh.length;
   }
 
   // Jesus shines with white light, robes as white as light (Matthew 17:2).
@@ -415,6 +495,7 @@ export class StoryScene extends Phaser.Scene {
     const verse = scriptureText(mv.ref, mvQuote, this.tid);
     addVerse(this.slot, mv.ref, mvQuote);
     this.save();
+    this.time.delayedCall(9000, () => { this.celebrate(); this.save(); });
     const short = translations.find((t) => t.id === this.tid)?.short ?? '';
     const done = fill(ui.chapterComplete, { n: this.chapter.number });
     const text = (y: number, s: string, size: number, color = '#2b1d12', style = 'normal') =>
@@ -437,17 +518,18 @@ export class StoryScene extends Phaser.Scene {
     };
     const row: [string, () => void, number][] = [
       ['🔊', readAll, 110],
-      ['🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story', animate: true }), 110],
       [`💬 ${ui.talkTogether}`, talk, 290],
       [ui.backToTitle, () => this.scene.start('Title'), 250],
     ];
-    if (nextId) row.push([`${ui.nextChapter} ▶`, () => this.scene.restart({ slot: this.slotIndex }), 260]);
+    if (!this.leader) row.splice(1, 0, ['🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story', animate: true }), 110]);
+    else row[row.length - 1] = [ui.exitLeader, () => this.scene.start('Parents'), 300];
+    if (nextId) row.push([`${ui.nextChapter} ▶`, () => this.scene.restart(this.leader ? { leader: { chapter: nextId, scene: 0 } } : { slot: this.slotIndex }), 260]);
     let bx = W / 2 - (row.reduce((n, [, , w]) => n + w, 0) + 20 * (row.length - 1)) / 2;
     for (const [label, fn, w] of row) {
       makeButton(this, bx + w / 2, 590, label, fn, { width: w, height: 96, fontSize: label.length > 2 ? 32 : 44 });
       bx += w + 20;
     }
-    if (!nextId) {
+    if (!nextId && !this.leader) {
       // The very end of the journey: the Good News.
       makeButton(this, W / 2, 680 - 30, `✝ ${ui.goodNews}`, () => this.scene.start('Ending', { slot: this.slotIndex }), { width: 360, height: 70, fontSize: 30 });
     }

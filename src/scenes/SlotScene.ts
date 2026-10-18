@@ -4,6 +4,7 @@ import { drawBackdrop } from '../art/backdrops';
 import { fill, getChapter, ui } from '../systems/content';
 import { loadSlots, newSlot, saveSlot, SLOT_COUNT, type Difficulty } from '../systems/save';
 import { askDifficulty, askName, confirmBox } from '../ui/dom';
+import { askParent } from '../ui/parent';
 
 // "Who is playing?" — one save slot for each family member.
 export class SlotScene extends Phaser.Scene {
@@ -60,7 +61,9 @@ export class SlotScene extends Phaser.Scene {
     this.play(i);
   }
 
+  // Changing a level or erasing a player needs a grown-up.
   private async changeLevel(i: number): Promise<void> {
+    if (!(await askParent())) return;
     const level: Difficulty | null = await askDifficulty();
     const slot = loadSlots()[i];
     if (!level || !slot) return;
@@ -69,6 +72,7 @@ export class SlotScene extends Phaser.Scene {
   }
 
   private async erase(i: number, name: string): Promise<void> {
+    if (!(await askParent())) return;
     if (await confirmBox(fill(ui.eraseConfirm, { name }), ui.yesErase)) {
       saveSlot(i, null);
       this.scene.restart();

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
     <meta name="theme-color" content="#1b1410" />
     <title>Follow Me: Walk with Jesus</title>
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="icons/icon-192.png" />
     <style>
       html, body { margin: 0; height: 100%; background: #1b1410; overflow: hidden; }
       #game { width: 100%; height: 100%; }
@@ -60,6 +62,18 @@
       .fm-choices .fm-btn { text-align: left; min-height: 72px; flex: none; }
       .fm-panel > .fm-btn, .fm-row { flex: none; }
       .fm-choices small { display: block; font: 18px Georgia, serif; font-weight: normal; }
+      .fm-setting { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 10px 0; border-bottom: 1px solid #d8c8a0; flex-wrap: wrap; }
+      .fm-setting label { font-weight: bold; }
+      .fm-slider { width: 260px; height: 40px; accent-color: #9c6b1f; }
+      .fm-settings .fm-switch .fm-btn { min-width: 80px; }
+      .fm-hold { position: relative; overflow: hidden; min-width: 260px; min-height: 90px; }
+      .fm-hold-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #7fb069; }
+      .fm-hold span:last-child { position: relative; }
+      .fm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; align-content: start; }
+      .fm-grid .fm-btn { text-align: left; font-size: 20px; min-height: 64px; }
+      .fm-leader { position: fixed; top: calc(100vh * 0.135); left: 8px; z-index: 5; background: #2b1d12;
+        color: #ffe600; font: bold 18px Georgia, serif; padding: 4px 14px; border-radius: 10px; pointer-events: none; }
       @media (orientation: portrait) and (max-width: 900px) {
         #rotate { display: flex; }
       }

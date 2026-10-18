@@ -5,6 +5,8 @@ import { runPuzzle } from '../puzzles';
 import { loadTranslation, scriptureText, ui, type Puzzle } from '../systems/content';
 import { loadSettings, loadSlots, saveSlot, type JournalEntry, type Slot } from '../systems/save';
 import { dueVerses, recordPractice } from '../systems/journal';
+import { checkAchievements } from '../systems/achievements';
+import { fill } from '../systems/content';
 import { speak } from '../systems/speech';
 
 const PER_SESSION = 5;
@@ -32,7 +34,9 @@ export class PracticeScene extends Phaser.Scene {
         recordPractice(due[i], mistakes === 0);
         saveSlot(data.slot, slot);
       }
-      this.finish(data);
+      const fresh = checkAchievements(slot);
+      saveSlot(data.slot, slot);
+      this.finish(data, fresh.map((a) => `🏆 ${fill(ui.newAchievement, { title: a.title })}`));
     });
   }
 
@@ -52,12 +56,12 @@ export class PracticeScene extends Phaser.Scene {
     };
   }
 
-  private finish(data: { slot: number }): void {
+  private finish(data: { slot: number }, news: string[] = []): void {
     const W = this.scale.width;
-    this.add.text(W / 2, 260, `✦ ${ui.practiceDone} ✦`, {
-      fontFamily: FONT, fontSize: '48px', color: '#fff4d6', fontStyle: 'bold', stroke: '#3b2410', strokeThickness: 8,
+    this.add.text(W / 2, 220, [`✦ ${ui.practiceDone} ✦`, ...news].join('\n'), {
+      fontFamily: FONT, fontSize: '44px', color: '#fff4d6', fontStyle: 'bold', stroke: '#3b2410', strokeThickness: 8, align: 'center',
     }).setOrigin(0.5);
-    speak(ui.practiceDone);
+    speak([ui.practiceDone, ...news.map((n) => n.replace(/^\W+/, ''))].join(' '));
     makeButton(this, W / 2, 420, `📖 ${ui.journal}`, () => this.scene.start('Journal', data), { width: 420 });
   }
 }

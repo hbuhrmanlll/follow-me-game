@@ -300,3 +300,19 @@ The checker lists each problem in plain words, for example:
 ```
 
 Fix that line and commit again. If you get stuck, paste the message to Claude.
+
+## Achievements
+
+`content/en/achievements.json` lists the achievements. Each has an `icon`, a `title`, a
+`description`, and a `rule`:
+
+| Rule | Meaning |
+|---|---|
+| `{ "type": "chapter", "chapter": "ch07" }` | Finish that chapter |
+| `{ "type": "chapters", "count": 14 }` | Finish that many chapters |
+| `{ "type": "disciples", "count": 12 }` | Meet that many disciples |
+| `{ "type": "versesKnown", "count": 5 }` | Know that many verses by heart (3 stars or more in the Verse Journal) |
+| `{ "type": "chapterVerses", "chapter": "ch10" }` | Know every verse from that chapter (its memory verse and verse puzzles) |
+| `{ "type": "scrolls", "count": 10 }` | Find that many hidden scroll pieces (`0` means all of them) |
+
+Every scene automatically hides one scroll piece, so you don't need to add them.

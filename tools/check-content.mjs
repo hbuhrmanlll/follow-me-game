@@ -246,6 +246,15 @@ for (const [id, c] of Object.entries(characters)) {
   if (c.disciple && !disciples.order.includes(id)) errors.push(`characters.json: disciple "${id}" has no card in disciples.json`);
 }
 
+// Achievements
+const RULES = ['chapter', 'chapters', 'disciples', 'versesKnown', 'chapterVerses', 'scrolls'];
+for (const a of readJson(`content/${LANG}/achievements.json`) ?? []) {
+  const w = `achievements.json "${a.id}"`;
+  if (!a.id || !a.title || !a.description || !a.icon) errors.push(`${w}: needs an id, icon, title and description`);
+  if (!RULES.includes(a.rule?.type)) errors.push(`${w}: rule type must be one of ${RULES.join(', ')}`);
+  if (a.rule?.chapter && !chapterIds.includes(a.rule.chapter)) errors.push(`${w}: unknown chapter "${a.rule.chapter}"`);
+}
+
 // The Good News ending
 const ending = readJson(`content/${LANG}/ending.json`);
 if (ending) {

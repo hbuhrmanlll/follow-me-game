@@ -190,3 +190,37 @@ The title screen should say **Phase 5 · v0.5.0**.
 - Is Chapter 24 right for your youngest? Too much, too little, or about right?
 - Is the wording of The Good News the way you'd explain it to your kids? (It's in `content/en/ending.json`, so you or your pastor can change it.)
 - Judas: Chapter 23 includes his remorse (Matthew 27:3-4) but not how he died (27:5). Is that the right choice for your family?
+
+## Phase 6, part A: settings, parents, progress, offline
+
+The title screen should say **Phase 6A · v0.6.0**. It has two new buttons at the top right: **⚙** (Settings) and **👪** (Parents).
+
+**Settings (⚙ on the title screen, or ☰ → Settings during the story)**
+- [ ] Voices slider changes how loud the voice is (🔊 Test plays a sample)
+- [ ] Text size: Normal / Large / Extra large changes the dialogue words
+- [ ] High contrast: white box, black words, bright yellow highlight
+- [ ] Show words (subtitles) Off: the voice still reads, and the box shows 🔊 … instead of the words
+- [ ] Move on by itself, and speaking speed, work like the buttons in the story
+- [ ] (Music and sound effects sliders are ready for Phase 6B)
+
+**Parent check**
+- [ ] 👪 asks a grown-up to **press and hold for 3 seconds**; a quick tap doesn't open it
+- [ ] Changing a player's level or erasing a player now also asks for the 3-second hold
+
+**Parents & Leaders**
+- [ ] **Leader Mode:** pick any chapter and scene; it plays with a "🎓 Leader Mode" badge; nothing is saved and no player's progress changes; ☰ returns to the Parents screen
+- [ ] **Printable Chapter Summary:** opens a page with the memory verse, scenes, discussion questions (with lines to write on) and the prayer. Use **Print / Save as PDF**. On Android, choose "Save as PDF" as the printer
+- [ ] Privacy note: no ads, purchases, accounts or tracking; everything stays on the device
+
+**My Progress (☰ → My Progress)**
+- [ ] Shows chapters done, verses known, disciples met and scroll pieces found
+- [ ] Each scene has a hidden 📜 **scroll piece** somewhere on the screen. Tapping it says "You found a scroll piece!" and uncovers one square of the journey map picture
+- [ ] **Achievements:** earned ones show their icon, locked ones show 🔒. Tap one to hear what it's for. New ones are announced with 🏆
+
+**Offline**
+- [ ] In Chrome, ⋮ → **Add to Home screen** (or **Install app**) gives a "Follow Me" icon
+- [ ] Open it once with internet, then turn on airplane mode and open it again: it still works
+
+**Questions for you**
+- Are the scroll pieces too easy or too hard to spot?
+- Is the 3-second hold a good parent check, or would you prefer a simple math question?

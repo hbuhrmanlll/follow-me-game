@@ -1,5 +1,6 @@
 import type Phaser from 'phaser';
 import { ui } from '../systems/content';
+import { showSettings } from './dom';
 
 // The ☰ menu during the story.
 export function openMenu(scene: Phaser.Scene, slot: number, onResume: () => void): void {
@@ -21,6 +22,8 @@ export function openMenu(scene: Phaser.Scene, slot: number, onResume: () => void
   go(`🗺  ${ui.map}`, () => scene.scene.start('Map', { slot, back: 'Story' }));
   go(`📖  ${ui.journal}`, () => scene.scene.start('Journal', { slot }));
   go(`👥  ${ui.disciplesTitle}`, () => scene.scene.start('Disciples', { slot }));
+  go(`📊  ${ui.progress}`, () => scene.scene.start('Progress', { slot }));
+  go(`⚙  ${ui.settings}`, () => void showSettings().then(onResume));
   go(`👤  ${ui.players}`, () => scene.scene.start('Slots'), true);
   root.appendChild(panel);
   (document.fullscreenElement ?? document.body).appendChild(root);

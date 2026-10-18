@@ -1,5 +1,6 @@
 // Temporary voice: the browser's built-in speech. Later, recorded audio files
 // will be played instead whenever one exists for a line.
+import { loadSettings } from './save';
 
 export interface SpeakOptions {
   pitch?: number;
@@ -55,6 +56,7 @@ export function speak(text: string, opts: SpeakOptions = {}): void {
   u.lang = voice?.lang ?? 'en-US';
   u.rate = rate;
   u.pitch = opts.pitch ?? 1;
+  u.volume = loadSettings().voiceVolume;
   u.onboundary = (e) => {
     if (u === current && e.name === 'word') opts.onWord?.(e.charIndex);
   };

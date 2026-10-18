@@ -25,8 +25,21 @@
   "backToTitle": "Back to Title",
   "nextChapter": "Next Chapter",
   "comingSoon": "More chapters are coming soon!",
-  "speed": { "slow": "Slow", "normal": "Normal", "fast": "Fast" },
+  "speed": {
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast"
+  },
   "auto": "Auto",
   "tap": "Tap",
-  "tapToContinue": "Tap to continue ▶"
+  "tapToContinue": "Tap to continue ▶",
+  "map": "Map",
+  "mapTitle": "The Journey So Far",
+  "mapTapHint": "Tap a place you have visited to hear what happened there.",
+  "mapDrag": "Drag the map up and down to see more.",
+  "note": "Note",
+  "ok": "OK",
+  "joined": "{name} is now following Jesus!",
+  "thatIs": "That's {name}.",
+  "fillPrompt": "Tap the missing word."
 }

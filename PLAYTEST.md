@@ -62,3 +62,35 @@ Open https://followmegame.netlify.app on your Android phone (Chrome), sideways, 
 - Was any text too small or too long to read comfortably?
 - Is the normal speed right for your youngest?
 - Did the kids want to tap the box to move on, or were they happy with Auto?
+
+## Phase 3
+
+The title screen should say **Phase 3 · v0.3.0** in the bottom-left corner.
+Your saved players keep their place. A player who already finished Chapter 1 continues into Chapter 2.
+
+**Chapter 2: Tempted in the Wilderness**
+- [ ] The wilderness looks dry and rocky; the second scene shows Jerusalem with the temple
+- [ ] When the tempter speaks there is no figure, just a round "?" portrait and the screen dims a little (check it isn't scary for your youngest)
+- [ ] Jesus answers each time with "It is written…" and the reference shows (Matthew 4:4, 4:7, 4:10)
+- [ ] A **ⓘ Note** before the temple scene explains that Luke lists the temptations in a different order, and is read aloud
+- [ ] **Fill in the missing word:** the verse shows a blank; a wrong word turns grey with a hint; the right word fills in and the whole verse is read
+- [ ] **Find on the map:** tapping a wrong dot names it ("That's Nazareth"); tapping Jerusalem turns it green
+
+**Chapter 3: The First Disciples**
+- [ ] A note explains why John's "Lamb of God" words come after the temptation
+- [ ] "✦ Andrew is now following Jesus! ✦" appears and is read aloud, and so on for Peter, Philip and Nathanael
+- [ ] Disciples who have joined keep walking with Jesus in the scenes after
+- [ ] In the last scene Jesus says **"Follow Me."** (John 1:43), the line the game is named after
+- [ ] The Bethsaida map puzzle: you can drag the map up and down
+
+**The map (🗺 button, top right, and on the chapter-end screen)**
+- [ ] Shows a gold dashed route: Jordan → Wilderness → Jerusalem → Wilderness → Jordan → Galilee
+- [ ] The place you are now is gold; places already visited are red
+- [ ] Tapping a visited place shows and reads its summary
+- [ ] Dragging moves the map up and down
+- [ ] **←** returns you to the story (it replays the line you were on)
+
+**Questions for you and the kids**
+- Can the kids find places on the map without help? Are the dots big enough?
+- Are the notes helpful, or too long for the kids? (They're mostly for parents.)
+- With 5 people on screen in Chapter 3, is it still clear who is talking?

@@ -1,0 +1,412 @@
+{
+  "id": "ch03",
+  "number": 3,
+  "title": "The First Disciples",
+  "passage": "John 1:29-51",
+  "scenes": [
+    {
+      "id": "ch03-s1",
+      "title": "The Lamb of God",
+      "location": "jordan",
+      "timeOfDay": "dawn",
+      "passage": "John 1:29-34",
+      "note": "These verses come after Jesus' time in the wilderness. John the Baptist is telling what he saw at the baptism. This game follows the order in A.T. Robertson's Harmony of the Gospels.",
+      "lines": [
+        {
+          "id": "ch03-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Jesus came back to the Jordan River, where John was baptizing."
+        },
+        {
+          "id": "ch03-s1-02",
+          "speaker": "john-baptist",
+          "type": "scripture",
+          "ref": "John 1:29",
+          "quote": {
+            "bsb": [
+              "Look, the Lamb of God, who takes away the sin of the world!"
+            ],
+            "kjv": [
+              "Behold the Lamb of God, which taketh away the sin of the world."
+            ]
+          }
+        },
+        {
+          "id": "ch03-s1-03",
+          "speaker": "john-baptist",
+          "type": "scripture",
+          "ref": "John 1:32",
+          "quote": {
+            "bsb": [
+              "I saw the Spirit descending from heaven like a dove and resting on Him."
+            ],
+            "kjv": [
+              "I saw the Spirit descending from heaven like a dove, and it abode upon him."
+            ]
+          }
+        },
+        {
+          "id": "ch03-s1-04",
+          "speaker": "john-baptist",
+          "type": "scripture",
+          "ref": "John 1:34",
+          "quote": {
+            "bsb": [
+              "I have seen and testified that this is the Son of God."
+            ],
+            "kjv": [
+              "And I saw, and bare record that this is the Son of God."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "What did John call Jesus? Fill in the missing word.",
+        "ref": "John 1:29",
+        "quote": {
+          "bsb": [
+            "Look, the Lamb of God, who takes away the sin of the world!"
+          ],
+          "kjv": [
+            "Behold the Lamb of God, which taketh away the sin of the world."
+          ]
+        },
+        "blank": {
+          "bsb": "Lamb",
+          "kjv": "Lamb"
+        },
+        "decoys": [
+          "King",
+          "Lion",
+          "Shepherd"
+        ],
+        "hint": "Think of a gentle young sheep."
+      }
+    },
+    {
+      "id": "ch03-s2",
+      "title": "Come and See",
+      "location": "jordan",
+      "timeOfDay": "midday",
+      "passage": "John 1:35-42",
+      "note": "John's Gospel does not name the other disciple who followed Jesus with Andrew. Many Christians believe it was John himself, the disciple who wrote this Gospel.",
+      "lines": [
+        {
+          "id": "ch03-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 1:35-37"
+        },
+        {
+          "id": "ch03-s2-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:38",
+          "quote": {
+            "bsb": [
+              "What do you want?"
+            ],
+            "kjv": [
+              "What seek ye?"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 1:38",
+          "quote": {
+            "bsb": [
+              "They said to Him, “Rabbi” (which means Teacher), “where are You staying?”"
+            ],
+            "kjv": [
+              "They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou?"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:39",
+          "quote": {
+            "bsb": [
+              "Come and see"
+            ],
+            "kjv": [
+              "Come and see."
+            ]
+          }
+        },
+        {
+          "id": "ch03-s2-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 1:39",
+          "quote": {
+            "bsb": [
+              "So they went and saw where He was staying, and spent that day with Him."
+            ],
+            "kjv": [
+              "They came and saw where he dwelt, and abode with him that day"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s2-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 1:40",
+          "joins": [
+            "andrew"
+          ]
+        },
+        {
+          "id": "ch03-s2-07",
+          "speaker": "andrew",
+          "type": "scripture",
+          "ref": "John 1:41",
+          "quote": {
+            "bsb": [
+              "We have found the Messiah"
+            ],
+            "kjv": [
+              "We have found the Messias"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s2-08",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:42",
+          "quote": {
+            "bsb": [
+              "You are Simon son of John. You will be called Cephas"
+            ],
+            "kjv": [
+              "Thou art Simon the son of Jona: thou shalt be called Cephas"
+            ]
+          },
+          "joins": [
+            "peter"
+          ]
+        },
+        {
+          "id": "ch03-s2-09",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Cephas and Peter both mean “stone” or “rock.” From then on, Simon was called Peter."
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "Who brought his brother Simon to Jesus?",
+        "choices": [
+          {
+            "text": "Andrew",
+            "correct": true
+          },
+          {
+            "text": "Philip"
+          },
+          {
+            "text": "Nathanael"
+          }
+        ],
+        "hint": "Simon's own brother found him first.",
+        "ref": "John 1:40-42"
+      }
+    },
+    {
+      "id": "ch03-s3",
+      "title": "Under the Fig Tree",
+      "location": "galilee",
+      "timeOfDay": "midday",
+      "passage": "John 1:43-51",
+      "lines": [
+        {
+          "id": "ch03-s3-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 1:43",
+          "quote": {
+            "bsb": [
+              "The next day Jesus decided to set out for Galilee."
+            ],
+            "kjv": [
+              "The day following Jesus would go forth into Galilee, and findeth Philip"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:43",
+          "quote": {
+            "bsb": [
+              "Follow Me."
+            ],
+            "kjv": [
+              "Follow me."
+            ]
+          },
+          "joins": [
+            "philip"
+          ]
+        },
+        {
+          "id": "ch03-s3-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 1:44"
+        },
+        {
+          "id": "ch03-s3-04",
+          "speaker": "philip",
+          "type": "scripture",
+          "ref": "John 1:45",
+          "quote": {
+            "bsb": [
+              "We have found the One Moses wrote about in the Law, the One the prophets foretold—Jesus of Nazareth, the son of Joseph."
+            ],
+            "kjv": [
+              "We have found him, of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph."
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-05",
+          "speaker": "nathanael",
+          "type": "scripture",
+          "ref": "John 1:46",
+          "quote": {
+            "bsb": [
+              "Can anything good come from Nazareth?"
+            ],
+            "kjv": [
+              "Can there any good thing come out of Nazareth?"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-06",
+          "speaker": "philip",
+          "type": "scripture",
+          "ref": "John 1:46",
+          "quote": {
+            "bsb": [
+              "Come and see"
+            ],
+            "kjv": [
+              "Come and see."
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:47",
+          "quote": {
+            "bsb": [
+              "Here is a true Israelite, in whom there is no deceit."
+            ],
+            "kjv": [
+              "Behold an Israelite indeed, in whom is no guile!"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-08",
+          "speaker": "nathanael",
+          "type": "scripture",
+          "ref": "John 1:48",
+          "quote": {
+            "bsb": [
+              "How do You know me?"
+            ],
+            "kjv": [
+              "Whence knowest thou me?"
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:48",
+          "quote": {
+            "bsb": [
+              "Before Philip called you, I saw you under the fig tree."
+            ],
+            "kjv": [
+              "Before that Philip called thee, when thou wast under the fig tree, I saw thee."
+            ]
+          }
+        },
+        {
+          "id": "ch03-s3-10",
+          "speaker": "nathanael",
+          "type": "scripture",
+          "ref": "John 1:49",
+          "quote": {
+            "bsb": [
+              "Rabbi",
+              "You are the Son of God! You are the King of Israel!"
+            ],
+            "kjv": [
+              "Rabbi, thou art the Son of God; thou art the King of Israel."
+            ]
+          },
+          "joins": [
+            "nathanael"
+          ]
+        },
+        {
+          "id": "ch03-s3-11",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 1:51",
+          "quote": {
+            "bsb": [
+              "Truly, truly, I tell you, you will all see heaven open and the angels of God ascending and descending on the Son of Man."
+            ],
+            "kjv": [
+              "Verily, verily, I say unto you, Hereafter ye shall see heaven open, and the angels of God ascending and descending upon the Son of man."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "mapFind",
+        "prompt": "Philip, Andrew and Peter were all from Bethsaida. Tap Bethsaida on the map.",
+        "target": "bethsaida",
+        "choices": [
+          "bethsaida",
+          "jerusalem",
+          "jordan",
+          "nazareth"
+        ],
+        "hint": "Bethsaida is a fishing town on the north shore of the Sea of Galilee.",
+        "ref": "John 1:44"
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 1:29",
+    "quote": {
+      "bsb": [
+        "Look, the Lamb of God, who takes away the sin of the world!"
+      ],
+      "kjv": [
+        "Behold the Lamb of God, which taketh away the sin of the world."
+      ]
+    }
+  },
+  "reflect": "Andrew and Philip each told someone about Jesus. Who could you tell?"
+}

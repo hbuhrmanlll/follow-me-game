@@ -1,0 +1,231 @@
+{
+  "id": "ch02",
+  "number": 2,
+  "title": "Tempted in the Wilderness",
+  "passage": "Matthew 4:1-11",
+  "scenes": [
+    {
+      "id": "ch02-s1",
+      "title": "Forty Days",
+      "location": "wilderness",
+      "timeOfDay": "midday",
+      "passage": "Matthew 4:1-4",
+      "lines": [
+        {
+          "id": "ch02-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Right after His baptism, the Spirit led Jesus out into the dry, rocky wilderness."
+        },
+        {
+          "id": "ch02-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 4:1-2"
+        },
+        {
+          "id": "ch02-s1-03",
+          "speaker": "tempter",
+          "type": "scripture",
+          "ref": "Matthew 4:3",
+          "quote": {
+            "bsb": [
+              "If You are the Son of God, tell these stones to become bread."
+            ],
+            "kjv": [
+              "If thou be the Son of God, command that these stones be made bread."
+            ]
+          }
+        },
+        {
+          "id": "ch02-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 4:4",
+          "quote": {
+            "bsb": [
+              "It is written: ‘Man shall not live on bread alone, but on every word that comes from the mouth of God.’"
+            ],
+            "kjv": [
+              "It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."
+            ]
+          }
+        },
+        {
+          "id": "ch02-s1-05",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Jesus was very hungry, but He answered with the words of Scripture."
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Matthew 4:4",
+        "quote": {
+          "bsb": [
+            "Man shall not live on bread alone, but on every word that comes from the mouth of God."
+          ],
+          "kjv": [
+            "Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."
+          ]
+        },
+        "blank": {
+          "bsb": "word",
+          "kjv": "word"
+        },
+        "decoys": [
+          "meal",
+          "coin",
+          "song"
+        ],
+        "hint": "We live on everything God says."
+      }
+    },
+    {
+      "id": "ch02-s2",
+      "title": "The Pinnacle of the Temple",
+      "location": "jerusalem",
+      "timeOfDay": "midday",
+      "passage": "Matthew 4:5-7",
+      "note": "Luke 4:1-13 tells these same temptations, but lists the last two in a different order. This game follows Matthew's order.",
+      "lines": [
+        {
+          "id": "ch02-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 4:5"
+        },
+        {
+          "id": "ch02-s2-02",
+          "speaker": "tempter",
+          "type": "scripture",
+          "ref": "Matthew 4:6",
+          "quote": {
+            "bsb": [
+              "If You are the Son of God",
+              "throw Yourself down. For it is written: ‘He will command His angels concerning You, and they will lift You up in their hands, so that You will not strike Your foot against a stone.’"
+            ],
+            "kjv": [
+              "If thou be the Son of God, cast thyself down: for it is written, He shall give his angels charge concerning thee: and in their hands they shall bear thee up, lest at any time thou dash thy foot against a stone."
+            ]
+          }
+        },
+        {
+          "id": "ch02-s2-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 4:7",
+          "quote": {
+            "bsb": [
+              "It is also written: ‘Do not put the Lord your God to the test.’"
+            ],
+            "kjv": [
+              "It is written again, Thou shalt not tempt the Lord thy God."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "mapFind",
+        "prompt": "The devil took Jesus to the holy city. Tap Jerusalem on the map.",
+        "target": "jerusalem",
+        "choices": [
+          "jerusalem",
+          "jordan",
+          "nazareth",
+          "bethsaida"
+        ],
+        "hint": "Jerusalem is in Judea, in the hills west of the Dead Sea.",
+        "ref": "Matthew 4:5"
+      }
+    },
+    {
+      "id": "ch02-s3",
+      "title": "A Very High Mountain",
+      "location": "wilderness",
+      "timeOfDay": "dusk",
+      "passage": "Matthew 4:8-11",
+      "lines": [
+        {
+          "id": "ch02-s3-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 4:8"
+        },
+        {
+          "id": "ch02-s3-02",
+          "speaker": "tempter",
+          "type": "scripture",
+          "ref": "Matthew 4:9",
+          "quote": {
+            "bsb": [
+              "All this I will give You",
+              "if You will fall down and worship me."
+            ],
+            "kjv": [
+              "All these things will I give thee, if thou wilt fall down and worship me."
+            ]
+          }
+        },
+        {
+          "id": "ch02-s3-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 4:10",
+          "quote": {
+            "bsb": [
+              "Away from Me, Satan!",
+              "For it is written: ‘Worship the Lord your God and serve Him only.’"
+            ],
+            "kjv": [
+              "Get thee hence, Satan: for it is written, Thou shalt worship the Lord thy God, and him only shalt thou serve."
+            ]
+          }
+        },
+        {
+          "id": "ch02-s3-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 4:11"
+        },
+        {
+          "id": "ch02-s3-05",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Three times Jesus was tempted, and three times He answered with God's Word."
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "How did Jesus answer the devil each time?",
+        "choices": [
+          {
+            "text": "With words from Scripture",
+            "correct": true
+          },
+          {
+            "text": "By running away"
+          },
+          {
+            "text": "By staying silent"
+          }
+        ],
+        "hint": "Listen for the words “It is written.”",
+        "ref": "Matthew 4:1-11"
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 4:4",
+    "quote": {
+      "bsb": [
+        "Man shall not live on bread alone, but on every word that comes from the mouth of God."
+      ],
+      "kjv": [
+        "Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."
+      ]
+    }
+  },
+  "reflect": "When we are tempted, God's Word helps us choose what is right."
+}

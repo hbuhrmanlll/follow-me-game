@@ -4,12 +4,14 @@ import charactersJson from '../../content/en/characters.json';
 import locationsJson from '../../content/en/locations.json';
 import chapterIndex from '../../content/en/chapters/index.json';
 import uiJson from '../../content/en/ui.json';
+import mapJson from '../../content/map.json';
+import mapLabelsJson from '../../content/en/map-labels.json';
 
 export type TranslationId = 'bsb' | 'kjv';
 
 export interface Translation { id: TranslationId; name: string; short: string; notice: string }
-export interface Character { name: string; color: string; initials: string; voice: { pitch: number; rate: number } }
-export interface Location { name: string; region: string; backdrop: string; summary: string }
+export interface Character { name: string; color: string; initials: string; disciple?: boolean; voice: { pitch: number; rate: number } }
+export interface Location { name: string; region: string; backdrop?: string; summary: string }
 export type Quote = Partial<Record<TranslationId, string[]>>;
 
 export interface Line {
@@ -19,10 +21,17 @@ export interface Line {
   ref?: string;
   quote?: Quote;
   text?: string;
+  joins?: string[]; // disciples who start following Jesus after this line
 }
 
 export interface Choice { text: string; correct?: boolean }
-export interface Puzzle { type: 'multipleChoice'; prompt: string; choices: Choice[]; hint: string; ref: string }
+export interface MultipleChoicePuzzle { type: 'multipleChoice'; prompt: string; choices: Choice[]; hint: string; ref: string }
+export interface FillBlankPuzzle {
+  type: 'fillBlank'; prompt: string; ref: string; quote?: Quote;
+  blank: Partial<Record<TranslationId, string>>; decoys: string[]; hint: string;
+}
+export interface MapFindPuzzle { type: 'mapFind'; prompt: string; target: string; choices: string[]; hint: string; ref: string }
+export type Puzzle = MultipleChoicePuzzle | FillBlankPuzzle | MapFindPuzzle;
 
 export interface SceneData {
   id: string;
@@ -30,6 +39,7 @@ export interface SceneData {
   location: string;
   timeOfDay: TimeOfDay;
   passage: string;
+  note?: string; // shown before the scene, e.g. where Gospel accounts differ in order
   lines: Line[];
   puzzle: Puzzle;
 }
@@ -51,6 +61,18 @@ export const characters = charactersJson as Record<string, Character>;
 export const locations = locationsJson as Record<string, Location>;
 export const chapterOrder = chapterIndex as string[];
 export const ui = uiJson;
+
+export type LatLon = [number, number];
+export interface MapData {
+  bounds: { north: number; south: number; west: number; east: number };
+  coast: LatLon[];
+  lakes: Record<string, LatLon[]>;
+  rivers: Record<string, LatLon[]>;
+  labels: Record<string, LatLon>;
+  places: Record<string, LatLon>;
+}
+export const mapData = mapJson as unknown as MapData;
+export const mapLabels = mapLabelsJson as { regions: Record<string, string>; water: Record<string, string> };
 
 const chapterFiles = import.meta.glob<Chapter>('../../content/en/chapters/ch*.json', { eager: true, import: 'default' });
 

@@ -81,6 +81,14 @@ function checkQuote(where, ref, quote) {
 
 const characters = readJson(`content/${LANG}/characters.json`) ?? {};
 const locations = readJson(`content/${LANG}/locations.json`) ?? {};
+const map = readJson('content/map.json') ?? { places: {} };
+const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee'];
+
+for (const [id, loc] of Object.entries(locations)) {
+  if (!map.places[id]) errors.push(`locations.json "${id}": has no position in content/map.json`);
+  if (!loc.name || !loc.summary) errors.push(`locations.json "${id}": needs a "name" and a "summary"`);
+  if (loc.backdrop && !BACKDROPS.includes(loc.backdrop)) errors.push(`locations.json "${id}": unknown backdrop "${loc.backdrop}"`);
+}
 const chapterIds = readJson(`content/${LANG}/chapters/index.json`) ?? [];
 const seenIds = new Set();
 let lineCount = 0;
@@ -99,6 +107,8 @@ for (const chId of chapterIds) {
     if (seenIds.has(sc.id)) errors.push(`${where}: id is used twice`);
     seenIds.add(sc.id);
     if (!locations[sc.location]) errors.push(`${where}: unknown location "${sc.location}"`);
+    else if (!locations[sc.location].backdrop) errors.push(`${where}: location "${sc.location}" has no "backdrop" to draw`);
+    if (sc.note !== undefined && (typeof sc.note !== 'string' || !sc.note.trim())) errors.push(`${where}: "note" must be some text`);
     if (sc.passage) checkRef(`${where} passage`, sc.passage);
 
     for (const line of sc.lines ?? []) {
@@ -117,6 +127,9 @@ for (const chId of chapterIds) {
       } else {
         errors.push(`${lw}: "type" must be "scripture" or "narration"`);
       }
+      for (const j of line.joins ?? []) {
+        if (!characters[j]?.disciple) errors.push(`${lw}: "joins" lists "${j}", who isn't marked as a disciple in characters.json`);
+      }
       if (line.id && !['ogg', 'mp3'].some((ext) => fs.existsSync(path.join(AUDIO_DIR, `${line.id}.${ext}`)))) {
         missingAudio++;
       }
@@ -132,6 +145,24 @@ for (const chId of chapterIds) {
       if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
       if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
       checkRef(`${where} puzzle`, pz.ref);
+    } else if (pz.type === 'fillBlank') {
+      if (checkRef(`${where} puzzle`, pz.ref)) checkQuote(`${where} puzzle`, pz.ref, pz.quote);
+      for (const t of translations) {
+        const word = pz.blank?.[t.id];
+        const text = (pz.quote?.[t.id] ?? versesFor(pz.ref, t.id) ?? []).join(' ');
+        if (!word) errors.push(`${where}: puzzle "blank" has no "${t.id}" word`);
+        else if (!new RegExp(`\\b${word}\\b`).test(text)) errors.push(`${where}: blank word "${word}" is not in the ${t.short} text`);
+      }
+      if ((pz.decoys ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 "decoys" (wrong words)`);
+      if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
+    } else if (pz.type === 'mapFind') {
+      if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
+      if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
+      checkRef(`${where} puzzle`, pz.ref);
+      if (!(pz.choices ?? []).includes(pz.target)) errors.push(`${where}: puzzle "choices" must include the target "${pz.target}"`);
+      for (const c of pz.choices ?? []) {
+        if (!map.places[c] || !locations[c]) errors.push(`${where}: map place "${c}" is not in locations.json and map.json`);
+      }
     } else {
       errors.push(`${where}: unknown puzzle type "${pz.type}"`);
     }

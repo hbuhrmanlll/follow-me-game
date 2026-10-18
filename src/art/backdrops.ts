@@ -16,10 +16,36 @@ const PALETTES: Record<TimeOfDay, Palette> = {
 
 export interface Layer { obj: Phaser.GameObjects.Graphics; speed: number }
 
+// Colors for each place, blended with the time of day.
+const LAND: Record<string, { far: number; mid: number; near: number }> = {
+  wilderness: { far: 0xc9a77a, mid: 0xb08455, near: 0x8f6a42 },
+  jerusalem: { far: 0xa9a07a, mid: 0x8f9a5e, near: 0x6f7f45 },
+  galilee: { far: 0x7fa07a, mid: 0x5f8f4a, near: 0x447a36 },
+};
+
 export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOfDay = 'dawn'): Layer[] {
-  // Only the Jordan exists so far; other locations arrive in Phase 3.
-  void backdrop;
-  return drawJordan(scene, PALETTES[time], time);
+  const p = PALETTES[time];
+  if (backdrop === 'jordan' || !LAND[backdrop]) return drawJordan(scene, p, time);
+
+  // Shade the place's own colors darker at dusk and night.
+  const dim = time === 'night' ? 0.35 : time === 'dusk' ? 0.7 : 1;
+  const tint = (c: number) => Phaser.Display.Color.ValueToColor(c).darken((1 - dim) * 60).color;
+  const land = LAND[backdrop];
+  drawSky(scene, p, time);
+  const layers: Layer[] = [{ obj: hills(scene, 380, tint(land.far), 1, 2), speed: 3 }];
+  if (backdrop === 'jerusalem') {
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 1), speed: 0 });
+    layers.push({ obj: city(scene, tint(0xd8c8a0)), speed: 0 });
+  } else if (backdrop === 'galilee') {
+    layers.push({ obj: lake(scene, p.water), speed: 0 });
+    layers.push({ obj: hills(scene, 540, tint(land.mid), 2, 3), speed: 7 });
+    layers.push({ obj: figTree(scene, tint(0x3d6b2c)), speed: 0 });
+  } else {
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 3, 1.5), speed: 7 });
+    layers.push({ obj: rocks(scene, tint(0x7a5c3a)), speed: 14 });
+  }
+  layers.push({ obj: hills(scene, 600, tint(land.near), 3, 4), speed: 16 });
+  return layers;
 }
 
 // Call from a scene's update() to make the layers drift.
@@ -32,9 +58,19 @@ export function driftLayers(layers: Layer[], width: number, delta: number): void
 }
 
 function drawJordan(scene: Phaser.Scene, p: Palette, time: TimeOfDay): Layer[] {
+  drawSky(scene, p, time);
+  return [
+    { obj: hills(scene, 400, p.far, 1), speed: 3 },
+    { obj: hills(scene, 470, p.mid, 2), speed: 7 },
+    { obj: hills(scene, 560, p.near, 3), speed: 14 },
+    { obj: river(scene, p.water), speed: 0 },
+    { obj: reeds(scene), speed: 22 },
+  ];
+}
+
+function drawSky(scene: Phaser.Scene, p: Palette, time: TimeOfDay): void {
   const W = scene.scale.width;
   const H = scene.scale.height;
-
   const sky = scene.add.graphics();
   sky.fillGradientStyle(p.skyTop, p.skyTop, p.skyBottom, p.skyBottom, 1).fillRect(0, 0, W, H);
   if (time === 'night') {
@@ -45,18 +81,66 @@ function drawJordan(scene: Phaser.Scene, p: Palette, time: TimeOfDay): Layer[] {
   const sunY = H * p.sunY;
   sky.fillStyle(p.sun, 0.25).fillCircle(sunX, sunY, 110);
   sky.fillStyle(p.sun, 0.95).fillCircle(sunX, sunY, time === 'night' ? 40 : 60);
+}
 
-  return [
-    { obj: hills(scene, 400, p.far, 1), speed: 3 },
-    { obj: hills(scene, 470, p.mid, 2), speed: 7 },
-    { obj: hills(scene, 560, p.near, 3), speed: 14 },
-    { obj: river(scene, p.water), speed: 0 },
-    { obj: reeds(scene), speed: 22 },
-  ];
+// Scattered stones for the wilderness (drawn twice so the layer can wrap).
+function rocks(scene: Phaser.Scene, color: number): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  for (const offset of [0, W]) {
+    for (let i = 0; i < 14; i++) {
+      const x = offset + ((i * 131) % W);
+      const y = 560 + ((i * 47) % 70);
+      const r = 10 + ((i * 13) % 18);
+      g.fillStyle(color, 1).fillEllipse(x, y, r * 2.2, r * 1.3);
+      g.fillStyle(0xffffff, 0.12).fillEllipse(x - r * 0.3, y - r * 0.3, r, r * 0.5);
+    }
+  }
+  return g;
+}
+
+// Jerusalem on its hill: a wall, flat-roofed houses and the temple.
+function city(scene: Phaser.Scene, stone: number): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  const cx = W * 0.62;
+  const shade = Phaser.Display.Color.ValueToColor(stone).darken(18).color;
+  for (let i = 0; i < 16; i++) {
+    const x = cx - 520 + i * 62 + ((i * 17) % 20);
+    const h = 40 + ((i * 29) % 40);
+    g.fillStyle(i % 2 ? stone : shade, 1).fillRect(x, 440 - h, 54, h);
+    g.fillStyle(0x3a2a1a, 0.6).fillRect(x + 20, 440 - h + 14, 12, 14);
+  }
+  g.fillStyle(shade, 1).fillRect(cx - 560, 420, 1100, 50);
+  for (let x = cx - 560; x < cx + 540; x += 36) g.fillRect(x, 408, 20, 14);
+  g.fillStyle(stone, 1).fillRect(cx - 120, 290, 240, 130);
+  g.fillStyle(0xe8d9b0, 1).fillRect(cx - 70, 230, 140, 70);
+  g.fillStyle(0xe2b84a, 1).fillRect(cx - 74, 222, 148, 10);
+  g.fillStyle(0x3a2a1a, 0.7).fillRect(cx - 18, 250, 36, 50);
+  g.fillStyle(stone, 1).fillRect(cx + 120, 250, 50, 170);
+  return g;
+}
+
+function lake(scene: Phaser.Scene, color: number): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  g.fillStyle(color, 1).fillRect(0, 420, W, 120);
+  g.fillStyle(0xffffff, 0.35).fillRect(W * 0.2, 445, 90, 3).fillRect(W * 0.55, 470, 120, 3).fillRect(W * 0.8, 455, 70, 3);
+  return g;
+}
+
+function figTree(scene: Phaser.Scene, leaf: number): Phaser.GameObjects.Graphics {
+  const g = scene.add.graphics();
+  const x = scene.scale.width * 0.14;
+  g.fillStyle(0x5a3d22, 1).fillRect(x - 12, 330, 24, 160);
+  g.fillStyle(leaf, 1);
+  for (const [dx, dy, r] of [[0, 300, 80], [-60, 330, 60], [60, 330, 60], [-30, 260, 55], [35, 265, 55]]) g.fillCircle(x + dx, dy, r);
+  return g;
 }
 
 // Rolling hills drawn twice side by side so the layer can wrap seamlessly.
-function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number): Phaser.GameObjects.Graphics {
+// seed must be a whole number so the two copies join without a seam; phase shifts the shape.
+function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number, phase = 0): Phaser.GameObjects.Graphics {
   const W = scene.scale.width;
   const H = scene.scale.height;
   const g = scene.add.graphics();
@@ -66,7 +150,7 @@ function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number):
     for (let i = 0; i <= 80; i++) {
       const x = (i / 80) * W;
       const y = baseY
-        - 40 * Math.sin((x / W) * Math.PI * 2 * seed + seed)
+        - 40 * Math.sin((x / W) * Math.PI * 2 * seed + seed + phase)
         - 20 * Math.sin((x / W) * Math.PI * 2 * (seed + 2));
       pts.push({ x: offset + x, y });
     }

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { COLORS, FONT, makeButton, restartOnResize } from '../ui/common';
 import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
 import { DialogueBox } from '../ui/DialogueBox';
-import { runMultipleChoice } from '../puzzles/MultipleChoice';
+import { runPuzzle } from '../puzzles';
 import { showPassage, type PassageView } from '../ui/dom';
 import { speak, stopSpeaking } from '../systems/speech';
 import {
@@ -14,7 +14,7 @@ import { loadSettings, loadSlots, saveSettings, saveSlot, type Settings, type Sl
 const SPEEDS: Speed[] = ['slow', 'normal', 'fast'];
 const SPEED_RATE: Record<Speed, number> = { slow: 0.75, normal: 1, fast: 1.25 };
 const SPEED_ICON: Record<Speed, string> = { slow: '🐢', normal: '🚶', fast: '🐇' };
-const OFFSTAGE = ['narrator', 'voice-from-heaven'];
+const OFFSTAGE = ['narrator', 'voice-from-heaven', 'tempter'];
 const FEET_Y = 440;
 
 // Plays a chapter: each scene's dialogue, then its puzzle, saving as it goes
@@ -28,6 +28,7 @@ export class StoryScene extends Phaser.Scene {
   private box?: DialogueBox;
   private figures = new Map<string, Phaser.GameObjects.Container>();
   private heavenLight?: Phaser.GameObjects.Graphics;
+  private shadow?: Phaser.GameObjects.Rectangle;
   private run = 0; // bumps when the scene restarts so old loops stop
 
   constructor() {
@@ -71,17 +72,23 @@ export class StoryScene extends Phaser.Scene {
     const p = this.slot.progress;
     while (run === this.run && p.scene < this.chapter.scenes.length) {
       const scene = this.chapter.scenes[p.scene];
+      if (p.visited[p.visited.length - 1] !== scene.location) p.visited.push(scene.location);
       this.buildStage(scene);
-      if (p.step === 0) await this.banner(scene);
+      if (p.step === 0) {
+        await this.banner(scene);
+        if (scene.note && run === this.run) await this.showNote(scene.note);
+      }
       while (run === this.run && p.step < scene.lines.length) {
         this.save();
         await this.playLine(scene, p.step);
+        if (run !== this.run) return;
+        await this.welcome(scene.lines[p.step].joins ?? []);
         if (run !== this.run) return;
         p.step++;
       }
       this.save();
       this.box?.setVisible(false);
-      await runMultipleChoice(this, scene.puzzle, this.rate);
+      await runPuzzle(this, scene.puzzle, this.tid, this.rate);
       if (run !== this.run) return;
       p.scene++;
       p.step = 0;
@@ -99,12 +106,20 @@ export class StoryScene extends Phaser.Scene {
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 
-    // Placeholder figures for everyone who speaks in this scene.
-    const cast = [...new Set(scene.lines.map((l) => l.speaker))].filter((s) => !OFFSTAGE.includes(s));
+    // Placeholder figures for everyone who speaks, plus the disciples already
+    // following Jesus. Disciples who join during this scene appear when they join.
+    const joined = this.slot.progress.disciples;
+    const joiners = scene.lines.flatMap((l) => l.joins ?? []);
+    const cast = [...new Set([...scene.lines.map((l) => l.speaker), ...joined, ...joiners])]
+      .filter((id) => !OFFSTAGE.includes(id) && characters[id]);
+    const scale = Math.min(1, 6 / cast.length);
     cast.forEach((id, i) => {
-      const x = W * (0.35 + (cast.length === 1 ? 0.15 : (i / (cast.length - 1)) * 0.3));
-      this.figures.set(id, this.makeFigure(x, FEET_Y, characters[id].color, characters[id].name));
+      const x = W * (cast.length === 1 ? 0.5 : 0.2 + (i / (cast.length - 1)) * 0.6);
+      const fig = this.makeFigure(x, FEET_Y, characters[id].color, characters[id].name).setScale(scale);
+      if (joiners.includes(id) && !joined.includes(id) && !scene.lines.some((l) => l.speaker === id)) fig.setAlpha(0);
+      this.figures.set(id, fig);
     });
+    this.shadow = this.add.rectangle(0, 0, W, this.scale.height, 0x1a1028, 0.45).setOrigin(0).setAlpha(0);
 
     // Top bar: menu on the left, dialogue controls and Scripture on the right.
     makeButton(this, 70, 54, '☰', () => this.scene.start('Slots'), { width: 100, height: 84, fontSize: 44 });
@@ -112,10 +127,12 @@ export class StoryScene extends Phaser.Scene {
       fontFamily: FONT, fontSize: '28px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 6,
     }).setOrigin(0, 0.5);
 
-    const bw = 112;
+    const bw = W < 1450 ? 96 : 112;
     let x = W - 20 - bw / 2;
     const opts = { width: bw, height: 84, fontSize: 30 };
     makeButton(this, x, 54, '📜', () => this.openScripture(scene), { ...opts, fontSize: 40 });
+    x -= bw + 12;
+    makeButton(this, x, 54, '🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story' }), { ...opts, fontSize: 40 });
     x -= bw + 12;
     const auto = makeButton(this, x, 54, this.settings.autoAdvance ? ui.auto : ui.tap, () => {
       this.settings.autoAdvance = !this.settings.autoAdvance;
@@ -175,6 +192,7 @@ export class StoryScene extends Phaser.Scene {
     const fig = this.figures.get(line.speaker);
     const bob = fig && this.tweens.add({ targets: fig, y: fig.y - 10, yoyo: true, repeat: -1, duration: 420 });
     if (line.speaker === 'voice-from-heaven') this.shine(true);
+    if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 1, duration: 600 });
 
     this.box!.setVisible(true);
     await this.box!.play({
@@ -190,6 +208,53 @@ export class StoryScene extends Phaser.Scene {
 
     if (bob) { bob.stop(); fig!.y = FEET_Y; }
     if (line.speaker === 'voice-from-heaven') this.shine(false);
+    if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 0, duration: 600 });
+  }
+
+  // A disciple starts following Jesus: show them and announce it.
+  private async welcome(ids: string[]): Promise<void> {
+    const p = this.slot.progress;
+    for (const id of ids) {
+      if (p.disciples.includes(id)) continue;
+      p.disciples.push(id);
+      this.save();
+      const fig = this.figures.get(id);
+      if (fig) this.tweens.add({ targets: fig, alpha: 1, duration: 700 });
+      const msg = fill(ui.joined, { name: characters[id].name });
+      const t = this.add.text(this.scale.width / 2, 200, `✦ ${msg} ✦`, {
+        fontFamily: FONT, fontSize: '40px', color: '#fff4d6', fontStyle: 'bold', stroke: '#3b2410', strokeThickness: 8,
+        align: 'center', wordWrap: { width: this.scale.width - 100 },
+      }).setOrigin(0.5).setDepth(40).setAlpha(0);
+      speak(msg, { rate: this.rate });
+      await new Promise<void>((done) =>
+        this.tweens.add({ targets: t, alpha: 1, duration: 500, hold: 2000, yoyo: true, onComplete: () => { t.destroy(); done(); } }),
+      );
+    }
+  }
+
+  // A short note, e.g. where the Gospels tell events in a different order.
+  private showNote(note: string): Promise<void> {
+    return new Promise((resolve) => {
+      const W = this.scale.width;
+      const layer = this.add.container(0, 0).setDepth(45);
+      const w = Math.min(900, W - 80);
+      const body = this.add.text(W / 2, 250, note, {
+        fontFamily: FONT, fontSize: '30px', color: '#2b1d12', align: 'center', wordWrap: { width: w - 80 }, lineSpacing: 6,
+      }).setOrigin(0.5, 0);
+      const h = body.height + 230;
+      const g = this.add.graphics();
+      g.fillStyle(0x000000, 0.35).fillRoundedRect(W / 2 - w / 2 + 5, 160 + 7, w, h, 22);
+      g.fillStyle(0xe9dcc0, 1).fillRoundedRect(W / 2 - w / 2, 160, w, h, 22);
+      g.lineStyle(4, 0x8f8270, 1).strokeRoundedRect(W / 2 - w / 2, 160, w, h, 22);
+      const title = this.add.text(W / 2, 205, `ⓘ ${ui.note}`, {
+        fontFamily: FONT, fontSize: '32px', color: '#5a3a1c', fontStyle: 'bold',
+      }).setOrigin(0.5);
+      const ok = makeButton(this, W / 2, 160 + h - 65, ui.ok, () => { stopSpeaking(); layer.destroy(); resolve(); }, {
+        width: 200, height: 84,
+      });
+      layer.add([g, title, body, ok]);
+      speak(`${ui.note}. ${note}`, { rate: this.rate });
+    });
   }
 
   private shine(on: boolean): void {
@@ -263,7 +328,10 @@ export class StoryScene extends Phaser.Scene {
 
     const readAll = () => speak(`${done} ${ui.memoryVerse}. ${mv.ref}. ${verse} ${ui.reflect}. ${this.chapter.reflect}`, { rate: this.rate });
     const shift = nextId ? 0 : 150;
-    makeButton(this, W / 2 - 330 + shift, 590, '🔊', readAll, { width: 120, height: 96, fontSize: 44 });
+    makeButton(this, W / 2 - 400 + shift, 590, '🔊', readAll, { width: 110, height: 96, fontSize: 44 });
+    makeButton(this, W / 2 - 270 + shift, 590, '🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story', animate: true }), {
+      width: 110, height: 96, fontSize: 44,
+    });
     makeButton(this, W / 2 - 60 + shift, 590, ui.backToTitle, () => this.scene.start('Title'), { width: 320, height: 96, fontSize: 32 });
     if (nextId) {
       makeButton(this, W / 2 + 250, 590, `${ui.nextChapter} ▶`, () => this.scene.restart({ slot: this.slotIndex }), {

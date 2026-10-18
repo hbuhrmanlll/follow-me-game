@@ -6,6 +6,8 @@ export interface Progress {
   scene: number; // which scene in the chapter
   step: number; // which line in the scene; equal to the number of lines means "at the puzzle"
   completed: string[]; // finished chapter ids
+  visited: string[]; // places in the order the player traveled (for the map route)
+  disciples: string[]; // disciples who have joined so far
 }
 
 export interface Slot {
@@ -41,7 +43,14 @@ function write(key: string, value: unknown): void {
 
 export function loadSlots(): (Slot | null)[] {
   const slots = read<(Slot | null)[]>(SLOTS_KEY) ?? [];
-  return Array.from({ length: SLOT_COUNT }, (_, i) => slots[i] ?? null);
+  return Array.from({ length: SLOT_COUNT }, (_, i) => {
+    const s = slots[i];
+    if (!s) return null;
+    // Saves from before Phase 3 lack these lists.
+    s.progress.visited ??= [];
+    s.progress.disciples ??= [];
+    return s;
+  });
 }
 
 export function saveSlot(index: number, slot: Slot | null): void {
@@ -54,7 +63,7 @@ export function newSlot(name: string): Slot {
   return {
     name,
     translation: 'bsb',
-    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [] },
+    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [] },
     updated: Date.now(),
   };
 }

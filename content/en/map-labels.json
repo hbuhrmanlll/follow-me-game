@@ -1,0 +1,15 @@
+{
+  "regions": {
+    "galilee": "GALILEE",
+    "samaria": "SAMARIA",
+    "judea": "JUDEA",
+    "decapolis": "DECAPOLIS",
+    "perea": "PEREA"
+  },
+  "water": {
+    "sea": "The Great Sea",
+    "sea-of-galilee": "Sea of Galilee",
+    "dead-sea": "Dead Sea",
+    "jordan-river": "Jordan River"
+  }
+}

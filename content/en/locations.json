@@ -3,6 +3,54 @@
     "name": "The Jordan River",
     "region": "Judea",
     "backdrop": "jordan",
-    "summary": "The green river valley where John baptized the crowds, and where Jesus was baptized."
+    "summary": "The green river valley where John baptized the crowds. Jesus was baptized here, and here John called Him the Lamb of God. John 1:28 calls the place Bethany beyond the Jordan."
+  },
+  "wilderness": {
+    "name": "The Wilderness",
+    "region": "Judea",
+    "backdrop": "wilderness",
+    "summary": "A dry, rocky land of stones and heat. The Spirit led Jesus here, where He fasted forty days and answered every temptation with Scripture."
+  },
+  "jerusalem": {
+    "name": "Jerusalem",
+    "region": "Judea",
+    "backdrop": "jerusalem",
+    "summary": "The holy city, with God's temple on its hill. The devil set Jesus on the pinnacle of the temple, but Jesus would not test God."
+  },
+  "galilee": {
+    "name": "Galilee",
+    "region": "Galilee",
+    "backdrop": "galilee",
+    "summary": "The green hill country in the north, around the Sea of Galilee. Jesus said to Philip, “Follow Me,” and Nathanael met Jesus."
+  },
+  "bethsaida": {
+    "name": "Bethsaida",
+    "region": "Galilee",
+    "summary": "A fishing town on the north shore of the Sea of Galilee. Home of Philip, Andrew and Peter."
+  },
+  "capernaum": {
+    "name": "Capernaum",
+    "region": "Galilee",
+    "summary": "A fishing town on the Sea of Galilee."
+  },
+  "nazareth": {
+    "name": "Nazareth",
+    "region": "Galilee",
+    "summary": "The small hill town where Jesus grew up."
+  },
+  "cana": {
+    "name": "Cana",
+    "region": "Galilee",
+    "summary": "A village in Galilee, Nathanael's hometown."
+  },
+  "bethlehem": {
+    "name": "Bethlehem",
+    "region": "Judea",
+    "summary": "The town where Jesus was born."
+  },
+  "jericho": {
+    "name": "Jericho",
+    "region": "Judea",
+    "summary": "An old city of palm trees near the Jordan River."
   }
 }

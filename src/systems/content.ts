@@ -58,7 +58,10 @@ export interface SceneData {
   timeOfDay: TimeOfDay;
   passage: string;
   note?: string; // shown before the scene, e.g. where Gospel accounts differ in order
-  companions?: boolean; // false: the disciples who follow Jesus aren't in this scene
+  companions?: boolean | string[]; // false: no disciples here; or a list of the ones who were
+  extras?: string[]; // people present who don't speak, e.g. Moses and Elijah
+  weather?: 'storm';
+  effect?: 'transfigure';
   lines: Line[];
   puzzle?: Puzzle; // one puzzle…
   puzzles?: Puzzle[]; // …or several, played in order

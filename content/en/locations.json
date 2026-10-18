@@ -54,7 +54,8 @@
   "jericho": {
     "name": "Jericho",
     "region": "Judea",
-    "summary": "An old city of palm trees near the Jordan River."
+    "summary": "An old city of palm trees in the Jordan valley. Zacchaeus climbed a sycamore tree here to see Jesus.",
+    "backdrop": "village"
   },
   "sychar": {
     "name": "Sychar",
@@ -73,5 +74,35 @@
     "region": "Galilee",
     "backdrop": "mountain",
     "summary": "On a mountain Jesus prayed all night and chose the Twelve, and taught the Sermon on the Mount. The Bible doesn't name the mountain."
+  },
+  "gerasa": {
+    "name": "The Region of the Gerasenes",
+    "region": "Decapolis",
+    "backdrop": "lake",
+    "summary": "Hills on the east shore of the Sea of Galilee. Jesus freed a man from evil spirits, and he told the whole Decapolis what Jesus had done."
+  },
+  "hillside": {
+    "name": "A Hillside by the Sea",
+    "region": "Galilee",
+    "backdrop": "mountain",
+    "summary": "A grassy hillside near Bethsaida where Jesus fed about five thousand men with five loaves and two fish."
+  },
+  "caesarea-philippi": {
+    "name": "Caesarea Philippi",
+    "region": "North of Galilee",
+    "backdrop": "cliff",
+    "summary": "A town by a great rock cliff near Mount Hermon. Here Peter said, “You are the Christ, the Son of the living God.”"
+  },
+  "high-mountain": {
+    "name": "A High Mountain",
+    "region": "Galilee",
+    "backdrop": "mountain",
+    "summary": "Jesus' face shone like the sun as Moses and Elijah talked with Him. Tradition says this was Mount Tabor."
+  },
+  "bethany": {
+    "name": "Bethany",
+    "region": "Judea",
+    "backdrop": "village",
+    "summary": "A village just outside Jerusalem, home of Mary, Martha and Lazarus. Jesus raised Lazarus from the dead here."
   }
 }

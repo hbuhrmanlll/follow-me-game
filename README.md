@@ -25,7 +25,7 @@ in the bottom-left corner of the title screen.
 2. ✅ Core systems: scenes from data files, dialogue with voice, one puzzle type, saving
 3. ✅ Chapters 1–3, the map, and 3 puzzle types
 4. ✅ Remaining puzzle types, difficulty modes, Verse Journal, Disciple Cards, voice script
-5. The rest of the chapters (in progress: Chapters 1–10 done)
+5. The rest of the chapters (in progress: Chapters 1–19 done)
 6. Art, sound, voices, cutscenes, polish
 7. Android app and Google Play
 

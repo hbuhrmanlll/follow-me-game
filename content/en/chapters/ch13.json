@@ -1,0 +1,162 @@
+{
+  "id": "ch13",
+  "number": 13,
+  "title": "Sending Out the Twelve",
+  "passage": "Matthew 10:1-42",
+  "scenes": [
+    {
+      "id": "ch13-s1",
+      "title": "Freely Give",
+      "location": "galilee",
+      "timeOfDay": "dawn",
+      "passage": "Matthew 10:1-16",
+      "lines": [
+        {
+          "id": "ch13-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 10:1"
+        },
+        {
+          "id": "ch13-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 10:5",
+          "quote": {
+            "bsb": [
+              "These twelve Jesus sent out with the following instructions:"
+            ],
+            "kjv": [
+              "These twelve Jesus sent forth, and commanded them, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch13-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 10:7-8"
+        },
+        {
+          "id": "ch13-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 10:16"
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Matthew 10:8",
+        "blank": {
+          "bsb": "give",
+          "kjv": "give"
+        },
+        "decoys": [
+          "keep",
+          "take",
+          "sell"
+        ],
+        "hint": "Share what God has given you.",
+        "quote": {
+          "bsb": [
+            "Freely you have received; freely give."
+          ],
+          "kjv": [
+            "freely ye have received, freely give."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch13-s2",
+      "title": "Worth More Than Sparrows",
+      "location": "galilee",
+      "timeOfDay": "midday",
+      "passage": "Matthew 10:29-42",
+      "lines": [
+        {
+          "id": "ch13-s2-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 10:29-31"
+        },
+        {
+          "id": "ch13-s2-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 10:42",
+          "quote": {
+            "bsb": [
+              "And if anyone gives even a cup of cold water to one of these little ones because he is My disciple, truly I tell you, he will never lose his reward."
+            ],
+            "kjv": [
+              "And whosoever shall give to drink unto one of these little ones a cup of cold water only in the name of a disciple, verily I say unto you, he shall in no wise lose his reward."
+            ]
+          }
+        },
+        {
+          "id": "ch13-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 9:6"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "count",
+          "prompt": "Jesus talked about sparrows sold at the market.",
+          "items": [
+            {
+              "icon": "🐦",
+              "n": 2
+            }
+          ],
+          "question": "How many sparrows were sold for a penny?",
+          "answer": 2,
+          "hint": "Listen to Jesus' words again.",
+          "ref": "Matthew 10:29"
+        },
+        {
+          "type": "multipleChoice",
+          "prompt": "Jesus said you are worth more than many…",
+          "choices": [
+            {
+              "text": "Sparrows",
+              "correct": true,
+              "icon": "🐦"
+            },
+            {
+              "text": "Coins",
+              "icon": "🪙"
+            },
+            {
+              "text": "Mountains",
+              "icon": "⛰️"
+            }
+          ],
+          "hint": "God cares even for the smallest birds, and you matter more.",
+          "ref": "Matthew 10:31"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 10:8",
+    "quote": {
+      "bsb": [
+        "Freely you have received; freely give."
+      ],
+      "kjv": [
+        "freely ye have received, freely give."
+      ]
+    }
+  },
+  "reflect": "Jesus sent His disciples to share what they had been given. God knows even the number of hairs on your head.",
+  "discuss": [
+    "Jesus said, “Freely you have received; freely give.” What has God given you that you can share?",
+    "God knows when a single sparrow falls. How does it feel to know He knows everything about you?",
+    "Jesus said even a cup of cold water given in His name matters. What small kind thing could you do this week?"
+  ],
+  "prayer": "Father, thank You for knowing and caring for us. You have given us so much. Help us freely give to others. Amen."
+}

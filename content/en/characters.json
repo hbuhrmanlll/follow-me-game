@@ -229,5 +229,86 @@
       "pitch": 0.85,
       "rate": 1.0
     }
+  },
+  "disciples": {
+    "name": "The disciples",
+    "color": "#5a6a7a",
+    "initials": "👥",
+    "voice": {
+      "pitch": 1.0,
+      "rate": 1.05
+    }
+  },
+  "healed-woman": {
+    "name": "The woman",
+    "color": "#9a6a8a",
+    "initials": "W",
+    "voice": {
+      "pitch": 1.25,
+      "rate": 0.95
+    }
+  },
+  "jairus": {
+    "name": "Jairus",
+    "color": "#4a5a8a",
+    "initials": "Ja",
+    "voice": {
+      "pitch": 0.85,
+      "rate": 1.05
+    }
+  },
+  "messengers": {
+    "name": "Messengers",
+    "color": "#6a6a6a",
+    "initials": "✉",
+    "voice": {
+      "pitch": 0.95,
+      "rate": 1.0
+    }
+  },
+  "martha": {
+    "name": "Martha",
+    "color": "#b0603a",
+    "initials": "Ma",
+    "voice": {
+      "pitch": 1.2,
+      "rate": 1.05
+    }
+  },
+  "mary-bethany": {
+    "name": "Mary of Bethany",
+    "color": "#5a7aa8",
+    "initials": "Mb",
+    "voice": {
+      "pitch": 1.3,
+      "rate": 0.95
+    }
+  },
+  "zacchaeus": {
+    "name": "Zacchaeus",
+    "color": "#8a5a2a",
+    "initials": "Z",
+    "voice": {
+      "pitch": 1.1,
+      "rate": 1.1
+    }
+  },
+  "moses": {
+    "name": "Moses",
+    "color": "#e8e0c8",
+    "initials": "Mo",
+    "voice": {
+      "pitch": 0.8,
+      "rate": 0.9
+    }
+  },
+  "elijah": {
+    "name": "Elijah",
+    "color": "#e0d8c0",
+    "initials": "El",
+    "voice": {
+      "pitch": 0.8,
+      "rate": 0.9
+    }
   }
 }

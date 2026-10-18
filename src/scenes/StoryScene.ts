@@ -122,7 +122,11 @@ export class StoryScene extends Phaser.Scene {
     const joined = this.slot.progress.disciples;
     const joiners = scene.lines.flatMap((l) => l.joins ?? []);
     const speakers = [...new Set([...scene.lines.map((l) => l.speaker), ...joiners])].filter((id) => !OFFSTAGE.includes(id) && characters[id]);
-    const companions = scene.companions === false ? [] : joined.filter((id) => !speakers.includes(id)).slice(0, 6);
+    // A scene can leave the disciples out (false) or name just the ones who were there.
+    const others = Array.isArray(scene.companions) ? scene.companions : scene.companions === false ? [] : joined;
+    const companions = others.filter((id) => !speakers.includes(id)).slice(0, 6);
+    // People who are there but don't speak, like Moses and Elijah.
+    for (const x of scene.extras ?? []) if (characters[x] && !speakers.includes(x)) speakers.push(x);
     companions.forEach((id, i) => {
       const x = W * (0.15 + ((i + 0.5) / companions.length) * 0.7);
       this.makeFigure(x, FEET_Y - 30, characters[id].color, '').setScale(0.7).setAlpha(0.9);
@@ -134,6 +138,8 @@ export class StoryScene extends Phaser.Scene {
       if (joiners.includes(id) && !joined.includes(id) && !scene.lines.some((l) => l.speaker === id)) fig.setAlpha(0);
       this.figures.set(id, fig);
     });
+    if (scene.effect === 'transfigure') this.transfigure();
+    if (scene.weather === 'storm') this.storm();
     this.shadow = this.add.rectangle(0, 0, W, this.scale.height, 0x1a1028, 0.45).setOrigin(0).setAlpha(0);
 
     // Top bar: menu on the left, dialogue controls and Scripture on the right.
@@ -174,6 +180,49 @@ export class StoryScene extends Phaser.Scene {
     this.box.autoAdvance = this.settings.autoAdvance;
     this.box.speed = this.rate;
     this.box.setVisible(false);
+  }
+
+  // Jesus shines with white light, robes as white as light (Matthew 17:2).
+  private transfigure(): void {
+    const fig = this.figures.get('jesus');
+    if (!fig) return;
+    const glow = this.add.graphics();
+    glow.fillStyle(0xfffbe6, 0.25).fillCircle(0, -90, 150);
+    glow.fillStyle(0xffffff, 0.35).fillCircle(0, -90, 100);
+    glow.setPosition(fig.x, fig.y);
+    this.children.moveBelow(glow as unknown as Phaser.GameObjects.GameObject, fig as unknown as Phaser.GameObjects.GameObject);
+    const robe = this.add.graphics();
+    robe.fillStyle(0xffffff, 1).fillTriangle(-42, 0, 42, 0, 0, -130).fillRoundedRect(-30, -120, 60, 60, 20);
+    robe.fillStyle(0xfff3c4, 1).fillCircle(0, -140, 24);
+    fig.addAt(robe, 1);
+    this.tweens.add({ targets: glow, alpha: 0.6, yoyo: true, repeat: -1, duration: 1400 });
+  }
+
+  // Wind, rain and lightning on the sea.
+  private storm(): void {
+    const W = this.scale.width;
+    const H = this.scale.height;
+    this.add.rectangle(0, 0, W, H, 0x0a1020, 0.35).setOrigin(0);
+    const rain = this.add.graphics();
+    const drops = Array.from({ length: 90 }, (_, i) => ({ x: (i * 173) % W, y: (i * 97) % H }));
+    const draw = () => {
+      rain.clear().lineStyle(2, 0xbfd8f0, 0.5);
+      for (const d of drops) {
+        d.x = (d.x - 6 + W) % W;
+        d.y = (d.y + 22) % H;
+        rain.lineBetween(d.x, d.y, d.x - 8, d.y + 22);
+      }
+    };
+    this.time.addEvent({ delay: 40, loop: true, callback: draw });
+    const flash = this.add.rectangle(0, 0, W, H, 0xffffff, 0).setOrigin(0);
+    this.time.addEvent({
+      delay: 4500, loop: true,
+      callback: () => this.tweens.add({ targets: flash, fillAlpha: 0.35, duration: 80, yoyo: true, repeat: 1 }),
+    });
+    // The people sway with the boat.
+    for (const fig of this.figures.values()) {
+      this.tweens.add({ targets: fig, angle: { from: -3, to: 3 }, yoyo: true, repeat: -1, duration: 900, ease: 'Sine.easeInOut' });
+    }
   }
 
   private makeFigure(x: number, feetY: number, color: string, name: string): Phaser.GameObjects.Container {

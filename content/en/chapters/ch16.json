@@ -1,0 +1,197 @@
+{
+  "id": "ch16",
+  "number": 16,
+  "title": "The Transfiguration",
+  "passage": "Matthew 17:1-13",
+  "scenes": [
+    {
+      "id": "ch16-s1",
+      "title": "His Face Shone Like the Sun",
+      "location": "high-mountain",
+      "timeOfDay": "dusk",
+      "passage": "Matthew 17:1-9",
+      "note": "The Bible does not name this mountain. Christians have long said it was Mount Tabor; some think it was Mount Hermon, near Caesarea Philippi.",
+      "lines": [
+        {
+          "id": "ch16-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 17:1-2"
+        },
+        {
+          "id": "ch16-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 17:3"
+        },
+        {
+          "id": "ch16-s1-03",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 17:4",
+          "quote": {
+            "bsb": [
+              "Lord, it is good for us to be here. If You wish, I will put up three shelters—one for You, one for Moses, and one for Elijah."
+            ],
+            "kjv": [
+              "Lord, it is good for us to be here: if thou wilt, let us make here three tabernacles; one for thee, and one for Moses, and one for Elias."
+            ]
+          }
+        },
+        {
+          "id": "ch16-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 17:5",
+          "quote": {
+            "bsb": [
+              "While Peter was still speaking, a bright cloud enveloped them, and a voice from the cloud said,"
+            ],
+            "kjv": [
+              "While he yet spake, behold, a bright cloud overshadowed them: and behold a voice out of the cloud, which said,"
+            ]
+          }
+        },
+        {
+          "id": "ch16-s1-05",
+          "speaker": "voice-from-heaven",
+          "type": "scripture",
+          "ref": "Matthew 17:5",
+          "quote": {
+            "bsb": [
+              "This is My beloved Son, in whom I am well pleased. Listen to Him!"
+            ],
+            "kjv": [
+              "This is my beloved Son, in whom I am well pleased; hear ye him."
+            ]
+          }
+        },
+        {
+          "id": "ch16-s1-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 17:6"
+        },
+        {
+          "id": "ch16-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 17:7",
+          "quote": {
+            "bsb": [
+              "Get up",
+              "Do not be afraid."
+            ],
+            "kjv": [
+              "Arise, and be not afraid."
+            ]
+          }
+        },
+        {
+          "id": "ch16-s1-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 17:8"
+        },
+        {
+          "id": "ch16-s1-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 17:9",
+          "quote": {
+            "bsb": [
+              "Do not tell anyone about this vision until the Son of Man has been raised from the dead."
+            ],
+            "kjv": [
+              "Tell the vision to no man, until the Son of man be risen again from the dead."
+            ]
+          }
+        }
+      ],
+      "companions": [
+        "peter",
+        "james",
+        "john"
+      ],
+      "extras": [
+        "moses",
+        "elijah"
+      ],
+      "effect": "transfigure",
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "Who appeared and talked with Jesus on the mountain?",
+          "choices": [
+            {
+              "text": "Moses and Elijah",
+              "correct": true,
+              "icon": "📜🔥"
+            },
+            {
+              "text": "Abraham and David",
+              "icon": "⭐👑"
+            },
+            {
+              "text": "John the Baptist and Mary",
+              "icon": "💧👩"
+            }
+          ],
+          "hint": "One gave God's Law; one was a great prophet.",
+          "ref": "Matthew 17:3"
+        },
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "Matthew 17:5",
+          "blank": {
+            "bsb": "Listen",
+            "kjv": "hear"
+          },
+          "decoys": [
+            "Look",
+            "Wait",
+            "Run"
+          ],
+          "hint": "God told the disciples to pay attention to Jesus.",
+          "quote": {
+            "bsb": [
+              "This is My beloved Son, in whom I am well pleased. Listen to Him!"
+            ],
+            "kjv": [
+              "This is my beloved Son, in whom I am well pleased; hear ye him."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 17:5",
+    "quote": {
+      "bsb": [
+        "This is My beloved Son, in whom I am well pleased. Listen to Him!"
+      ],
+      "kjv": [
+        "This is my beloved Son, in whom I am well pleased; hear ye him."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "Listen to Him!"
+        ],
+        "kjv": [
+          "hear ye him."
+        ]
+      }
+    }
+  },
+  "reflect": "For a moment, Peter, James and John saw Jesus' glory. God's command to them is for us too: “Listen to Him!”",
+  "discuss": [
+    "What do you think Peter, James and John felt when they saw Jesus shining?",
+    "God said the same words at Jesus' baptism, and added “Listen to Him!” How can we listen to Jesus?",
+    "When the disciples were afraid, Jesus touched them and said “Get up. Do not be afraid.” How does Jesus comfort us?"
+  ],
+  "prayer": "Father, Jesus is Your beloved Son. Help us listen to Him every day. Amen."
+}

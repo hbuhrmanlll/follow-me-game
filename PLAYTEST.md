@@ -154,3 +154,19 @@ The title screen should say **Phase 5 · v0.5.0**.
 - Are the discussion questions the right level for your kids?
 - Is any wording in the narration lines you'd change? (They're marked "Narration" in the game and are in `content/en/chapters/`.)
 - Does Chapter 10 (4 scenes) feel too long for one sitting?
+
+## Phase 5, part 2: Chapters 11–19
+
+- [ ] **Ch 11, Even the Wind and the Sea Obey Him:** a storm at night (rain, lightning, people swaying); Jesus says "Be still!"; the healed man tells the Decapolis. Check the storm and the evil-spirit part aren't too scary for your youngest
+- [ ] **Ch 12, Do Not Be Afraid; Just Believe:** the woman touches Jesus' cloak; only Peter, James and John go into Jairus' house; "Talitha koum!"
+- [ ] **Ch 13, Sending Out the Twelve:** "Freely you have received; freely give"; count the two sparrows
+- [ ] **Ch 14, Bread and Steps on the Sea:** count the 5 loaves and 2 fish; Peter walks on the water in a storm; "I am the bread of life"
+- [ ] **Ch 15, You Are the Christ:** the rock cliff at Caesarea Philippi; find it far in the north on the map
+- [ ] **Ch 16, The Transfiguration:** Jesus shines white beside Moses and Elijah; the note says the mountain isn't named
+- [ ] **Ch 17, Mary and Martha:** a short chapter, one scene
+- [ ] **Ch 18, Raising Lazarus:** "I am the resurrection and the life"; "Jesus wept"; Lazarus comes out. Check it feels hopeful rather than sad or scary
+- [ ] **Ch 19, Zacchaeus:** find Zacchaeus hiding in the sycamore tree; find Jericho on the map
+
+**Questions for you**
+- Was anything too frightening for little ones (the storm, the evil spirits, Lazarus' tomb)?
+- Chapter 17 is short (one scene) and Chapter 18 is longer (three). Is that balance OK?

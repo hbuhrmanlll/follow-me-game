@@ -1,0 +1,287 @@
+{
+  "id": "ch12",
+  "number": 12,
+  "title": "Do Not Be Afraid; Just Believe",
+  "passage": "Mark 5:21-43",
+  "scenes": [
+    {
+      "id": "ch12-s1",
+      "title": "Who Touched Me?",
+      "location": "capernaum",
+      "timeOfDay": "midday",
+      "passage": "Mark 5:21-34",
+      "lines": [
+        {
+          "id": "ch12-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:21-22"
+        },
+        {
+          "id": "ch12-s1-02",
+          "speaker": "jairus",
+          "type": "scripture",
+          "ref": "Mark 5:23",
+          "quote": {
+            "bsb": [
+              "My little daughter is near death. Please come and place Your hands on her, so that she will be healed and live."
+            ],
+            "kjv": [
+              "My little daughter lieth at the point of death: I pray thee, come and lay thy hands on her, that she may be healed; and she shall live."
+            ]
+          }
+        },
+        {
+          "id": "ch12-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:24"
+        },
+        {
+          "id": "ch12-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:25-27"
+        },
+        {
+          "id": "ch12-s1-05",
+          "speaker": "healed-woman",
+          "type": "scripture",
+          "ref": "Mark 5:28",
+          "quote": {
+            "bsb": [
+              "If only I touch His garments, I will be healed."
+            ],
+            "kjv": [
+              "If I may touch but his clothes, I shall be whole."
+            ]
+          }
+        },
+        {
+          "id": "ch12-s1-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:29"
+        },
+        {
+          "id": "ch12-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:30",
+          "quote": {
+            "bsb": [
+              "Who touched My garments?"
+            ],
+            "kjv": [
+              "Who touched my clothes?"
+            ]
+          }
+        },
+        {
+          "id": "ch12-s1-08",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "Mark 5:31",
+          "quote": {
+            "bsb": [
+              "You can see the crowd pressing in on You, and yet You ask, ‘Who touched Me?’"
+            ],
+            "kjv": [
+              "Thou seest the multitude thronging thee, and sayest thou, Who touched me?"
+            ]
+          }
+        },
+        {
+          "id": "ch12-s1-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:33"
+        },
+        {
+          "id": "ch12-s1-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:34",
+          "quote": {
+            "bsb": [
+              "Daughter",
+              "your faith has healed you. Go in peace and be free of your affliction."
+            ],
+            "kjv": [
+              "Daughter, thy faith hath made thee whole; go in peace, and be whole of thy plague."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "What did the woman touch?",
+        "choices": [
+          {
+            "text": "Jesus' cloak",
+            "correct": true,
+            "icon": "🧥"
+          },
+          {
+            "text": "Jesus' hand",
+            "icon": "✋"
+          },
+          {
+            "text": "Jairus' shoulder",
+            "icon": "👤"
+          }
+        ],
+        "hint": "She came up behind Jesus in the crowd.",
+        "ref": "Mark 5:27"
+      }
+    },
+    {
+      "id": "ch12-s2",
+      "title": "Little Girl, Get Up!",
+      "location": "capernaum",
+      "timeOfDay": "dusk",
+      "passage": "Mark 5:35-43",
+      "lines": [
+        {
+          "id": "ch12-s2-01",
+          "speaker": "messengers",
+          "type": "scripture",
+          "ref": "Mark 5:35",
+          "quote": {
+            "bsb": [
+              "Your daughter is dead; why bother the Teacher anymore?"
+            ],
+            "kjv": [
+              "Thy daughter is dead: why troublest thou the Master any further?"
+            ]
+          }
+        },
+        {
+          "id": "ch12-s2-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:36",
+          "quote": {
+            "bsb": [
+              "Do not be afraid; just believe."
+            ],
+            "kjv": [
+              "Be not afraid, only believe."
+            ]
+          }
+        },
+        {
+          "id": "ch12-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:37"
+        },
+        {
+          "id": "ch12-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:39",
+          "quote": {
+            "bsb": [
+              "Why all this commotion and weeping?",
+              "The child is not dead, but asleep."
+            ],
+            "kjv": [
+              "Why make ye this ado, and weep? the damsel is not dead, but sleepeth."
+            ]
+          }
+        },
+        {
+          "id": "ch12-s2-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:40"
+        },
+        {
+          "id": "ch12-s2-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:41",
+          "quote": {
+            "bsb": [
+              "Talitha koum!",
+              "Little girl, I say to you, get up!"
+            ],
+            "kjv": [
+              "Talitha cumi;",
+              "Damsel, I say unto thee, arise."
+            ]
+          }
+        },
+        {
+          "id": "ch12-s2-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:42-43"
+        }
+      ],
+      "companions": [
+        "peter",
+        "james",
+        "john"
+      ],
+      "puzzles": [
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "Mark 5:36",
+          "blank": {
+            "bsb": "believe",
+            "kjv": "believe"
+          },
+          "decoys": [
+            "wait",
+            "worry",
+            "run"
+          ],
+          "hint": "Jesus told Jairus to trust Him.",
+          "quote": {
+            "bsb": [
+              "Do not be afraid; just believe."
+            ],
+            "kjv": [
+              "Be not afraid, only believe."
+            ]
+          }
+        },
+        {
+          "type": "count",
+          "prompt": "Jairus' daughter was twelve years old. The woman had been sick for twelve years.",
+          "items": [
+            {
+              "icon": "🕯️",
+              "n": 12
+            }
+          ],
+          "question": "How many years old was the girl?",
+          "answer": 12,
+          "hint": "Count again, one at a time.",
+          "ref": "Mark 5:42"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Mark 5:36",
+    "quote": {
+      "bsb": [
+        "Do not be afraid; just believe."
+      ],
+      "kjv": [
+        "Be not afraid, only believe."
+      ]
+    }
+  },
+  "reflect": "Jesus stopped for a hurting woman, and He didn't give up on Jairus' little girl. He has time for everyone.",
+  "discuss": [
+    "Jesus stopped on the way to help someone else. How do you think Jairus felt while he waited?",
+    "Jesus called the woman “Daughter.” What does that tell us about how He saw her?",
+    "When the messengers said it was too late, Jesus said “Just believe.” When is it hard to keep believing?"
+  ],
+  "prayer": "Jesus, thank You for caring about every person. When things look hopeless, help us not be afraid, but just believe. Amen."
+}

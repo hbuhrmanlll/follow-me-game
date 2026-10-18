@@ -1,0 +1,164 @@
+{
+  "id": "ch17",
+  "number": 17,
+  "title": "Mary and Martha",
+  "passage": "Luke 10:38-42",
+  "scenes": [
+    {
+      "id": "ch17-s1",
+      "title": "The Good Portion",
+      "location": "bethany",
+      "timeOfDay": "midday",
+      "passage": "Luke 10:38-42",
+      "note": "Luke just says “a village.” John 11 tells us that Mary and Martha lived in Bethany, near Jerusalem.",
+      "lines": [
+        {
+          "id": "ch17-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 10:38-39"
+        },
+        {
+          "id": "ch17-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 10:40",
+          "quote": {
+            "bsb": [
+              "But Martha was distracted by all the preparations to be made. She came to Jesus and said,"
+            ],
+            "kjv": [
+              "But Martha was cumbered about much serving, and came to him, and said,"
+            ]
+          }
+        },
+        {
+          "id": "ch17-s1-03",
+          "speaker": "martha",
+          "type": "scripture",
+          "ref": "Luke 10:40",
+          "quote": {
+            "bsb": [
+              "Lord, do You not care that my sister has left me to serve alone? Tell her to help me!"
+            ],
+            "kjv": [
+              "Lord, dost thou not care that my sister hath left me to serve alone? bid her therefore that she help me."
+            ]
+          }
+        },
+        {
+          "id": "ch17-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 10:41",
+          "quote": {
+            "bsb": [
+              "Martha, Martha",
+              "you are worried and upset about many things."
+            ],
+            "kjv": [
+              "Martha, Martha, thou art careful and troubled about many things:"
+            ]
+          }
+        },
+        {
+          "id": "ch17-s1-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 10:42",
+          "quote": {
+            "bsb": [
+              "But only one thing is necessary. Mary has chosen the good portion, and it will not be taken away from her."
+            ],
+            "kjv": [
+              "But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her."
+            ]
+          }
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "What did Mary choose to do?",
+          "choices": [
+            {
+              "text": "Sit at Jesus' feet and listen",
+              "correct": true,
+              "icon": "👂"
+            },
+            {
+              "text": "Cook a big dinner",
+              "icon": "🍲"
+            },
+            {
+              "text": "Go to the market",
+              "icon": "🛒"
+            }
+          ],
+          "hint": "Jesus said Mary chose the good portion.",
+          "ref": "Luke 10:39"
+        },
+        {
+          "type": "whoSaid",
+          "prompt": "Who said it?",
+          "ref": "Luke 10:40-42",
+          "pairs": [
+            {
+              "speaker": "martha",
+              "ref": "Luke 10:40",
+              "quote": {
+                "bsb": [
+                  "Tell her to help me!"
+                ],
+                "kjv": [
+                  "bid her therefore that she help me."
+                ]
+              }
+            },
+            {
+              "speaker": "jesus",
+              "ref": "Luke 10:42",
+              "quote": {
+                "bsb": [
+                  "But only one thing is necessary."
+                ],
+                "kjv": [
+                  "But one thing is needful:"
+                ]
+              }
+            }
+          ],
+          "hint": "One was busy serving; one was teaching."
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Luke 10:42",
+    "quote": {
+      "bsb": [
+        "But only one thing is necessary. Mary has chosen the good portion, and it will not be taken away from her."
+      ],
+      "kjv": [
+        "But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "only one thing is necessary"
+        ],
+        "kjv": [
+          "one thing is needful"
+        ]
+      }
+    }
+  },
+  "reflect": "Serving is good, but listening to Jesus comes first.",
+  "discuss": [
+    "Martha was busy doing good things. Why did Jesus say Mary chose the better part?",
+    "What things keep you busy and “worried and upset”?",
+    "When could your family make time to sit and listen to Jesus together?"
+  ],
+  "prayer": "Lord Jesus, when we are busy and worried, help us stop and listen to You. You are the one thing we need. Amen."
+}

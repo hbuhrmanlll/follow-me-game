@@ -1,0 +1,191 @@
+{
+  "id": "ch15",
+  "number": 15,
+  "title": "You Are the Christ",
+  "passage": "Matthew 16:13-20",
+  "scenes": [
+    {
+      "id": "ch15-s1",
+      "title": "Who Do You Say I Am?",
+      "location": "caesarea-philippi",
+      "timeOfDay": "midday",
+      "passage": "Matthew 16:13-20",
+      "lines": [
+        {
+          "id": "ch15-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 16:13",
+          "quote": {
+            "bsb": [
+              "When Jesus came to the region of Caesarea Philippi, He questioned His disciples:"
+            ],
+            "kjv": [
+              "When Jesus came into the coasts of Cesarea Philippi, he asked his disciples, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch15-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 16:13",
+          "quote": {
+            "bsb": [
+              "Who do people say the Son of Man is?"
+            ],
+            "kjv": [
+              "Whom do men say that I the Son of man am?"
+            ]
+          }
+        },
+        {
+          "id": "ch15-s1-03",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "Matthew 16:14",
+          "quote": {
+            "bsb": [
+              "Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets."
+            ],
+            "kjv": [
+              "Some say that thou art John the Baptist: some, Elias; and others, Jeremias, or one of the prophets."
+            ]
+          }
+        },
+        {
+          "id": "ch15-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 16:15",
+          "quote": {
+            "bsb": [
+              "But what about you?",
+              "Who do you say I am?"
+            ],
+            "kjv": [
+              "But whom say ye that I am?"
+            ]
+          }
+        },
+        {
+          "id": "ch15-s1-05",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 16:16",
+          "quote": {
+            "bsb": [
+              "You are the Christ, the Son of the living God."
+            ],
+            "kjv": [
+              "Thou art the Christ, the Son of the living God."
+            ]
+          }
+        },
+        {
+          "id": "ch15-s1-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 16:17",
+          "quote": {
+            "bsb": [
+              "Blessed are you, Simon son of Jonah! For this was not revealed to you by flesh and blood, but by My Father in heaven."
+            ],
+            "kjv": [
+              "for flesh and blood hath not revealed it unto thee, but my Father which is in heaven."
+            ]
+          }
+        },
+        {
+          "id": "ch15-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 16:18"
+        },
+        {
+          "id": "ch15-s1-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 16:20"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "whoSaid",
+          "prompt": "Who said it?",
+          "ref": "Matthew 16:13-16",
+          "pairs": [
+            {
+              "speaker": "disciples",
+              "ref": "Matthew 16:14",
+              "quote": {
+                "bsb": [
+                  "Some say John the Baptist; others say Elijah"
+                ],
+                "kjv": [
+                  "Some say that thou art John the Baptist: some, Elias"
+                ]
+              }
+            },
+            {
+              "speaker": "jesus",
+              "ref": "Matthew 16:15",
+              "quote": {
+                "bsb": [
+                  "Who do you say I am?"
+                ],
+                "kjv": [
+                  "But whom say ye that I am?"
+                ]
+              }
+            },
+            {
+              "speaker": "peter",
+              "ref": "Matthew 16:16",
+              "quote": {
+                "bsb": [
+                  "You are the Christ, the Son of the living God."
+                ],
+                "kjv": [
+                  "Thou art the Christ, the Son of the living God."
+                ]
+              }
+            }
+          ],
+          "hint": "Peter answered for himself."
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Tap Caesarea Philippi, far in the north near Mount Hermon.",
+          "target": "caesarea-philippi",
+          "choices": [
+            "caesarea-philippi",
+            "capernaum",
+            "nazareth",
+            "jerusalem"
+          ],
+          "hint": "It's the farthest north of all, above the Sea of Galilee.",
+          "ref": "Matthew 16:13"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 16:16",
+    "quote": {
+      "bsb": [
+        "You are the Christ, the Son of the living God."
+      ],
+      "kjv": [
+        "Thou art the Christ, the Son of the living God."
+      ]
+    }
+  },
+  "reflect": "Jesus asks each of us the same question He asked Peter: “Who do you say I am?”",
+  "discuss": [
+    "People had many ideas about who Jesus was. What do people say about Jesus today?",
+    "How would you answer Jesus' question, “Who do you say I am?”",
+    "Jesus said Peter learned this from the Father in heaven. How does God help us know who Jesus is?"
+  ],
+  "prayer": "Father in heaven, help us know that Jesus is the Christ, the Son of the living God, and say so with Peter. Amen."
+}

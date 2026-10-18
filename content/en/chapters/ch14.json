@@ -1,0 +1,430 @@
+{
+  "id": "ch14",
+  "number": 14,
+  "title": "Bread for Thousands and Steps on the Sea",
+  "passage": "John 6:1-59",
+  "scenes": [
+    {
+      "id": "ch14-s1",
+      "title": "Five Loaves and Two Fish",
+      "location": "hillside",
+      "timeOfDay": "midday",
+      "passage": "John 6:1-14",
+      "lines": [
+        {
+          "id": "ch14-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 6:1-3"
+        },
+        {
+          "id": "ch14-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 6:5",
+          "quote": {
+            "bsb": [
+              "Where can we buy bread for these people to eat?"
+            ],
+            "kjv": [
+              "Whence shall we buy bread, that these may eat?"
+            ]
+          }
+        },
+        {
+          "id": "ch14-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 6:6"
+        },
+        {
+          "id": "ch14-s1-04",
+          "speaker": "philip",
+          "type": "scripture",
+          "ref": "John 6:7",
+          "quote": {
+            "bsb": [
+              "Two hundred denarii would not buy enough bread for each of them to have a small piece."
+            ],
+            "kjv": [
+              "Two hundred pennyworth of bread is not sufficient for them, that every one of them may take a little."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s1-05",
+          "speaker": "andrew",
+          "type": "scripture",
+          "ref": "John 6:9",
+          "quote": {
+            "bsb": [
+              "Here is a boy with five barley loaves and two small fish. But what difference will these make among so many?"
+            ],
+            "kjv": [
+              "There is a lad here, which hath five barley loaves, and two small fishes: but what are they among so many?"
+            ]
+          }
+        },
+        {
+          "id": "ch14-s1-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 6:10",
+          "quote": {
+            "bsb": [
+              "Have the people sit down"
+            ],
+            "kjv": [
+              "Make the men sit down."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s1-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 6:10",
+          "quote": {
+            "bsb": [
+              "Now there was plenty of grass in that place, so the men sat down, about five thousand of them."
+            ],
+            "kjv": [
+              "Now there was much grass in the place. So the men sat down, in number about five thousand."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s1-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 6:11"
+        },
+        {
+          "id": "ch14-s1-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 6:12",
+          "quote": {
+            "bsb": [
+              "Gather the pieces that are left over, so that nothing will be wasted."
+            ],
+            "kjv": [
+              "Gather up the fragments that remain, that nothing be lost."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s1-10",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 6:13"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "count",
+          "prompt": "The boy had a small lunch.",
+          "items": [
+            {
+              "icon": "🍞",
+              "n": 5
+            },
+            {
+              "icon": "🐟",
+              "n": 2
+            }
+          ],
+          "question": "How many loaves and fish did the boy have in all?",
+          "answer": 7,
+          "hint": "Count the loaves, then the fish.",
+          "ref": "John 6:9"
+        },
+        {
+          "type": "multipleChoice",
+          "prompt": "How many baskets of leftovers did they gather?",
+          "choices": [
+            {
+              "text": "Twelve",
+              "correct": true,
+              "icon": "🧺"
+            },
+            {
+              "text": "Two",
+              "icon": "🍞"
+            },
+            {
+              "text": "Five",
+              "icon": "🐟"
+            }
+          ],
+          "hint": "There was one basket for each of the Twelve.",
+          "ref": "John 6:13"
+        }
+      ]
+    },
+    {
+      "id": "ch14-s2",
+      "title": "Take Courage! It Is I",
+      "location": "sea-of-galilee",
+      "timeOfDay": "night",
+      "passage": "Matthew 14:22-33",
+      "lines": [
+        {
+          "id": "ch14-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 14:22-23"
+        },
+        {
+          "id": "ch14-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 14:24-25"
+        },
+        {
+          "id": "ch14-s2-03",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "Matthew 14:26",
+          "quote": {
+            "bsb": [
+              "It’s a ghost!"
+            ],
+            "kjv": [
+              "It is a spirit;"
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 14:27",
+          "quote": {
+            "bsb": [
+              "Take courage! It is I. Do not be afraid."
+            ],
+            "kjv": [
+              "Be of good cheer; it is I; be not afraid."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-05",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 14:28",
+          "quote": {
+            "bsb": [
+              "Lord, if it is You",
+              "command me to come to You on the water."
+            ],
+            "kjv": [
+              "Lord, if it be thou, bid me come unto thee on the water."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 14:29",
+          "quote": {
+            "bsb": [
+              "Come"
+            ],
+            "kjv": [
+              "Come."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 14:29",
+          "quote": {
+            "bsb": [
+              "Then Peter got down out of the boat, walked on the water, and came toward Jesus."
+            ],
+            "kjv": [
+              "And when Peter was come down out of the ship, he walked on the water, to go to Jesus."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 14:30",
+          "quote": {
+            "bsb": [
+              "But when he saw the strength of the wind, he was afraid, and beginning to sink, cried out,"
+            ],
+            "kjv": [
+              "But when he saw the wind boisterous, he was afraid; and beginning to sink, he cried, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-09",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 14:30",
+          "quote": {
+            "bsb": [
+              "Lord, save me!"
+            ],
+            "kjv": [
+              "Lord, save me."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 14:31",
+          "quote": {
+            "bsb": [
+              "You of little faith",
+              "why did you doubt?"
+            ],
+            "kjv": [
+              "O thou of little faith, wherefore didst thou doubt?"
+            ]
+          }
+        },
+        {
+          "id": "ch14-s2-11",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "Matthew 14:33",
+          "quote": {
+            "bsb": [
+              "Truly You are the Son of God!"
+            ],
+            "kjv": [
+              "Of a truth thou art the Son of God."
+            ]
+          }
+        }
+      ],
+      "weather": "storm",
+      "puzzle": {
+        "type": "eventOrder",
+        "prompt": "Put Peter's walk on the water in order.",
+        "ref": "Matthew 14:28-32",
+        "events": [
+          {
+            "text": "Peter steps out of the boat",
+            "icon": "🚣",
+            "ref": "Matthew 14:29"
+          },
+          {
+            "text": "Peter sees the wind and is afraid",
+            "icon": "🌬️",
+            "ref": "Matthew 14:30"
+          },
+          {
+            "text": "Peter cries, “Lord, save me!”",
+            "icon": "🙏",
+            "ref": "Matthew 14:30"
+          },
+          {
+            "text": "Jesus takes hold of Peter",
+            "icon": "🤝",
+            "ref": "Matthew 14:31"
+          }
+        ],
+        "hint": "Peter walked first, then he looked at the wind."
+      }
+    },
+    {
+      "id": "ch14-s3",
+      "title": "The Bread of Life",
+      "location": "capernaum",
+      "timeOfDay": "midday",
+      "passage": "John 6:35-59",
+      "lines": [
+        {
+          "id": "ch14-s3-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "The next day, the crowds found Jesus again. They wanted more bread, but Jesus wanted to give them more than bread."
+        },
+        {
+          "id": "ch14-s3-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 6:35",
+          "quote": {
+            "bsb": [
+              "I am the bread of life. Whoever comes to Me will never hunger, and whoever believes in Me will never thirst."
+            ],
+            "kjv": [
+              "I am the bread of life: he that cometh to me shall never hunger; and he that believeth on me shall never thirst."
+            ]
+          }
+        },
+        {
+          "id": "ch14-s3-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 6:59"
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "John 6:35",
+        "blank": {
+          "bsb": "bread",
+          "kjv": "bread"
+        },
+        "decoys": [
+          "light",
+          "king",
+          "fish"
+        ],
+        "hint": "Jesus is what our souls need, like food for our bodies.",
+        "quote": {
+          "bsb": [
+            "I am the bread of life."
+          ],
+          "kjv": [
+            "I am the bread of life:"
+          ]
+        }
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 6:35",
+    "quote": {
+      "bsb": [
+        "I am the bread of life. Whoever comes to Me will never hunger, and whoever believes in Me will never thirst."
+      ],
+      "kjv": [
+        "I am the bread of life: he that cometh to me shall never hunger; and he that believeth on me shall never thirst."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "I am the bread of life."
+        ],
+        "kjv": [
+          "I am the bread of life:"
+        ]
+      }
+    }
+  },
+  "reflect": "A boy's small lunch fed thousands in Jesus' hands. When Peter began to sink, Jesus caught him right away.",
+  "discuss": [
+    "The boy gave his small lunch to Jesus. What small thing could you give to Jesus?",
+    "Peter walked on the water while he looked at Jesus. What happened when he looked at the wind?",
+    "Jesus said He is the bread of life. What do you think He meant?"
+  ],
+  "prayer": "Jesus, You are the bread of life. Take the little we have and use it. When we start to sink, hold on to us. Amen."
+}

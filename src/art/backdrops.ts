@@ -25,6 +25,7 @@ const LAND: Record<string, { far: number; mid: number; near: number }> = {
   well: { far: 0xb0a07a, mid: 0x8f8a52, near: 0x6f7a42 },
   lake: { far: 0x7f9a8a, mid: 0x5f8a5a, near: 0x8a7a5a },
   mountain: { far: 0x8aa07a, mid: 0x6a9050, near: 0x4f7a3a },
+  cliff: { far: 0x9a9a8a, mid: 0x6f8a52, near: 0x4f7a3a },
 };
 
 export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOfDay = 'dawn'): Layer[] {
@@ -51,6 +52,8 @@ export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOf
     layers.push({ obj: boats(scene, tint(0x6a4a2a)), speed: 0 });
     layers.push({ obj: shore(scene, tint(land.near)), speed: 0 });
     return layers;
+  } else if (backdrop === 'cliff') {
+    layers.push({ obj: cliff(scene, tint(0x9a8a7a)), speed: 0 });
   } else if (backdrop === 'mountain') {
     layers.push({ obj: bigHill(scene, tint(land.mid)), speed: 0 });
   } else if (backdrop === 'galilee') {
@@ -284,5 +287,21 @@ function bigHill(scene: Phaser.Scene, grass: number): Phaser.GameObjects.Graphic
     const y = 420 + ((i * 29) % 70);
     g.fillStyle([0xb5432f, 0x3a6aa8, 0xd9c9a0, 0x7a4a8a][i % 4], 0.8).fillCircle(x, y, 5);
   }
+  return g;
+}
+
+// A tall rock cliff with a cave, like the one at Caesarea Philippi.
+function cliff(scene: Phaser.Scene, rock: number): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  const dark = Phaser.Display.Color.ValueToColor(rock).darken(20).color;
+  g.fillStyle(rock, 1).fillPoints([
+    { x: W * 0.45, y: 520 }, { x: W * 0.48, y: 200 }, { x: W * 0.58, y: 150 }, { x: W * 0.75, y: 170 },
+    { x: W * 0.9, y: 140 }, { x: W, y: 180 }, { x: W, y: 520 },
+  ], true);
+  g.fillStyle(dark, 1).fillEllipse(W * 0.68, 380, 160, 200); // the cave
+  g.lineStyle(3, dark, 0.6);
+  for (let i = 0; i < 8; i++) g.lineBetween(W * (0.5 + i * 0.06), 180 + (i % 3) * 20, W * (0.52 + i * 0.06), 480);
+  g.fillStyle(0x6fa6c2, 1).fillEllipse(W * 0.66, 510, 260, 30); // the spring below
   return g;
 }

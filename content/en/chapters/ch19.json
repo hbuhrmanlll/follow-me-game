@@ -1,0 +1,170 @@
+{
+  "id": "ch19",
+  "number": 19,
+  "title": "Zacchaeus",
+  "passage": "Luke 19:1-10",
+  "scenes": [
+    {
+      "id": "ch19-s1",
+      "title": "Up a Sycamore Tree",
+      "location": "jericho",
+      "timeOfDay": "midday",
+      "passage": "Luke 19:1-10",
+      "lines": [
+        {
+          "id": "ch19-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 19:1-2"
+        },
+        {
+          "id": "ch19-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 19:3-4"
+        },
+        {
+          "id": "ch19-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 19:5",
+          "quote": {
+            "bsb": [
+              "Zacchaeus, hurry down, for I must stay at your house today."
+            ],
+            "kjv": [
+              "Zaccheus, make haste, and come down; for to day I must abide at thy house."
+            ]
+          }
+        },
+        {
+          "id": "ch19-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 19:6"
+        },
+        {
+          "id": "ch19-s1-05",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "Luke 19:7",
+          "quote": {
+            "bsb": [
+              "He has gone to be the guest of a sinful man!"
+            ],
+            "kjv": [
+              "That he was gone to be guest with a man that is a sinner."
+            ]
+          }
+        },
+        {
+          "id": "ch19-s1-06",
+          "speaker": "zacchaeus",
+          "type": "scripture",
+          "ref": "Luke 19:8",
+          "quote": {
+            "bsb": [
+              "Look, Lord, half of my possessions I give to the poor, and if I have cheated anyone, I will repay it fourfold."
+            ],
+            "kjv": [
+              "Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold."
+            ]
+          }
+        },
+        {
+          "id": "ch19-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 19:9-10",
+          "quote": {
+            "bsb": [
+              "Today salvation has come to this house, because this man too is a son of Abraham. For the Son of Man came to seek and to save the lost."
+            ],
+            "kjv": [
+              "This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost."
+            ]
+          }
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "findHidden",
+          "prompt": "Zacchaeus was too short to see over the crowd. Can you find him?",
+          "hide": "zacchaeus",
+          "spot": "🌳",
+          "others": [
+            "🏠",
+            "🐫",
+            "🧺"
+          ],
+          "hint": "He climbed up a sycamore tree.",
+          "ref": "Luke 19:4"
+        },
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "Luke 19:10",
+          "blank": {
+            "bsb": "lost",
+            "kjv": "lost"
+          },
+          "decoys": [
+            "rich",
+            "tall",
+            "busy"
+          ],
+          "hint": "Jesus came looking for people who were far from God.",
+          "quote": {
+            "bsb": [
+              "For the Son of Man came to seek and to save the lost."
+            ],
+            "kjv": [
+              "For the Son of man is come to seek and to save that which was lost."
+            ]
+          }
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Tap Jericho, the city of palm trees near the Jordan River.",
+          "target": "jericho",
+          "choices": [
+            "jericho",
+            "jerusalem",
+            "nazareth",
+            "capernaum"
+          ],
+          "hint": "Jericho is in the Jordan valley, north of the Dead Sea.",
+          "ref": "Luke 19:1"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Luke 19:10",
+    "quote": {
+      "bsb": [
+        "For the Son of Man came to seek and to save the lost."
+      ],
+      "kjv": [
+        "For the Son of man is come to seek and to save that which was lost."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "to seek and to save the lost"
+        ],
+        "kjv": [
+          "to seek and to save that which was lost"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus called Zacchaeus by name. Meeting Jesus changed his heart, and he made things right.",
+  "discuss": [
+    "Why did people grumble when Jesus went to Zacchaeus' house?",
+    "How did Zacchaeus change after Jesus came to his house?",
+    "Is there something you need to make right with someone? How could you do it?"
+  ],
+  "prayer": "Jesus, thank You for coming to seek and save the lost. Change our hearts like You changed Zacchaeus. Amen."
+}

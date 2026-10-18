@@ -247,7 +247,7 @@ appear in every later scene. Each disciple needs `"disciple": true` in `characte
 ## Adding a new place
 
 1. In `content/en/locations.json`, add the name, region and summary. Add `"backdrop"` only if a
-   scene happens there. Backgrounds so far: `jordan`, `wilderness`, `jerusalem`, `galilee`, `village`, `well`, `lake`, `mountain`.
+   scene happens there. Backgrounds so far: `jordan`, `wilderness`, `jerusalem`, `galilee`, `village`, `well`, `lake`, `mountain`, `cliff`.
 2. In `content/map.json`, under `"places"`, add `[latitude, longitude]`. You can look these up on
    any online map; for example Capernaum is `[32.88, 35.575]`.
 
@@ -263,6 +263,13 @@ Each chapter has:
 
 Disciples who have joined appear in later scenes automatically. When the Bible says they weren't
 there (for example John 4:8: they had gone into town to buy food), add `"companions": false` to the scene.
+When only some were there, list them: `"companions": ["peter", "james", "john"]` (Mark 5:37).
+
+## Other scene options
+
+- `"extras": ["moses", "elijah"]`: people who are there but don't speak
+- `"weather": "storm"`: wind, rain and lightning (the storm on the sea)
+- `"effect": "transfigure"`: Jesus shines with white light (Matthew 17:2)
 
 ## If something goes wrong
 

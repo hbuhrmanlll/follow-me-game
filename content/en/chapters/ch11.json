@@ -1,0 +1,351 @@
+{
+  "id": "ch11",
+  "number": 11,
+  "title": "Even the Wind and the Sea Obey Him",
+  "passage": "Mark 4:35-5:20",
+  "scenes": [
+    {
+      "id": "ch11-s1",
+      "title": "Peace, Be Still",
+      "location": "sea-of-galilee",
+      "timeOfDay": "night",
+      "passage": "Mark 4:35-41",
+      "lines": [
+        {
+          "id": "ch11-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "One evening, after a long day of teaching by the sea, Jesus and His disciples got into a boat."
+        },
+        {
+          "id": "ch11-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 4:35",
+          "quote": {
+            "bsb": [
+              "Let us cross to the other side."
+            ],
+            "kjv": [
+              "Let us pass over unto the other side."
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 4:37"
+        },
+        {
+          "id": "ch11-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 4:38",
+          "quote": {
+            "bsb": [
+              "But Jesus was in the stern, sleeping on the cushion."
+            ],
+            "kjv": [
+              "And he was in the hinder part of the ship, asleep on a pillow:"
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-05",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "Mark 4:38",
+          "quote": {
+            "bsb": [
+              "Teacher, don’t You care that we are perishing?"
+            ],
+            "kjv": [
+              "Master, carest thou not that we perish?"
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 4:39",
+          "quote": {
+            "bsb": [
+              "Then Jesus got up and rebuked the wind and the sea."
+            ],
+            "kjv": [
+              "And he arose, and rebuked the wind, and said unto the sea,"
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 4:39",
+          "quote": {
+            "bsb": [
+              "Silence!",
+              "Be still!"
+            ],
+            "kjv": [
+              "Peace, be still."
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 4:39",
+          "quote": {
+            "bsb": [
+              "And the wind died down, and it was perfectly calm."
+            ],
+            "kjv": [
+              "And the wind ceased, and there was a great calm."
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 4:40",
+          "quote": {
+            "bsb": [
+              "Why are you so afraid?",
+              "Do you still have no faith?"
+            ],
+            "kjv": [
+              "Why are ye so fearful? how is it that ye have no faith?"
+            ]
+          }
+        },
+        {
+          "id": "ch11-s1-10",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "Mark 4:41",
+          "quote": {
+            "bsb": [
+              "Who is this, that even the wind and the sea obey Him?"
+            ],
+            "kjv": [
+              "What manner of man is this, that even the wind and the sea obey him?"
+            ]
+          }
+        }
+      ],
+      "weather": "storm",
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "What happened when Jesus spoke to the wind and the waves?",
+          "choices": [
+            {
+              "text": "They obeyed Him and it became calm",
+              "correct": true,
+              "icon": "😌"
+            },
+            {
+              "text": "The storm got worse",
+              "icon": "⛈️"
+            },
+            {
+              "text": "The boat sank",
+              "icon": "🌊"
+            }
+          ],
+          "hint": "Listen to what the disciples asked each other at the end.",
+          "ref": "Mark 4:39-41"
+        },
+        {
+          "type": "whoSaid",
+          "prompt": "Who said it?",
+          "ref": "Mark 4:38-40",
+          "pairs": [
+            {
+              "speaker": "disciples",
+              "ref": "Mark 4:38",
+              "quote": {
+                "bsb": [
+                  "Teacher, don’t You care that we are perishing?"
+                ],
+                "kjv": [
+                  "Master, carest thou not that we perish?"
+                ]
+              }
+            },
+            {
+              "speaker": "jesus",
+              "ref": "Mark 4:40",
+              "quote": {
+                "bsb": [
+                  "Why are you so afraid?"
+                ],
+                "kjv": [
+                  "Why are ye so fearful?"
+                ]
+              }
+            }
+          ],
+          "hint": "One was afraid; one was calm."
+        }
+      ]
+    },
+    {
+      "id": "ch11-s2",
+      "title": "Go Home and Tell",
+      "location": "gerasa",
+      "timeOfDay": "dawn",
+      "passage": "Mark 5:1-20",
+      "note": "Matthew 8:28 says there were two men and calls the place the region of the Gadarenes. Mark and Luke tell about one of them by name of the region of the Gerasenes. It was the same area on the east side of the sea.",
+      "lines": [
+        {
+          "id": "ch11-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:1-2"
+        },
+        {
+          "id": "ch11-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:3"
+        },
+        {
+          "id": "ch11-s2-03",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "For a long time he had been tormented by many evil spirits. But when he saw Jesus, he ran and fell on his knees."
+        },
+        {
+          "id": "ch11-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:8",
+          "quote": {
+            "bsb": [
+              "Come out of this man, you unclean spirit!"
+            ],
+            "kjv": [
+              "Come out of the man, thou unclean spirit."
+            ]
+          }
+        },
+        {
+          "id": "ch11-s2-05",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Jesus let the spirits go into a large herd of pigs nearby, and the herd rushed down the steep bank into the sea."
+        },
+        {
+          "id": "ch11-s2-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:15"
+        },
+        {
+          "id": "ch11-s2-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:17-18"
+        },
+        {
+          "id": "ch11-s2-08",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 5:19",
+          "quote": {
+            "bsb": [
+              "Go home to your own people",
+              "and tell them how much the Lord has done for you, and what mercy He has shown you."
+            ],
+            "kjv": [
+              "Go home to thy friends, and tell them how great things the Lord hath done for thee, and hath had compassion on thee."
+            ]
+          }
+        },
+        {
+          "id": "ch11-s2-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 5:20"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "mapFind",
+          "prompt": "The man told everyone in the Decapolis. Tap the region of the Gerasenes, on the east side of the sea.",
+          "target": "gerasa",
+          "choices": [
+            "gerasa",
+            "capernaum",
+            "nazareth",
+            "jerusalem"
+          ],
+          "hint": "It's across the Sea of Galilee from Capernaum, on the east shore.",
+          "ref": "Mark 5:1"
+        },
+        {
+          "type": "eventOrder",
+          "prompt": "Put the story in order.",
+          "ref": "Mark 4:35-5:20",
+          "events": [
+            {
+              "text": "Jesus sleeps in the boat during the storm",
+              "icon": "⛵",
+              "ref": "Mark 4:38"
+            },
+            {
+              "text": "Jesus calms the wind and the sea",
+              "icon": "😌",
+              "ref": "Mark 4:39"
+            },
+            {
+              "text": "Jesus frees the man from the evil spirits",
+              "icon": "🙌",
+              "ref": "Mark 5:8"
+            },
+            {
+              "text": "The man tells the Decapolis what Jesus did",
+              "icon": "📣",
+              "ref": "Mark 5:20"
+            }
+          ],
+          "hint": "It starts in the boat at night."
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Mark 4:41",
+    "quote": {
+      "bsb": [
+        "Who is this, that even the wind and the sea obey Him?"
+      ],
+      "kjv": [
+        "What manner of man is this, that even the wind and the sea obey him?"
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "even the wind and the sea obey Him"
+        ],
+        "kjv": [
+          "even the wind and the sea obey him"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus is stronger than storms and stronger than evil. We don't need to be afraid when He is with us.",
+  "discuss": [
+    "The disciples were terrified, but Jesus was asleep. Why do you think He could sleep in a storm?",
+    "What “storms” make you afraid? How can remembering this story help?",
+    "Jesus told the healed man to go home and tell his family what God had done. What has God done for your family?"
+  ],
+  "prayer": "Jesus, You calm the wind and the waves. When we are afraid, help us remember You are with us. Amen."
+}

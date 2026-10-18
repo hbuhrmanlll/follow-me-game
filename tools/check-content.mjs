@@ -82,7 +82,7 @@ function checkQuote(where, ref, quote) {
 const characters = readJson(`content/${LANG}/characters.json`) ?? {};
 const locations = readJson(`content/${LANG}/locations.json`) ?? {};
 const map = readJson('content/map.json') ?? { places: {} };
-const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee', 'village', 'well', 'lake', 'mountain'];
+const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee', 'village', 'well', 'lake', 'mountain', 'cliff'];
 
 for (const [id, loc] of Object.entries(locations)) {
   if (!map.places[id]) errors.push(`locations.json "${id}": has no position in content/map.json`);
@@ -109,6 +109,12 @@ for (const chId of chapterIds) {
     seenIds.add(sc.id);
     if (!locations[sc.location]) errors.push(`${where}: unknown location "${sc.location}"`);
     else if (!locations[sc.location].backdrop) errors.push(`${where}: location "${sc.location}" has no "backdrop" to draw`);
+    if (sc.companions !== undefined && sc.companions !== false && !(Array.isArray(sc.companions) && sc.companions.every((c) => characters[c]?.disciple))) {
+      errors.push(`${where}: "companions" must be false or a list of disciples`);
+    }
+    for (const x of sc.extras ?? []) if (!characters[x]) errors.push(`${where}: unknown extra "${x}"`);
+    if (sc.weather !== undefined && sc.weather !== 'storm') errors.push(`${where}: "weather" can only be "storm"`);
+    if (sc.effect !== undefined && sc.effect !== 'transfigure') errors.push(`${where}: "effect" can only be "transfigure"`);
     if (sc.note !== undefined && (typeof sc.note !== 'string' || !sc.note.trim())) errors.push(`${where}: "note" must be some text`);
     if (sc.passage) checkRef(`${where} passage`, sc.passage);
 

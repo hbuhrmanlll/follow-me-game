@@ -1,0 +1,453 @@
+{
+  "id": "ch18",
+  "number": 18,
+  "title": "Raising Lazarus",
+  "passage": "John 11:1-45",
+  "scenes": [
+    {
+      "id": "ch18-s1",
+      "title": "The One You Love Is Sick",
+      "location": "jordan",
+      "timeOfDay": "midday",
+      "passage": "John 11:1-16",
+      "lines": [
+        {
+          "id": "ch18-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Jesus was across the Jordan River, in the place where John had first baptized, when a message came."
+        },
+        {
+          "id": "ch18-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:1"
+        },
+        {
+          "id": "ch18-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:3"
+        },
+        {
+          "id": "ch18-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:4",
+          "quote": {
+            "bsb": [
+              "This sickness will not end in death. No, it is for the glory of God, so that the Son of God may be glorified through it."
+            ],
+            "kjv": [
+              "This sickness is not unto death, but for the glory of God, that the Son of God might be glorified thereby."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:5-6"
+        },
+        {
+          "id": "ch18-s1-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:7",
+          "quote": {
+            "bsb": [
+              "Let us go back to Judea."
+            ],
+            "kjv": [
+              "Let us go into Judea again."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s1-07",
+          "speaker": "thomas",
+          "type": "scripture",
+          "ref": "John 11:16",
+          "quote": {
+            "bsb": [
+              "Let us also go, so that we may die with Him."
+            ],
+            "kjv": [
+              "Let us also go, that we may die with him."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "When Jesus heard Lazarus was sick, how long did He stay where He was?",
+        "choices": [
+          {
+            "text": "Two days",
+            "correct": true,
+            "icon": "2️⃣"
+          },
+          {
+            "text": "Two hours",
+            "icon": "⏰"
+          },
+          {
+            "text": "Two weeks",
+            "icon": "📅"
+          }
+        ],
+        "hint": "Listen to John 11:6 again.",
+        "ref": "John 11:6"
+      }
+    },
+    {
+      "id": "ch18-s2",
+      "title": "I Am the Resurrection",
+      "location": "bethany",
+      "timeOfDay": "dusk",
+      "passage": "John 11:17-27",
+      "lines": [
+        {
+          "id": "ch18-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:17"
+        },
+        {
+          "id": "ch18-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:19-20"
+        },
+        {
+          "id": "ch18-s2-03",
+          "speaker": "martha",
+          "type": "scripture",
+          "ref": "John 11:21-22",
+          "quote": {
+            "bsb": [
+              "Lord, if You had been here, my brother would not have died. But even now I know that God will give You whatever You ask of Him."
+            ],
+            "kjv": [
+              "Lord, if thou hadst been here, my brother had not died. But I know, that even now, whatsoever thou wilt ask of God, God will give it thee."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:23",
+          "quote": {
+            "bsb": [
+              "Your brother will rise again"
+            ],
+            "kjv": [
+              "Thy brother shall rise again."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s2-05",
+          "speaker": "martha",
+          "type": "scripture",
+          "ref": "John 11:24",
+          "quote": {
+            "bsb": [
+              "I know that he will rise again in the resurrection at the last day."
+            ],
+            "kjv": [
+              "I know that he shall rise again in the resurrection at the last day."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s2-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:25-26",
+          "quote": {
+            "bsb": [
+              "I am the resurrection and the life. Whoever believes in Me will live, even though he dies. And everyone who lives and believes in Me will never die. Do you believe this?"
+            ],
+            "kjv": [
+              "I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this?"
+            ]
+          }
+        },
+        {
+          "id": "ch18-s2-07",
+          "speaker": "martha",
+          "type": "scripture",
+          "ref": "John 11:27",
+          "quote": {
+            "bsb": [
+              "Yes, Lord",
+              "I believe that You are the Christ, the Son of God, who was to come into the world."
+            ],
+            "kjv": [
+              "Yea, Lord: I believe that thou art the Christ, the Son of God, which should come into the world."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "John 11:25",
+        "blank": {
+          "bsb": "resurrection",
+          "kjv": "resurrection"
+        },
+        "decoys": [
+          "teacher",
+          "shepherd",
+          "doorway"
+        ],
+        "hint": "It means coming back to life.",
+        "quote": {
+          "bsb": [
+            "I am the resurrection and the life."
+          ],
+          "kjv": [
+            "I am the resurrection, and the life:"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch18-s3",
+      "title": "Lazarus, Come Out!",
+      "location": "bethany",
+      "timeOfDay": "midday",
+      "passage": "John 11:32-45",
+      "lines": [
+        {
+          "id": "ch18-s3-01",
+          "speaker": "mary-bethany",
+          "type": "scripture",
+          "ref": "John 11:32",
+          "quote": {
+            "bsb": [
+              "Lord, if You had been here, my brother would not have died."
+            ],
+            "kjv": [
+              "Lord, if thou hadst been here, my brother had not died."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:33"
+        },
+        {
+          "id": "ch18-s3-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:34",
+          "quote": {
+            "bsb": [
+              "Where have you put him?"
+            ],
+            "kjv": [
+              "Where have ye laid him?"
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:35"
+        },
+        {
+          "id": "ch18-s3-05",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "John 11:36",
+          "quote": {
+            "bsb": [
+              "See how He loved him!"
+            ],
+            "kjv": [
+              "Behold how he loved him!"
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:38"
+        },
+        {
+          "id": "ch18-s3-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:39",
+          "quote": {
+            "bsb": [
+              "Take away the stone"
+            ],
+            "kjv": [
+              "Take ye away the stone."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-08",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:40",
+          "quote": {
+            "bsb": [
+              "Did I not tell you that if you believed, you would see the glory of God?"
+            ],
+            "kjv": [
+              "Said I not unto thee, that, if thou wouldest believe, thou shouldest see the glory of God?"
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:41",
+          "quote": {
+            "bsb": [
+              "So they took away the stone. Then Jesus lifted His eyes upward and said,"
+            ],
+            "kjv": [
+              "Then they took away the stone from the place where the dead was laid. And Jesus lifted up his eyes, and said,"
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:41-42",
+          "quote": {
+            "bsb": [
+              "Father, I thank You that You have heard Me. I knew that You always hear Me, but I say this for the benefit of the people standing here, so they may believe that You sent Me."
+            ],
+            "kjv": [
+              "Father, I thank thee that thou hast heard me. And I knew that thou hearest me always: but because of the people which stand by I said it, that they may believe that thou hast sent me."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-11",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:43",
+          "quote": {
+            "bsb": [
+              "Lazarus, come out!"
+            ],
+            "kjv": [
+              "Lazarus, come forth."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-12",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:44",
+          "quote": {
+            "bsb": [
+              "The man who had been dead came out with his hands and feet bound in strips of linen, and his face wrapped in a cloth."
+            ],
+            "kjv": [
+              "And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-13",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 11:44",
+          "quote": {
+            "bsb": [
+              "Unwrap him and let him go"
+            ],
+            "kjv": [
+              "Loose him, and let him go."
+            ]
+          }
+        },
+        {
+          "id": "ch18-s3-14",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 11:45"
+        }
+      ],
+      "puzzle": {
+        "type": "eventOrder",
+        "prompt": "Put the story of Lazarus in order.",
+        "ref": "John 11:1-44",
+        "events": [
+          {
+            "text": "The sisters send word that Lazarus is sick",
+            "icon": "📨",
+            "ref": "John 11:3"
+          },
+          {
+            "text": "Jesus waits two more days",
+            "icon": "⏳",
+            "ref": "John 11:6"
+          },
+          {
+            "text": "Martha meets Jesus outside the village",
+            "icon": "🚶‍♀️",
+            "ref": "John 11:20"
+          },
+          {
+            "text": "Jesus weeps",
+            "icon": "😢",
+            "ref": "John 11:35"
+          },
+          {
+            "text": "Lazarus comes out of the tomb",
+            "icon": "🙌",
+            "ref": "John 11:44"
+          }
+        ],
+        "hint": "It begins with a message from the sisters."
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 11:25",
+    "quote": {
+      "bsb": [
+        "I am the resurrection and the life. Whoever believes in Me will live, even though he dies."
+      ],
+      "kjv": [
+        "I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live:"
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "I am the resurrection and the life."
+        ],
+        "kjv": [
+          "I am the resurrection, and the life:"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus wept with His friends, and then He showed He has power even over death.",
+  "discuss": [
+    "Jesus knew He would raise Lazarus, but He still wept. What does that tell us about how He feels when we are sad?",
+    "Martha said, “I believe that You are the Christ.” What does it mean to believe in Jesus?",
+    "Jesus said He is the resurrection and the life. Why is that good news for people who have lost someone they love?"
+  ],
+  "prayer": "Jesus, You are the resurrection and the life. Thank You for caring when we are sad. Help us believe in You. Amen."
+}

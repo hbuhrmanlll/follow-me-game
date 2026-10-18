@@ -82,6 +82,14 @@ function checkQuote(where, ref, quote) {
 const characters = readJson(`content/${LANG}/characters.json`) ?? {};
 const locations = readJson(`content/${LANG}/locations.json`) ?? {};
 const map = readJson('content/map.json') ?? { places: {} };
+const MOODS = ['peace', 'journey', 'night', 'sorrow', 'wonder', 'joy', 'storm'];
+const SFX = ['tap', 'correct', 'wrong', 'scroll', 'join', 'achievement', 'thunder', 'rumble', 'wind', 'chime'];
+const TIMES = ['dawn', 'midday', 'dusk', 'night'];
+const cutscenes = readJson(`content/${LANG}/cutscenes.json`) ?? {};
+for (const [id, cs] of Object.entries(cutscenes)) {
+  if (!cs.title) errors.push(`cutscenes.json "${id}": needs a "title"`);
+  checkRef(`cutscenes.json "${id}"`, cs.ref);
+}
 const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee', 'village', 'well', 'lake', 'mountain', 'cliff', 'olives', 'room', 'courtyard', 'golgotha', 'tomb', 'tomb-open'];
 
 for (const [id, loc] of Object.entries(locations)) {
@@ -118,6 +126,7 @@ for (const chId of chapterIds) {
     if (sc.staging !== undefined && sc.staging !== 'cross') errors.push(`${where}: "staging" can only be "cross"`);
     if (sc.weather !== undefined && sc.weather !== 'storm') errors.push(`${where}: "weather" can only be "storm"`);
     if (sc.effect !== undefined && sc.effect !== 'transfigure') errors.push(`${where}: "effect" can only be "transfigure"`);
+    if (sc.mood !== undefined && !MOODS.includes(sc.mood)) errors.push(`${where}: "mood" must be one of ${MOODS.join(', ')}`);
     if (sc.note !== undefined && (typeof sc.note !== 'string' || !sc.note.trim())) errors.push(`${where}: "note" must be some text`);
     if (sc.passage) checkRef(`${where} passage`, sc.passage);
 
@@ -139,6 +148,7 @@ for (const chId of chapterIds) {
       }
       for (const j of line.leaves ?? []) if (!characters[j]?.disciple) errors.push(`${lw}: "leaves" lists "${j}", who isn't a disciple`);
       if (line.action !== undefined && line.action !== 'ascend') errors.push(`${lw}: "action" can only be "ascend"`);
+      if (line.cutscene !== undefined && !cutscenes[line.cutscene]) errors.push(`${lw}: unknown cutscene "${line.cutscene}" (see content/${LANG}/cutscenes.json)`);
       for (const j of line.joins ?? []) {
         if (!characters[j]?.disciple) errors.push(`${lw}: "joins" lists "${j}", who isn't marked as a disciple in characters.json`);
       }
@@ -264,6 +274,43 @@ if (ending) {
   }
   if (!ending.invite || !ending.prayer) errors.push('ending.json: needs "invite" and "prayer"');
 }
+
+// Finished pictures, music and sound effects dropped into the project.
+const artCount = {};
+for (const kind of ['backdrops', 'portraits', 'figures']) {
+  const dir = path.join('content', 'art', kind);
+  artCount[kind] = 0;
+  if (!fs.existsSync(dir)) continue;
+  for (const f of fs.readdirSync(dir)) {
+    if (f.startsWith('.') || f === 'README.md') continue;
+    const where = `content/art/${kind}/${f}`;
+    const m = f.match(/^(.+)\.(png|jpg|jpeg|webp)$/);
+    if (!m) { errors.push(`${where}: pictures must be .jpg, .png or .webp (with a lowercase ending)`); continue; }
+    artCount[kind]++;
+    const name = m[1];
+    if (kind === 'backdrops') {
+      const t = TIMES.find((x) => name.endsWith(`-${x}`));
+      const base = t ? name.slice(0, -t.length - 1) : name;
+      if (!BACKDROPS.includes(base)) errors.push(`${where}: no backdrop is called "${base}". Use one of: ${BACKDROPS.join(', ')}`);
+    } else if (!characters[name]) {
+      errors.push(`${where}: no character has the id "${name}" (see content/${LANG}/characters.json)`);
+    }
+    const kb = fs.statSync(path.join(dir, f)).size / 1024;
+    const limit = kind === 'backdrops' ? 600 : 250;
+    if (kb > limit) warnings.push(`${where} is ${Math.round(kb)} KB; under ${limit} KB keeps the game fast on cheap phones (see ART_GUIDE.md)`);
+  }
+}
+for (const [folder, names] of [['music', MOODS], ['sfx', SFX]]) {
+  const dir = path.join('content', 'audio', folder);
+  if (!fs.existsSync(dir)) continue;
+  for (const f of fs.readdirSync(dir)) {
+    if (f.startsWith('.') || f === 'README.md') continue;
+    const m = f.match(/^(.+)\.(mp3|ogg)$/);
+    if (!m || !names.includes(m[1])) errors.push(`content/audio/${folder}/${f}: name it one of ${names.map((n) => `${n}.mp3`).join(', ')}`);
+  }
+}
+const artTotal = Object.values(artCount).reduce((a, b) => a + b, 0);
+if (artTotal) console.log(`art: ${artCount.backdrops} backdrop(s), ${artCount.portraits} portrait(s), ${artCount.figures} figure(s)`);
 
 if (missingAudio) {
   warnings.push(`${missingAudio} of ${audioCount} recordings don't exist yet (the browser voice reads those lines)`);

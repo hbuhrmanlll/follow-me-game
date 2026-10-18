@@ -13,6 +13,9 @@ import { addVerse } from '../systems/journal';
 import { openMenu } from '../ui/menu';
 import { audioForLine } from '../systems/voice';
 import { checkAchievements, totalScrolls } from '../systems/achievements';
+import { setMood, sfx, type Mood } from '../systems/audio';
+import { artTexture, backdropArt, queueArt } from '../systems/art';
+import { playCutscene, type CutsceneId } from '../cutscenes';
 import { loadSettings, loadSlots, newSlot, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
 
 const SPEEDS: Speed[] = ['slow', 'normal', 'fast'];
@@ -36,6 +39,7 @@ export class StoryScene extends Phaser.Scene {
   private shadow?: Phaser.GameObjects.Rectangle;
   private backRow = new Map<string, Phaser.GameObjects.Container>();
   private run = 0; // bumps when the scene restarts so old loops stop
+  private stormStop?: () => void;
 
   constructor() {
     super('Story');
@@ -55,6 +59,18 @@ export class StoryScene extends Phaser.Scene {
     }
     this.settings = loadSettings();
     this.chapter = getChapter(this.slot.progress.chapter);
+  }
+
+  // Loads any finished pictures this chapter uses (see ART_GUIDE.md).
+  preload(): void {
+    const keys: string[] = [];
+    for (const sc of this.chapter.scenes) {
+      const art = backdropArt(sc.backdrop ?? locations[sc.location]?.backdrop ?? 'jordan', sc.timeOfDay);
+      if (art) keys.push(art.key);
+      for (const l of sc.lines) keys.push(`portraits/${l.speaker}`, `figures/${l.speaker}`);
+    }
+    for (const id of [...disciples.order, ...this.chapter.scenes.flatMap((sc) => sc.extras ?? [])]) keys.push(`figures/${id}`);
+    queueArt(this, [...new Set(keys)]);
   }
 
   create(): void {
@@ -111,6 +127,8 @@ export class StoryScene extends Phaser.Scene {
       const scene = this.chapter.scenes[p.scene];
       if (p.visited[p.visited.length - 1] !== scene.location) p.visited.push(scene.location);
       this.buildStage(scene);
+      // Coming back after the storm was stilled: keep it calm.
+      if (scene.lines.slice(0, p.step).some((l) => l.cutscene === 'calm')) { this.stormStop?.(); setMood('peace'); }
       if (p.step === 0) {
         await this.banner(scene);
         if (scene.note && run === this.run) await this.showNote(scene.note);
@@ -146,8 +164,11 @@ export class StoryScene extends Phaser.Scene {
     this.tweens.killAll();
     this.children.removeAll(true);
     this.figures.clear();
+    this.stormStop = undefined;
     const W = this.scale.width;
-    this.layers = drawBackdrop(this, scene.backdrop ?? locations[scene.location]?.backdrop ?? 'jordan', scene.timeOfDay);
+    const backdrop = scene.backdrop ?? locations[scene.location]?.backdrop ?? 'jordan';
+    this.layers = drawBackdrop(this, backdrop, scene.timeOfDay);
+    setMood(this.moodFor(scene, backdrop));
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 
@@ -166,14 +187,14 @@ export class StoryScene extends Phaser.Scene {
     this.backRow.clear();
     companions.forEach((id, i) => {
       const x = W * (0.15 + ((i + 0.5) / companions.length) * 0.7);
-      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, characters[id].color, '').setScale(0.7).setAlpha(0.9));
+      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, id, '').setScale(0.7).setAlpha(0.9));
     });
     // At the cross, Jesus and the criminal beside Him aren't shown as standing figures; the crosses are part of the background.
     if (scene.staging === 'cross') speakers.splice(0, speakers.length, ...speakers.filter((id) => id !== 'jesus' && id !== 'criminal'));
     const scale = Math.min(1, 6 / speakers.length);
     speakers.forEach((id, i) => {
       const x = W * (speakers.length === 1 ? 0.5 : 0.22 + (i / (speakers.length - 1)) * 0.56);
-      const fig = this.makeFigure(x, FEET_Y, characters[id].color, characters[id].name).setScale(scale);
+      const fig = this.makeFigure(x, FEET_Y, id, characters[id].name).setScale(scale);
       if (joiners.includes(id) && !joined.includes(id) && !scene.lines.some((l) => l.speaker === id)) fig.setAlpha(0);
       this.figures.set(id, fig);
     });
@@ -240,6 +261,7 @@ export class StoryScene extends Phaser.Scene {
       const p = this.slot.progress;
       if (!p.scrolls.includes(scene.id)) p.scrolls.push(scene.id);
       this.tweens.add({ targets: scroll, y: 40, x: this.scale.width / 2, scale: 1.8, alpha: 0, duration: 900, onComplete: () => scroll.destroy() });
+      sfx('scroll');
       this.announce(`📜 ${fill(ui.foundScroll, { n: p.scrolls.length, total: totalScrolls() })}`);
       const extra = this.celebrate();
       this.save();
@@ -264,7 +286,10 @@ export class StoryScene extends Phaser.Scene {
   private celebrate(): number {
     if (this.leader) return 0;
     const fresh = checkAchievements(this.slot);
-    fresh.forEach((a, i) => this.announce(`🏆 ${fill(ui.newAchievement, { title: a.title })}`, 3200 * (i + 1)));
+    fresh.forEach((a, i) => {
+      this.time.delayedCall(3200 * (i + 1), () => sfx('achievement'));
+      this.announce(`🏆 ${fill(ui.newAchievement, { title: a.title })}`, 3200 * (i + 1));
+    });
     return fresh.length;
   }
 
@@ -277,10 +302,18 @@ export class StoryScene extends Phaser.Scene {
     glow.fillStyle(0xffffff, 0.35).fillCircle(0, -90, 100);
     glow.setPosition(fig.x, fig.y);
     this.children.moveBelow(glow as unknown as Phaser.GameObjects.GameObject, fig as unknown as Phaser.GameObjects.GameObject);
-    const robe = this.add.graphics();
-    robe.fillStyle(0xffffff, 1).fillTriangle(-42, 0, 42, 0, 0, -130).fillRoundedRect(-30, -120, 60, 60, 20);
-    robe.fillStyle(0xfff3c4, 1).fillCircle(0, -140, 24);
-    fig.addAt(robe, 1);
+    const picture = fig.getData('picture') as Phaser.GameObjects.Image | undefined;
+    if (picture) {
+      // His clothes became as white as the light: a white glow over the picture.
+      const shine = this.add.image(picture.x, picture.y, picture.texture.key).setOrigin(0.5, 1).setScale(picture.scale);
+      shine.setTintFill(0xfffbe6).setAlpha(0.55);
+      fig.addAt(shine, 2);
+    } else {
+      const robe = this.add.graphics();
+      robe.fillStyle(0xffffff, 1).fillTriangle(-42, 0, 42, 0, 0, -130).fillRoundedRect(-30, -120, 60, 60, 20);
+      robe.fillStyle(0xfff3c4, 1).fillCircle(0, -140, 24);
+      fig.addAt(robe, 1);
+    }
     this.tweens.add({ targets: glow, alpha: 0.6, yoyo: true, repeat: -1, duration: 1400 });
   }
 
@@ -288,7 +321,6 @@ export class StoryScene extends Phaser.Scene {
   private storm(): void {
     const W = this.scale.width;
     const H = this.scale.height;
-    this.add.rectangle(0, 0, W, H, 0x0a1020, 0.35).setOrigin(0);
     const rain = this.add.graphics();
     const drops = Array.from({ length: 90 }, (_, i) => ({ x: (i * 173) % W, y: (i * 97) % H }));
     const draw = () => {
@@ -299,20 +331,54 @@ export class StoryScene extends Phaser.Scene {
         rain.lineBetween(d.x, d.y, d.x - 8, d.y + 22);
       }
     };
-    this.time.addEvent({ delay: 40, loop: true, callback: draw });
+    const dark = this.add.rectangle(0, 0, W, H, 0x0a1020, 0.35).setOrigin(0);
+    const rainTimer = this.time.addEvent({ delay: 40, loop: true, callback: draw });
     const flash = this.add.rectangle(0, 0, W, H, 0xffffff, 0).setOrigin(0);
-    this.time.addEvent({
+    const flashTimer = this.time.addEvent({
       delay: 4500, loop: true,
-      callback: () => this.tweens.add({ targets: flash, fillAlpha: 0.35, duration: 80, yoyo: true, repeat: 1 }),
+      callback: () => {
+        this.tweens.add({ targets: flash, fillAlpha: 0.35, duration: 80, yoyo: true, repeat: 1 });
+        sfx('thunder');
+      },
     });
     // The people sway with the boat.
-    for (const fig of this.figures.values()) {
-      this.tweens.add({ targets: fig, angle: { from: -3, to: 3 }, yoyo: true, repeat: -1, duration: 900, ease: 'Sine.easeInOut' });
-    }
+    const sway = [...this.figures.values()].map((fig) =>
+      this.tweens.add({ targets: fig, angle: { from: -3, to: 3 }, yoyo: true, repeat: -1, duration: 900, ease: 'Sine.easeInOut' }));
+    // "And the wind died down, and it was perfectly calm."
+    this.stormStop = () => {
+      rainTimer.remove();
+      flashTimer.remove();
+      sway.forEach((t) => t.stop());
+      for (const fig of this.figures.values()) fig.angle = 0;
+      this.tweens.add({ targets: [rain, dark], alpha: 0, duration: 1500 });
+      this.stormStop = undefined;
+    };
   }
 
-  private makeFigure(x: number, feetY: number, color: string, name: string): Phaser.GameObjects.Container {
-    const c = Phaser.Display.Color.HexStringToColor(color).color;
+  // The music for a scene: set in the chapter file, or chosen from the place and time.
+  private moodFor(scene: SceneData, backdrop: string): Mood {
+    if (scene.mood) return scene.mood;
+    if (scene.weather === 'storm') return 'storm';
+    if (scene.effect === 'transfigure') return 'wonder';
+    if (scene.staging === 'cross' || backdrop === 'golgotha' || (backdrop === 'tomb' && scene.timeOfDay === 'dusk')) return 'sorrow';
+    if (backdrop === 'tomb-open') return 'joy';
+    if (scene.timeOfDay === 'night') return 'night';
+    return scene.timeOfDay === 'midday' ? 'journey' : 'peace';
+  }
+
+  private makeFigure(x: number, feetY: number, id: string, name: string): Phaser.GameObjects.Container {
+    const picture = artTexture(this, `figures/${id}`);
+    if (picture) {
+      // A finished picture of the person, standing with their feet on the ground.
+      const shadow = this.add.graphics().fillStyle(0x000000, 0.25).fillEllipse(0, 0, 90, 18);
+      const img = this.add.image(0, 4, picture).setOrigin(0.5, 1);
+      img.setScale(190 / img.height);
+      const label = this.add.text(0, -img.displayHeight - 6, name, {
+        fontFamily: FONT, fontSize: '22px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 5,
+      }).setOrigin(0.5, 1);
+      return this.add.container(x, feetY, [shadow, img, label]).setData('picture', img);
+    }
+    const c = Phaser.Display.Color.HexStringToColor(characters[id].color).color;
     const g = this.add.graphics();
     g.fillStyle(0x000000, 0.25).fillEllipse(0, 0, 90, 18);
     g.fillStyle(c, 1).fillTriangle(-42, 0, 42, 0, 0, -130);
@@ -342,17 +408,23 @@ export class StoryScene extends Phaser.Scene {
     const short = translations.find((t) => t.id === this.tid)?.short ?? '';
 
     // The speaker gently bobs; the voice from heaven shines a light.
+    if (line.cutscene) {
+      this.box!.setVisible(false);
+      await playCutscene(this, line.cutscene as CutsceneId);
+      if (line.cutscene === 'calm') this.stormStop?.();
+    }
     const fig = this.figures.get(line.speaker);
     const bob = fig && this.tweens.add({ targets: fig, y: fig.y - 10, yoyo: true, repeat: -1, duration: 420 });
     if (line.speaker === 'voice-from-heaven') this.shine(true);
     if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 1, duration: 600 });
 
-    if (line.action === 'ascend') this.ascend();
+    if (line.action === 'ascend') this.ascend(!!line.cutscene);
     this.box!.setVisible(true);
     await this.box!.play({
       speakerName: who.name,
       color: who.color,
       initials: who.initials,
+      portrait: artTexture(this, `portraits/${line.speaker}`),
       text: lineText(line, this.tid),
       kind: line.type,
       refLabel: line.type === 'scripture' ? `${line.ref} · ${short}` : undefined,
@@ -379,9 +451,10 @@ export class StoryScene extends Phaser.Scene {
   }
 
   // Jesus is taken up into heaven and a cloud hides Him (Acts 1:9).
-  private ascend(): void {
+  private ascend(alreadyShown: boolean): void {
     const fig = this.figures.get('jesus');
     if (!fig) return;
+    if (alreadyShown) { fig.setAlpha(0); return; } // the cutscene showed it
     const cloud = this.add.graphics().setAlpha(0);
     cloud.fillStyle(0xffffff, 0.9);
     for (const [dx, dy, r] of [[-60, 0, 50], [0, -20, 65], [60, 0, 50], [-20, 20, 45], [30, 22, 45]]) cloud.fillCircle(fig.x + dx, 140 + dy, r);
@@ -399,6 +472,7 @@ export class StoryScene extends Phaser.Scene {
       this.save();
       const fig = this.figures.get(id);
       if (fig) this.tweens.add({ targets: fig, alpha: 1, duration: 700 });
+      sfx('join');
       const msg = fill(ui.joined, { name: characters[id].name });
       const t = this.add.text(this.scale.width / 2, 200, `✦ ${msg} ✦`, {
         fontFamily: FONT, fontSize: '40px', color: '#fff4d6', fontStyle: 'bold', stroke: '#3b2410', strokeThickness: 8,
@@ -484,6 +558,8 @@ export class StoryScene extends Phaser.Scene {
     const W = this.scale.width;
     const H = this.scale.height;
     this.layers = drawBackdrop(this, 'jordan', 'dusk');
+    setMood('peace');
+    sfx('achievement');
     const panelW = Math.min(1000, W - 60);
     const panel = this.add.graphics();
     panel.fillStyle(COLORS.parchment, 1).fillRoundedRect(W / 2 - panelW / 2, 30, panelW, H - 60, 24);

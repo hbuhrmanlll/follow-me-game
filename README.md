@@ -35,6 +35,12 @@ in the bottom-left corner of the title screen.
 
 See **VOICES.md** to make real voices with ElevenLabs, or to use recordings of real people.
 
+## Pictures, music and credits
+
+- **ART_GUIDE.md**: how to make finished pictures with AI tools (style text and a prompt for every background and main character) and drop them in.
+- **SOUND.md**: the built-in music and sound effects, and how to use licensed recordings instead.
+- **CREDITS.md**: who made what. Add a line whenever you add a picture, a song or a voice.
+
 ## Changing the story
 
 See **CONTENT_GUIDE.md**. Everything is in the `content/` folder, and no code is needed.

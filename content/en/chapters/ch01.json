@@ -107,7 +107,7 @@
           }
         },
         {
-          "id": "ch01-s2-04",
+          "id": "ch01-s2-04", "cutscene": "baptism",
           "speaker": "narrator",
           "type": "scripture",
           "ref": "Matthew 3:16"

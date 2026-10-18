@@ -28,7 +28,7 @@ export default defineConfig({
       },
       workbox: {
         // Save everything the game needs, including Scripture and any voice recordings.
-        globPatterns: ['**/*.{js,css,html,png,svg,json,mp3,ogg}'],
+        globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,webp,svg,json,mp3,ogg}'],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         cleanupOutdatedCaches: true,
       },

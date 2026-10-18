@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { COLORS, FONT, makeButton } from '../ui/common';
 import { speak, stopSpeaking } from '../systems/speech';
+import { sfx } from '../systems/audio';
 import { fill, ui, type TranslationId } from '../systems/content';
 import type { Difficulty } from '../systems/save';
 
@@ -82,6 +83,7 @@ export function makePanel(
     },
     wrong(hint, ref) {
       ctx.onMistake?.();
+      sfx('wrong');
       const msg = fill(ui.tryAgain, { hint, ref });
       feedback.setText(msg);
       say(msg);
@@ -89,6 +91,7 @@ export function makePanel(
     solved(onDone) {
       if (done) return;
       done = true;
+      sfx('correct');
       feedback.setText(ui.correct).setY(feedback.y - 80);
       say(ui.correct);
       layer.add(makeButton(scene, feedback.x, H - 110, `${ui.continue} ▶`, () => {

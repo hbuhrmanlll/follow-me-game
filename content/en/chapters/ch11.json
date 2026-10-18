@@ -32,7 +32,7 @@
           }
         },
         {
-          "id": "ch11-s1-03",
+          "id": "ch11-s1-03", "cutscene": "storm",
           "speaker": "narrator",
           "type": "scripture",
           "ref": "Mark 4:37"
@@ -95,7 +95,7 @@
           }
         },
         {
-          "id": "ch11-s1-08",
+          "id": "ch11-s1-08", "cutscene": "calm",
           "speaker": "narrator",
           "type": "scripture",
           "ref": "Mark 4:39",

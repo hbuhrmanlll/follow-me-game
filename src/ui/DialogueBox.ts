@@ -4,11 +4,13 @@ import { estimateDuration, speak, stopSpeaking } from '../systems/speech';
 import { ui } from '../systems/content';
 import type { LineAudio, WordTimings } from '../systems/voice';
 import { loadSettings, type Settings } from '../systems/save';
+import { duckMusic } from '../systems/audio';
 
 export interface DialogueLine {
   speakerName: string;
   color: string;
   initials: string;
+  portrait?: string | null; // a loaded picture of the speaker, if there is one
   text: string;
   kind: 'scripture' | 'narration';
   refLabel?: string; // e.g. "Matthew 3:15 · BSB"
@@ -81,7 +83,7 @@ export class DialogueBox {
     this.line = line;
     this.look = loadSettings(); // text size, contrast and subtitles can change at any time
     this.drawBox(line.kind);
-    this.portrait.set(line.color, line.initials);
+    this.portrait.set(line.color, line.initials, line.portrait);
     this.nameText.setText(line.speakerName);
     this.tag.setText(line.kind === 'narration' ? ui.narration : '').setVisible(line.kind === 'narration');
     this.tag.setX(this.nameText.x + this.nameText.width + 12);
@@ -158,6 +160,7 @@ export class DialogueBox {
     const line = this.line!;
     this.autoTimer?.remove();
     this.stopPlayer();
+    duckMusic(true);
     if (line.audio) {
       this.state = 'speaking';
       this.continueText.setVisible(false);
@@ -200,6 +203,7 @@ export class DialogueBox {
   private onSpoken(): void {
     if (this.state === 'idle') return;
     this.state = 'waiting';
+    duckMusic(false);
     this.setCurrent(-1);
     this.autoTimer?.remove();
     if (this.autoAdvance) {
@@ -216,6 +220,7 @@ export class DialogueBox {
     this.autoTimer?.remove();
     this.stopPlayer();
     stopSpeaking();
+    duckMusic(false);
     this.state = 'idle';
     this.setCurrent(-1);
     this.continueText.setVisible(false);

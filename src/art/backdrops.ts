@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import type { TimeOfDay } from '../systems/content';
+import { artTexture, backdropArt, loadArt } from '../systems/art';
 
 // Placeholder backgrounds drawn with simple shapes. Each one is a stack of
 // layers that drift at different speeds (parallax). When final art arrives,
@@ -33,7 +34,47 @@ const LAND: Record<string, { far: number; mid: number; near: number }> = {
   'tomb-open': { far: 0x8a9a7a, mid: 0x6a8a52, near: 0x4f7a3a },
 };
 
+// Draws a backdrop. If a finished picture exists for it (see ART_GUIDE.md),
+// the picture is used instead; the first time, the drawn version shows while it loads.
 export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOfDay = 'dawn'): Layer[] {
+  const art = backdropArt(backdrop, time);
+  const ready = art && artTexture(scene, art.key);
+  if (art && ready) {
+    void loadArt(scene, [art.key]); // keeps it among the recently used pictures
+    drawPicture(scene, ready, art.exact ? 'midday' : time);
+    return [];
+  }
+  const first = scene.children.list.length;
+  const layers = drawShapes(scene, backdrop, time);
+  if (art) {
+    const drawn = scene.children.list.slice(first);
+    void loadArt(scene, [art.key]).then(() => {
+      const tex = artTexture(scene, art.key);
+      // Skip it if the player has already moved on to another scene.
+      if (!tex || !scene.sys.isActive() || drawn.some((o) => !o.scene)) return;
+      for (const o of drawn) o.destroy();
+      layers.length = 0;
+      scene.children.sendToBack(drawPicture(scene, tex, art.exact ? 'midday' : time));
+    });
+  }
+  return layers;
+}
+
+// Tints for a picture that was painted for daytime but used at another time.
+const TINTS: Record<TimeOfDay, number> = { dawn: 0xffe2c8, midday: 0xffffff, dusk: 0xf0b890, night: 0x5a6690 };
+
+function drawPicture(scene: Phaser.Scene, texture: string, time: TimeOfDay): Phaser.GameObjects.Image {
+  const W = scene.scale.width;
+  const H = scene.scale.height;
+  const img = scene.add.image(W / 2, H / 2, texture);
+  const s = Math.max(W / img.width, H / img.height) * 1.04;
+  img.setScale(s).setTint(TINTS[time]);
+  // A very slow zoom keeps the picture feeling alive.
+  scene.tweens.add({ targets: img, scale: s * 1.06, duration: 40000, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+  return img;
+}
+
+function drawShapes(scene: Phaser.Scene, backdrop: string, time: TimeOfDay): Layer[] {
   const p = PALETTES[time];
   if (backdrop === 'room') return drawRoom(scene);
   if (backdrop === 'jordan' || !LAND[backdrop]) return drawJordan(scene, p, time);

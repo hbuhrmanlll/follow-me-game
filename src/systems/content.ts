@@ -8,6 +8,8 @@ import mapJson from '../../content/map.json';
 import mapLabelsJson from '../../content/en/map-labels.json';
 import disciplesJson from '../../content/en/disciples.json';
 
+import type { Mood } from './audio';
+
 export type TranslationId = 'bsb' | 'kjv';
 
 export interface Translation { id: TranslationId; name: string; short: string; notice: string }
@@ -33,6 +35,7 @@ export interface Line {
   joins?: string[]; // disciples who start following Jesus after this line
   leaves?: string[]; // disciples who leave the group after this line (Judas)
   action?: 'ascend'; // Jesus is taken up into heaven during this line
+  cutscene?: string; // a short wordless scene (content/en/cutscenes.json) played before this line
 }
 
 export interface Choice { text: string; correct?: boolean; icon?: string }
@@ -71,6 +74,7 @@ export interface SceneData {
   effect?: 'transfigure';
   staging?: 'cross'; // the crucifixion: Jesus isn't shown as a standing figure
   backdrop?: string; // use a different background than the location's usual one
+  mood?: Mood; // the music; chosen from the place and time of day if left out
   lines: Line[];
   puzzle?: Puzzle; // one puzzle…
   puzzles?: Puzzle[]; // …or several, played in order

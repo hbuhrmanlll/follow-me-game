@@ -5,6 +5,7 @@ import { COLORS, FONT, makeButton, restartOnResize } from '../ui/common';
 import { loadTranslation, scriptureText, translations, ui, type Quote } from '../systems/content';
 import { loadSettings, loadSlots, saveSlot, newSlot } from '../systems/save';
 import { speak, stopSpeaking } from '../systems/speech';
+import { setMood } from '../systems/audio';
 
 interface Slide { text: string; ref: string; quote?: Quote }
 const ending = endingJson as { title: string; slides: Slide[]; invite: string; prayer: string };
@@ -26,6 +27,7 @@ export class EndingScene extends Phaser.Scene {
     restartOnResize(this, data);
     this.events.once('shutdown', () => stopSpeaking());
     drawBackdrop(this, 'jordan', 'dawn');
+    setMood('wonder');
     const tid = loadSlots()[data.slot]?.translation ?? 'bsb';
     void loadTranslation(tid).then(() => this.show());
   }

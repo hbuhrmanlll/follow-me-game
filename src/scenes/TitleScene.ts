@@ -4,8 +4,9 @@ import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
 import { ui } from '../systems/content';
 import { showSettings } from '../ui/dom';
 import { askParent } from '../ui/parent';
+import { setMood } from '../systems/audio';
 
-export const VERSION = 'Phase 6A · v0.6.0';
+export const VERSION = 'Phase 6B · v0.6.5';
 
 export class TitleScene extends Phaser.Scene {
   private layers: Layer[] = [];
@@ -19,6 +20,7 @@ export class TitleScene extends Phaser.Scene {
     const W = this.scale.width;
     const H = this.scale.height;
     this.layers = drawBackdrop(this, 'jordan', 'dawn');
+    setMood('peace');
 
     this.add
       .text(W / 2, 170, ui.title, {

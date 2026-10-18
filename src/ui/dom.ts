@@ -3,6 +3,7 @@
 import { ui } from '../systems/content';
 import { loadSettings, saveSettings, type Difficulty, type Settings, type Speed, type TextSize } from '../systems/save';
 import { speak } from '../systems/speech';
+import { applyVolumes } from '../systems/audio';
 
 function overlay(): { root: HTMLDivElement; panel: HTMLDivElement; close(): void } {
   const root = document.createElement('div');
@@ -166,7 +167,7 @@ export function showSettings(): Promise<void> {
     const { panel, close } = overlay();
     panel.classList.add('fm-scripture', 'fm-settings');
     const st: Settings = loadSettings();
-    const save = () => saveSettings(st);
+    const save = () => { saveSettings(st); applyVolumes(); };
     const h = document.createElement('h2');
     h.textContent = `⚙ ${ui.settings}`;
     const body = document.createElement('div');
@@ -209,9 +210,6 @@ export function showSettings(): Promise<void> {
     row(`🗣 ${ui.voiceVolume}`, voice);
     row(`🎵 ${ui.musicVolume}`, slider('musicVolume'));
     row(`🔔 ${ui.sfxVolume}`, slider('sfxVolume'));
-    const note = document.createElement('small');
-    note.textContent = ui.musicSoon;
-    body.appendChild(note);
     row(`🔤 ${ui.textSize}`, choice<TextSize>([['normal', ui.textSizes.normal], ['large', ui.textSizes.large], ['xlarge', ui.textSizes.xlarge]],
       () => st.textSize, (v) => { st.textSize = v; }));
     row(`🐢 ${ui.speechSpeed}`, choice<Speed>([['slow', '🐢'], ['normal', '🚶'], ['fast', '🐇']], () => st.speed, (v) => { st.speed = v; }));

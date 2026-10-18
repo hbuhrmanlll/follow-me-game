@@ -224,3 +224,34 @@ The title screen should say **Phase 6A · v0.6.0**. It has two new buttons at th
 **Questions for you**
 - Are the scroll pieces too easy or too hard to spot?
 - Is the 3-second hold a good parent check, or would you prefer a simple math question?
+
+## Phase 6, part B: music, sound effects, cutscenes and finished art
+
+The title screen should say **Phase 6B · v0.6.5**. Turn your phone's sound up.
+The music starts after your first tap, because phones don't allow sound before that.
+
+**Music and sound**
+- [ ] Gentle music plays on the title screen and changes with each scene: brighter at
+      midday, quieter at night, stormy on the sea, solemn at the cross, joyful at the empty tomb
+- [ ] The music gets quieter while someone is speaking, then comes back up
+- [ ] Buttons make a soft click
+- [ ] A right puzzle answer plays a bright chime, and a wrong one plays a soft, gentle tone (not a harsh buzz)
+- [ ] Finding a scroll piece, a disciple joining, and a new achievement each have their own sound
+- [ ] ⚙ Settings: the **Music** and **Sound effects** sliders change the volume straight away. All the way left turns them off
+
+**Cutscenes** (each one is short, has no words, shows the Bible reference in the corner, and has a **Skip ⏭** button)
+- [ ] Chapter 1, "Jesus Comes to the Jordan": Jesus comes up out of the water, the clouds part, light shines down, and a dove descends
+- [ ] Chapter 11, "Peace, Be Still": a fierce storm with thunder and a tossing boat. Later, Jesus stands, the waves settle, the clouds clear and the moon comes out
+- [ ] After the calm, the rain on the stage stops too (also if you leave and come back)
+- [ ] Chapter 16, "His Face Shone Like the Sun": light grows around Jesus, His clothes turn white, Moses and Elijah appear, and a bright cloud covers them
+- [ ] Chapter 25, "The Stone Is Rolled Away": dawn breaks, there is an earthquake, an angel comes down, the stone rolls away, and the empty grave clothes are seen inside
+- [ ] Chapter 28, "Taken Up into Heaven": the disciples watch Jesus rise into the light, a cloud hides Him, and two men in white appear
+- [ ] Tip: in 👪 Parents → **Leader Mode**, you can jump straight to any of these scenes
+
+**Finished art (when you're ready)**
+- [ ] Follow **ART_GUIDE.md** to make one background, for example `jordan.jpg`, and upload it. A few minutes later, the title screen and Chapter 1 show your picture instead of the drawn hills
+
+**Questions for you**
+- Is the music the right volume, and does it suit the game? Should it be quieter by default?
+- Are the cutscenes the right length (about 8–11 seconds)?
+- Would you like a setting to turn cutscenes off, or is the Skip button enough?

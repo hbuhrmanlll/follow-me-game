@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { sfx } from '../systems/audio';
 
 export const COLORS = {
   parchment: 0xf3e6c8,
@@ -46,7 +47,7 @@ export function makeButton(
   box.on('pointerdown', () => { draw(Phaser.Display.Color.ValueToColor(fill).brighten(15).color); box.setScale(0.96); });
   box.on('pointerout', () => { draw(fill); box.setScale(1); });
   box.on('pointerup', () => { draw(fill); box.setScale(1); });
-  whenTapped(box, onTap);
+  whenTapped(box, () => { sfx('tap'); onTap(); });
   return box;
 }
 
@@ -63,25 +64,36 @@ export function whenTapped(obj: Phaser.GameObjects.GameObject, fn: () => void): 
   });
 }
 
-// A round placeholder portrait: the character's color with their initials.
+// A round portrait: the character's picture if there is one (see ART_GUIDE.md),
+// otherwise their color with their initials.
 export function makePortrait(scene: Phaser.Scene, x: number, y: number, radius: number): {
   container: Phaser.GameObjects.Container;
-  set(color: string, initials: string): void;
+  set(color: string, initials: string, texture?: string | null): void;
 } {
   const g = scene.add.graphics();
   const label = scene.add
     .text(0, 0, '', { fontFamily: FONT, fontSize: `${Math.round(radius * 0.8)}px`, color: '#fff8e6', fontStyle: 'bold' })
     .setOrigin(0.5);
-  const container = scene.add.container(x, y, [g, label]);
+  const picture = scene.add.image(0, 0, '__DEFAULT').setVisible(false);
+  // Pictures are cut to a circle. The portrait never moves, so the mask can stay put.
+  const shape = scene.make.graphics({}, false).fillStyle(0xffffff).fillCircle(x, y, radius - 3);
+  picture.setMask(shape.createGeometryMask());
+  const ring = scene.add.graphics();
+  const container = scene.add.container(x, y, [g, label, picture, ring]);
   return {
     container,
-    set(color, initials) {
+    set(color, initials, texture) {
       const c = Phaser.Display.Color.HexStringToColor(color).color;
       g.clear();
       g.fillStyle(0x000000, 0.3).fillCircle(4, 6, radius);
       g.fillStyle(c, 1).fillCircle(0, 0, radius);
-      g.lineStyle(6, COLORS.parchment, 1).strokeCircle(0, 0, radius);
-      label.setText(initials);
+      ring.clear().lineStyle(6, COLORS.parchment, 1).strokeCircle(0, 0, radius);
+      label.setText(texture ? '' : initials);
+      picture.setVisible(!!texture);
+      if (texture) {
+        picture.setTexture(texture);
+        picture.setScale((radius * 2) / Math.min(picture.width, picture.height));
+      }
     },
   };
 }

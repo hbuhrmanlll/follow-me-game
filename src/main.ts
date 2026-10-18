@@ -9,6 +9,7 @@ import { DisciplesScene } from './scenes/DisciplesScene';
 import { EndingScene } from './scenes/EndingScene';
 import { ParentScene } from './scenes/ParentScene';
 import { ProgressScene } from './scenes/ProgressScene';
+import { unlockAudioOnFirstTouch } from './systems/audio';
 
 // The game is designed at 1280x720 (landscape) and scaled to fit any screen.
 const game = new Phaser.Game({
@@ -28,6 +29,8 @@ const game = new Phaser.Game({
   input: { windowEvents: false },
   scene: [TitleScene, SlotScene, StoryScene, MapScene, JournalScene, PracticeScene, DisciplesScene, EndingScene, ParentScene, ProgressScene],
 });
+
+unlockAudioOnFirstTouch();
 
 // Lets automated tests look at the game's state.
 (window as unknown as { __followMe: Phaser.Game }).__followMe = game;

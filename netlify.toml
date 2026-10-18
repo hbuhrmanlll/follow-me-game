@@ -1,0 +1,7 @@
+# Netlify reads this file to know how to build the game.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

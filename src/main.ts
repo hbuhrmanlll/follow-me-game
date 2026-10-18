@@ -13,6 +13,8 @@ new Phaser.Game({
     autoCenter: Phaser.Scale.CENTER_BOTH,
     width: 1280,
     height: 720,
+    // Full screen covers the whole page, so pop-up windows (like typing a name) stay visible.
+    fullscreenTarget: document.body,
   },
   scene: [TitleScene, SlotScene, StoryScene],
 });

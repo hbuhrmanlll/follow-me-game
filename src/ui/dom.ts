@@ -8,7 +8,7 @@ function overlay(): { root: HTMLDivElement; panel: HTMLDivElement; close(): void
   const panel = document.createElement('div');
   panel.className = 'fm-panel';
   root.appendChild(panel);
-  document.body.appendChild(root);
+  (document.fullscreenElement ?? document.body).appendChild(root);
   return { root, panel, close: () => root.remove() };
 }
 

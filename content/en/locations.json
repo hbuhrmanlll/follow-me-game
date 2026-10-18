@@ -104,5 +104,60 @@
     "region": "Judea",
     "backdrop": "village",
     "summary": "A village just outside Jerusalem, home of Mary, Martha and Lazarus. Jesus raised Lazarus from the dead here."
+  },
+  "mount-of-olives": {
+    "name": "The Mount of Olives",
+    "region": "Judea",
+    "backdrop": "olives",
+    "mapAs": "jerusalem",
+    "summary": "A hill of olive trees just east of Jerusalem. Jesus rode down from here into the city, prayed in the garden of Gethsemane at its foot, and was taken up into heaven from here."
+  },
+  "upper-room": {
+    "name": "The Upper Room",
+    "region": "Judea",
+    "backdrop": "room",
+    "mapAs": "jerusalem",
+    "summary": "A room in Jerusalem where Jesus washed His disciples' feet and shared the Last Supper. After He rose, He came to the disciples here."
+  },
+  "gethsemane": {
+    "name": "Gethsemane",
+    "region": "Judea",
+    "backdrop": "olives",
+    "mapAs": "jerusalem",
+    "summary": "An olive garden on the Mount of Olives. Jesus prayed here, “Not as I will, but as You will,” and was arrested."
+  },
+  "caiaphas-house": {
+    "name": "The High Priest's House",
+    "region": "Judea",
+    "backdrop": "courtyard",
+    "mapAs": "jerusalem",
+    "summary": "Where Jesus was questioned at night, and where Peter denied Him three times in the courtyard."
+  },
+  "praetorium": {
+    "name": "Pilate's Headquarters",
+    "region": "Judea",
+    "backdrop": "courtyard",
+    "mapAs": "jerusalem",
+    "summary": "Where the Roman governor Pilate questioned Jesus and said, “I find no basis for a charge against Him.”"
+  },
+  "golgotha": {
+    "name": "Golgotha",
+    "region": "Judea",
+    "backdrop": "golgotha",
+    "mapAs": "jerusalem",
+    "summary": "The Place of the Skull, just outside Jerusalem, where Jesus was crucified and said, “It is finished.”"
+  },
+  "tomb": {
+    "name": "The Garden Tomb",
+    "region": "Judea",
+    "backdrop": "tomb",
+    "mapAs": "jerusalem",
+    "summary": "Joseph of Arimathea's new tomb, cut in the rock. On the third day the stone was rolled away: He is risen!"
+  },
+  "emmaus": {
+    "name": "Emmaus",
+    "region": "Judea",
+    "backdrop": "village",
+    "summary": "A village about seven miles from Jerusalem, where two travelers recognized the risen Jesus as He broke the bread. No one knows exactly where it was."
   }
 }

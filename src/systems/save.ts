@@ -8,6 +8,7 @@ export interface Progress {
   completed: string[]; // finished chapter ids
   visited: string[]; // places in the order the player traveled (for the map route)
   disciples: string[]; // disciples who have joined so far
+  departed: string[]; // disciples who have left the group (Judas)
 }
 
 export type Difficulty = 'kids' | 'family' | 'adult';
@@ -60,6 +61,7 @@ export function loadSlots(): (Slot | null)[] {
     // Saves from before Phase 3 lack these lists.
     s.progress.visited ??= [];
     s.progress.disciples ??= [];
+    s.progress.departed ??= [];
     s.difficulty ??= 'family'; // added in Phase 4
     s.journal ??= [];
     return s;
@@ -78,7 +80,7 @@ export function newSlot(name: string, difficulty: Difficulty): Slot {
     difficulty,
     journal: [],
     translation: 'bsb',
-    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [] },
+    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [], departed: [] },
     updated: Date.now(),
   };
 }

@@ -1,0 +1,300 @@
+{
+  "id": "ch25",
+  "number": 25,
+  "title": "He Is Risen!",
+  "passage": "Matthew 28:1-10",
+  "scenes": [
+    {
+      "id": "ch25-s1",
+      "title": "The Stone Is Rolled Away",
+      "location": "tomb",
+      "timeOfDay": "dawn",
+      "passage": "Matthew 28:1-10",
+      "note": "Each Gospel tells a different part of that first Easter morning. Putting them together, Mary Magdalene seems to have run ahead to tell Peter and John, while the other women heard the angel's message.",
+      "lines": [
+        {
+          "id": "ch25-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 28:1"
+        },
+        {
+          "id": "ch25-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 28:2-3"
+        },
+        {
+          "id": "ch25-s1-03",
+          "speaker": "angel",
+          "type": "scripture",
+          "ref": "Matthew 28:5-6",
+          "quote": {
+            "bsb": [
+              "Do not be afraid, for I know that you are looking for Jesus, who was crucified. He is not here; He has risen, just as He said! Come, see the place where He lay."
+            ],
+            "kjv": [
+              "Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay."
+            ]
+          }
+        },
+        {
+          "id": "ch25-s1-04",
+          "speaker": "angel",
+          "type": "scripture",
+          "ref": "Matthew 28:7",
+          "quote": {
+            "bsb": [
+              "Then go quickly and tell His disciples, ‘He has risen from the dead and is going ahead of you into Galilee. There you will see Him.’ See, I have told you."
+            ],
+            "kjv": [
+              "And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you."
+            ]
+          }
+        },
+        {
+          "id": "ch25-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 28:8"
+        },
+        {
+          "id": "ch25-s1-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:3-4"
+        },
+        {
+          "id": "ch25-s1-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:6-8"
+        }
+      ],
+      "companions": false,
+      "backdrop": "tomb-open",
+      "extras": [
+        "mary-magdalene"
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Matthew 28:6",
+        "blank": {
+          "bsb": "risen",
+          "kjv": "risen"
+        },
+        "decoys": [
+          "sleeping",
+          "hiding",
+          "gone"
+        ],
+        "hint": "Jesus is alive!",
+        "quote": {
+          "bsb": [
+            "He is not here; He has risen, just as He said!"
+          ],
+          "kjv": [
+            "He is not here: for he is risen, as he said."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch25-s2",
+      "title": "Mary!",
+      "location": "tomb",
+      "timeOfDay": "dawn",
+      "passage": "John 20:11-18",
+      "lines": [
+        {
+          "id": "ch25-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:11-12"
+        },
+        {
+          "id": "ch25-s2-02",
+          "speaker": "mary-magdalene",
+          "type": "scripture",
+          "ref": "John 20:13",
+          "quote": {
+            "bsb": [
+              "Because they have taken my Lord away",
+              "and I do not know where they have put Him."
+            ],
+            "kjv": [
+              "Because they have taken away my Lord, and I know not where they have laid him."
+            ]
+          }
+        },
+        {
+          "id": "ch25-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:14"
+        },
+        {
+          "id": "ch25-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:15",
+          "quote": {
+            "bsb": [
+              "Woman, why are you weeping?",
+              "Whom are you seeking?"
+            ],
+            "kjv": [
+              "Woman, why weepest thou? whom seekest thou?"
+            ]
+          }
+        },
+        {
+          "id": "ch25-s2-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:16",
+          "quote": {
+            "bsb": [
+              "Mary."
+            ],
+            "kjv": [
+              "Mary."
+            ]
+          }
+        },
+        {
+          "id": "ch25-s2-06",
+          "speaker": "mary-magdalene",
+          "type": "scripture",
+          "ref": "John 20:16",
+          "quote": {
+            "bsb": [
+              "Rabboni!"
+            ],
+            "kjv": [
+              "Rabboni;"
+            ]
+          }
+        },
+        {
+          "id": "ch25-s2-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:17",
+          "quote": {
+            "bsb": [
+              "But go and tell My brothers, ‘I am ascending to My Father and your Father, to My God and your God.’"
+            ],
+            "kjv": [
+              "but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God."
+            ]
+          }
+        },
+        {
+          "id": "ch25-s2-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:18"
+        }
+      ],
+      "companions": false,
+      "backdrop": "tomb-open",
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "At first, who did Mary think Jesus was?",
+          "choices": [
+            {
+              "text": "The gardener",
+              "correct": true,
+              "icon": "🌷"
+            },
+            {
+              "text": "An angel",
+              "icon": "👼"
+            },
+            {
+              "text": "A soldier",
+              "icon": "🛡️"
+            }
+          ],
+          "hint": "She did not recognize Him until He said her name.",
+          "ref": "John 20:15"
+        },
+        {
+          "type": "whoSaid",
+          "prompt": "Who said it?",
+          "ref": "John 20:11-18",
+          "pairs": [
+            {
+              "speaker": "angel",
+              "ref": "Matthew 28:6",
+              "quote": {
+                "bsb": [
+                  "He is not here; He has risen, just as He said!"
+                ],
+                "kjv": [
+                  "He is not here: for he is risen, as he said."
+                ]
+              }
+            },
+            {
+              "speaker": "jesus",
+              "ref": "John 20:16",
+              "quote": {
+                "bsb": [
+                  "Mary."
+                ],
+                "kjv": [
+                  "Mary."
+                ]
+              }
+            },
+            {
+              "speaker": "mary-magdalene",
+              "ref": "John 20:16",
+              "quote": {
+                "bsb": [
+                  "Rabboni!"
+                ],
+                "kjv": [
+                  "Rabboni;"
+                ]
+              }
+            }
+          ],
+          "hint": "One was sent from heaven; one was weeping by the tomb."
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 28:6",
+    "quote": {
+      "bsb": [
+        "He is not here; He has risen, just as He said!"
+      ],
+      "kjv": [
+        "He is not here: for he is risen, as he said."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "He has risen"
+        ],
+        "kjv": [
+          "he is risen"
+        ]
+      }
+    }
+  },
+  "reflect": "The tomb is empty! Jesus is alive, just as He said, and He called Mary by her name.",
+  "discuss": [
+    "How do you think the women felt when the angel said, “He has risen”?",
+    "Mary knew it was Jesus when He said her name. What does it mean that Jesus knows your name?",
+    "Why is the empty tomb the best news in the whole world?"
+  ],
+  "prayer": "Jesus, You are alive! Thank You that death could not hold You. Thank You for knowing us by name. Amen."
+}

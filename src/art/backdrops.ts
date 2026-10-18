@@ -26,10 +26,16 @@ const LAND: Record<string, { far: number; mid: number; near: number }> = {
   lake: { far: 0x7f9a8a, mid: 0x5f8a5a, near: 0x8a7a5a },
   mountain: { far: 0x8aa07a, mid: 0x6a9050, near: 0x4f7a3a },
   cliff: { far: 0x9a9a8a, mid: 0x6f8a52, near: 0x4f7a3a },
+  olives: { far: 0x8a9a7a, mid: 0x6a7a4a, near: 0x4a5a32 },
+  courtyard: { far: 0x8a7a6a, mid: 0x7a6a5a, near: 0x6a5a4a },
+  golgotha: { far: 0x7a6a5a, mid: 0x6a5a48, near: 0x5a4a3a },
+  tomb: { far: 0x8a9a7a, mid: 0x6a8a52, near: 0x4f7a3a },
+  'tomb-open': { far: 0x8a9a7a, mid: 0x6a8a52, near: 0x4f7a3a },
 };
 
 export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOfDay = 'dawn'): Layer[] {
   const p = PALETTES[time];
+  if (backdrop === 'room') return drawRoom(scene);
   if (backdrop === 'jordan' || !LAND[backdrop]) return drawJordan(scene, p, time);
 
   // Shade the place's own colors darker at dusk and night.
@@ -52,6 +58,16 @@ export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOf
     layers.push({ obj: boats(scene, tint(0x6a4a2a)), speed: 0 });
     layers.push({ obj: shore(scene, tint(land.near)), speed: 0 });
     return layers;
+  } else if (backdrop === 'olives') {
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 2), speed: 0 });
+    layers.push({ obj: oliveTrees(scene, tint(0x5a6a3a), tint(0x4a3a2a)), speed: 0 });
+  } else if (backdrop === 'courtyard') {
+    layers.push({ obj: courtyard(scene, tint(0xb9a98a), time === 'night'), speed: 0 });
+    return layers;
+  } else if (backdrop === 'golgotha') {
+    layers.push({ obj: crosses(scene, tint(land.mid)), speed: 0 });
+  } else if (backdrop === 'tomb' || backdrop === 'tomb-open') {
+    layers.push({ obj: tomb(scene, tint(0xa8987a), backdrop === 'tomb-open', time === 'dawn'), speed: 0 });
   } else if (backdrop === 'cliff') {
     layers.push({ obj: cliff(scene, tint(0x9a8a7a)), speed: 0 });
   } else if (backdrop === 'mountain') {
@@ -303,5 +319,109 @@ function cliff(scene: Phaser.Scene, rock: number): Phaser.GameObjects.Graphics {
   g.lineStyle(3, dark, 0.6);
   for (let i = 0; i < 8; i++) g.lineBetween(W * (0.5 + i * 0.06), 180 + (i % 3) * 20, W * (0.52 + i * 0.06), 480);
   g.fillStyle(0x6fa6c2, 1).fillEllipse(W * 0.66, 510, 260, 30); // the spring below
+  return g;
+}
+
+// Olive trees with twisted trunks, like the garden of Gethsemane.
+function oliveTrees(scene: Phaser.Scene, leaf: number, bark: number): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  for (const [fx, base, s] of [[0.08, 470, 1], [0.3, 440, 0.7], [0.72, 445, 0.75], [0.93, 475, 1.05]] as const) {
+    const x = W * fx;
+    g.fillStyle(bark, 1).fillTriangle(x - 18 * s, base, x + 18 * s, base, x + 6 * s, base - 110 * s);
+    g.fillStyle(bark, 1).fillTriangle(x - 4 * s, base - 70 * s, x - 40 * s, base - 120 * s, x - 26 * s, base - 128 * s);
+    g.fillStyle(leaf, 0.95);
+    for (const [dx, dy, r] of [[0, -140, 60], [-50, -125, 45], [50, -120, 48], [-20, -175, 40], [30, -170, 42]]) g.fillCircle(x + dx * s, base + dy * s, r * s);
+    g.fillStyle(0xb8c0a0, 0.25).fillCircle(x - 15 * s, base - 160 * s, 20 * s); // silvery leaves
+  }
+  return g;
+}
+
+// The upper room: stone walls, a low table, and oil lamps.
+function drawRoom(scene: Phaser.Scene): Layer[] {
+  const W = scene.scale.width;
+  const H = scene.scale.height;
+  const g = scene.add.graphics();
+  g.fillGradientStyle(0x3a2a1c, 0x3a2a1c, 0x5a4430, 0x5a4430, 1).fillRect(0, 0, W, H);
+  g.lineStyle(2, 0x2a1c12, 0.6);
+  for (let y = 40; y < 470; y += 46) for (let x = (y / 46) % 2 ? 0 : 60; x < W; x += 120) g.strokeRect(x, y, 120, 46);
+  g.fillStyle(0x2a1c12, 1).fillRect(W * 0.62, 150, 120, 150); // window
+  g.fillStyle(0x0b1028, 1).fillRect(W * 0.62 + 10, 160, 100, 130);
+  g.fillStyle(0xeef2ff, 0.9).fillCircle(W * 0.62 + 70, 190, 14);
+  g.fillStyle(0x4a3424, 1).fillRect(0, 470, W, H - 470); // floor
+  g.fillStyle(0x6a4a2a, 1).fillRoundedRect(W * 0.2, 440, W * 0.6, 30, 8); // low table
+  for (const fx of [0.12, 0.88]) {
+    const x = W * fx;
+    const lamp = scene.add.graphics();
+    lamp.fillStyle(0xffd27a, 0.18).fillCircle(x, 320, 90);
+    lamp.fillStyle(0xb06a3a, 1).fillEllipse(x, 350, 50, 20);
+    lamp.fillStyle(0xffd27a, 1).fillEllipse(x + 18, 334, 10, 18);
+    scene.tweens.add({ targets: lamp, alpha: 0.8, yoyo: true, repeat: -1, duration: 900 + fx * 400 });
+  }
+  return [];
+}
+
+// A walled courtyard with a charcoal fire.
+function courtyard(scene: Phaser.Scene, stone: number, night: boolean): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const H = scene.scale.height;
+  const g = scene.add.graphics();
+  const shade = Phaser.Display.Color.ValueToColor(stone).darken(20).color;
+  g.fillStyle(stone, 1).fillRect(0, 200, W, 280);
+  g.lineStyle(2, shade, 0.7);
+  for (let y = 200; y < 480; y += 40) g.lineBetween(0, y, W, y);
+  g.fillStyle(shade, 1).fillRoundedRect(W * 0.42, 260, 160, 220, { tl: 80, tr: 80, bl: 0, br: 0 }); // gateway
+  g.fillStyle(0x6a5a48, 1).fillRect(0, 480, W, H - 480);
+  if (night) {
+    const x = W * 0.8;
+    g.fillStyle(0xff9a3a, 0.2).fillCircle(x, 450, 110);
+    g.fillStyle(0x3a2a1a, 1).fillEllipse(x, 470, 90, 20);
+    g.fillStyle(0xffb04a, 1).fillTriangle(x - 26, 468, x + 26, 468, x, 420);
+    g.fillStyle(0xffe08a, 1).fillTriangle(x - 12, 466, x + 12, 466, x, 436);
+  }
+  return g;
+}
+
+// Golgotha: a bare hill with three crosses far away, under a darkened sky.
+function crosses(scene: Phaser.Scene, ground: number): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const H = scene.scale.height;
+  const g = scene.add.graphics();
+  g.fillStyle(0x000000, 0.35).fillRect(0, 0, W, H); // "darkness came over all the land"
+  const pts: Phaser.Types.Math.Vector2Like[] = [{ x: 0, y: H }];
+  for (let i = 0; i <= 40; i++) {
+    const x = (i / 40) * W;
+    pts.push({ x, y: 330 + 160 * Math.pow((x - W * 0.5) / (W * 0.5), 2) });
+  }
+  pts.push({ x: W, y: H });
+  g.fillStyle(ground, 1).fillPoints(pts, true);
+  g.fillStyle(0x2a1c12, 1);
+  for (const [fx, s] of [[0.42, 0.75], [0.5, 1], [0.58, 0.75]] as const) {
+    const x = W * fx;
+    const top = 330 - 150 * s;
+    g.fillRect(x - 5 * s, top, 10 * s, 160 * s);
+    g.fillRect(x - 42 * s, top + 30 * s, 84 * s, 9 * s);
+  }
+  return g;
+}
+
+// A tomb cut into the rock, with a large round stone.
+function tomb(scene: Phaser.Scene, rock: number, open: boolean, dawn: boolean): Phaser.GameObjects.Graphics {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  const dark = Phaser.Display.Color.ValueToColor(rock).darken(25).color;
+  g.fillStyle(rock, 1).fillPoints([{ x: W * 0.35, y: 500 }, { x: W * 0.4, y: 220 }, { x: W * 0.62, y: 190 }, { x: W * 0.85, y: 230 }, { x: W * 0.9, y: 500 }], true);
+  const dx = W * 0.62;
+  g.fillStyle(0x1a140e, 1).fillEllipse(dx, 400, 130, 170); // doorway
+  if (open) {
+    if (dawn) g.fillStyle(0xfff3c4, 0.25).fillEllipse(dx, 400, 220, 260); // light streaming out
+    g.fillStyle(dark, 1).fillCircle(dx + 150, 430, 80); // the stone, rolled aside
+    g.lineStyle(4, Phaser.Display.Color.ValueToColor(dark).darken(15).color, 1).strokeCircle(dx + 150, 430, 80);
+  } else {
+    g.fillStyle(dark, 1).fillCircle(dx, 410, 85);
+    g.lineStyle(4, Phaser.Display.Color.ValueToColor(dark).darken(15).color, 1).strokeCircle(dx, 410, 85);
+  }
+  g.fillStyle(0x7f9a52, 1);
+  for (let i = 0; i < 6; i++) g.fillCircle(W * (0.12 + i * 0.05), 470 - (i % 2) * 20, 30); // garden bushes
   return g;
 }

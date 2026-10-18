@@ -1,0 +1,383 @@
+{
+  "id": "ch26",
+  "number": 26,
+  "title": "Emmaus and Thomas",
+  "passage": "Luke 24:13-35",
+  "scenes": [
+    {
+      "id": "ch26-s1",
+      "title": "The Road to Emmaus",
+      "location": "emmaus",
+      "timeOfDay": "dusk",
+      "passage": "Luke 24:13-35",
+      "lines": [
+        {
+          "id": "ch26-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 24:13-14"
+        },
+        {
+          "id": "ch26-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 24:15-16"
+        },
+        {
+          "id": "ch26-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 24:17",
+          "quote": {
+            "bsb": [
+              "What are you discussing so intently as you walk along?"
+            ],
+            "kjv": [
+              "What manner of communications are these that ye have one to another, as ye walk, and are sad?"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s1-04",
+          "speaker": "cleopas",
+          "type": "scripture",
+          "ref": "Luke 24:18",
+          "quote": {
+            "bsb": [
+              "Are You the only visitor to Jerusalem who does not know the things that have happened there in recent days?"
+            ],
+            "kjv": [
+              "Art thou only a stranger in Jerusalem, and hast not known the things which are come to pass there in these days?"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s1-05",
+          "speaker": "cleopas",
+          "type": "scripture",
+          "ref": "Luke 24:21",
+          "quote": {
+            "bsb": [
+              "But we were hoping He was the One who would redeem Israel."
+            ],
+            "kjv": [
+              "But we trusted that it had been he which should have redeemed Israel:"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s1-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 24:25-26",
+          "quote": {
+            "bsb": [
+              "O foolish ones, how slow are your hearts to believe all that the prophets have spoken! Was it not necessary for the Christ to suffer these things and then to enter His glory?"
+            ],
+            "kjv": [
+              "O fools, and slow of heart to believe all that the prophets have spoken: Ought not Christ to have suffered these things, and to enter into his glory?"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s1-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 24:27"
+        },
+        {
+          "id": "ch26-s1-08",
+          "speaker": "cleopas",
+          "type": "scripture",
+          "ref": "Luke 24:29",
+          "quote": {
+            "bsb": [
+              "Stay with us, for it is nearly evening and the day is almost over."
+            ],
+            "kjv": [
+              "Abide with us: for it is toward evening, and the day is far spent."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s1-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 24:30-31"
+        },
+        {
+          "id": "ch26-s1-10",
+          "speaker": "cleopas",
+          "type": "scripture",
+          "ref": "Luke 24:32",
+          "quote": {
+            "bsb": [
+              "Were not our hearts burning within us as He spoke with us on the road and opened the Scriptures to us?"
+            ],
+            "kjv": [
+              "Did not our heart burn within us, while he talked with us by the way, and while he opened to us the scriptures?"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s1-11",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 24:33-34"
+        }
+      ],
+      "companions": false,
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "When did the two travelers recognize Jesus?",
+          "choices": [
+            {
+              "text": "When He broke the bread",
+              "correct": true,
+              "icon": "🍞"
+            },
+            {
+              "text": "When He told them His name",
+              "icon": "🗣️"
+            },
+            {
+              "text": "When they reached Jerusalem",
+              "icon": "🏙️"
+            }
+          ],
+          "hint": "Listen to Luke 24:30-31.",
+          "ref": "Luke 24:30-31"
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Tap Emmaus, the village about seven miles from Jerusalem.",
+          "target": "emmaus",
+          "choices": [
+            "emmaus",
+            "jerusalem",
+            "jericho",
+            "bethlehem"
+          ],
+          "hint": "Emmaus is west of Jerusalem, in the hills of Judea.",
+          "ref": "Luke 24:13"
+        }
+      ]
+    },
+    {
+      "id": "ch26-s2",
+      "title": "My Lord and My God!",
+      "location": "upper-room",
+      "timeOfDay": "night",
+      "passage": "John 20:19-29",
+      "note": "Robertson's Harmony places the walk to Emmaus on Sunday afternoon, then Jesus' visit to the disciples that same evening, then His visit with Thomas eight days later.",
+      "lines": [
+        {
+          "id": "ch26-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:19",
+          "quote": {
+            "bsb": [
+              "It was the first day of the week, and that very evening, while the disciples were together with the doors locked"
+            ],
+            "kjv": [
+              "Then the same day at evening, being the first day of the week, when the doors were shut where the disciples were assembled"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:19",
+          "quote": {
+            "bsb": [
+              "Jesus came and stood among them."
+            ],
+            "kjv": [
+              "came Jesus and stood in the midst, and saith unto them,"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:19",
+          "quote": {
+            "bsb": [
+              "Peace be with you!"
+            ],
+            "kjv": [
+              "Peace be unto you."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:20"
+        },
+        {
+          "id": "ch26-s2-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:24"
+        },
+        {
+          "id": "ch26-s2-06",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "John 20:25",
+          "quote": {
+            "bsb": [
+              "We have seen the Lord!"
+            ],
+            "kjv": [
+              "We have seen the Lord."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-07",
+          "speaker": "thomas",
+          "type": "scripture",
+          "ref": "John 20:25",
+          "quote": {
+            "bsb": [
+              "Unless I see the nail marks in His hands, and put my finger where the nails have been, and put my hand into His side, I will never believe."
+            ],
+            "kjv": [
+              "Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 20:26",
+          "quote": {
+            "bsb": [
+              "Eight days later, His disciples were once again inside with the doors locked, and Thomas was with them. Jesus came and stood among them and said,"
+            ],
+            "kjv": [
+              "And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said,"
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:26",
+          "quote": {
+            "bsb": [
+              "Peace be with you."
+            ],
+            "kjv": [
+              "Peace be unto you."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:27",
+          "quote": {
+            "bsb": [
+              "Put your finger here and look at My hands. Reach out your hand and put it into My side. Stop doubting and believe."
+            ],
+            "kjv": [
+              "Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-11",
+          "speaker": "thomas",
+          "type": "scripture",
+          "ref": "John 20:28",
+          "quote": {
+            "bsb": [
+              "My Lord and my God!"
+            ],
+            "kjv": [
+              "My Lord and my God."
+            ]
+          }
+        },
+        {
+          "id": "ch26-s2-12",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 20:29",
+          "quote": {
+            "bsb": [
+              "Because you have seen Me, you have believed; blessed are those who have not seen and yet have believed."
+            ],
+            "kjv": [
+              "Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed."
+            ]
+          }
+        }
+      ],
+      "companions": [
+        "peter",
+        "andrew",
+        "james",
+        "john",
+        "philip",
+        "nathanael",
+        "matthew",
+        "james-alphaeus",
+        "thaddaeus",
+        "simon-zealot"
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "John 20:29",
+        "blank": {
+          "bsb": "believed",
+          "kjv": "believed"
+        },
+        "decoys": [
+          "traveled",
+          "worried",
+          "doubted"
+        ],
+        "hint": "Jesus was talking about people like us, who believe without seeing Him.",
+        "quote": {
+          "bsb": [
+            "blessed are those who have not seen and yet have believed."
+          ],
+          "kjv": [
+            "blessed are they that have not seen, and yet have believed."
+          ]
+        }
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 20:29",
+    "quote": {
+      "bsb": [
+        "blessed are those who have not seen and yet have believed."
+      ],
+      "kjv": [
+        "blessed are they that have not seen, and yet have believed."
+      ]
+    }
+  },
+  "reflect": "Jesus walked with sad friends, opened the Scriptures, and gently helped Thomas believe. He is patient with our doubts.",
+  "discuss": [
+    "The two travelers didn't recognize Jesus at first. Why do you think their hearts were “burning”?",
+    "Thomas wanted to see for himself. Was Jesus angry with him? What did Jesus do?",
+    "Jesus said people who believe without seeing are blessed. That includes us! How do we know about Jesus?"
+  ],
+  "prayer": "Risen Jesus, walk with us like You walked with the travelers. When we have doubts, help us believe. My Lord and my God! Amen."
+}

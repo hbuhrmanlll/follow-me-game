@@ -1,0 +1,339 @@
+{
+  "id": "ch22",
+  "number": 22,
+  "title": "Gethsemane",
+  "passage": "Matthew 26:36-56",
+  "scenes": [
+    {
+      "id": "ch22-s1",
+      "title": "Watch and Pray",
+      "location": "gethsemane",
+      "timeOfDay": "night",
+      "passage": "Matthew 26:36-46",
+      "lines": [
+        {
+          "id": "ch22-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:36",
+          "quote": {
+            "bsb": [
+              "At that time Jesus went with His disciples to a place called Gethsemane, and He told them,"
+            ],
+            "kjv": [
+              "Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples,"
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:36",
+          "quote": {
+            "bsb": [
+              "Sit here while I go over there and pray."
+            ],
+            "kjv": [
+              "Sit ye here, while I go and pray yonder."
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:37"
+        },
+        {
+          "id": "ch22-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:38",
+          "quote": {
+            "bsb": [
+              "My soul is consumed with sorrow to the point of death. Stay here and keep watch with Me."
+            ],
+            "kjv": [
+              "My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me."
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:39",
+          "quote": {
+            "bsb": [
+              "Going a little farther, He fell facedown and prayed,"
+            ],
+            "kjv": [
+              "And he went a little further, and fell on his face, and prayed, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:39",
+          "quote": {
+            "bsb": [
+              "My Father, if it is possible, let this cup pass from Me. Yet not as I will, but as You will."
+            ],
+            "kjv": [
+              "O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt."
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:40",
+          "quote": {
+            "bsb": [
+              "Then Jesus returned to the disciples and found them sleeping."
+            ],
+            "kjv": [
+              "And he cometh unto the disciples, and findeth them asleep,"
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-08",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:40-41",
+          "quote": {
+            "bsb": [
+              "Were you not able to keep watch with Me for one hour?",
+              "Watch and pray so that you will not enter into temptation. For the spirit is willing, but the body is weak."
+            ],
+            "kjv": [
+              "What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak."
+            ]
+          }
+        },
+        {
+          "id": "ch22-s1-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:43-44"
+        },
+        {
+          "id": "ch22-s1-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:45-46",
+          "quote": {
+            "bsb": [
+              "Look, the hour is near, and the Son of Man is betrayed into the hands of sinners. Rise, let us go! See, My betrayer is approaching!"
+            ],
+            "kjv": [
+              "behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me."
+            ]
+          }
+        }
+      ],
+      "companions": [
+        "peter",
+        "james",
+        "john"
+      ],
+      "puzzles": [
+        {
+          "type": "count",
+          "prompt": "Jesus went away to pray, again and again.",
+          "items": [
+            {
+              "icon": "🙏",
+              "n": 3
+            }
+          ],
+          "question": "How many times did Jesus go away to pray?",
+          "answer": 3,
+          "hint": "Listen to Matthew 26:44: “a third time.”",
+          "ref": "Matthew 26:44"
+        },
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "Matthew 26:41",
+          "blank": {
+            "bsb": "pray",
+            "kjv": "pray"
+          },
+          "decoys": [
+            "sleep",
+            "run",
+            "eat"
+          ],
+          "hint": "Jesus told them to stay awake and talk to God.",
+          "quote": {
+            "bsb": [
+              "Watch and pray so that you will not enter into temptation."
+            ],
+            "kjv": [
+              "Watch and pray, that ye enter not into temptation:"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch22-s2",
+      "title": "The Arrest",
+      "location": "gethsemane",
+      "timeOfDay": "night",
+      "passage": "Matthew 26:47-56",
+      "note": "John 18:10 tells us it was Peter who used the sword, and that the servant's name was Malchus. Luke 22:51 tells us Jesus healed his ear.",
+      "lines": [
+        {
+          "id": "ch22-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:47"
+        },
+        {
+          "id": "ch22-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:48"
+        },
+        {
+          "id": "ch22-s2-03",
+          "speaker": "judas-iscariot",
+          "type": "scripture",
+          "ref": "Matthew 26:49",
+          "quote": {
+            "bsb": [
+              "Greetings, Rabbi!"
+            ],
+            "kjv": [
+              "Hail, master;"
+            ]
+          }
+        },
+        {
+          "id": "ch22-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:50",
+          "quote": {
+            "bsb": [
+              "Friend",
+              "do what you came for."
+            ],
+            "kjv": [
+              "Friend, wherefore art thou come?"
+            ]
+          }
+        },
+        {
+          "id": "ch22-s2-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:50",
+          "quote": {
+            "bsb": [
+              "Then the men stepped forward, seized Jesus, and arrested Him."
+            ],
+            "kjv": [
+              "Then came they, and laid hands on Jesus, and took him."
+            ]
+          }
+        },
+        {
+          "id": "ch22-s2-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 18:10"
+        },
+        {
+          "id": "ch22-s2-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 18:11",
+          "quote": {
+            "bsb": [
+              "Put your sword back in its sheath!",
+              "Shall I not drink the cup the Father has given Me?"
+            ],
+            "kjv": [
+              "Put up thy sword into the sheath: the cup which my Father hath given me, shall I not drink it?"
+            ]
+          }
+        },
+        {
+          "id": "ch22-s2-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 22:51",
+          "quote": {
+            "bsb": [
+              "And He touched the man’s ear and healed him."
+            ],
+            "kjv": [
+              "And he touched his ear, and healed him."
+            ]
+          }
+        },
+        {
+          "id": "ch22-s2-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:56",
+          "quote": {
+            "bsb": [
+              "Then all the disciples deserted Him and fled."
+            ],
+            "kjv": [
+              "Then all the disciples forsook him, and fled."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "What did Jesus do for the servant whose ear was cut off?",
+        "choices": [
+          {
+            "text": "He touched his ear and healed him",
+            "correct": true,
+            "icon": "👂✨"
+          },
+          {
+            "text": "He sent him away",
+            "icon": "👋"
+          },
+          {
+            "text": "He fought back",
+            "icon": "⚔️"
+          }
+        ],
+        "hint": "Even while He was being arrested, Jesus was kind.",
+        "ref": "Luke 22:51"
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 26:39",
+    "quote": {
+      "bsb": [
+        "Yet not as I will, but as You will."
+      ],
+      "kjv": [
+        "nevertheless not as I will, but as thou wilt."
+      ]
+    }
+  },
+  "reflect": "Jesus was very sad and troubled, but He prayed, “Not as I will, but as You will,” and obeyed His Father.",
+  "discuss": [
+    "Jesus was deeply sad in the garden. What did He do with His sadness?",
+    "The disciples fell asleep. Why is it sometimes hard to pray?",
+    "Even while He was arrested, Jesus healed the servant's ear. What does that show about Him?"
+  ],
+  "prayer": "Father, when we are sad or afraid, help us pray like Jesus did: not our will, but Yours be done. Amen."
+}

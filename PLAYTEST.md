@@ -170,3 +170,23 @@ The title screen should say **Phase 5 · v0.5.0**.
 **Questions for you**
 - Was anything too frightening for little ones (the storm, the evil spirits, Lazarus' tomb)?
 - Chapter 17 is short (one scene) and Chapter 18 is longer (three). Is that balance OK?
+
+## Phase 5, part 3: Chapters 20–28 and the ending
+
+**Please play Chapters 21–25 yourself first, before your kids do.** They cover the betrayal, Peter's denial, the crucifixion and the resurrection.
+
+- [ ] **Ch 20, The King Comes to Jerusalem:** the donkey and "Hosanna!"; the temple clearing (with a note that Mark puts it the next day)
+- [ ] **Ch 21, The Last Supper:** Jesus washes feet; Judas "went out into the night" and leaves the group (he doesn't appear with the disciples after this); the new commandment; the bread and the cup
+- [ ] **Ch 22, Gethsemane:** "Not as I will, but as You will"; the arrest; Jesus heals the servant's ear
+- [ ] **Ch 23, Trials and Peter's Denial:** the rooster crows; Pilate: "What is truth?"
+- [ ] **Ch 24, The Cross:** a parent note at the start; three small crosses on a dark hill, no figures on them, nothing graphic; "Father, forgive them," "It is finished," and the centurion's words; ends with hope: "this was not the end of the story"
+- [ ] **Ch 25, He Is Risen!:** the stone rolled away with light coming out; Jesus says "Mary."
+- [ ] **Ch 26, Emmaus and Thomas:** recognized in the breaking of bread; "My Lord and my God!"
+- [ ] **Ch 27, Breakfast on the Shore:** the net on the right side; 153 fish; "Do you love Me?" three times
+- [ ] **Ch 28, Go and Make Disciples:** the Great Commission; Jesus rises into a cloud
+- [ ] **✝ The Good News:** after Chapter 28, five short slides with verses, then an invitation to talk with a parent or pastor, and a prayer. **Walk the Journey Again** restarts the story but keeps the Verse Journal and Disciple Cards
+
+**Questions for you**
+- Is Chapter 24 right for your youngest? Too much, too little, or about right?
+- Is the wording of The Good News the way you'd explain it to your kids? (It's in `content/en/ending.json`, so you or your pastor can change it.)
+- Judas: Chapter 23 includes his remorse (Matthew 27:3-4) but not how he died (27:5). Is that the right choice for your family?

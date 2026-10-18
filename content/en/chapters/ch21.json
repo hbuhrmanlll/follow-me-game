@@ -1,0 +1,384 @@
+{
+  "id": "ch21",
+  "number": 21,
+  "title": "The Last Supper",
+  "passage": "John 13:1-35",
+  "scenes": [
+    {
+      "id": "ch21-s1",
+      "title": "Washing Feet",
+      "location": "upper-room",
+      "timeOfDay": "dusk",
+      "passage": "John 13:1-15",
+      "lines": [
+        {
+          "id": "ch21-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:14-15"
+        },
+        {
+          "id": "ch21-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:16"
+        },
+        {
+          "id": "ch21-s1-03",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "On the evening of the Passover, Jesus and the Twelve gathered in an upper room in Jerusalem."
+        },
+        {
+          "id": "ch21-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 13:1"
+        },
+        {
+          "id": "ch21-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 13:4-5"
+        },
+        {
+          "id": "ch21-s1-06",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "John 13:6",
+          "quote": {
+            "bsb": [
+              "Lord, are You going to wash my feet?"
+            ],
+            "kjv": [
+              "Lord, dost thou wash my feet?"
+            ]
+          }
+        },
+        {
+          "id": "ch21-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 13:7",
+          "quote": {
+            "bsb": [
+              "You do not realize now what I am doing, but later you will understand."
+            ],
+            "kjv": [
+              "What I do thou knowest not now; but thou shalt know hereafter."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s1-08",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "John 13:8",
+          "quote": {
+            "bsb": [
+              "Never shall You wash my feet!"
+            ],
+            "kjv": [
+              "Thou shalt never wash my feet."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s1-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 13:8",
+          "quote": {
+            "bsb": [
+              "Unless I wash you, you have no part with Me."
+            ],
+            "kjv": [
+              "If I wash thee not, thou hast no part with me."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s1-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 13:14-15"
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "What did Jesus do for His disciples at supper?",
+        "choices": [
+          {
+            "text": "He washed their feet",
+            "correct": true,
+            "icon": "💧🦶"
+          },
+          {
+            "text": "He gave them new sandals",
+            "icon": "👡"
+          },
+          {
+            "text": "He sent them home",
+            "icon": "🏠"
+          }
+        ],
+        "hint": "Jesus took a towel and a basin of water.",
+        "ref": "John 13:5"
+      }
+    },
+    {
+      "id": "ch21-s2",
+      "title": "One of You Will Betray Me",
+      "location": "upper-room",
+      "timeOfDay": "night",
+      "passage": "John 13:21-35",
+      "note": "John's Gospel calls one disciple “the one whom Jesus loved.” He isn't named; Christians have long believed it was John.",
+      "lines": [
+        {
+          "id": "ch21-s2-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 13:21",
+          "quote": {
+            "bsb": [
+              "Truly, truly, I tell you, one of you will betray Me."
+            ],
+            "kjv": [
+              "Verily, verily, I say unto you, that one of you shall betray me."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 13:22"
+        },
+        {
+          "id": "ch21-s2-03",
+          "speaker": "beloved-disciple",
+          "type": "scripture",
+          "ref": "John 13:25",
+          "quote": {
+            "bsb": [
+              "Lord, who is it?"
+            ],
+            "kjv": [
+              "Lord, who is it?"
+            ]
+          }
+        },
+        {
+          "id": "ch21-s2-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 13:26",
+          "quote": {
+            "bsb": [
+              "Then He dipped the morsel and gave it to Judas son of Simon Iscariot."
+            ],
+            "kjv": [
+              "And when he had dipped the sop, he gave it to Judas Iscariot, the son of Simon."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s2-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 13:27",
+          "quote": {
+            "bsb": [
+              "What you are about to do, do quickly."
+            ],
+            "kjv": [
+              "That thou doest, do quickly."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s2-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 13:30",
+          "leaves": [
+            "judas-iscariot"
+          ]
+        },
+        {
+          "id": "ch21-s2-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 13:34-35",
+          "quote": {
+            "bsb": [
+              "A new commandment I give you: Love one another. As I have loved you, so you also must love one another. By this everyone will know that you are My disciples, if you love one another."
+            ],
+            "kjv": [
+              "A new commandment I give unto you, That ye love one another; as I have loved you, that ye also love one another. By this shall all men know that ye are my disciples, if ye have love one to another."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "John 13:34",
+        "blank": {
+          "bsb": "Love",
+          "kjv": "love"
+        },
+        "decoys": [
+          "Obey",
+          "Help",
+          "Follow"
+        ],
+        "hint": "This is how people will know we follow Jesus.",
+        "quote": {
+          "bsb": [
+            "A new commandment I give you: Love one another."
+          ],
+          "kjv": [
+            "A new commandment I give unto you, That ye love one another;"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch21-s3",
+      "title": "Do This in Remembrance of Me",
+      "location": "upper-room",
+      "timeOfDay": "night",
+      "passage": "Luke 22:14-20",
+      "note": "Scholars disagree about whether Judas left before or after Jesus shared the bread and the cup. This game follows Robertson's Harmony, which places Judas leaving first.",
+      "lines": [
+        {
+          "id": "ch21-s3-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 22:15",
+          "quote": {
+            "bsb": [
+              "I have eagerly desired to eat this Passover with you before My suffering."
+            ],
+            "kjv": [
+              "With desire I have desired to eat this passover with you before I suffer:"
+            ]
+          }
+        },
+        {
+          "id": "ch21-s3-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 22:19",
+          "quote": {
+            "bsb": [
+              "And He took the bread, gave thanks and broke it, and gave it to them, saying,"
+            ],
+            "kjv": [
+              "And he took bread, and gave thanks, and brake it, and gave unto them, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch21-s3-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 22:19",
+          "quote": {
+            "bsb": [
+              "This is My body, given for you; do this in remembrance of Me."
+            ],
+            "kjv": [
+              "This is my body which is given for you: this do in remembrance of me."
+            ]
+          }
+        },
+        {
+          "id": "ch21-s3-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 22:20",
+          "quote": {
+            "bsb": [
+              "In the same way, after supper He took the cup, saying,"
+            ],
+            "kjv": [
+              "Likewise also the cup after supper, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch21-s3-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 22:20",
+          "quote": {
+            "bsb": [
+              "This cup is the new covenant in My blood, which is poured out for you."
+            ],
+            "kjv": [
+              "This cup is the new testament in my blood, which is shed for you."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "eventOrder",
+        "prompt": "Put the Last Supper in order.",
+        "ref": "Luke 22:14-20",
+        "events": [
+          {
+            "text": "Jesus washes the disciples' feet",
+            "icon": "💧",
+            "ref": "John 13:5"
+          },
+          {
+            "text": "Judas goes out into the night",
+            "icon": "🌑",
+            "ref": "John 13:30"
+          },
+          {
+            "text": "Jesus gives a new commandment: love one another",
+            "icon": "❤️",
+            "ref": "John 13:34"
+          },
+          {
+            "text": "Jesus shares the bread and the cup",
+            "icon": "🍞",
+            "ref": "Luke 22:19-20"
+          }
+        ],
+        "hint": "It begins with a towel and a basin."
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 13:34",
+    "quote": {
+      "bsb": [
+        "A new commandment I give you: Love one another. As I have loved you, so you also must love one another."
+      ],
+      "kjv": [
+        "A new commandment I give unto you, That ye love one another; as I have loved you, that ye also love one another."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "Love one another."
+        ],
+        "kjv": [
+          "love one another"
+        ]
+      }
+    }
+  },
+  "reflect": "On His last night, Jesus served His friends like a servant and asked them to love one another the way He loved them.",
+  "discuss": [
+    "Jesus is the Lord, but He washed His disciples' feet. What does that teach us?",
+    "Jesus knew Judas would betray Him, but He still washed his feet and shared the meal. What does that tell us about Jesus' love?",
+    "Jesus said to remember Him when we share the bread and cup. How does your church remember Jesus?"
+  ],
+  "prayer": "Lord Jesus, You loved Your friends to the very end. Help us serve others and love one another as You have loved us. Amen."
+}

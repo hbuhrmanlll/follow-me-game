@@ -6,6 +6,7 @@ import { MapScene } from './scenes/MapScene';
 import { JournalScene } from './scenes/JournalScene';
 import { PracticeScene } from './scenes/PracticeScene';
 import { DisciplesScene } from './scenes/DisciplesScene';
+import { EndingScene } from './scenes/EndingScene';
 
 // The game is designed at 1280x720 (landscape) and scaled to fit any screen.
 const game = new Phaser.Game({
@@ -23,7 +24,7 @@ const game = new Phaser.Game({
   // Only listen for taps on the game itself, so taps on pop-up windows never
   // reach game buttons underneath them.
   input: { windowEvents: false },
-  scene: [TitleScene, SlotScene, StoryScene, MapScene, JournalScene, PracticeScene, DisciplesScene],
+  scene: [TitleScene, SlotScene, StoryScene, MapScene, JournalScene, PracticeScene, DisciplesScene, EndingScene],
 });
 
 // Lets automated tests look at the game's state.

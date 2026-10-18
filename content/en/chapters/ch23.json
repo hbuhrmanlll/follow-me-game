@@ -1,0 +1,467 @@
+{
+  "id": "ch23",
+  "number": 23,
+  "title": "Trials and Peter's Denial",
+  "passage": "Matthew 26:57-27:26",
+  "scenes": [
+    {
+      "id": "ch23-s1",
+      "title": "Before the High Priest",
+      "location": "caiaphas-house",
+      "timeOfDay": "night",
+      "passage": "Matthew 26:57-68",
+      "note": "That night and the next morning Jesus was questioned several times: by Annas, by Caiaphas and the council, by Pilate, and by Herod (Luke 23:6-12). This chapter shows only some of them.",
+      "lines": [
+        {
+          "id": "ch23-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:57"
+        },
+        {
+          "id": "ch23-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:59"
+        },
+        {
+          "id": "ch23-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:63",
+          "quote": {
+            "bsb": [
+              "But Jesus remained silent. Then the high priest said to Him,"
+            ],
+            "kjv": [
+              "But Jesus held his peace. And the high priest answered and said unto him,"
+            ]
+          }
+        },
+        {
+          "id": "ch23-s1-04",
+          "speaker": "caiaphas",
+          "type": "scripture",
+          "ref": "Matthew 26:63",
+          "quote": {
+            "bsb": [
+              "I charge You under oath by the living God: Tell us if You are the Christ, the Son of God."
+            ],
+            "kjv": [
+              "I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s1-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 26:64",
+          "quote": {
+            "bsb": [
+              "You have said it yourself",
+              "But I say to all of you, from now on you will see the Son of Man sitting at the right hand of Power and coming on the clouds of heaven."
+            ],
+            "kjv": [
+              "Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s1-06",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "The council said Jesus deserved to die. Then they mocked Him and struck Him."
+        }
+      ],
+      "companions": false,
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "When the high priest asked if He was the Christ, what did Jesus say?",
+        "choices": [
+          {
+            "text": "“You have said it yourself”",
+            "correct": true,
+            "icon": "✅"
+          },
+          {
+            "text": "Nothing at all",
+            "icon": "🤐"
+          },
+          {
+            "text": "“No, I am not”",
+            "icon": "❌"
+          }
+        ],
+        "hint": "Jesus told the truth, even though it would cost Him.",
+        "ref": "Matthew 26:64"
+      }
+    },
+    {
+      "id": "ch23-s2",
+      "title": "The Rooster Crows",
+      "location": "caiaphas-house",
+      "timeOfDay": "night",
+      "passage": "Matthew 26:58-75",
+      "lines": [
+        {
+          "id": "ch23-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:58"
+        },
+        {
+          "id": "ch23-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:69",
+          "quote": {
+            "bsb": [
+              "Meanwhile, Peter was sitting out in the courtyard, and a servant girl came up to him."
+            ],
+            "kjv": [
+              "Now Peter sat without in the palace: and a damsel came unto him, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-03",
+          "speaker": "servant-girl",
+          "type": "scripture",
+          "ref": "Matthew 26:69",
+          "quote": {
+            "bsb": [
+              "You also were with Jesus the Galilean"
+            ],
+            "kjv": [
+              "Thou also wast with Jesus of Galilee."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-04",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 26:70",
+          "quote": {
+            "bsb": [
+              "I do not know what you are talking about."
+            ],
+            "kjv": [
+              "I know not what thou sayest."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-05",
+          "speaker": "servant-girl",
+          "type": "scripture",
+          "ref": "Matthew 26:71",
+          "quote": {
+            "bsb": [
+              "This man was with Jesus of Nazareth."
+            ],
+            "kjv": [
+              "This fellow was also with Jesus of Nazareth."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-06",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 26:72",
+          "quote": {
+            "bsb": [
+              "I do not know the man!"
+            ],
+            "kjv": [
+              "I do not know the man."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-07",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "Matthew 26:73",
+          "quote": {
+            "bsb": [
+              "Surely you are one of them",
+              "for your accent gives you away."
+            ],
+            "kjv": [
+              "Surely thou also art one of them; for thy speech bewrayeth thee."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-08",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Matthew 26:74",
+          "quote": {
+            "bsb": [
+              "I do not know the man!"
+            ],
+            "kjv": [
+              "I know not the man."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:74",
+          "quote": {
+            "bsb": [
+              "And immediately a rooster crowed."
+            ],
+            "kjv": [
+              "And immediately the cock crew."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s2-10",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 26:75"
+        }
+      ],
+      "companions": false,
+      "puzzle": {
+        "type": "count",
+        "prompt": "Peter was afraid, and he said he didn't know Jesus.",
+        "items": [
+          {
+            "icon": "🗣️",
+            "n": 3
+          }
+        ],
+        "question": "How many times did Peter deny knowing Jesus?",
+        "answer": 3,
+        "hint": "Jesus had said, “before the rooster crows, you will deny Me three times.”",
+        "ref": "Matthew 26:75"
+      }
+    },
+    {
+      "id": "ch23-s3",
+      "title": "Before Pilate",
+      "location": "praetorium",
+      "timeOfDay": "dawn",
+      "passage": "John 18:33-38",
+      "lines": [
+        {
+          "id": "ch23-s3-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:1-2"
+        },
+        {
+          "id": "ch23-s3-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:3"
+        },
+        {
+          "id": "ch23-s3-03",
+          "speaker": "judas-iscariot",
+          "type": "scripture",
+          "ref": "Matthew 27:4",
+          "quote": {
+            "bsb": [
+              "I have sinned by betraying innocent blood"
+            ],
+            "kjv": [
+              "I have sinned in that I have betrayed the innocent blood."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-04",
+          "speaker": "pilate",
+          "type": "scripture",
+          "ref": "John 18:33",
+          "quote": {
+            "bsb": [
+              "Are You the King of the Jews?"
+            ],
+            "kjv": [
+              "Art thou the King of the Jews?"
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 18:36",
+          "quote": {
+            "bsb": [
+              "My kingdom is not of this world; if it were, My servants would fight to prevent My arrest by the Jews. But now My kingdom is not of this realm."
+            ],
+            "kjv": [
+              "My kingdom is not of this world: if my kingdom were of this world, then would my servants fight, that I should not be delivered to the Jews: but now is my kingdom not from hence."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-06",
+          "speaker": "pilate",
+          "type": "scripture",
+          "ref": "John 18:37",
+          "quote": {
+            "bsb": [
+              "Then You are a king!"
+            ],
+            "kjv": [
+              "Art thou a king then?"
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 18:37",
+          "quote": {
+            "bsb": [
+              "You say that I am a king",
+              "For this reason I was born and have come into the world, to testify to the truth. Everyone who belongs to the truth listens to My voice."
+            ],
+            "kjv": [
+              "Thou sayest that I am a king. To this end was I born, and for this cause came I into the world, that I should bear witness unto the truth. Every one that is of the truth heareth my voice."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-08",
+          "speaker": "pilate",
+          "type": "scripture",
+          "ref": "John 18:38",
+          "quote": {
+            "bsb": [
+              "What is truth?"
+            ],
+            "kjv": [
+              "What is truth?"
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-09",
+          "speaker": "pilate",
+          "type": "scripture",
+          "ref": "John 18:38",
+          "quote": {
+            "bsb": [
+              "I find no basis for a charge against Him."
+            ],
+            "kjv": [
+              "I find in him no fault at all."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-10",
+          "speaker": "pilate",
+          "type": "scripture",
+          "ref": "Matthew 27:22",
+          "quote": {
+            "bsb": [
+              "What then should I do with Jesus who is called Christ?"
+            ],
+            "kjv": [
+              "What shall I do then with Jesus which is called Christ?"
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-11",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "Matthew 27:22",
+          "quote": {
+            "bsb": [
+              "Crucify Him!"
+            ],
+            "kjv": [
+              "Let him be crucified."
+            ]
+          }
+        },
+        {
+          "id": "ch23-s3-12",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 19:16"
+        }
+      ],
+      "companions": false,
+      "puzzle": {
+        "type": "whoSaid",
+        "prompt": "Who said it?",
+        "ref": "John 18:33-38",
+        "pairs": [
+          {
+            "speaker": "peter",
+            "ref": "Matthew 26:72",
+            "quote": {
+              "bsb": [
+                "I do not know the man!"
+              ],
+              "kjv": [
+                "I do not know the man."
+              ]
+            }
+          },
+          {
+            "speaker": "pilate",
+            "ref": "John 18:38",
+            "quote": {
+              "bsb": [
+                "What is truth?"
+              ],
+              "kjv": [
+                "What is truth?"
+              ]
+            }
+          },
+          {
+            "speaker": "jesus",
+            "ref": "John 18:36",
+            "quote": {
+              "bsb": [
+                "My kingdom is not of this world"
+              ],
+              "kjv": [
+                "My kingdom is not of this world"
+              ]
+            }
+          }
+        ],
+        "hint": "One was a frightened disciple; one was the Roman governor."
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 18:37",
+    "quote": {
+      "bsb": [
+        "Everyone who belongs to the truth listens to My voice."
+      ],
+      "kjv": [
+        "Every one that is of the truth heareth my voice."
+      ]
+    }
+  },
+  "reflect": "Jesus stayed silent and truthful while others lied. Peter failed Him, but Peter's story was not over.",
+  "discuss": [
+    "Why do you think Peter said he didn't know Jesus?",
+    "Peter wept bitterly when the rooster crowed. Have you ever felt sorry for letting someone down?",
+    "Pilate said Jesus had done nothing wrong, but handed Him over anyway. Why is it important to do what is right even when a crowd disagrees?"
+  ],
+  "prayer": "Jesus, You stayed true when others failed You. When we are afraid, help us be brave and not deny You. Amen."
+}

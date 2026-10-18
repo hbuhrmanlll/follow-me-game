@@ -1,0 +1,229 @@
+{
+  "id": "ch20",
+  "number": 20,
+  "title": "The King Comes to Jerusalem",
+  "passage": "Matthew 21:1-13",
+  "scenes": [
+    {
+      "id": "ch20-s1",
+      "title": "Hosanna!",
+      "location": "mount-of-olives",
+      "timeOfDay": "midday",
+      "passage": "Matthew 21:1-11",
+      "lines": [
+        {
+          "id": "ch20-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "It was almost Passover. Jesus and His disciples walked up the road to Jerusalem."
+        },
+        {
+          "id": "ch20-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 21:1"
+        },
+        {
+          "id": "ch20-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 21:2-3",
+          "quote": {
+            "bsb": [
+              "Go into the village ahead of you, and at once you will find a donkey tied there, with her colt beside her. Untie them and bring them to Me. If anyone questions you, tell him that the Lord needs them, and he will send them right away."
+            ],
+            "kjv": [
+              "Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them."
+            ]
+          }
+        },
+        {
+          "id": "ch20-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 21:4-5"
+        },
+        {
+          "id": "ch20-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 21:6-8"
+        },
+        {
+          "id": "ch20-s1-06",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "Matthew 21:9",
+          "quote": {
+            "bsb": [
+              "Hosanna to the Son of David!",
+              "Blessed is He who comes in the name of the Lord!",
+              "Hosanna in the highest!"
+            ],
+            "kjv": [
+              "Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest."
+            ]
+          }
+        },
+        {
+          "id": "ch20-s1-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 21:10",
+          "quote": {
+            "bsb": [
+              "When Jesus had entered Jerusalem, the whole city was stirred and asked, “Who is this?”"
+            ],
+            "kjv": [
+              "And when he was come into Jerusalem, all the city was moved, saying, Who is this?"
+            ]
+          }
+        },
+        {
+          "id": "ch20-s1-08",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "Matthew 21:11",
+          "quote": {
+            "bsb": [
+              "This is Jesus, the prophet from Nazareth in Galilee."
+            ],
+            "kjv": [
+              "This is Jesus the prophet of Nazareth of Galilee."
+            ]
+          }
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "What did Jesus ride into Jerusalem?",
+          "choices": [
+            {
+              "text": "A young donkey",
+              "correct": true,
+              "icon": "🫏"
+            },
+            {
+              "text": "A war horse",
+              "icon": "🐎"
+            },
+            {
+              "text": "A camel",
+              "icon": "🐫"
+            }
+          ],
+          "hint": "The prophet said the King would come gentle and riding on a donkey.",
+          "ref": "Matthew 21:5"
+        },
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "Matthew 21:9",
+          "blank": {
+            "bsb": "name",
+            "kjv": "name"
+          },
+          "decoys": [
+            "house",
+            "city",
+            "power"
+          ],
+          "hint": "The crowd welcomed Jesus as the one God sent.",
+          "quote": {
+            "bsb": [
+              "Blessed is He who comes in the name of the Lord!"
+            ],
+            "kjv": [
+              "Blessed is he that cometh in the name of the Lord;"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch20-s2",
+      "title": "A House of Prayer",
+      "location": "jerusalem",
+      "timeOfDay": "midday",
+      "passage": "Matthew 21:12-13",
+      "note": "Matthew tells of the temple clearing right after Jesus entered the city. Mark 11:11-17 says Jesus looked around the temple that evening, went back to Bethany, and cleared it the next day. This game follows Mark's timing.",
+      "lines": [
+        {
+          "id": "ch20-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 11:11"
+        },
+        {
+          "id": "ch20-s2-02",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "The next morning, Jesus came back to the temple."
+        },
+        {
+          "id": "ch20-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 21:12"
+        },
+        {
+          "id": "ch20-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 21:13",
+          "quote": {
+            "bsb": [
+              "It is written: ‘My house will be called a house of prayer.’ But you are making it ‘a den of robbers.’"
+            ],
+            "kjv": [
+              "It is written, My house shall be called the house of prayer; but ye have made it a den of thieves."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "verseOrder",
+        "prompt": "Put Jesus' words back in order.",
+        "ref": "Matthew 21:13",
+        "quote": {
+          "bsb": [
+            "My house will be called a house of prayer."
+          ],
+          "kjv": [
+            "My house shall be called the house of prayer;"
+          ]
+        },
+        "hint": "It begins with “My house.”"
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 21:9",
+    "quote": {
+      "bsb": [
+        "Blessed is He who comes in the name of the Lord!"
+      ],
+      "kjv": [
+        "Blessed is he that cometh in the name of the Lord;"
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "Hosanna to the Son of David!"
+        ],
+        "kjv": [
+          "Hosanna to the Son of David:"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus came as a King, but a gentle King riding on a donkey, not a war horse.",
+  "discuss": [
+    "Why do you think Jesus chose to ride a donkey instead of a horse?",
+    "The crowd shouted “Hosanna!” How can we praise Jesus too?",
+    "Jesus called the temple a house of prayer. How can we make our home a place of prayer?"
+  ],
+  "prayer": "Jesus, You are our gentle King. Hosanna! Blessed is He who comes in the name of the Lord. Amen."
+}

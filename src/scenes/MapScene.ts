@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { COLORS, FONT, makeButton, restartOnResize } from '../ui/common';
 import { MapView } from '../ui/MapView';
-import { locations, ui } from '../systems/content';
+import { locations, mapPlace, ui } from '../systems/content';
 import { loadSlots } from '../systems/save';
 import { speak, stopSpeaking } from '../systems/speech';
 
@@ -25,7 +25,8 @@ export class MapScene extends Phaser.Scene {
 
     const mapW = Math.min(780, W * 0.52);
     const map = new MapView(this, 20, 20, mapW, H - 40);
-    const visited = loadSlots()[data.slot]?.progress.visited ?? [];
+    // Places inside Jerusalem share one dot; drop repeats in a row.
+    const visited = (loadSlots()[data.slot]?.progress.visited ?? []).map(mapPlace).filter((id, i, a) => id !== a[i - 1]);
     const unique = [...new Set(visited)];
     const current = visited[visited.length - 1];
     for (const id of unique) map.setMarker(id, id === current ? 'current' : 'visited', locations[id]?.name);

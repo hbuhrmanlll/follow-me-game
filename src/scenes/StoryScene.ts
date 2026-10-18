@@ -32,6 +32,7 @@ export class StoryScene extends Phaser.Scene {
   private figures = new Map<string, Phaser.GameObjects.Container>();
   private heavenLight?: Phaser.GameObjects.Graphics;
   private shadow?: Phaser.GameObjects.Rectangle;
+  private backRow = new Map<string, Phaser.GameObjects.Container>();
   private run = 0; // bumps when the scene restarts so old loops stop
 
   constructor() {
@@ -113,13 +114,15 @@ export class StoryScene extends Phaser.Scene {
     this.children.removeAll(true);
     this.figures.clear();
     const W = this.scale.width;
-    this.layers = drawBackdrop(this, locations[scene.location]?.backdrop ?? 'jordan', scene.timeOfDay);
+    this.layers = drawBackdrop(this, scene.backdrop ?? locations[scene.location]?.backdrop ?? 'jordan', scene.timeOfDay);
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 
     // Placeholder figures. Everyone who speaks stands in front with a name;
     // disciples who are just following along stand behind, smaller.
-    const joined = this.slot.progress.disciples;
+    // Disciples following Jesus right now (Judas leaves at the Last Supper).
+    const departed = this.slot.progress.departed;
+    const joined = this.slot.progress.disciples.filter((d) => !departed.includes(d));
     const joiners = scene.lines.flatMap((l) => l.joins ?? []);
     const speakers = [...new Set([...scene.lines.map((l) => l.speaker), ...joiners])].filter((id) => !OFFSTAGE.includes(id) && characters[id]);
     // A scene can leave the disciples out (false) or name just the ones who were there.
@@ -127,10 +130,13 @@ export class StoryScene extends Phaser.Scene {
     const companions = others.filter((id) => !speakers.includes(id)).slice(0, 6);
     // People who are there but don't speak, like Moses and Elijah.
     for (const x of scene.extras ?? []) if (characters[x] && !speakers.includes(x)) speakers.push(x);
+    this.backRow.clear();
     companions.forEach((id, i) => {
       const x = W * (0.15 + ((i + 0.5) / companions.length) * 0.7);
-      this.makeFigure(x, FEET_Y - 30, characters[id].color, '').setScale(0.7).setAlpha(0.9);
+      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, characters[id].color, '').setScale(0.7).setAlpha(0.9));
     });
+    // At the cross, Jesus and the criminal beside Him aren't shown as standing figures; the crosses are part of the background.
+    if (scene.staging === 'cross') speakers.splice(0, speakers.length, ...speakers.filter((id) => id !== 'jesus' && id !== 'criminal'));
     const scale = Math.min(1, 6 / speakers.length);
     speakers.forEach((id, i) => {
       const x = W * (speakers.length === 1 ? 0.5 : 0.22 + (i / (speakers.length - 1)) * 0.56);
@@ -261,6 +267,7 @@ export class StoryScene extends Phaser.Scene {
     if (line.speaker === 'voice-from-heaven') this.shine(true);
     if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 1, duration: 600 });
 
+    if (line.action === 'ascend') this.ascend();
     this.box!.setVisible(true);
     await this.box!.play({
       speakerName: who.name,
@@ -274,9 +281,33 @@ export class StoryScene extends Phaser.Scene {
       audio: audioForLine(line.id, line.type === 'scripture', this.tid),
     });
 
-    if (bob) { bob.stop(); fig!.y = FEET_Y; }
+    if (bob) { bob.stop(); if (line.action !== 'ascend') fig!.y = FEET_Y; }
     if (line.speaker === 'voice-from-heaven') this.shine(false);
     if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 0, duration: 600 });
+    this.leave(line.leaves ?? []);
+  }
+
+  // A disciple leaves the group (Judas, John 13:30).
+  private leave(ids: string[]): void {
+    const p = this.slot.progress;
+    for (const id of ids) {
+      if (!p.departed.includes(id)) p.departed.push(id);
+      const fig = this.backRow.get(id) ?? this.figures.get(id);
+      if (fig) this.tweens.add({ targets: fig, alpha: 0, x: fig.x - 120, duration: 1500 });
+    }
+    this.save();
+  }
+
+  // Jesus is taken up into heaven and a cloud hides Him (Acts 1:9).
+  private ascend(): void {
+    const fig = this.figures.get('jesus');
+    if (!fig) return;
+    const cloud = this.add.graphics().setAlpha(0);
+    cloud.fillStyle(0xffffff, 0.9);
+    for (const [dx, dy, r] of [[-60, 0, 50], [0, -20, 65], [60, 0, 50], [-20, 20, 45], [30, 22, 45]]) cloud.fillCircle(fig.x + dx, 140 + dy, r);
+    this.tweens.add({ targets: fig, y: 170, duration: 3500, ease: 'Sine.easeInOut' });
+    this.tweens.add({ targets: cloud, alpha: 1, delay: 2000, duration: 1500 });
+    this.tweens.add({ targets: fig, alpha: 0, delay: 3000, duration: 1200 });
   }
 
   // A disciple starts following Jesus: show them and announce it.
@@ -416,7 +447,10 @@ export class StoryScene extends Phaser.Scene {
       makeButton(this, bx + w / 2, 590, label, fn, { width: w, height: 96, fontSize: label.length > 2 ? 32 : 44 });
       bx += w + 20;
     }
-    if (!nextId) text(670, ui.comingSoon, 24, '#5a3a1c', 'italic');
+    if (!nextId) {
+      // The very end of the journey: the Good News.
+      makeButton(this, W / 2, 680 - 30, `✝ ${ui.goodNews}`, () => this.scene.start('Ending', { slot: this.slotIndex }), { width: 360, height: 70, fontSize: 30 });
+    }
     readAll();
   }
 }

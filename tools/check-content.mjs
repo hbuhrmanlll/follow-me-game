@@ -82,10 +82,11 @@ function checkQuote(where, ref, quote) {
 const characters = readJson(`content/${LANG}/characters.json`) ?? {};
 const locations = readJson(`content/${LANG}/locations.json`) ?? {};
 const map = readJson('content/map.json') ?? { places: {} };
-const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee', 'village', 'well', 'lake', 'mountain', 'cliff'];
+const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee', 'village', 'well', 'lake', 'mountain', 'cliff', 'olives', 'room', 'courtyard', 'golgotha', 'tomb', 'tomb-open'];
 
 for (const [id, loc] of Object.entries(locations)) {
-  if (!map.places[id]) errors.push(`locations.json "${id}": has no position in content/map.json`);
+  if (loc.mapAs && !map.places[loc.mapAs]) errors.push(`locations.json "${id}": "mapAs" place "${loc.mapAs}" isn't in content/map.json`);
+  if (!loc.mapAs && !map.places[id]) errors.push(`locations.json "${id}": has no position in content/map.json`);
   if (!loc.name || !loc.summary) errors.push(`locations.json "${id}": needs a "name" and a "summary"`);
   if (loc.backdrop && !BACKDROPS.includes(loc.backdrop)) errors.push(`locations.json "${id}": unknown backdrop "${loc.backdrop}"`);
 }
@@ -113,6 +114,8 @@ for (const chId of chapterIds) {
       errors.push(`${where}: "companions" must be false or a list of disciples`);
     }
     for (const x of sc.extras ?? []) if (!characters[x]) errors.push(`${where}: unknown extra "${x}"`);
+    if (sc.backdrop !== undefined && !BACKDROPS.includes(sc.backdrop)) errors.push(`${where}: unknown backdrop "${sc.backdrop}"`);
+    if (sc.staging !== undefined && sc.staging !== 'cross') errors.push(`${where}: "staging" can only be "cross"`);
     if (sc.weather !== undefined && sc.weather !== 'storm') errors.push(`${where}: "weather" can only be "storm"`);
     if (sc.effect !== undefined && sc.effect !== 'transfigure') errors.push(`${where}: "effect" can only be "transfigure"`);
     if (sc.note !== undefined && (typeof sc.note !== 'string' || !sc.note.trim())) errors.push(`${where}: "note" must be some text`);
@@ -134,6 +137,8 @@ for (const chId of chapterIds) {
       } else {
         errors.push(`${lw}: "type" must be "scripture" or "narration"`);
       }
+      for (const j of line.leaves ?? []) if (!characters[j]?.disciple) errors.push(`${lw}: "leaves" lists "${j}", who isn't a disciple`);
+      if (line.action !== undefined && line.action !== 'ascend') errors.push(`${lw}: "action" can only be "ascend"`);
       for (const j of line.joins ?? []) {
         if (!characters[j]?.disciple) errors.push(`${lw}: "joins" lists "${j}", who isn't marked as a disciple in characters.json`);
       }
@@ -239,6 +244,16 @@ for (const id of disciples.order) {
 }
 for (const [id, c] of Object.entries(characters)) {
   if (c.disciple && !disciples.order.includes(id)) errors.push(`characters.json: disciple "${id}" has no card in disciples.json`);
+}
+
+// The Good News ending
+const ending = readJson(`content/${LANG}/ending.json`);
+if (ending) {
+  for (const [i, sl] of (ending.slides ?? []).entries()) {
+    if (!sl.text) errors.push(`ending.json slide ${i + 1}: needs "text"`);
+    if (checkRef(`ending.json slide ${i + 1}`, sl.ref)) checkQuote(`ending.json slide ${i + 1}`, sl.ref, sl.quote);
+  }
+  if (!ending.invite || !ending.prayer) errors.push('ending.json: needs "invite" and "prayer"');
 }
 
 if (missingAudio) {

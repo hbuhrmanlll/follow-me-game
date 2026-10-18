@@ -1,0 +1,209 @@
+{
+  "id": "ch28",
+  "number": 28,
+  "title": "Go and Make Disciples",
+  "passage": "Matthew 28:16-20",
+  "scenes": [
+    {
+      "id": "ch28-s1",
+      "title": "On the Mountain in Galilee",
+      "location": "mountain",
+      "timeOfDay": "dawn",
+      "passage": "Matthew 28:16-20",
+      "lines": [
+        {
+          "id": "ch28-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 28:16-17"
+        },
+        {
+          "id": "ch28-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 28:18-20",
+          "quote": {
+            "bsb": [
+              "All authority in heaven and on earth has been given to Me. Therefore go and make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Spirit, and teaching them to obey all that I have commanded you. And surely I am with you always, even to the end of the age."
+            ],
+            "kjv": [
+              "All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world."
+            ]
+          }
+        }
+      ],
+      "companions": [
+        "peter",
+        "andrew",
+        "james",
+        "john",
+        "philip",
+        "nathanael",
+        "thomas",
+        "matthew",
+        "james-alphaeus",
+        "thaddaeus",
+        "simon-zealot"
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Matthew 28:19",
+        "blank": {
+          "bsb": "nations",
+          "kjv": "nations"
+        },
+        "decoys": [
+          "towns",
+          "friends",
+          "rooms"
+        ],
+        "hint": "Jesus' good news is for the whole world.",
+        "quote": {
+          "bsb": [
+            "Therefore go and make disciples of all nations,"
+          ],
+          "kjv": [
+            "Go ye therefore, and teach all nations,"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch28-s2",
+      "title": "Taken Up into Heaven",
+      "location": "mount-of-olives",
+      "timeOfDay": "midday",
+      "passage": "Acts 1:8-11",
+      "note": "Matthew ends on a mountain in Galilee. Luke and Acts tell us that about forty days after the resurrection, Jesus was taken up into heaven from the Mount of Olives, near Bethany (Luke 24:50; Acts 1:3, 12).",
+      "lines": [
+        {
+          "id": "ch28-s2-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Acts 1:8",
+          "quote": {
+            "bsb": [
+              "But you will receive power when the Holy Spirit comes upon you, and you will be My witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth."
+            ],
+            "kjv": [
+              "But ye shall receive power, after that the Holy Ghost is come upon you: and ye shall be witnesses unto me both in Jerusalem, and in all Judea, and in Samaria, and unto the uttermost part of the earth."
+            ]
+          }
+        },
+        {
+          "id": "ch28-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Acts 1:9",
+          "action": "ascend"
+        },
+        {
+          "id": "ch28-s2-03",
+          "speaker": "angels",
+          "type": "scripture",
+          "ref": "Acts 1:11",
+          "quote": {
+            "bsb": [
+              "Men of Galilee",
+              "why do you stand here looking into the sky? This same Jesus, who has been taken from you into heaven, will come back in the same way you have seen Him go into heaven."
+            ],
+            "kjv": [
+              "Ye men of Galilee, why stand ye gazing up into heaven? this same Jesus, which is taken up from you into heaven, shall so come in like manner as ye have seen him go into heaven."
+            ]
+          }
+        },
+        {
+          "id": "ch28-s2-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 24:52-53"
+        }
+      ],
+      "companions": [
+        "peter",
+        "andrew",
+        "james",
+        "john",
+        "philip",
+        "nathanael",
+        "thomas",
+        "matthew",
+        "james-alphaeus",
+        "thaddaeus",
+        "simon-zealot"
+      ],
+      "puzzle": {
+        "type": "eventOrder",
+        "prompt": "Put Jesus' journey in order, from the beginning to the end!",
+        "ref": "Acts 1:9",
+        "events": [
+          {
+            "text": "Jesus is baptized in the Jordan",
+            "icon": "🕊️",
+            "ref": "Matthew 3:16"
+          },
+          {
+            "text": "Jesus calls fishermen to follow Him",
+            "icon": "🎣",
+            "ref": "Luke 5:11"
+          },
+          {
+            "text": "Jesus feeds five thousand people",
+            "icon": "🍞",
+            "ref": "John 6:11"
+          },
+          {
+            "text": "Jesus shares the Last Supper",
+            "icon": "🍷",
+            "ref": "Luke 22:19"
+          },
+          {
+            "text": "Jesus dies on the cross",
+            "icon": "✝️",
+            "ref": "John 19:30"
+          },
+          {
+            "text": "The tomb is empty: He is risen!",
+            "icon": "🌅",
+            "ref": "Matthew 28:6"
+          },
+          {
+            "text": "Jesus is taken up into heaven",
+            "icon": "☁️",
+            "ref": "Acts 1:9"
+          }
+        ],
+        "hint": "Think back to the very first chapter."
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 28:20",
+    "quote": {
+      "bsb": [
+        "And surely I am with you always, even to the end of the age."
+      ],
+      "kjv": [
+        "and, lo, I am with you alway, even unto the end of the world."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "I am with you always"
+        ],
+        "kjv": [
+          "I am with you alway"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus sent His followers to tell the whole world, and He promised to be with them always. That promise is for us too.",
+  "discuss": [
+    "Jesus told His followers to make disciples of all nations. How did the good news reach you?",
+    "Jesus promised, “I am with you always.” When do you most need to remember that?",
+    "The angels said Jesus will come back. How does that give us hope?"
+  ],
+  "prayer": "Jesus, thank You for this whole journey with You. Help us follow You, tell others about You, and remember You are with us always. Amen."
+}

@@ -1,0 +1,439 @@
+{
+  "id": "ch27",
+  "number": 27,
+  "title": "Breakfast on the Shore",
+  "passage": "John 21:1-17",
+  "scenes": [
+    {
+      "id": "ch27-s1",
+      "title": "The Right Side of the Boat",
+      "location": "sea-of-galilee",
+      "timeOfDay": "dawn",
+      "passage": "John 21:1-14",
+      "lines": [
+        {
+          "id": "ch27-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:1-2"
+        },
+        {
+          "id": "ch27-s1-02",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "John 21:3",
+          "quote": {
+            "bsb": [
+              "I am going fishing."
+            ],
+            "kjv": [
+              "I go a fishing."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-03",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "John 21:3",
+          "quote": {
+            "bsb": [
+              "We will go with you"
+            ],
+            "kjv": [
+              "We also go with thee."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:3",
+          "quote": {
+            "bsb": [
+              "So they went out and got into the boat, but caught nothing that night."
+            ],
+            "kjv": [
+              "They went forth, and entered into a ship immediately; and that night they caught nothing."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:4"
+        },
+        {
+          "id": "ch27-s1-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:5",
+          "quote": {
+            "bsb": [
+              "Children, do you have any fish?"
+            ],
+            "kjv": [
+              "Children, have ye any meat?"
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-07",
+          "speaker": "disciples",
+          "type": "scripture",
+          "ref": "John 21:5",
+          "quote": {
+            "bsb": [
+              "No"
+            ],
+            "kjv": [
+              "No."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-08",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:6",
+          "quote": {
+            "bsb": [
+              "Cast the net on the right side of the boat, and you will find some."
+            ],
+            "kjv": [
+              "Cast the net on the right side of the ship, and ye shall find."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:6",
+          "quote": {
+            "bsb": [
+              "So they cast it there, and they were unable to haul it in because of the great number of fish."
+            ],
+            "kjv": [
+              "They cast therefore, and now they were not able to draw it for the multitude of fishes."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-10",
+          "speaker": "beloved-disciple",
+          "type": "scripture",
+          "ref": "John 21:7",
+          "quote": {
+            "bsb": [
+              "It is the Lord!"
+            ],
+            "kjv": [
+              "It is the Lord."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-11",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:7",
+          "quote": {
+            "bsb": [
+              "As soon as Simon Peter heard that it was the Lord, he put on his outer garment (for he had removed it) and jumped into the sea."
+            ],
+            "kjv": [
+              "Now when Simon Peter heard that it was the Lord, he girt his fisher’s coat unto him, (for he was naked,) and did cast himself into the sea."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s1-12",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:9"
+        },
+        {
+          "id": "ch27-s1-13",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:11"
+        },
+        {
+          "id": "ch27-s1-14",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:12",
+          "quote": {
+            "bsb": [
+              "Come, have breakfast"
+            ],
+            "kjv": [
+              "Come and dine."
+            ]
+          }
+        }
+      ],
+      "companions": [
+        "peter",
+        "thomas",
+        "nathanael",
+        "james",
+        "john"
+      ],
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "Which side of the boat did Jesus tell them to cast the net?",
+          "choices": [
+            {
+              "text": "The right side",
+              "correct": true,
+              "icon": "➡️"
+            },
+            {
+              "text": "The left side",
+              "icon": "⬅️"
+            },
+            {
+              "text": "Behind the boat",
+              "icon": "⬇️"
+            }
+          ],
+          "hint": "Listen to John 21:6.",
+          "ref": "John 21:6"
+        },
+        {
+          "type": "multipleChoice",
+          "prompt": "How many large fish were in the net?",
+          "choices": [
+            {
+              "text": "153",
+              "correct": true,
+              "icon": "🐟"
+            },
+            {
+              "text": "12",
+              "icon": "🧺"
+            },
+            {
+              "text": "5,000",
+              "icon": "👥"
+            }
+          ],
+          "hint": "John counted them: a hundred and fifty-three!",
+          "ref": "John 21:11"
+        }
+      ]
+    },
+    {
+      "id": "ch27-s2",
+      "title": "Do You Love Me?",
+      "location": "sea-of-galilee",
+      "timeOfDay": "midday",
+      "passage": "John 21:15-17",
+      "lines": [
+        {
+          "id": "ch27-s2-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:15",
+          "quote": {
+            "bsb": [
+              "Simon son of John, do you love Me more than these?"
+            ],
+            "kjv": [
+              "Simon, son of Jonas, lovest thou me more than these?"
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-02",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "John 21:15",
+          "quote": {
+            "bsb": [
+              "Yes, Lord",
+              "You know I love You."
+            ],
+            "kjv": [
+              "Yea, Lord; thou knowest that I love thee."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:15",
+          "quote": {
+            "bsb": [
+              "Feed My lambs."
+            ],
+            "kjv": [
+              "Feed my lambs."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:16",
+          "quote": {
+            "bsb": [
+              "Simon son of John, do you love Me?"
+            ],
+            "kjv": [
+              "Simon, son of Jonas, lovest thou me?"
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-05",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "John 21:16",
+          "quote": {
+            "bsb": [
+              "Yes, Lord",
+              "You know I love You."
+            ],
+            "kjv": [
+              "Yea, Lord; thou knowest that I love thee."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:16",
+          "quote": {
+            "bsb": [
+              "Shepherd My sheep."
+            ],
+            "kjv": [
+              "Feed my sheep."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:17",
+          "quote": {
+            "bsb": [
+              "Simon son of John, do you love Me?"
+            ],
+            "kjv": [
+              "Simon, son of Jonas, lovest thou me?"
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 21:17",
+          "quote": {
+            "bsb": [
+              "Peter was deeply hurt that Jesus had asked him a third time,"
+            ],
+            "kjv": [
+              "Peter was grieved because he said unto him the third time,"
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-09",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "John 21:17",
+          "quote": {
+            "bsb": [
+              "Lord, You know all things",
+              "You know I love You."
+            ],
+            "kjv": [
+              "Lord, thou knowest all things; thou knowest that I love thee."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 21:17",
+          "quote": {
+            "bsb": [
+              "Feed My sheep."
+            ],
+            "kjv": [
+              "Feed my sheep."
+            ]
+          }
+        },
+        {
+          "id": "ch27-s2-11",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Peter had said three times that he didn't know Jesus. Now, three times, Jesus let Peter say, “I love You,” and gave him work to do."
+        }
+      ],
+      "companions": [
+        "thomas",
+        "nathanael",
+        "james",
+        "john"
+      ],
+      "puzzle": {
+        "type": "count",
+        "prompt": "Jesus asked Peter the same question again and again.",
+        "items": [
+          {
+            "icon": "❤️",
+            "n": 3
+          }
+        ],
+        "question": "How many times did Jesus ask, “Do you love Me?”",
+        "answer": 3,
+        "hint": "Jesus asked “a third time.”",
+        "ref": "John 21:17"
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 21:17",
+    "quote": {
+      "bsb": [
+        "Lord, You know all things",
+        "You know I love You."
+      ],
+      "kjv": [
+        "Lord, thou knowest all things; thou knowest that I love thee."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "You know I love You."
+        ],
+        "kjv": [
+          "thou knowest that I love thee."
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus made breakfast for His tired friends and forgave Peter. With Jesus, failure is not the end.",
+  "discuss": [
+    "Why do you think Jesus asked Peter three times, “Do you love Me?”",
+    "Jesus didn't scold Peter. He gave him a job: “Feed My sheep.” What does that tell us about Jesus' forgiveness?",
+    "How can we show Jesus that we love Him?"
+  ],
+  "prayer": "Jesus, You know all things. You know we love You. Thank You for forgiving us and giving us work to do for You. Amen."
+}

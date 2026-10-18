@@ -247,7 +247,7 @@ appear in every later scene. Each disciple needs `"disciple": true` in `characte
 ## Adding a new place
 
 1. In `content/en/locations.json`, add the name, region and summary. Add `"backdrop"` only if a
-   scene happens there. Backgrounds so far: `jordan`, `wilderness`, `jerusalem`, `galilee`, `village`, `well`, `lake`, `mountain`, `cliff`.
+   scene happens there. Backgrounds so far: `jordan`, `wilderness`, `jerusalem`, `galilee`, `village`, `well`, `lake`, `mountain`, `cliff`, `olives`, `room`, `courtyard`, `golgotha`, `tomb`, `tomb-open`.
 2. In `content/map.json`, under `"places"`, add `[latitude, longitude]`. You can look these up on
    any online map; for example Capernaum is `[32.88, 35.575]`.
 
@@ -270,6 +270,24 @@ When only some were there, list them: `"companions": ["peter", "james", "john"]`
 - `"extras": ["moses", "elijah"]`: people who are there but don't speak
 - `"weather": "storm"`: wind, rain and lightning (the storm on the sea)
 - `"effect": "transfigure"`: Jesus shines with white light (Matthew 17:2)
+- `"staging": "cross"`: the crucifixion. Jesus and the criminal aren't drawn as standing figures; three small crosses are in the background
+- `"backdrop": "tomb-open"`: use a different background than the place usually has
+
+## Line options
+
+- `"leaves": ["judas-iscariot"]`: a disciple leaves the group after this line (John 13:30). His Card stays, but he no longer walks with the others
+- `"action": "ascend"`: Jesus is taken up into a cloud during this line (Acts 1:9)
+
+## Places inside Jerusalem
+
+The upper room, the high priest's house, Golgotha and the tomb are all inside or right next to
+Jerusalem, so their entries in `locations.json` have `"mapAs": "jerusalem"`. They share Jerusalem's
+dot on the map instead of piling on top of each other.
+
+## The ending
+
+`content/en/ending.json` holds **The Good News**, shown after Chapter 28: a few short slides, each
+with a verse, then an invitation to talk with a parent or pastor, and an optional prayer.
 
 ## If something goes wrong
 

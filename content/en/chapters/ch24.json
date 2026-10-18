@@ -1,0 +1,438 @@
+{
+  "id": "ch24",
+  "number": 24,
+  "title": "The Cross",
+  "passage": "John 19:16-42",
+  "scenes": [
+    {
+      "id": "ch24-s1",
+      "title": "Father, Forgive Them",
+      "location": "golgotha",
+      "timeOfDay": "midday",
+      "passage": "John 19:16-27",
+      "note": "This chapter tells about Jesus' death on the cross. It is told simply and is not graphic, but it is serious and sad. Parents may want to play it together with young children.",
+      "lines": [
+        {
+          "id": "ch24-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 19:17-18"
+        },
+        {
+          "id": "ch24-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 19:19"
+        },
+        {
+          "id": "ch24-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 23:34",
+          "quote": {
+            "bsb": [
+              "Father, forgive them, for they do not know what they are doing."
+            ],
+            "kjv": [
+              "Father, forgive them; for they know not what they do."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 23:39",
+          "quote": {
+            "bsb": [
+              "One of the criminals who hung there heaped abuse on Him."
+            ],
+            "kjv": [
+              "And one of the malefactors which were hanged railed on him, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch24-s1-05",
+          "speaker": "criminal",
+          "type": "scripture",
+          "ref": "Luke 23:40-41",
+          "quote": {
+            "bsb": [
+              "Do you not even fear God, since you are under the same judgment? We are punished justly, for we are receiving what our actions deserve. But this man has done nothing wrong."
+            ],
+            "kjv": [
+              "Dost not thou fear God, seeing thou art in the same condemnation? And we indeed justly; for we receive the due reward of our deeds: but this man hath done nothing amiss."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s1-06",
+          "speaker": "criminal",
+          "type": "scripture",
+          "ref": "Luke 23:42",
+          "quote": {
+            "bsb": [
+              "Jesus, remember me when You come into Your kingdom!"
+            ],
+            "kjv": [
+              "Lord, remember me when thou comest into thy kingdom."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s1-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 23:43",
+          "quote": {
+            "bsb": [
+              "Truly I tell you, today you will be with Me in Paradise."
+            ],
+            "kjv": [
+              "Verily I say unto thee, To day shalt thou be with me in paradise."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s1-08",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 19:25"
+        },
+        {
+          "id": "ch24-s1-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 19:26",
+          "quote": {
+            "bsb": [
+              "Woman, here is your son."
+            ],
+            "kjv": [
+              "Woman, behold thy son!"
+            ]
+          }
+        },
+        {
+          "id": "ch24-s1-10",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 19:27",
+          "quote": {
+            "bsb": [
+              "Here is your mother."
+            ],
+            "kjv": [
+              "Behold thy mother!"
+            ]
+          }
+        }
+      ],
+      "companions": false,
+      "extras": [
+        "mary",
+        "beloved-disciple"
+      ],
+      "staging": "cross",
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Luke 23:34",
+        "blank": {
+          "bsb": "forgive",
+          "kjv": "forgive"
+        },
+        "decoys": [
+          "punish",
+          "forget",
+          "leave"
+        ],
+        "hint": "Even on the cross, Jesus prayed for the people who hurt Him.",
+        "quote": {
+          "bsb": [
+            "Father, forgive them, for they do not know what they are doing."
+          ],
+          "kjv": [
+            "Father, forgive them; for they know not what they do."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch24-s2",
+      "title": "It Is Finished",
+      "location": "golgotha",
+      "timeOfDay": "night",
+      "passage": "Matthew 27:45-54",
+      "lines": [
+        {
+          "id": "ch24-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:45"
+        },
+        {
+          "id": "ch24-s2-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 27:46",
+          "quote": {
+            "bsb": [
+              "Eli, Eli, lema sabachthani?",
+              "My God, My God, why have You forsaken Me?"
+            ],
+            "kjv": [
+              "Eli, Eli, lama sabachthani?",
+              "My God, my God, why hast thou forsaken me?"
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 19:28",
+          "quote": {
+            "bsb": [
+              "I am thirsty."
+            ],
+            "kjv": [
+              "I thirst."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 19:30",
+          "quote": {
+            "bsb": [
+              "It is finished."
+            ],
+            "kjv": [
+              "It is finished:"
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 23:46",
+          "quote": {
+            "bsb": [
+              "Father, into Your hands I commit My Spirit."
+            ],
+            "kjv": [
+              "Father, into thy hands I commend my spirit:"
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 23:46",
+          "quote": {
+            "bsb": [
+              "And when He had said this, He breathed His last."
+            ],
+            "kjv": [
+              "and having said thus, he gave up the ghost."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:51",
+          "quote": {
+            "bsb": [
+              "At that moment the veil of the temple was torn in two from top to bottom. The earth quaked and the rocks were split."
+            ],
+            "kjv": [
+              "And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent;"
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-08",
+          "speaker": "centurion",
+          "type": "scripture",
+          "ref": "Matthew 27:54",
+          "quote": {
+            "bsb": [
+              "Truly this was the Son of God."
+            ],
+            "kjv": [
+              "Truly this was the Son of God."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-09",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 10:45",
+          "quote": {
+            "bsb": [
+              "For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many."
+            ],
+            "kjv": [
+              "For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many."
+            ]
+          }
+        },
+        {
+          "id": "ch24-s2-10",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Earlier, Jesus had told His disciples why He came: to give His life for many. He died for us, so that we could be forgiven."
+        }
+      ],
+      "companions": false,
+      "extras": [
+        "mary",
+        "beloved-disciple"
+      ],
+      "staging": "cross",
+      "puzzle": {
+        "type": "whoSaid",
+        "prompt": "Who said it?",
+        "ref": "Matthew 27:45-54",
+        "pairs": [
+          {
+            "speaker": "criminal",
+            "ref": "Luke 23:42",
+            "quote": {
+              "bsb": [
+                "Jesus, remember me when You come into Your kingdom!"
+              ],
+              "kjv": [
+                "Lord, remember me when thou comest into thy kingdom."
+              ]
+            }
+          },
+          {
+            "speaker": "jesus",
+            "ref": "John 19:30",
+            "quote": {
+              "bsb": [
+                "It is finished."
+              ],
+              "kjv": [
+                "It is finished:"
+              ]
+            }
+          },
+          {
+            "speaker": "centurion",
+            "ref": "Matthew 27:54",
+            "quote": {
+              "bsb": [
+                "Truly this was the Son of God."
+              ],
+              "kjv": [
+                "Truly this was the Son of God."
+              ]
+            }
+          }
+        ],
+        "hint": "One was a Roman soldier who watched it all."
+      }
+    },
+    {
+      "id": "ch24-s3",
+      "title": "The Tomb in the Garden",
+      "location": "tomb",
+      "timeOfDay": "dusk",
+      "passage": "Matthew 27:57-61",
+      "lines": [
+        {
+          "id": "ch24-s3-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:57-58"
+        },
+        {
+          "id": "ch24-s3-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:59-60"
+        },
+        {
+          "id": "ch24-s3-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 27:61"
+        },
+        {
+          "id": "ch24-s3-04",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "It was a very sad day for everyone who loved Jesus. But this was not the end of the story."
+        }
+      ],
+      "companions": false,
+      "puzzle": {
+        "type": "eventOrder",
+        "prompt": "Put these events in order.",
+        "ref": "Matthew 27:57-60",
+        "events": [
+          {
+            "text": "Jesus carries His cross to Golgotha",
+            "icon": "✝️",
+            "ref": "John 19:17"
+          },
+          {
+            "text": "“Father, forgive them”",
+            "icon": "🙏",
+            "ref": "Luke 23:34"
+          },
+          {
+            "text": "“It is finished”",
+            "icon": "🕯️",
+            "ref": "John 19:30"
+          },
+          {
+            "text": "Joseph lays Jesus in a new tomb",
+            "icon": "🪨",
+            "ref": "Matthew 27:60"
+          }
+        ],
+        "hint": "It begins with the walk to Golgotha."
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Luke 23:34",
+    "quote": {
+      "bsb": [
+        "Father, forgive them, for they do not know what they are doing."
+      ],
+      "kjv": [
+        "Father, forgive them; for they know not what they do."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "Father, forgive them"
+        ],
+        "kjv": [
+          "Father, forgive them;"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus gave His life for us. Even on the cross, He forgave, comforted, and cared for others.",
+  "discuss": [
+    "Even on the cross, Jesus prayed for the people who hurt Him. Why is that amazing?",
+    "Jesus told the criminal, “Today you will be with Me in Paradise.” What does that tell us about Jesus' mercy?",
+    "Jesus said, “It is finished.” What do you think He had finished?"
+  ],
+  "prayer": "Lord Jesus, thank You for giving Your life for us. Thank You that You forgive. Help us love You and forgive others. Amen."
+}

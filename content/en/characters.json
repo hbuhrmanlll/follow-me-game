@@ -310,5 +310,95 @@
       "pitch": 0.8,
       "rate": 0.9
     }
+  },
+  "caiaphas": {
+    "name": "Caiaphas the high priest",
+    "color": "#5a4a6a",
+    "initials": "C",
+    "voice": {
+      "pitch": 0.75,
+      "rate": 0.95
+    }
+  },
+  "servant-girl": {
+    "name": "A servant girl",
+    "color": "#8a7a5a",
+    "initials": "S",
+    "voice": {
+      "pitch": 1.35,
+      "rate": 1.05
+    }
+  },
+  "pilate": {
+    "name": "Pilate, the Roman governor",
+    "color": "#8a2a2a",
+    "initials": "Pi",
+    "voice": {
+      "pitch": 0.85,
+      "rate": 0.95
+    }
+  },
+  "criminal": {
+    "name": "The criminal beside Jesus",
+    "color": "#6a5a4a",
+    "initials": "Cr",
+    "voice": {
+      "pitch": 0.9,
+      "rate": 0.95
+    }
+  },
+  "centurion": {
+    "name": "The centurion",
+    "color": "#9a3a2a",
+    "initials": "Ce",
+    "voice": {
+      "pitch": 0.8,
+      "rate": 0.95
+    }
+  },
+  "mary-magdalene": {
+    "name": "Mary Magdalene",
+    "color": "#7a4a8a",
+    "initials": "MM",
+    "voice": {
+      "pitch": 1.3,
+      "rate": 1.0
+    }
+  },
+  "angel": {
+    "name": "An angel of the Lord",
+    "color": "#f0e8c8",
+    "initials": "✦",
+    "voice": {
+      "pitch": 1.0,
+      "rate": 0.9
+    }
+  },
+  "angels": {
+    "name": "Two men dressed in white",
+    "color": "#f0e8c8",
+    "initials": "✦",
+    "voice": {
+      "pitch": 0.95,
+      "rate": 0.9
+    }
+  },
+  "cleopas": {
+    "name": "Cleopas",
+    "color": "#5a7a5a",
+    "initials": "Cl",
+    "voice": {
+      "pitch": 0.95,
+      "rate": 1.0
+    }
+  },
+  "beloved-disciple": {
+    "name": "The disciple whom Jesus loved",
+    "color": "#c07a2a",
+    "initials": "♡",
+    "voice": {
+      "pitch": 1.1,
+      "rate": 1.0
+    }
   }
 }

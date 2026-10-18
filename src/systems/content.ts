@@ -15,7 +15,12 @@ export interface Character {
   name: string; color: string; initials: string; disciple?: boolean; emblem?: string;
   voice: { pitch: number; rate: number };
 }
-export interface Location { name: string; region: string; backdrop?: string; summary: string }
+export interface Location { name: string; region: string; backdrop?: string; summary: string; mapAs?: string }
+
+// The map dot a place uses (places inside Jerusalem all share Jerusalem's dot).
+export function mapPlace(id: string): string {
+  return locations[id]?.mapAs ?? id;
+}
 export type Quote = Partial<Record<TranslationId, string[]>>;
 
 export interface Line {
@@ -26,6 +31,8 @@ export interface Line {
   quote?: Quote;
   text?: string;
   joins?: string[]; // disciples who start following Jesus after this line
+  leaves?: string[]; // disciples who leave the group after this line (Judas)
+  action?: 'ascend'; // Jesus is taken up into heaven during this line
 }
 
 export interface Choice { text: string; correct?: boolean; icon?: string }
@@ -62,6 +69,8 @@ export interface SceneData {
   extras?: string[]; // people present who don't speak, e.g. Moses and Elijah
   weather?: 'storm';
   effect?: 'transfigure';
+  staging?: 'cross'; // the crucifixion: Jesus isn't shown as a standing figure
+  backdrop?: string; // use a different background than the location's usual one
   lines: Line[];
   puzzle?: Puzzle; // one puzzle…
   puzzles?: Puzzle[]; // …or several, played in order

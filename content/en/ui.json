@@ -41,5 +41,41 @@
   "ok": "OK",
   "joined": "{name} is now following Jesus!",
   "thatIs": "That's {name}.",
-  "fillPrompt": "Tap the missing word."
+  "fillPrompt": "Tap the missing word.",
+  "kidsTapTwice": "Tap once to hear it, tap again to choose.",
+  "notHere": "Not here.",
+  "found": "You found it!",
+  "howMany": "How many?",
+  "tapToCount": "Tap each one to count it.",
+  "tryThisOne": "Try this one!",
+  "difficulty": {
+    "kids": "Kids",
+    "family": "Family",
+    "adult": "Adult"
+  },
+  "difficultyHelp": {
+    "kids": "Ages 5–9: pictures, read-aloud, shorter verses",
+    "family": "Ages 10–14",
+    "adult": "Full verses, harder puzzles"
+  },
+  "chooseDifficulty": "Who is this player?",
+  "menu": "Menu",
+  "resume": "Continue the Story",
+  "journal": "Verse Journal",
+  "disciplesTitle": "The Twelve",
+  "players": "Change Player",
+  "practice": "Practice ({n})",
+  "practiceNone": "Nothing to practice right now. Come back tomorrow!",
+  "journalEmpty": "Finish a chapter to add its memory verse here.",
+  "practiceDone": "Practice done! Well done.",
+  "nextVerse": "Next ▶",
+  "known": "Known",
+  "locked": "Not met yet",
+  "alsoCalled": "Also called",
+  "work": "Work",
+  "hometown": "Hometown",
+  "family": "Family",
+  "tradition": "Tradition",
+  "laterInStory": "More about him later in the story…",
+  "orderPrompt": "Put the verse back in order."
 }

@@ -1,0 +1,17 @@
+{
+  "_help": "Which ElevenLabs voice each character uses. Paste a Voice ID from your ElevenLabs Voice Library in place of each PASTE-VOICE-ID. See VOICES.md.",
+  "model": "eleven_multilingual_v2",
+  "format": "mp3_22050_32",
+  "default": { "voiceId": "PASTE-VOICE-ID", "stability": 0.55, "similarity": 0.8, "style": 0.0 },
+  "characters": {
+    "narrator": { "voiceId": "PASTE-VOICE-ID", "stability": 0.6, "similarity": 0.8, "style": 0.1 },
+    "jesus": { "voiceId": "PASTE-VOICE-ID", "stability": 0.7, "similarity": 0.85, "style": 0.0 },
+    "john-baptist": { "voiceId": "PASTE-VOICE-ID", "stability": 0.45, "similarity": 0.8, "style": 0.3 },
+    "voice-from-heaven": { "voiceId": "PASTE-VOICE-ID", "stability": 0.8, "similarity": 0.85, "style": 0.0 },
+    "tempter": { "voiceId": "PASTE-VOICE-ID", "stability": 0.6, "similarity": 0.8, "style": 0.1 },
+    "andrew": { "voiceId": "PASTE-VOICE-ID", "stability": 0.5, "similarity": 0.8, "style": 0.2 },
+    "peter": { "voiceId": "PASTE-VOICE-ID", "stability": 0.45, "similarity": 0.8, "style": 0.3 },
+    "philip": { "voiceId": "PASTE-VOICE-ID", "stability": 0.5, "similarity": 0.8, "style": 0.2 },
+    "nathanael": { "voiceId": "PASTE-VOICE-ID", "stability": 0.5, "similarity": 0.8, "style": 0.2 }
+  }
+}

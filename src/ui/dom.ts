@@ -1,6 +1,7 @@
 // Pop-up windows built from regular web page elements. They are used where
 // real text boxes or scrolling are needed (typing a name, reading a passage).
 import { ui } from '../systems/content';
+import type { Difficulty } from '../systems/save';
 
 function overlay(): { root: HTMLDivElement; panel: HTMLDivElement; close(): void } {
   const root = document.createElement('div');
@@ -101,5 +102,26 @@ export function showPassage(view: PassageView): Promise<void> {
       panel.append(head, body, button(ui.close, () => { close(); resolve(); }));
     };
     render(view);
+  });
+}
+
+// "Who is this player?" — Kids, Family or Adult.
+export function askDifficulty(): Promise<Difficulty | null> {
+  return new Promise((resolve) => {
+    const { panel, close } = overlay();
+    const title = document.createElement('h2');
+    title.textContent = ui.chooseDifficulty;
+    const list = document.createElement('div');
+    list.className = 'fm-choices';
+    for (const d of ['kids', 'family', 'adult'] as Difficulty[]) {
+      const b = button('', () => { close(); resolve(d); });
+      const icon = { kids: '🧒', family: '👨‍👩‍👧', adult: '🧔' }[d];
+      b.textContent = `${icon}  ${ui.difficulty[d]}`;
+      const small = document.createElement('small');
+      small.textContent = ui.difficultyHelp[d];
+      b.appendChild(small);
+      list.appendChild(b);
+    }
+    panel.append(title, list, button(ui.cancel, () => { close(); resolve(null); }, true));
   });
 }

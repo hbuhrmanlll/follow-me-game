@@ -3,7 +3,7 @@ import { FONT, makeButton, restartOnResize } from '../ui/common';
 import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
 import { ui } from '../systems/content';
 
-export const VERSION = 'Phase 3 · v0.3.0';
+export const VERSION = 'Phase 4 · v0.4.0';
 
 export class TitleScene extends Phaser.Scene {
   private layers: Layer[] = [];

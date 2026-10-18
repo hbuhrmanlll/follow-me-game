@@ -208,13 +208,16 @@
         "choices": [
           {
             "text": "Andrew",
-            "correct": true
+            "correct": true,
+            "icon": "🐟"
           },
           {
-            "text": "Philip"
+            "text": "Philip",
+            "icon": "🍞"
           },
           {
-            "text": "Nathanael"
+            "text": "Nathanael",
+            "icon": "🌳"
           }
         ],
         "hint": "Simon's own brother found him first.",
@@ -382,18 +385,72 @@
           }
         }
       ],
+      "puzzles": [
+        {
+          "type": "findHidden",
+          "prompt": "Jesus saw Nathanael under the fig tree. Can you find him?",
+          "hide": "nathanael",
+          "spot": "🌳",
+          "others": [
+            "🪨",
+            "🌾",
+            "🏺"
+          ],
+          "hint": "Jesus said He saw Nathanael under the fig tree.",
+          "ref": "John 1:48"
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Philip, Andrew and Peter were all from Bethsaida. Tap Bethsaida on the map.",
+          "target": "bethsaida",
+          "choices": [
+            "bethsaida",
+            "jerusalem",
+            "jordan",
+            "nazareth"
+          ],
+          "hint": "Bethsaida is a fishing town on the north shore of the Sea of Galilee.",
+          "ref": "John 1:44"
+        }
+      ]
+    },
+    {
+      "id": "ch03-s4",
+      "title": "Following Jesus",
+      "location": "galilee",
+      "timeOfDay": "dusk",
+      "passage": "John 1:35-51",
+      "lines": [
+        {
+          "id": "ch03-s4-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Andrew, Peter, Philip and Nathanael had each met Jesus. Now they were following Him."
+        }
+      ],
       "puzzle": {
-        "type": "mapFind",
-        "prompt": "Philip, Andrew and Peter were all from Bethsaida. Tap Bethsaida on the map.",
-        "target": "bethsaida",
-        "choices": [
-          "bethsaida",
-          "jerusalem",
-          "jordan",
-          "nazareth"
+        "type": "discipleMatch",
+        "prompt": "Match each disciple to what happened to him.",
+        "ref": "John 1:40-49",
+        "pairs": [
+          {
+            "disciple": "andrew",
+            "fact": "Brought his brother Simon to Jesus"
+          },
+          {
+            "disciple": "peter",
+            "fact": "Jesus named him Cephas"
+          },
+          {
+            "disciple": "philip",
+            "fact": "Jesus told him, “Follow Me”"
+          },
+          {
+            "disciple": "nathanael",
+            "fact": "Jesus saw him under the fig tree"
+          }
         ],
-        "hint": "Bethsaida is a fishing town on the north shore of the Sea of Galilee.",
-        "ref": "John 1:44"
+        "hint": "Listen to each disciple's Card if you need help."
       }
     }
   ],
@@ -406,6 +463,16 @@
       "kjv": [
         "Behold the Lamb of God, which taketh away the sin of the world."
       ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "Look, the Lamb of God"
+        ],
+        "kjv": [
+          "Behold the Lamb of God"
+        ]
+      }
     }
   },
   "reflect": "Andrew and Philip each told someone about Jesus. Who could you tell?"

@@ -7,8 +7,11 @@ import { showPassage, type PassageView } from '../ui/dom';
 import { speak, stopSpeaking } from '../systems/speech';
 import {
   chapterOrder, characters, fill, getChapter, getVerses, lineText, loadTranslation, locations,
-  scriptureText, translations, ui, type Chapter, type SceneData, type TranslationId,
+  scenePuzzles, scriptureText, translations, ui, type Chapter, type SceneData, type TranslationId,
 } from '../systems/content';
+import { addVerse } from '../systems/journal';
+import { openMenu } from '../ui/menu';
+import { audioForLine } from '../systems/voice';
 import { loadSettings, loadSlots, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
 
 const SPEEDS: Speed[] = ['slow', 'normal', 'fast'];
@@ -86,9 +89,17 @@ export class StoryScene extends Phaser.Scene {
         if (run !== this.run) return;
         p.step++;
       }
-      this.save();
-      this.box?.setVisible(false);
-      await runPuzzle(this, scene.puzzle, this.tid, this.rate);
+      // Puzzles come after the lines; step counts on past the last line.
+      const puzzles = scenePuzzles(scene);
+      while (run === this.run && p.step < scene.lines.length + puzzles.length) {
+        this.save();
+        this.box?.setVisible(false);
+        const pz = puzzles[p.step - scene.lines.length];
+        await runPuzzle(this, pz, { tid: this.tid, rate: this.rate, difficulty: this.slot.difficulty });
+        if (run !== this.run) return;
+        if (pz.type === 'fillBlank' || pz.type === 'verseOrder') addVerse(this.slot, pz.ref, pz.quote);
+        p.step++;
+      }
       if (run !== this.run) return;
       p.scene++;
       p.step = 0;
@@ -122,7 +133,10 @@ export class StoryScene extends Phaser.Scene {
     this.shadow = this.add.rectangle(0, 0, W, this.scale.height, 0x1a1028, 0.45).setOrigin(0).setAlpha(0);
 
     // Top bar: menu on the left, dialogue controls and Scripture on the right.
-    makeButton(this, 70, 54, '☰', () => this.scene.start('Slots'), { width: 100, height: 84, fontSize: 44 });
+    makeButton(this, 70, 54, '☰', () => {
+      stopSpeaking();
+      openMenu(this, this.slotIndex, () => this.box?.replay());
+    }, { width: 100, height: 84, fontSize: 44 });
     this.add.text(140, 54, scene.title, {
       fontFamily: FONT, fontSize: '28px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 6,
     }).setOrigin(0, 0.5);
@@ -204,6 +218,7 @@ export class StoryScene extends Phaser.Scene {
       refLabel: line.type === 'scripture' ? `${line.ref} · ${short}` : undefined,
       pitch: who.voice.pitch,
       rate: who.voice.rate,
+      audio: audioForLine(line.id, line.type === 'scripture', this.tid),
     });
 
     if (bob) { bob.stop(); fig!.y = FEET_Y; }
@@ -311,7 +326,11 @@ export class StoryScene extends Phaser.Scene {
     panel.lineStyle(5, COLORS.goldDark, 1).strokeRoundedRect(W / 2 - panelW / 2, 30, panelW, H - 60, 24);
 
     const mv = this.chapter.memoryVerse;
-    const verse = scriptureText(mv.ref, mv.quote, this.tid);
+    // Kids learn a shorter part of the verse when one is given.
+    const mvQuote = this.slot.difficulty === 'kids' && mv.kids ? mv.kids.quote : mv.quote;
+    const verse = scriptureText(mv.ref, mvQuote, this.tid);
+    addVerse(this.slot, mv.ref, mvQuote);
+    this.save();
     const short = translations.find((t) => t.id === this.tid)?.short ?? '';
     const done = fill(ui.chapterComplete, { n: this.chapter.number });
     const text = (y: number, s: string, size: number, color = '#2b1d12', style = 'normal') =>
@@ -327,19 +346,19 @@ export class StoryScene extends Phaser.Scene {
     text(440, this.chapter.reflect, 28);
 
     const readAll = () => speak(`${done} ${ui.memoryVerse}. ${mv.ref}. ${verse} ${ui.reflect}. ${this.chapter.reflect}`, { rate: this.rate });
-    const shift = nextId ? 0 : 150;
-    makeButton(this, W / 2 - 400 + shift, 590, '🔊', readAll, { width: 110, height: 96, fontSize: 44 });
-    makeButton(this, W / 2 - 270 + shift, 590, '🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story', animate: true }), {
-      width: 110, height: 96, fontSize: 44,
-    });
-    makeButton(this, W / 2 - 60 + shift, 590, ui.backToTitle, () => this.scene.start('Title'), { width: 320, height: 96, fontSize: 32 });
-    if (nextId) {
-      makeButton(this, W / 2 + 250, 590, `${ui.nextChapter} ▶`, () => this.scene.restart({ slot: this.slotIndex }), {
-        width: 280, height: 96, fontSize: 32,
-      });
-    } else {
-      text(660, ui.comingSoon, 24, '#5a3a1c', 'italic');
+    // A row of buttons along the bottom, centered.
+    const row: [string, () => void, number][] = [
+      ['🔊', readAll, 110],
+      ['🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story', animate: true }), 110],
+      [ui.backToTitle, () => this.scene.start('Title'), 320],
+    ];
+    if (nextId) row.push([`${ui.nextChapter} ▶`, () => this.scene.restart({ slot: this.slotIndex }), 290]);
+    let bx = W / 2 - (row.reduce((n, [, , w]) => n + w, 0) + 20 * (row.length - 1)) / 2;
+    for (const [label, fn, w] of row) {
+      makeButton(this, bx + w / 2, 590, label, fn, { width: w, height: 96, fontSize: label.length > 2 ? 32 : 44 });
+      bx += w + 20;
     }
+    if (!nextId) text(670, ui.comingSoon, 24, '#5a3a1c', 'italic');
     readAll();
   }
 }

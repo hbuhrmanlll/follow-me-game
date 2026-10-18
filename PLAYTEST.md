@@ -94,3 +94,42 @@ Your saved players keep their place. A player who already finished Chapter 1 con
 - Can the kids find places on the map without help? Are the dots big enough?
 - Are the notes helpful, or too long for the kids? (They're mostly for parents.)
 - With 5 people on screen in Chapter 3, is it still clear who is talking?
+
+## Phase 4
+
+The title screen should say **Phase 4 · v0.4.0**. Existing players keep their place, and start on the **Family** level.
+
+**Levels**
+- [ ] Making a new player asks "Who is this player?": Kids, Family or Adult
+- [ ] Under each player is a level button (for example "Family"). Tap it to change level
+- [ ] **Kids:** answers show pictures. Tapping an answer once reads it out loud, and tapping it again chooses it. There are fewer choices
+- [ ] **Kids:** the memory verse is a short part of the verse (for example "Look, the Lamb of God")
+- [ ] **Adult:** verses are cut into more pieces in "put the verse in order"
+
+**New puzzles** (all in Chapters 1–3)
+- [ ] Chapter 1, scene 2: **Who said it?** Tap a person, then their words
+- [ ] Chapter 2, scene 2: **Put Jesus' words back in order.** The verse builds up at the top
+- [ ] Chapter 2, scene 3: **Put the temptations in order.** Each card gets a number. After two misses, the right card glows
+- [ ] Chapter 3, scene 3: **Find Nathanael under the fig tree.** Wrong places say "Not here"
+- [ ] Chapter 3, new scene 4: **Match each disciple to a fact**
+- [ ] (A "count the loaves and fish" puzzle is built and will appear in Chapter 14)
+
+**☰ Menu** (top-left during the story)
+- [ ] Continue, Map, Verse Journal, The Twelve, Change Player all work
+
+**Verse Journal**
+- [ ] After a chapter, its memory verse is in the Journal. Verses from puzzles are added too
+- [ ] Tapping a verse reads it aloud
+- [ ] **Practice** gives quick puzzles for the verses that are due
+- [ ] Stars (★☆☆☆☆): getting a verse right the first time adds a star, and it comes back later (1, 3, 7, then 14 days). A miss starts it over at one star, to practice again soon
+
+**The Twelve (Disciple Cards)**
+- [ ] 12 cards: the ones you have met show color and a symbol; the rest say "Not met yet"
+- [ ] Tapping a card shows and reads his name, hometown, work, and facts with verse references
+- [ ] Nathanael's card has an ⓘ note that "Bartholomew" is tradition, not stated in the Bible
+- [ ] Cards don't give away later events. They say "More about him later in the story…"
+
+**Questions for you and the kids**
+- Does "tap once to hear, tap again to choose" make sense to your youngest?
+- Are any of the new puzzles confusing or too hard? Which ones do the kids like best?
+- Is anything on the Disciple Cards worded in a way you'd change?

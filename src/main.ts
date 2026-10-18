@@ -3,6 +3,9 @@ import { TitleScene } from './scenes/TitleScene';
 import { SlotScene } from './scenes/SlotScene';
 import { StoryScene } from './scenes/StoryScene';
 import { MapScene } from './scenes/MapScene';
+import { JournalScene } from './scenes/JournalScene';
+import { PracticeScene } from './scenes/PracticeScene';
+import { DisciplesScene } from './scenes/DisciplesScene';
 
 // The game is designed at 1280x720 (landscape) and scaled to fit any screen.
 const game = new Phaser.Game({
@@ -17,7 +20,10 @@ const game = new Phaser.Game({
     // Full screen covers the whole page, so pop-up windows (like typing a name) stay visible.
     fullscreenTarget: document.body,
   },
-  scene: [TitleScene, SlotScene, StoryScene, MapScene],
+  // Only listen for taps on the game itself, so taps on pop-up windows never
+  // reach game buttons underneath them.
+  input: { windowEvents: false },
+  scene: [TitleScene, SlotScene, StoryScene, MapScene, JournalScene, PracticeScene, DisciplesScene],
 });
 
 // Lets automated tests look at the game's state.

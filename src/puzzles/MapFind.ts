@@ -1,23 +1,26 @@
 import Phaser from 'phaser';
 import { fill, locations, ui, type MapFindPuzzle } from '../systems/content';
 import { MapView } from '../ui/MapView';
-import { makePanel } from './panel';
+import { makePanel, type PuzzleContext } from './panel';
 
 // "Find the place on the map." The choices are unlabeled dots; tapping a wrong
 // one names it, so the player still learns where it is.
-export function runMapFind(scene: Phaser.Scene, puzzle: MapFindPuzzle, rate: number): Promise<void> {
+export function runMapFind(scene: Phaser.Scene, puzzle: MapFindPuzzle, ctx: PuzzleContext): Promise<void> {
   return new Promise((resolve) => {
     const W = scene.scale.width;
     const H = scene.scale.height;
     const mapW = Math.min(780, W * 0.5);
     const panelLeft = mapW + 50;
-    const panel = makePanel(scene, { rate, prompt: puzzle.prompt, left: panelLeft, width: W - panelLeft - 30 });
+    const panel = makePanel(scene, ctx, { prompt: puzzle.prompt, left: panelLeft, width: W - panelLeft - 30 });
     const cx = panel.left + panel.width / 2;
     panel.setFeedbackPosition(cx, H / 2 + 60, panel.width - 60);
 
     const map = new MapView(scene, 20, 20, mapW, H - 40);
     map.setDepth(51);
-    for (const id of puzzle.choices) map.setMarker(id, 'choice');
+    // Kids get fewer dots to choose from.
+    const others = puzzle.choices.filter((c) => c !== puzzle.target);
+    const choices = [puzzle.target, ...(panel.kids ? others.slice(0, 2) : others)];
+    for (const id of choices) map.setMarker(id, 'choice');
     map.centerOn(puzzle.target);
     let solved = false;
     map.onTap((id) => {

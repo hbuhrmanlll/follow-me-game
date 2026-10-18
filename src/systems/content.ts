@@ -6,11 +6,15 @@ import chapterIndex from '../../content/en/chapters/index.json';
 import uiJson from '../../content/en/ui.json';
 import mapJson from '../../content/map.json';
 import mapLabelsJson from '../../content/en/map-labels.json';
+import disciplesJson from '../../content/en/disciples.json';
 
 export type TranslationId = 'bsb' | 'kjv';
 
 export interface Translation { id: TranslationId; name: string; short: string; notice: string }
-export interface Character { name: string; color: string; initials: string; disciple?: boolean; voice: { pitch: number; rate: number } }
+export interface Character {
+  name: string; color: string; initials: string; disciple?: boolean; emblem?: string;
+  voice: { pitch: number; rate: number };
+}
 export interface Location { name: string; region: string; backdrop?: string; summary: string }
 export type Quote = Partial<Record<TranslationId, string[]>>;
 
@@ -24,14 +28,28 @@ export interface Line {
   joins?: string[]; // disciples who start following Jesus after this line
 }
 
-export interface Choice { text: string; correct?: boolean }
-export interface MultipleChoicePuzzle { type: 'multipleChoice'; prompt: string; choices: Choice[]; hint: string; ref: string }
-export interface FillBlankPuzzle {
-  type: 'fillBlank'; prompt: string; ref: string; quote?: Quote;
-  blank: Partial<Record<TranslationId, string>>; decoys: string[]; hint: string;
+export interface Choice { text: string; correct?: boolean; icon?: string }
+interface PuzzleBase { prompt: string; hint: string; ref: string }
+export interface MultipleChoicePuzzle extends PuzzleBase { type: 'multipleChoice'; choices: Choice[] }
+export interface FillBlankPuzzle extends PuzzleBase {
+  type: 'fillBlank'; quote?: Quote; blank: Partial<Record<TranslationId, string>>; decoys: string[];
 }
-export interface MapFindPuzzle { type: 'mapFind'; prompt: string; target: string; choices: string[]; hint: string; ref: string }
-export type Puzzle = MultipleChoicePuzzle | FillBlankPuzzle | MapFindPuzzle;
+export interface MapFindPuzzle extends PuzzleBase { type: 'mapFind'; target: string; choices: string[] }
+export interface VerseOrderPuzzle extends PuzzleBase { type: 'verseOrder'; quote?: Quote }
+export interface EventOrderPuzzle extends PuzzleBase { type: 'eventOrder'; events: { text: string; icon?: string; ref?: string }[] }
+export interface WhoSaidPuzzle extends PuzzleBase { type: 'whoSaid'; pairs: { speaker: string; ref: string; quote?: Quote }[] }
+export interface DiscipleMatchPuzzle extends PuzzleBase { type: 'discipleMatch'; pairs: { disciple: string; fact: string }[] }
+export interface FindHiddenPuzzle extends PuzzleBase { type: 'findHidden'; hide: string; spot: string; others: string[] }
+export interface CountPuzzle extends PuzzleBase {
+  type: 'count'; items: { icon: string; n: number }[]; question: string; answer: number;
+}
+export type Puzzle =
+  | MultipleChoicePuzzle | FillBlankPuzzle | MapFindPuzzle | VerseOrderPuzzle | EventOrderPuzzle
+  | WhoSaidPuzzle | DiscipleMatchPuzzle | FindHiddenPuzzle | CountPuzzle;
+
+export function scenePuzzles(scene: SceneData): Puzzle[] {
+  return scene.puzzles ?? (scene.puzzle ? [scene.puzzle] : []);
+}
 
 export interface SceneData {
   id: string;
@@ -41,7 +59,8 @@ export interface SceneData {
   passage: string;
   note?: string; // shown before the scene, e.g. where Gospel accounts differ in order
   lines: Line[];
-  puzzle: Puzzle;
+  puzzle?: Puzzle; // one puzzle…
+  puzzles?: Puzzle[]; // …or several, played in order
 }
 
 export type TimeOfDay = 'dawn' | 'midday' | 'dusk' | 'night';
@@ -52,7 +71,7 @@ export interface Chapter {
   title: string;
   passage: string;
   scenes: SceneData[];
-  memoryVerse: { ref: string; quote?: Quote };
+  memoryVerse: { ref: string; quote?: Quote; kids?: { quote: Quote } };
   reflect: string;
 }
 
@@ -72,6 +91,13 @@ export interface MapData {
   places: Record<string, LatLon>;
 }
 export const mapData = mapJson as unknown as MapData;
+
+export interface DiscipleCard {
+  alsoCalled: string; work: string; hometown: string; family: string;
+  facts: { text: string; ref: string; after: string }[];
+  tradition?: string;
+}
+export const disciples = disciplesJson as { order: string[]; cards: Record<string, DiscipleCard> };
 export const mapLabels = mapLabelsJson as { regions: Record<string, string>; water: Record<string, string> };
 
 const chapterFiles = import.meta.glob<Chapter>('../../content/en/chapters/ch*.json', { eager: true, import: 'default' });

@@ -19,6 +19,8 @@ the broken version. Your game link keeps showing the last good one. See
 | `content/map.json` | Where each place sits on the map (latitude, longitude). No language in it |
 | `content/en/map-labels.json` | Region and water names printed on the map |
 | `content/en/ui.json` | Every button label and menu word |
+| `content/en/disciples.json` | The 12 Disciple Cards |
+| `content/audio/en/` | Voice recordings (see VOICES.md) |
 | `content/scripture/bsb/`, `kjv/` | The Bible text. **Don't edit these.** |
 
 `en` means English. A Spanish version will go in an `es` folder later.
@@ -84,7 +86,8 @@ between them, then change it:
 
 - `timeOfDay` can be `dawn`, `midday`, `dusk` or `night`.
 - `passage` is what the 📜 Scripture button shows.
-- **Every scene must end with a puzzle.**
+- **Every scene must end with at least one puzzle.** Use `"puzzle": { ... }` for one, or
+  `"puzzles": [ { ... }, { ... } ]` for several in a row.
 
 ## The puzzle (multiple choice)
 
@@ -104,6 +107,8 @@ between them, then change it:
 
 Exactly one choice gets `"correct": true`. The game mixes up the order each time. A wrong
 answer shows the hint plus "You can read about it in Matthew 3:4."
+
+Add `"icon": "🍯"` to a choice to give Kids-mode players a picture. Kids see at most 3 choices.
 
 ## The puzzle (fill in the missing word)
 
@@ -142,7 +147,91 @@ answer shows the hint plus "You can read about it in Matthew 3:4."
 The `choices` show as unlabeled dots. Tapping a wrong dot names that place, so the player still
 learns it. Every place must be in both `locations.json` and `map.json`.
 
-More puzzle types arrive in Phase 4.
+## The puzzle (put the verse back in order)
+
+```json
+{ "type": "verseOrder", "prompt": "Put Jesus' words back in order.", "ref": "Matthew 4:7",
+  "quote": { "bsb": ["Do not put the Lord your God to the test."], "kjv": ["Thou shalt not tempt the Lord thy God."] },
+  "hint": "It begins with the words of a command." }
+```
+
+The game cuts the verse into pieces by itself: 3 for Kids, 5 for Family, 8 for Adult.
+
+## The puzzle (put events in order)
+
+```json
+{ "type": "eventOrder", "prompt": "Put the temptations in order.", "ref": "Matthew 4:1-11",
+  "events": [
+    { "text": "Turn these stones into bread", "icon": "🪨", "ref": "Matthew 4:3" },
+    { "text": "Throw Yourself down from the temple", "icon": "🏛️", "ref": "Matthew 4:5-6" },
+    { "text": "Worship me on the high mountain", "icon": "⛰️", "ref": "Matthew 4:8-9" }
+  ],
+  "hint": "First Jesus was hungry in the wilderness." }
+```
+
+List the events **in the right order**; the game shuffles them. In Kids mode the first one is already placed.
+
+## The puzzle (who said it?)
+
+```json
+{ "type": "whoSaid", "prompt": "Who said it?", "ref": "Matthew 3:14-17",
+  "pairs": [
+    { "speaker": "john-baptist", "ref": "Matthew 3:14", "quote": { "bsb": ["I need to be baptized by You, and do You come to me?"], "kjv": ["I have need to be baptized of thee, and comest thou to me?"] } },
+    { "speaker": "jesus", "ref": "Matthew 3:15", "quote": { "bsb": ["Let it be so now"], "kjv": ["Suffer it to be so now"] } }
+  ],
+  "hint": "Think about who was in the water." }
+```
+
+The words always come from the Bible files, so they're word for word. Kids get at most 3 pairs, everyone else 4.
+
+## The puzzle (match a disciple to a fact)
+
+```json
+{ "type": "discipleMatch", "prompt": "Match each disciple to what happened to him.", "ref": "John 1:40-49",
+  "pairs": [ { "disciple": "andrew", "fact": "Brought his brother Simon to Jesus" },
+             { "disciple": "peter", "fact": "Jesus named him Cephas" } ],
+  "hint": "Listen to each disciple's Card if you need help." }
+```
+
+Facts are your own short words, so keep them true to the passage.
+
+## Story puzzles
+
+**Find what's hidden.** Tap a hiding place to look behind it:
+
+```json
+{ "type": "findHidden", "prompt": "Can you find Nathanael?", "hide": "nathanael",
+  "spot": "🌳", "others": ["🪨", "🌾", "🏺"], "hint": "Look under the fig tree.", "ref": "John 1:48" }
+```
+
+`hide` is a character id (shows their portrait) or an emoji, for example `"🪙"` for the lost coin.
+
+**Count them.** Tap each thing to count it, then choose how many:
+
+```json
+{ "type": "count", "prompt": "A boy had five loaves and two fish.",
+  "items": [ { "icon": "🍞", "n": 5 }, { "icon": "🐟", "n": 2 } ],
+  "question": "How many loaves and fish in all?", "answer": 7, "hint": "Count again.", "ref": "John 6:9" }
+```
+
+## Difficulty levels
+
+Each player picks **Kids**, **Family** or **Adult** (change it with the level button under their name).
+Kids get pictures, fewer choices, fewer and bigger verse pieces, and "tap once to hear, tap again to
+choose". You don't need to write separate puzzles for each level.
+
+For a shorter Kids memory verse, add a `kids` part (exact words only, no paraphrasing):
+
+```json
+"memoryVerse": { "ref": "John 1:29", "quote": { ... },
+  "kids": { "quote": { "bsb": ["Look, the Lamb of God"], "kjv": ["Behold the Lamb of God"] } } }
+```
+
+## Disciple Cards
+
+`content/en/disciples.json` holds one card per disciple. Each fact has the verse it comes from and
+`"after"`: the chapter where that fact is first shown (so cards don't give away what happens later).
+Put anything the Bible doesn't say directly under `"tradition"`; it is shown with an ⓘ label.
 
 ## Notes ("ⓘ Note" cards)
 

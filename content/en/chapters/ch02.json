@@ -126,19 +126,35 @@
           }
         }
       ],
-      "puzzle": {
-        "type": "mapFind",
-        "prompt": "The devil took Jesus to the holy city. Tap Jerusalem on the map.",
-        "target": "jerusalem",
-        "choices": [
-          "jerusalem",
-          "jordan",
-          "nazareth",
-          "bethsaida"
-        ],
-        "hint": "Jerusalem is in Judea, in the hills west of the Dead Sea.",
-        "ref": "Matthew 4:5"
-      }
+      "puzzles": [
+        {
+          "type": "verseOrder",
+          "prompt": "Put Jesus' words back in order.",
+          "ref": "Matthew 4:7",
+          "quote": {
+            "bsb": [
+              "Do not put the Lord your God to the test."
+            ],
+            "kjv": [
+              "Thou shalt not tempt the Lord thy God."
+            ]
+          },
+          "hint": "It begins with the words of a command."
+        },
+        {
+          "type": "mapFind",
+          "prompt": "The devil took Jesus to the holy city. Tap Jerusalem on the map.",
+          "target": "jerusalem",
+          "choices": [
+            "jerusalem",
+            "jordan",
+            "nazareth",
+            "bethsaida"
+          ],
+          "hint": "Jerusalem is in Judea, in the hills west of the Dead Sea.",
+          "ref": "Matthew 4:5"
+        }
+      ]
     },
     {
       "id": "ch02-s3",
@@ -196,24 +212,57 @@
           "text": "Three times Jesus was tempted, and three times He answered with God's Word."
         }
       ],
-      "puzzle": {
-        "type": "multipleChoice",
-        "prompt": "How did Jesus answer the devil each time?",
-        "choices": [
-          {
-            "text": "With words from Scripture",
-            "correct": true
-          },
-          {
-            "text": "By running away"
-          },
-          {
-            "text": "By staying silent"
-          }
-        ],
-        "hint": "Listen for the words “It is written.”",
-        "ref": "Matthew 4:1-11"
-      }
+      "puzzles": [
+        {
+          "type": "eventOrder",
+          "prompt": "Put the temptations in the order Matthew tells them.",
+          "ref": "Matthew 4:1-11",
+          "events": [
+            {
+              "text": "Turn these stones into bread",
+              "icon": "🪨",
+              "ref": "Matthew 4:3"
+            },
+            {
+              "text": "Throw Yourself down from the temple",
+              "icon": "🏛️",
+              "ref": "Matthew 4:5-6"
+            },
+            {
+              "text": "Worship me on the high mountain",
+              "icon": "⛰️",
+              "ref": "Matthew 4:8-9"
+            },
+            {
+              "text": "Angels came and cared for Jesus",
+              "icon": "👼",
+              "ref": "Matthew 4:11"
+            }
+          ],
+          "hint": "First Jesus was hungry in the wilderness."
+        },
+        {
+          "type": "multipleChoice",
+          "prompt": "How did Jesus answer the devil each time?",
+          "choices": [
+            {
+              "text": "With words from Scripture",
+              "correct": true,
+              "icon": "📜"
+            },
+            {
+              "text": "By running away",
+              "icon": "🏃"
+            },
+            {
+              "text": "By staying silent",
+              "icon": "🤐"
+            }
+          ],
+          "hint": "Listen for the words “It is written.”",
+          "ref": "Matthew 4:1-11"
+        }
+      ]
     }
   ],
   "memoryVerse": {
@@ -225,6 +274,16 @@
       "kjv": [
         "Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."
       ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "Man shall not live on bread alone"
+        ],
+        "kjv": [
+          "Man shall not live by bread alone"
+        ]
+      }
     }
   },
   "reflect": "When we are tempted, God's Word helps us choose what is right."

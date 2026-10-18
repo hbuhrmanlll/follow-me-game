@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
-import { COLORS, FONT, makePortrait } from './common';
+import { COLORS, FONT, makePortrait, whenTapped } from './common';
 import { estimateDuration, speak, stopSpeaking } from '../systems/speech';
 import { ui } from '../systems/content';
+import type { LineAudio, WordTimings } from '../systems/voice';
 
 export interface DialogueLine {
   speakerName: string;
@@ -12,6 +13,7 @@ export interface DialogueLine {
   refLabel?: string; // e.g. "Matthew 3:15 · BSB"
   pitch: number;
   rate: number;
+  audio?: LineAudio | null; // a recording; without one the browser voice reads the line
 }
 
 interface Word { obj: Phaser.GameObjects.Text; start: number; end: number }
@@ -41,6 +43,8 @@ export class DialogueBox {
   private gotBoundary = false;
   private current = -1;
   private autoTimer?: Phaser.Time.TimerEvent;
+  private player?: HTMLAudioElement;
+  private timings?: WordTimings;
 
   constructor(private scene: Phaser.Scene) {
     const W = scene.scale.width;
@@ -66,7 +70,7 @@ export class DialogueBox {
 
     // Tapping the box moves on once the line has finished.
     const hit = scene.add.zone(20, TOP, W - 40, BOTTOM - TOP).setOrigin(0).setInteractive();
-    hit.on('pointerup', () => this.state === 'waiting' && this.finish());
+    whenTapped(hit, () => { if (this.state === 'waiting') this.finish(); });
   }
 
   // Shows and speaks a line. Resolves when the player moves on.
@@ -106,7 +110,21 @@ export class DialogueBox {
   }
 
   update(): void {
-    if (this.state !== 'speaking' || this.gotBoundary || !this.line) return;
+    if (this.state !== 'speaking' || !this.line) return;
+    if (this.player) {
+      // Follow the recording: exact word times if we have them, else estimate.
+      const t = this.player.currentTime;
+      if (this.timings) {
+        const w = this.timings.words.findIndex((x) => t < x.e);
+        const c = this.timings.words[w === -1 ? this.timings.words.length - 1 : w]?.c ?? 0;
+        this.setCurrent(this.words.findIndex((x) => c < x.end));
+      } else if (this.player.duration) {
+        const pos = (t / this.player.duration) * this.line.text.length;
+        this.setCurrent(this.words.findIndex((x) => pos < x.end));
+      }
+      return;
+    }
+    if (this.gotBoundary) return;
     // Without word timing from the browser, estimate where the voice is.
     const msPerChar = estimateDuration('x', this.line.rate * this.speed) - 400;
     const pos = (performance.now() - this.startedAt) / msPerChar;
@@ -114,9 +132,38 @@ export class DialogueBox {
     this.setCurrent(idx === -1 ? this.words.length - 1 : idx);
   }
 
+  private stopPlayer(): void {
+    if (!this.player) return;
+    this.player.onended = null;
+    this.player.onerror = null;
+    this.player.pause();
+    this.player = undefined;
+  }
+
   private speakLine(): void {
     const line = this.line!;
     this.autoTimer?.remove();
+    this.stopPlayer();
+    if (line.audio) {
+      this.state = 'speaking';
+      this.continueText.setVisible(false);
+      this.refText.setVisible(true);
+      this.setCurrent(0);
+      const a = new Audio(line.audio.url);
+      a.playbackRate = this.speed;
+      a.onended = () => this.onSpoken();
+      // If the file can't play, fall back to the browser voice.
+      a.onerror = () => { this.stopPlayer(); this.speakWithBrowser(line); };
+      this.player = a;
+      this.timings = undefined;
+      void line.audio.timings?.().then((t) => { if (this.player === a) this.timings = t; });
+      a.play().catch(() => { if (this.player === a) { this.stopPlayer(); this.speakWithBrowser(line); } });
+      return;
+    }
+    this.speakWithBrowser(line);
+  }
+
+  private speakWithBrowser(line: DialogueLine): void {
     this.state = 'speaking';
     this.continueText.setVisible(false);
     this.refText.setVisible(true);
@@ -152,6 +199,7 @@ export class DialogueBox {
 
   private finish(): void {
     this.autoTimer?.remove();
+    this.stopPlayer();
     stopSpeaking();
     this.state = 'idle';
     this.setCurrent(-1);

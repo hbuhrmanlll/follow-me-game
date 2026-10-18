@@ -45,8 +45,22 @@ export function makeButton(
   box.setInteractive({ useHandCursor: true });
   box.on('pointerdown', () => { draw(Phaser.Display.Color.ValueToColor(fill).brighten(15).color); box.setScale(0.96); });
   box.on('pointerout', () => { draw(fill); box.setScale(1); });
-  box.on('pointerup', () => { draw(fill); box.setScale(1); onTap(); });
+  box.on('pointerup', () => { draw(fill); box.setScale(1); });
+  whenTapped(box, onTap);
   return box;
+}
+
+// Runs `fn` when a tap both starts and ends on `obj`. This ignores taps on
+// pop-up windows that happen to end above a game button underneath them.
+export function whenTapped(obj: Phaser.GameObjects.GameObject, fn: () => void): void {
+  let pressed = false;
+  obj.on('pointerdown', () => { pressed = true; });
+  obj.on('pointerout', () => { pressed = false; });
+  obj.on('pointerup', () => {
+    if (!pressed) return;
+    pressed = false;
+    fn();
+  });
 }
 
 // A round placeholder portrait: the character's color with their initials.

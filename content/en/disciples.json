@@ -1,0 +1,302 @@
+{
+  "order": [
+    "peter",
+    "andrew",
+    "james",
+    "john",
+    "philip",
+    "nathanael",
+    "thomas",
+    "matthew",
+    "james-alphaeus",
+    "thaddaeus",
+    "simon-zealot",
+    "judas-iscariot"
+  ],
+  "cards": {
+    "peter": {
+      "alsoCalled": "Simon, Cephas",
+      "work": "Fisherman",
+      "hometown": "Bethsaida, later living in Capernaum",
+      "family": "Brother of Andrew",
+      "facts": [
+        {
+          "text": "Jesus gave him a new name: Cephas, which means Peter, a stone.",
+          "ref": "John 1:42",
+          "after": "ch03"
+        },
+        {
+          "text": "He was fishing with his brother Andrew when Jesus called them.",
+          "ref": "Matthew 4:18",
+          "after": "ch07"
+        },
+        {
+          "text": "He walked on the water toward Jesus.",
+          "ref": "Matthew 14:29",
+          "after": "ch14"
+        },
+        {
+          "text": "He said to Jesus, “You are the Christ, the Son of the living God.”",
+          "ref": "Matthew 16:16",
+          "after": "ch15"
+        },
+        {
+          "text": "He denied knowing Jesus three times, then wept bitterly.",
+          "ref": "Matthew 26:75",
+          "after": "ch23"
+        },
+        {
+          "text": "Jesus asked him three times, “Do you love Me?” and told him, “Feed My sheep.”",
+          "ref": "John 21:17",
+          "after": "ch27"
+        }
+      ]
+    },
+    "andrew": {
+      "alsoCalled": "",
+      "work": "Fisherman",
+      "hometown": "Bethsaida",
+      "family": "Brother of Simon Peter",
+      "facts": [
+        {
+          "text": "He was a disciple of John the Baptist and one of the first two to follow Jesus.",
+          "ref": "John 1:35-40",
+          "after": "ch03"
+        },
+        {
+          "text": "He found his brother Simon and brought him to Jesus.",
+          "ref": "John 1:41-42",
+          "after": "ch03"
+        },
+        {
+          "text": "He brought Jesus the boy with five barley loaves and two small fish.",
+          "ref": "John 6:8-9",
+          "after": "ch14"
+        }
+      ]
+    },
+    "james": {
+      "alsoCalled": "One of the “Sons of Thunder”",
+      "work": "Fisherman",
+      "hometown": "By the Sea of Galilee",
+      "family": "Son of Zebedee, brother of John",
+      "facts": [
+        {
+          "text": "He was mending nets with his father Zebedee and his brother John when Jesus called him.",
+          "ref": "Matthew 4:21",
+          "after": "ch07"
+        },
+        {
+          "text": "Jesus named James and John “Sons of Thunder.”",
+          "ref": "Mark 3:17",
+          "after": "ch09"
+        },
+        {
+          "text": "He saw Jesus raise Jairus' daughter.",
+          "ref": "Mark 5:37",
+          "after": "ch12"
+        },
+        {
+          "text": "He was with Jesus on the mountain at the Transfiguration.",
+          "ref": "Matthew 17:1",
+          "after": "ch16"
+        },
+        {
+          "text": "He was the first of the Twelve to die for Jesus.",
+          "ref": "Acts 12:2",
+          "after": "ch28"
+        }
+      ]
+    },
+    "john": {
+      "alsoCalled": "One of the “Sons of Thunder”",
+      "work": "Fisherman",
+      "hometown": "By the Sea of Galilee",
+      "family": "Son of Zebedee, brother of James",
+      "facts": [
+        {
+          "text": "He was mending nets with his father and brother when Jesus called him.",
+          "ref": "Matthew 4:21",
+          "after": "ch07"
+        },
+        {
+          "text": "He was with Jesus on the mountain at the Transfiguration.",
+          "ref": "Matthew 17:1",
+          "after": "ch16"
+        },
+        {
+          "text": "Jesus sent him and Peter to prepare the Passover meal.",
+          "ref": "Luke 22:8",
+          "after": "ch21"
+        }
+      ],
+      "tradition": "Christians have long believed John is “the disciple whom Jesus loved” in John's Gospel, and that he wrote it. The Gospel itself does not name him."
+    },
+    "philip": {
+      "alsoCalled": "",
+      "work": "",
+      "hometown": "Bethsaida",
+      "family": "",
+      "facts": [
+        {
+          "text": "Jesus found him and said, “Follow Me.”",
+          "ref": "John 1:43",
+          "after": "ch03"
+        },
+        {
+          "text": "He told Nathanael, “Come and see.”",
+          "ref": "John 1:45-46",
+          "after": "ch03"
+        },
+        {
+          "text": "Jesus asked him where they could buy bread for the crowd.",
+          "ref": "John 6:5-7",
+          "after": "ch14"
+        },
+        {
+          "text": "He asked Jesus, “Lord, show us the Father.”",
+          "ref": "John 14:8",
+          "after": "ch21"
+        }
+      ]
+    },
+    "nathanael": {
+      "alsoCalled": "Bartholomew (see note)",
+      "work": "",
+      "hometown": "Cana in Galilee",
+      "family": "",
+      "facts": [
+        {
+          "text": "Jesus saw him under the fig tree before Philip called him.",
+          "ref": "John 1:48",
+          "after": "ch03"
+        },
+        {
+          "text": "He said, “You are the Son of God! You are the King of Israel!”",
+          "ref": "John 1:49",
+          "after": "ch03"
+        }
+      ],
+      "tradition": "The lists of the Twelve name Bartholomew next to Philip, and John's Gospel names Nathanael with Philip. Many Christians believe they are the same man, but the Bible does not say so directly."
+    },
+    "thomas": {
+      "alsoCalled": "Didymus, which means “the Twin”",
+      "work": "",
+      "hometown": "",
+      "family": "",
+      "facts": [
+        {
+          "text": "He is named in the lists of the Twelve.",
+          "ref": "Matthew 10:3",
+          "after": "ch09"
+        },
+        {
+          "text": "He said, “Let us also go, so that we may die with Him.”",
+          "ref": "John 11:16",
+          "after": "ch18"
+        },
+        {
+          "text": "He asked Jesus, “How can we know the way?”",
+          "ref": "John 14:5",
+          "after": "ch21"
+        },
+        {
+          "text": "When he saw the risen Jesus, he said, “My Lord and my God!”",
+          "ref": "John 20:28",
+          "after": "ch26"
+        }
+      ]
+    },
+    "matthew": {
+      "alsoCalled": "Levi",
+      "work": "Tax collector",
+      "hometown": "Capernaum, where his tax booth was",
+      "family": "Son of Alphaeus",
+      "facts": [
+        {
+          "text": "Jesus saw him at the tax booth and said, “Follow Me.”",
+          "ref": "Matthew 9:9",
+          "after": "ch08"
+        },
+        {
+          "text": "He held a great banquet for Jesus at his house.",
+          "ref": "Luke 5:29",
+          "after": "ch08"
+        }
+      ],
+      "tradition": "Christians have long believed Matthew wrote the Gospel that carries his name."
+    },
+    "james-alphaeus": {
+      "alsoCalled": "",
+      "work": "",
+      "hometown": "",
+      "family": "Son of Alphaeus",
+      "facts": [
+        {
+          "text": "He is named in every list of the Twelve. The Bible tells us little else about him.",
+          "ref": "Luke 6:15",
+          "after": "ch09"
+        }
+      ]
+    },
+    "thaddaeus": {
+      "alsoCalled": "Judas son of James (not Judas Iscariot)",
+      "work": "",
+      "hometown": "",
+      "family": "",
+      "facts": [
+        {
+          "text": "Matthew and Mark call him Thaddaeus; Luke calls him Judas son of James.",
+          "ref": "Luke 6:16",
+          "after": "ch09"
+        },
+        {
+          "text": "At the Last Supper he asked Jesus why He would show Himself to them and not to the world.",
+          "ref": "John 14:22",
+          "after": "ch21"
+        }
+      ]
+    },
+    "simon-zealot": {
+      "alsoCalled": "",
+      "work": "",
+      "hometown": "",
+      "family": "",
+      "facts": [
+        {
+          "text": "He is called Simon the Zealot. The Bible tells us little else about him.",
+          "ref": "Luke 6:15",
+          "after": "ch09"
+        }
+      ]
+    },
+    "judas-iscariot": {
+      "alsoCalled": "",
+      "work": "Kept the disciples' money bag",
+      "hometown": "",
+      "family": "Son of Simon Iscariot",
+      "facts": [
+        {
+          "text": "He was chosen as one of the Twelve.",
+          "ref": "Luke 6:16",
+          "after": "ch09"
+        },
+        {
+          "text": "He kept the money bag and took from it.",
+          "ref": "John 12:6",
+          "after": "ch18"
+        },
+        {
+          "text": "He agreed to hand Jesus over for thirty pieces of silver.",
+          "ref": "Matthew 26:15",
+          "after": "ch21"
+        },
+        {
+          "text": "When Jesus was condemned, Judas was filled with remorse and gave the silver back.",
+          "ref": "Matthew 27:3",
+          "after": "ch23"
+        }
+      ]
+    }
+  }
+}

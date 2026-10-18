@@ -17,18 +17,48 @@
           "type": "narration",
           "text": "Long ago, crowds walked out to the Jordan River to hear a man named John."
         },
-        { "id": "ch01-s1-02", "speaker": "narrator", "type": "scripture", "ref": "Matthew 3:1-2" },
-        { "id": "ch01-s1-03", "speaker": "narrator", "type": "scripture", "ref": "Matthew 3:4" },
-        { "id": "ch01-s1-04", "speaker": "narrator", "type": "scripture", "ref": "Matthew 3:5-6" },
-        { "id": "ch01-s1-05", "speaker": "john-baptist", "type": "scripture", "ref": "Matthew 3:11" }
+        {
+          "id": "ch01-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 3:1-2"
+        },
+        {
+          "id": "ch01-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 3:4"
+        },
+        {
+          "id": "ch01-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 3:5-6"
+        },
+        {
+          "id": "ch01-s1-05",
+          "speaker": "john-baptist",
+          "type": "scripture",
+          "ref": "Matthew 3:11"
+        }
       ],
       "puzzle": {
         "type": "multipleChoice",
         "prompt": "What did John eat in the wilderness?",
         "choices": [
-          { "text": "Locusts and wild honey", "correct": true },
-          { "text": "Bread and fish" },
-          { "text": "Figs and grapes" }
+          {
+            "text": "Locusts and wild honey",
+            "correct": true,
+            "icon": "🦗🍯"
+          },
+          {
+            "text": "Bread and fish",
+            "icon": "🍞🐟"
+          },
+          {
+            "text": "Figs and grapes",
+            "icon": "🍇"
+          }
         ],
         "hint": "Think about how John lived out in the wilderness.",
         "ref": "Matthew 3:4"
@@ -41,15 +71,24 @@
       "timeOfDay": "midday",
       "passage": "Matthew 3:13-17",
       "lines": [
-        { "id": "ch01-s2-01", "speaker": "narrator", "type": "scripture", "ref": "Matthew 3:13" },
+        {
+          "id": "ch01-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 3:13"
+        },
         {
           "id": "ch01-s2-02",
           "speaker": "john-baptist",
           "type": "scripture",
           "ref": "Matthew 3:14",
           "quote": {
-            "bsb": ["I need to be baptized by You, and do You come to me?"],
-            "kjv": ["I have need to be baptized of thee, and comest thou to me?"]
+            "bsb": [
+              "I need to be baptized by You, and do You come to me?"
+            ],
+            "kjv": [
+              "I have need to be baptized of thee, and comest thou to me?"
+            ]
           }
         },
         {
@@ -58,19 +97,33 @@
           "type": "scripture",
           "ref": "Matthew 3:15",
           "quote": {
-            "bsb": ["Let it be so now", "It is fitting for us to fulfill all righteousness in this way."],
-            "kjv": ["Suffer it to be so now: for thus it becometh us to fulfil all righteousness."]
+            "bsb": [
+              "Let it be so now",
+              "It is fitting for us to fulfill all righteousness in this way."
+            ],
+            "kjv": [
+              "Suffer it to be so now: for thus it becometh us to fulfil all righteousness."
+            ]
           }
         },
-        { "id": "ch01-s2-04", "speaker": "narrator", "type": "scripture", "ref": "Matthew 3:16" },
+        {
+          "id": "ch01-s2-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 3:16"
+        },
         {
           "id": "ch01-s2-05",
           "speaker": "voice-from-heaven",
           "type": "scripture",
           "ref": "Matthew 3:17",
           "quote": {
-            "bsb": ["This is My beloved Son, in whom I am well pleased!"],
-            "kjv": ["This is my beloved Son, in whom I am well pleased."]
+            "bsb": [
+              "This is My beloved Son, in whom I am well pleased!"
+            ],
+            "kjv": [
+              "This is my beloved Son, in whom I am well pleased."
+            ]
           }
         },
         {
@@ -80,24 +133,94 @@
           "text": "God the Father spoke from heaven, and the Spirit came down like a dove upon Jesus, His beloved Son."
         }
       ],
-      "puzzle": {
-        "type": "multipleChoice",
-        "prompt": "What came down upon Jesus like a dove?",
-        "choices": [
-          { "text": "The Spirit of God", "correct": true },
-          { "text": "A bright star" },
-          { "text": "An angel with a trumpet" }
-        ],
-        "hint": "Listen again to what Jesus saw when the heavens were opened.",
-        "ref": "Matthew 3:16"
-      }
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "What came down upon Jesus like a dove?",
+          "choices": [
+            {
+              "text": "The Spirit of God",
+              "correct": true,
+              "icon": "🕊️"
+            },
+            {
+              "text": "A bright star",
+              "icon": "⭐"
+            },
+            {
+              "text": "An angel with a trumpet",
+              "icon": "👼"
+            }
+          ],
+          "hint": "Listen again to what Jesus saw when the heavens were opened.",
+          "ref": "Matthew 3:16"
+        },
+        {
+          "type": "whoSaid",
+          "prompt": "Who said it? Match each person to their words.",
+          "ref": "Matthew 3:14-17",
+          "pairs": [
+            {
+              "speaker": "john-baptist",
+              "ref": "Matthew 3:14",
+              "quote": {
+                "bsb": [
+                  "I need to be baptized by You, and do You come to me?"
+                ],
+                "kjv": [
+                  "I have need to be baptized of thee, and comest thou to me?"
+                ]
+              }
+            },
+            {
+              "speaker": "jesus",
+              "ref": "Matthew 3:15",
+              "quote": {
+                "bsb": [
+                  "Let it be so now"
+                ],
+                "kjv": [
+                  "Suffer it to be so now"
+                ]
+              }
+            },
+            {
+              "speaker": "voice-from-heaven",
+              "ref": "Matthew 3:17",
+              "quote": {
+                "bsb": [
+                  "This is My beloved Son, in whom I am well pleased!"
+                ],
+                "kjv": [
+                  "This is my beloved Son, in whom I am well pleased."
+                ]
+              }
+            }
+          ],
+          "hint": "Think about who was in the water and who spoke from heaven."
+        }
+      ]
     }
   ],
   "memoryVerse": {
     "ref": "Matthew 3:17",
     "quote": {
-      "bsb": ["This is My beloved Son, in whom I am well pleased!"],
-      "kjv": ["This is my beloved Son, in whom I am well pleased."]
+      "bsb": [
+        "This is My beloved Son, in whom I am well pleased!"
+      ],
+      "kjv": [
+        "This is my beloved Son, in whom I am well pleased."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "This is My beloved Son"
+        ],
+        "kjv": [
+          "This is my beloved Son"
+        ]
+      }
     }
   },
   "reflect": "Jesus is God's beloved Son. God was pleased with Him before He did a single miracle."

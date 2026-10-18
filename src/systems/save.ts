@@ -10,9 +10,20 @@ export interface Progress {
   disciples: string[]; // disciples who have joined so far
 }
 
+export type Difficulty = 'kids' | 'family' | 'adult';
+
+export interface JournalEntry {
+  ref: string;
+  quote?: Partial<Record<TranslationId, string[]>>;
+  box: number; // 1 = new or just missed … 5 = well known
+  due: number; // when to practice it next (milliseconds since 1970)
+}
+
 export interface Slot {
   name: string;
   translation: TranslationId;
+  difficulty: Difficulty;
+  journal: JournalEntry[];
   progress: Progress;
   updated: number;
 }
@@ -49,6 +60,8 @@ export function loadSlots(): (Slot | null)[] {
     // Saves from before Phase 3 lack these lists.
     s.progress.visited ??= [];
     s.progress.disciples ??= [];
+    s.difficulty ??= 'family'; // added in Phase 4
+    s.journal ??= [];
     return s;
   });
 }
@@ -59,9 +72,11 @@ export function saveSlot(index: number, slot: Slot | null): void {
   write(SLOTS_KEY, slots);
 }
 
-export function newSlot(name: string): Slot {
+export function newSlot(name: string, difficulty: Difficulty): Slot {
   return {
     name,
+    difficulty,
+    journal: [],
     translation: 'bsb',
     progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [] },
     updated: Date.now(),

@@ -2,8 +2,8 @@ import Phaser from 'phaser';
 import { COLORS, FONT, makeButton, restartOnResize } from '../ui/common';
 import { drawBackdrop } from '../art/backdrops';
 import { fill, getChapter, ui } from '../systems/content';
-import { loadSlots, newSlot, saveSlot, SLOT_COUNT } from '../systems/save';
-import { askName, confirmBox } from '../ui/dom';
+import { loadSlots, newSlot, saveSlot, SLOT_COUNT, type Difficulty } from '../systems/save';
+import { askDifficulty, askName, confirmBox } from '../ui/dom';
 
 // "Who is playing?" — one save slot for each family member.
 export class SlotScene extends Phaser.Scene {
@@ -36,8 +36,12 @@ export class SlotScene extends Phaser.Scene {
           width: cardW, height: 300, fontSize: 32, fill: COLORS.parchment,
         });
         card.setDepth(1);
-        makeButton(this, x, 560, ui.erase, () => this.erase(i, slot.name), {
-          width: 180, height: 80, fontSize: 28, fill: COLORS.muted,
+        // Level button (Kids / Family / Adult): tap to change.
+        makeButton(this, x - cardW / 4 - 4, 560, ui.difficulty[slot.difficulty], () => this.changeLevel(i), {
+          width: cardW / 2 - 12, height: 80, fontSize: 26, fill: 0xe9dcc0,
+        });
+        makeButton(this, x + cardW / 4 + 4, 560, ui.erase, () => this.erase(i, slot.name), {
+          width: cardW / 2 - 12, height: 80, fontSize: 26, fill: COLORS.muted,
         });
       } else {
         makeButton(this, x, 330, ui.newTraveler, () => this.newPlayer(i), {
@@ -50,8 +54,18 @@ export class SlotScene extends Phaser.Scene {
   private async newPlayer(i: number): Promise<void> {
     const name = await askName();
     if (!name) return;
-    saveSlot(i, newSlot(name));
+    const level = await askDifficulty();
+    if (!level) return;
+    saveSlot(i, newSlot(name, level));
     this.play(i);
+  }
+
+  private async changeLevel(i: number): Promise<void> {
+    const level: Difficulty | null = await askDifficulty();
+    const slot = loadSlots()[i];
+    if (!level || !slot) return;
+    saveSlot(i, { ...slot, difficulty: level });
+    this.scene.restart();
   }
 
   private async erase(i: number, name: string): Promise<void> {

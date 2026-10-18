@@ -7,7 +7,7 @@ import path from 'node:path';
 const LANG = 'en';
 const BOOKS = ['Matthew', 'Mark', 'Luke', 'John', 'Acts'];
 const REF_RE = new RegExp(`^(${BOOKS.join('|')}) (\\d+):(\\d+)(?:-(?:(\\d+):)?(\\d+))?$`);
-const AUDIO_DIR = path.join('public', 'audio', LANG, 'voice');
+const AUDIO_DIR = path.join('content', 'audio', LANG);
 
 const errors = [];
 const warnings = [];
@@ -93,6 +93,7 @@ const chapterIds = readJson(`content/${LANG}/chapters/index.json`) ?? [];
 const seenIds = new Set();
 let lineCount = 0;
 let missingAudio = 0;
+let audioCount = 0;
 
 for (const chId of chapterIds) {
   const file = `content/${LANG}/chapters/${chId}.json`;
@@ -130,53 +131,110 @@ for (const chId of chapterIds) {
       for (const j of line.joins ?? []) {
         if (!characters[j]?.disciple) errors.push(`${lw}: "joins" lists "${j}", who isn't marked as a disciple in characters.json`);
       }
-      if (line.id && !['ogg', 'mp3'].some((ext) => fs.existsSync(path.join(AUDIO_DIR, `${line.id}.${ext}`)))) {
-        missingAudio++;
+      // Scripture lines have a recording per translation; narration has one.
+      const audioPaths = line.type === 'scripture' ? translations.map((t) => path.join(t.id, line.id)) : [line.id];
+      for (const a of audioPaths) {
+        audioCount++;
+        if (!['ogg', 'mp3'].some((ext) => fs.existsSync(path.join(AUDIO_DIR, `${a}.${ext}`)))) missingAudio++;
       }
     }
 
-    const pz = sc.puzzle;
-    if (!pz) {
-      errors.push(`${where}: has no puzzle`);
-    } else if (pz.type === 'multipleChoice') {
-      const correct = (pz.choices ?? []).filter((c) => c.correct).length;
-      if ((pz.choices ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 choices`);
-      if (correct !== 1) errors.push(`${where}: puzzle needs exactly 1 correct choice (has ${correct})`);
-      if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
-      if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
-      checkRef(`${where} puzzle`, pz.ref);
-    } else if (pz.type === 'fillBlank') {
-      if (checkRef(`${where} puzzle`, pz.ref)) checkQuote(`${where} puzzle`, pz.ref, pz.quote);
-      for (const t of translations) {
-        const word = pz.blank?.[t.id];
-        const text = (pz.quote?.[t.id] ?? versesFor(pz.ref, t.id) ?? []).join(' ');
-        if (!word) errors.push(`${where}: puzzle "blank" has no "${t.id}" word`);
-        else if (!new RegExp(`\\b${word}\\b`).test(text)) errors.push(`${where}: blank word "${word}" is not in the ${t.short} text`);
-      }
-      if ((pz.decoys ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 "decoys" (wrong words)`);
-      if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
-    } else if (pz.type === 'mapFind') {
-      if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
-      if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
-      checkRef(`${where} puzzle`, pz.ref);
-      if (!(pz.choices ?? []).includes(pz.target)) errors.push(`${where}: puzzle "choices" must include the target "${pz.target}"`);
-      for (const c of pz.choices ?? []) {
-        if (!map.places[c] || !locations[c]) errors.push(`${where}: map place "${c}" is not in locations.json and map.json`);
-      }
-    } else {
-      errors.push(`${where}: unknown puzzle type "${pz.type}"`);
-    }
+    const puzzles = sc.puzzles ?? (sc.puzzle ? [sc.puzzle] : []);
+    if (puzzles.length === 0) errors.push(`${where}: has no puzzle`);
+    if (sc.puzzle && sc.puzzles) errors.push(`${where}: use either "puzzle" or "puzzles", not both`);
+    puzzles.forEach((pz, i) => checkPuzzle(puzzles.length > 1 ? `${where} puzzle ${i + 1}` : where, pz));
   }
 
   if (!ch.memoryVerse) {
     errors.push(`${file}: has no memoryVerse`);
   } else if (checkRef(`${file} memoryVerse`, ch.memoryVerse.ref)) {
     checkQuote(`${file} memoryVerse`, ch.memoryVerse.ref, ch.memoryVerse.quote);
+    if (ch.memoryVerse.kids) checkQuote(`${file} memoryVerse.kids`, ch.memoryVerse.ref, ch.memoryVerse.kids.quote);
   }
 }
 
+// Checks one puzzle. `where` says which scene it belongs to, for error messages.
+function checkPuzzle(where, pz) {
+  const need = (field) => { if (!pz[field]) errors.push(`${where}: puzzle needs a "${field}"`); };
+  if (pz.type === 'multipleChoice') {
+    const correct = (pz.choices ?? []).filter((c) => c.correct).length;
+    if ((pz.choices ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 choices`);
+    if (correct !== 1) errors.push(`${where}: puzzle needs exactly 1 correct choice (has ${correct})`);
+    if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
+    if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
+    checkRef(`${where} puzzle`, pz.ref);
+  } else if (pz.type === 'fillBlank') {
+    if (checkRef(`${where} puzzle`, pz.ref)) checkQuote(`${where} puzzle`, pz.ref, pz.quote);
+    for (const t of translations) {
+      const word = pz.blank?.[t.id];
+      const text = (pz.quote?.[t.id] ?? versesFor(pz.ref, t.id) ?? []).join(' ');
+      if (!word) errors.push(`${where}: puzzle "blank" has no "${t.id}" word`);
+      else if (!new RegExp(`\\b${word}\\b`).test(text)) errors.push(`${where}: blank word "${word}" is not in the ${t.short} text`);
+    }
+    if ((pz.decoys ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 "decoys" (wrong words)`);
+    if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
+  } else if (pz.type === 'mapFind') {
+    if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
+    if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
+    checkRef(`${where} puzzle`, pz.ref);
+    if (!(pz.choices ?? []).includes(pz.target)) errors.push(`${where}: puzzle "choices" must include the target "${pz.target}"`);
+    for (const c of pz.choices ?? []) {
+      if (!map.places[c] || !locations[c]) errors.push(`${where}: map place "${c}" is not in locations.json and map.json`);
+    }
+  } else if (pz.type === 'verseOrder') {
+    need('prompt'); need('hint');
+    if (checkRef(`${where} puzzle`, pz.ref)) checkQuote(`${where} puzzle`, pz.ref, pz.quote);
+  } else if (pz.type === 'eventOrder') {
+    need('prompt'); need('hint'); checkRef(`${where} puzzle`, pz.ref);
+    if ((pz.events ?? []).length < 3) errors.push(`${where}: puzzle needs at least 3 "events"`);
+    for (const e of pz.events ?? []) {
+      if (!e.text) errors.push(`${where}: every event needs "text"`);
+      if (e.ref) checkRef(`${where} event`, e.ref);
+    }
+  } else if (pz.type === 'whoSaid') {
+    need('prompt'); need('hint'); checkRef(`${where} puzzle`, pz.ref);
+    if ((pz.pairs ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 "pairs"`);
+    for (const pr of pz.pairs ?? []) {
+      if (!characters[pr.speaker]) errors.push(`${where}: unknown speaker "${pr.speaker}"`);
+      if (checkRef(`${where} pair`, pr.ref)) checkQuote(`${where} pair`, pr.ref, pr.quote);
+    }
+  } else if (pz.type === 'discipleMatch') {
+    need('prompt'); need('hint'); checkRef(`${where} puzzle`, pz.ref);
+    if ((pz.pairs ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 "pairs"`);
+    for (const pr of pz.pairs ?? []) {
+      if (!characters[pr.disciple]?.disciple) errors.push(`${where}: "${pr.disciple}" is not a disciple`);
+      if (!pr.fact) errors.push(`${where}: every pair needs a "fact"`);
+    }
+  } else if (pz.type === 'findHidden') {
+    need('prompt'); need('hint'); need('hide'); need('spot'); checkRef(`${where} puzzle`, pz.ref);
+    if ((pz.others ?? []).length < 1) errors.push(`${where}: puzzle needs at least 1 of "others" (other hiding places)`);
+  } else if (pz.type === 'count') {
+    need('prompt'); need('hint'); need('question'); checkRef(`${where} puzzle`, pz.ref);
+    const total = (pz.items ?? []).reduce((n, it) => n + (it.n ?? 0), 0);
+    if (!total) errors.push(`${where}: puzzle needs "items" like [{ "icon": "🍞", "n": 5 }]`);
+    if (pz.answer !== total) errors.push(`${where}: "answer" should be ${total} (the number of items)`);
+  } else {
+    errors.push(`${where}: unknown puzzle type "${pz.type}"`);
+  }
+}
+
+// Disciple Cards
+const disciples = readJson(`content/${LANG}/disciples.json`) ?? { order: [], cards: {} };
+for (const id of disciples.order) {
+  const card = disciples.cards[id];
+  if (!characters[id]?.disciple) errors.push(`disciples.json: "${id}" is not a disciple in characters.json`);
+  if (!card) { errors.push(`disciples.json: no card for "${id}"`); continue; }
+  for (const f of card.facts ?? []) {
+    checkRef(`disciples.json ${id}`, f.ref);
+    if (!/^ch\d\d$/.test(f.after ?? '')) errors.push(`disciples.json ${id}: "after" should look like "ch03"`);
+  }
+}
+for (const [id, c] of Object.entries(characters)) {
+  if (c.disciple && !disciples.order.includes(id)) errors.push(`characters.json: disciple "${id}" has no card in disciples.json`);
+}
+
 if (missingAudio) {
-  warnings.push(`${missingAudio} of ${lineCount} lines have no audio file yet (the browser voice will read them)`);
+  warnings.push(`${missingAudio} of ${audioCount} recordings don't exist yet (the browser voice reads those lines)`);
 }
 
 for (const w of warnings) console.log(`note: ${w}`);

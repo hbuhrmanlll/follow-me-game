@@ -30,3 +30,11 @@ in the bottom-left corner of the title screen.
 ## For programmers (optional)
 
 The game uses Phaser 3, TypeScript and Vite. `npm install`, then `npm run dev`.
+
+## Bible translations
+
+- **Main translation: Berean Standard Bible (BSB).** Public domain since April 2023, so it's free to use, including in the Google Play app.
+- **Option: King James Version (KJV).** Public domain.
+- Scripture text lives only in data files (`content/scripture/bsb/`, `content/scripture/kjv/`)
+  and is never typed into dialogue. That way more translations can be added later
+  (for example, the NLT if Tyndale gives written permission).

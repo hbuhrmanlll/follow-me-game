@@ -15,7 +15,7 @@
     "name": "Jerusalem",
     "region": "Judea",
     "backdrop": "jerusalem",
-    "summary": "The holy city, with God's temple on its hill. The devil set Jesus on the pinnacle of the temple, but Jesus would not test God."
+    "summary": "The holy city, with God's temple on its hill. Jesus cleared the temple, met Nicodemus at night, and was tempted on the temple's pinnacle."
   },
   "galilee": {
     "name": "Galilee",
@@ -31,17 +31,20 @@
   "capernaum": {
     "name": "Capernaum",
     "region": "Galilee",
-    "summary": "A fishing town on the Sea of Galilee."
+    "summary": "A fishing town on the Sea of Galilee where Peter lived. Jesus taught in its synagogue, healed many, and called Matthew from his tax booth.",
+    "backdrop": "village"
   },
   "nazareth": {
     "name": "Nazareth",
     "region": "Galilee",
-    "summary": "The small hill town where Jesus grew up."
+    "summary": "The small hill town where Jesus grew up. When He read from Isaiah in the synagogue, His hometown rejected Him.",
+    "backdrop": "village"
   },
   "cana": {
     "name": "Cana",
     "region": "Galilee",
-    "summary": "A village in Galilee, Nathanael's hometown."
+    "summary": "A village in Galilee. At a wedding here Jesus turned water into wine, His first sign. Nathanael's hometown.",
+    "backdrop": "village"
   },
   "bethlehem": {
     "name": "Bethlehem",
@@ -52,5 +55,23 @@
     "name": "Jericho",
     "region": "Judea",
     "summary": "An old city of palm trees near the Jordan River."
+  },
+  "sychar": {
+    "name": "Sychar",
+    "region": "Samaria",
+    "backdrop": "well",
+    "summary": "A town in Samaria near Jacob's well. Jesus offered a Samaritan woman living water, and many in her town believed."
+  },
+  "sea-of-galilee": {
+    "name": "The Sea of Galilee",
+    "region": "Galilee",
+    "backdrop": "lake",
+    "summary": "A large freshwater lake, also called the Lake of Gennesaret. Peter, Andrew, James and John fished here until Jesus made them fishers of men."
+  },
+  "mountain": {
+    "name": "A Mountain in Galilee",
+    "region": "Galilee",
+    "backdrop": "mountain",
+    "summary": "On a mountain Jesus prayed all night and chose the Twelve, and taught the Sermon on the Mount. The Bible doesn't name the mountain."
   }
 }

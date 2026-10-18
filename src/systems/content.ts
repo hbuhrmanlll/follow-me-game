@@ -58,6 +58,7 @@ export interface SceneData {
   timeOfDay: TimeOfDay;
   passage: string;
   note?: string; // shown before the scene, e.g. where Gospel accounts differ in order
+  companions?: boolean; // false: the disciples who follow Jesus aren't in this scene
   lines: Line[];
   puzzle?: Puzzle; // one puzzle…
   puzzles?: Puzzle[]; // …or several, played in order
@@ -73,6 +74,8 @@ export interface Chapter {
   scenes: SceneData[];
   memoryVerse: { ref: string; quote?: Quote; kids?: { quote: Quote } };
   reflect: string;
+  discuss: string[]; // questions for a parent or teacher to talk through
+  prayer: string; // a short prayer, read aloud
 }
 
 export const translations = translationsJson as Translation[];

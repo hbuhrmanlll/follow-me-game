@@ -125,3 +125,36 @@ export function askDifficulty(): Promise<Difficulty | null> {
     panel.append(title, list, button(ui.cancel, () => { close(); resolve(null); }, true));
   });
 }
+
+// "Talk Together": discussion questions and a short prayer for the end of a chapter.
+export function showTalkTogether(title: string, questions: string[], prayer: string, speakText: (t: string) => void): void {
+  const { panel, close } = overlay();
+  panel.classList.add('fm-scripture');
+  const h = document.createElement('h2');
+  h.textContent = `💬 ${ui.talkTogether}: ${title}`;
+  const body = document.createElement('div');
+  body.className = 'fm-passage';
+  const intro = document.createElement('p');
+  intro.textContent = ui.discussIntro;
+  const ol = document.createElement('ol');
+  for (const q of questions) {
+    const li = document.createElement('li');
+    li.textContent = q;
+    li.onclick = () => speakText(q);
+    ol.appendChild(li);
+  }
+  const pr = document.createElement('p');
+  pr.className = 'fm-tradition';
+  const b = document.createElement('b');
+  b.textContent = `🙏 ${ui.prayer}: `;
+  pr.append(b, prayer);
+  body.append(intro, ol, pr);
+  const row = document.createElement('div');
+  row.className = 'fm-row';
+  row.append(
+    button('🔊', () => speakText(`${ui.discussIntro} ${questions.join(' ')}`)),
+    button(`🙏 ${ui.prayer}`, () => speakText(`${ui.prayTogether} ${prayer}`)),
+    button(ui.close, close, true),
+  );
+  panel.append(h, body, row);
+}

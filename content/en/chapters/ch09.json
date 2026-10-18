@@ -1,0 +1,149 @@
+{
+  "id": "ch09",
+  "number": 9,
+  "title": "Choosing the Twelve",
+  "passage": "Luke 6:12-16",
+  "scenes": [
+    {
+      "id": "ch09-s1",
+      "title": "A Night of Prayer",
+      "location": "mountain",
+      "timeOfDay": "night",
+      "passage": "Luke 6:12-16",
+      "lines": [
+        {
+          "id": "ch09-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 6:12"
+        },
+        {
+          "id": "ch09-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 6:13"
+        },
+        {
+          "id": "ch09-s1-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 6:14-16",
+          "joins": [
+            "thomas",
+            "james-alphaeus",
+            "simon-zealot",
+            "thaddaeus",
+            "judas-iscariot"
+          ]
+        },
+        {
+          "id": "ch09-s1-04",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Bartholomew may be the same man John's Gospel calls Nathanael. Thaddaeus is also called Judas son of James."
+        },
+        {
+          "id": "ch09-s1-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 3:14-15"
+        }
+      ],
+      "puzzle": {
+        "type": "count",
+        "prompt": "Jesus chose His apostles. Tap each one to count them.",
+        "items": [
+          {
+            "icon": "🧔",
+            "n": 12
+          }
+        ],
+        "question": "How many apostles did Jesus choose?",
+        "answer": 12,
+        "hint": "Count again, slowly.",
+        "ref": "Luke 6:13"
+      }
+    },
+    {
+      "id": "ch09-s2",
+      "title": "The Twelve",
+      "location": "mountain",
+      "timeOfDay": "dawn",
+      "passage": "Mark 3:13-19",
+      "lines": [
+        {
+          "id": "ch09-s2-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Now all twelve were with Jesus: fishermen, a tax collector, a zealot, and others the Bible tells us little about."
+        },
+        {
+          "id": "ch09-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 3:14",
+          "quote": {
+            "bsb": [
+              "He appointed twelve of them, whom He designated as apostles, to accompany Him, to be sent out to preach,"
+            ],
+            "kjv": [
+              "And he ordained twelve, that they should be with him, and that he might send them forth to preach,"
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "discipleMatch",
+        "prompt": "Match each apostle to something about him.",
+        "ref": "Luke 6:13-16",
+        "pairs": [
+          {
+            "disciple": "peter",
+            "fact": "Jesus named him Cephas"
+          },
+          {
+            "disciple": "matthew",
+            "fact": "A tax collector"
+          },
+          {
+            "disciple": "james",
+            "fact": "One of the “Sons of Thunder”"
+          },
+          {
+            "disciple": "simon-zealot",
+            "fact": "Called the Zealot"
+          }
+        ],
+        "hint": "Look at each Disciple Card in the ☰ menu if you need help."
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Mark 3:14",
+    "quote": {
+      "bsb": [
+        "He appointed twelve of them, whom He designated as apostles, to accompany Him, to be sent out to preach,"
+      ],
+      "kjv": [
+        "And he ordained twelve, that they should be with him, and that he might send them forth to preach,"
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "He appointed twelve of them"
+        ],
+        "kjv": [
+          "he ordained twelve"
+        ]
+      }
+    }
+  },
+  "reflect": "Before choosing the Twelve, Jesus prayed all night. Then He chose them first of all to be with Him.",
+  "discuss": [
+    "Why do you think Jesus prayed all night before choosing the Twelve?",
+    "The Twelve were very different people. What does that tell us about who Jesus calls?",
+    "Mark says Jesus chose them “to accompany Him.” How can we spend time with Jesus?"
+  ],
+  "prayer": "Lord Jesus, You chose ordinary people to be with You. Help us spend time with You and follow You too. Amen."
+}

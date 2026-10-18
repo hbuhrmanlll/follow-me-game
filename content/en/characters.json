@@ -175,5 +175,59 @@
       "pitch": 0.9,
       "rate": 1.0
     }
+  },
+  "mary": {
+    "name": "Mary, mother of Jesus",
+    "color": "#3a6aa8",
+    "initials": "M",
+    "voice": {
+      "pitch": 1.25,
+      "rate": 0.95
+    }
+  },
+  "banquet-master": {
+    "name": "The master of the banquet",
+    "color": "#8a3a5a",
+    "initials": "🍷",
+    "voice": {
+      "pitch": 0.9,
+      "rate": 1.05
+    }
+  },
+  "nicodemus": {
+    "name": "Nicodemus",
+    "color": "#4a4a7a",
+    "initials": "Ni",
+    "voice": {
+      "pitch": 0.8,
+      "rate": 0.9
+    }
+  },
+  "samaritan-woman": {
+    "name": "The Samaritan woman",
+    "color": "#a85a7a",
+    "initials": "W",
+    "voice": {
+      "pitch": 1.3,
+      "rate": 1.0
+    }
+  },
+  "townspeople": {
+    "name": "The people",
+    "color": "#7a6a5a",
+    "initials": "👥",
+    "voice": {
+      "pitch": 1.0,
+      "rate": 1.05
+    }
+  },
+  "pharisees": {
+    "name": "The Pharisees",
+    "color": "#5a5a3a",
+    "initials": "Ph",
+    "voice": {
+      "pitch": 0.85,
+      "rate": 1.0
+    }
   }
 }

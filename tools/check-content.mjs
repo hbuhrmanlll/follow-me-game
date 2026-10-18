@@ -65,7 +65,7 @@ function checkRef(where, ref) {
 
 // A quote must list exact words from the verse for every translation.
 function checkQuote(where, ref, quote) {
-  if (quote === undefined) return;
+  if (quote === undefined || quote === null) return;
   for (const t of translations) {
     const parts = quote[t.id];
     if (!Array.isArray(parts) || parts.length === 0) {
@@ -82,7 +82,7 @@ function checkQuote(where, ref, quote) {
 const characters = readJson(`content/${LANG}/characters.json`) ?? {};
 const locations = readJson(`content/${LANG}/locations.json`) ?? {};
 const map = readJson('content/map.json') ?? { places: {} };
-const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee'];
+const BACKDROPS = ['jordan', 'wilderness', 'jerusalem', 'galilee', 'village', 'well', 'lake', 'mountain'];
 
 for (const [id, loc] of Object.entries(locations)) {
   if (!map.places[id]) errors.push(`locations.json "${id}": has no position in content/map.json`);
@@ -145,6 +145,8 @@ for (const chId of chapterIds) {
     puzzles.forEach((pz, i) => checkPuzzle(puzzles.length > 1 ? `${where} puzzle ${i + 1}` : where, pz));
   }
 
+  if (!Array.isArray(ch.discuss) || ch.discuss.length < 2) errors.push(`${file}: needs 2 or 3 "discuss" questions`);
+  if (!ch.prayer) errors.push(`${file}: needs a short "prayer"`);
   if (!ch.memoryVerse) {
     errors.push(`${file}: has no memoryVerse`);
   } else if (checkRef(`${file} memoryVerse`, ch.memoryVerse.ref)) {

@@ -3,7 +3,7 @@ import { COLORS, FONT, makeButton, restartOnResize } from '../ui/common';
 import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
 import { DialogueBox } from '../ui/DialogueBox';
 import { runPuzzle } from '../puzzles';
-import { showPassage, type PassageView } from '../ui/dom';
+import { showPassage, showTalkTogether, type PassageView } from '../ui/dom';
 import { speak, stopSpeaking } from '../systems/speech';
 import {
   chapterOrder, characters, fill, getChapter, getVerses, lineText, loadTranslation, locations,
@@ -117,15 +117,19 @@ export class StoryScene extends Phaser.Scene {
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 
-    // Placeholder figures for everyone who speaks, plus the disciples already
-    // following Jesus. Disciples who join during this scene appear when they join.
+    // Placeholder figures. Everyone who speaks stands in front with a name;
+    // disciples who are just following along stand behind, smaller.
     const joined = this.slot.progress.disciples;
     const joiners = scene.lines.flatMap((l) => l.joins ?? []);
-    const cast = [...new Set([...scene.lines.map((l) => l.speaker), ...joined, ...joiners])]
-      .filter((id) => !OFFSTAGE.includes(id) && characters[id]);
-    const scale = Math.min(1, 6 / cast.length);
-    cast.forEach((id, i) => {
-      const x = W * (cast.length === 1 ? 0.5 : 0.2 + (i / (cast.length - 1)) * 0.6);
+    const speakers = [...new Set([...scene.lines.map((l) => l.speaker), ...joiners])].filter((id) => !OFFSTAGE.includes(id) && characters[id]);
+    const companions = scene.companions === false ? [] : joined.filter((id) => !speakers.includes(id)).slice(0, 6);
+    companions.forEach((id, i) => {
+      const x = W * (0.15 + ((i + 0.5) / companions.length) * 0.7);
+      this.makeFigure(x, FEET_Y - 30, characters[id].color, '').setScale(0.7).setAlpha(0.9);
+    });
+    const scale = Math.min(1, 6 / speakers.length);
+    speakers.forEach((id, i) => {
+      const x = W * (speakers.length === 1 ? 0.5 : 0.22 + (i / (speakers.length - 1)) * 0.56);
       const fig = this.makeFigure(x, FEET_Y, characters[id].color, characters[id].name).setScale(scale);
       if (joiners.includes(id) && !joined.includes(id) && !scene.lines.some((l) => l.speaker === id)) fig.setAlpha(0);
       this.figures.set(id, fig);
@@ -347,12 +351,17 @@ export class StoryScene extends Phaser.Scene {
 
     const readAll = () => speak(`${done} ${ui.memoryVerse}. ${mv.ref}. ${verse} ${ui.reflect}. ${this.chapter.reflect}`, { rate: this.rate });
     // A row of buttons along the bottom, centered.
+    const talk = () => {
+      stopSpeaking();
+      showTalkTogether(this.chapter.title, this.chapter.discuss ?? [], this.chapter.prayer ?? '', (t) => speak(t, { rate: this.rate }));
+    };
     const row: [string, () => void, number][] = [
       ['🔊', readAll, 110],
       ['🗺', () => this.scene.start('Map', { slot: this.slotIndex, back: 'Story', animate: true }), 110],
-      [ui.backToTitle, () => this.scene.start('Title'), 320],
+      [`💬 ${ui.talkTogether}`, talk, 290],
+      [ui.backToTitle, () => this.scene.start('Title'), 250],
     ];
-    if (nextId) row.push([`${ui.nextChapter} ▶`, () => this.scene.restart({ slot: this.slotIndex }), 290]);
+    if (nextId) row.push([`${ui.nextChapter} ▶`, () => this.scene.restart({ slot: this.slotIndex }), 260]);
     let bx = W / 2 - (row.reduce((n, [, , w]) => n + w, 0) + 20 * (row.length - 1)) / 2;
     for (const [label, fn, w] of row) {
       makeButton(this, bx + w / 2, 590, label, fn, { width: w, height: 96, fontSize: label.length > 2 ? 32 : 44 });

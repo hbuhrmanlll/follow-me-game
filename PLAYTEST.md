@@ -133,3 +133,24 @@ The title screen should say **Phase 4 · v0.4.0**. Existing players keep their p
 - Does "tap once to hear, tap again to choose" make sense to your youngest?
 - Are any of the new puzzles confusing or too hard? Which ones do the kids like best?
 - Is anything on the Disciple Cards worded in a way you'd change?
+
+## Phase 5, part 1: Chapters 4–10
+
+The title screen should say **Phase 5 · v0.5.0**.
+
+**Quick way to reach a chapter:** a player who already finished Chapter 3 continues straight into Chapter 4.
+
+- [ ] **Ch 4, The Wedding at Cana:** Mary, the servants and the master of the banquet; count the 6 stone jars
+- [ ] **Ch 5, Born Again and Living Water:** Jesus clears the temple (with a note that this happened twice); Nicodemus at night under the stars; the woman at the well. The disciples are *not* on screen with Nicodemus or at the well (John 4:8 says they had gone into town)
+- [ ] **Ch 6, Rejected at Nazareth:** Jesus reads Isaiah in the synagogue; the crowd's anger is told calmly; find Nazareth on the map
+- [ ] **Ch 7, Fishers of Men:** the boats and the huge catch; James and John join; put Jesus' day in Capernaum in order
+- [ ] **Ch 8, Jesus Calls Matthew:** Matthew joins at the tax booth
+- [ ] **Ch 9, Choosing the Twelve:** after a night of prayer, the other five join, so the Twelve are complete (check "The Twelve" in the ☰ menu shows 12/12); count the apostles
+- [ ] **Ch 10, The Sermon on the Mount:** the Beatitudes, the light of the world (find the lamp hidden under the basket), the Lord's Prayer, the wise and foolish builders
+- [ ] At the end of each chapter, **💬 Talk Together** shows 2–3 questions and a short prayer; 🔊 reads the questions, 🙏 reads the prayer
+- [ ] Disciples who aren't speaking stand in a smaller back row without names
+
+**Questions for you**
+- Are the discussion questions the right level for your kids?
+- Is any wording in the narration lines you'd change? (They're marked "Narration" in the game and are in `content/en/chapters/`.)
+- Does Chapter 10 (4 scenes) feel too long for one sitting?

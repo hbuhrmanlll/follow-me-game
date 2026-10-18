@@ -1,0 +1,184 @@
+{
+  "id": "ch08",
+  "number": 8,
+  "title": "Jesus Calls Matthew",
+  "passage": "Matthew 9:9-13",
+  "scenes": [
+    {
+      "id": "ch08-s1",
+      "title": "Follow Me",
+      "location": "capernaum",
+      "timeOfDay": "midday",
+      "passage": "Matthew 9:9",
+      "lines": [
+        {
+          "id": "ch08-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "In Capernaum there was a tax booth by the road. Tax collectors took money for the Romans, and many people thought of them as cheats."
+        },
+        {
+          "id": "ch08-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 9:9",
+          "quote": {
+            "bsb": [
+              "As Jesus went on from there, He saw a man named Matthew sitting at the tax booth."
+            ],
+            "kjv": [
+              "And as Jesus passed forth from thence, he saw a man, named Matthew, sitting at the receipt of custom: and he saith unto him,"
+            ]
+          }
+        },
+        {
+          "id": "ch08-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 9:9",
+          "quote": {
+            "bsb": [
+              "Follow Me"
+            ],
+            "kjv": [
+              "Follow me."
+            ]
+          }
+        },
+        {
+          "id": "ch08-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 9:9",
+          "quote": {
+            "bsb": [
+              "and Matthew got up and followed Him."
+            ],
+            "kjv": [
+              "And he arose, and followed him."
+            ]
+          },
+          "joins": [
+            "matthew"
+          ]
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "What was Matthew's job?",
+        "choices": [
+          {
+            "text": "Tax collector",
+            "correct": true,
+            "icon": "🪙"
+          },
+          {
+            "text": "Fisherman",
+            "icon": "🎣"
+          },
+          {
+            "text": "Carpenter",
+            "icon": "🪚"
+          }
+        ],
+        "hint": "He was sitting at the tax booth.",
+        "ref": "Matthew 9:9"
+      }
+    },
+    {
+      "id": "ch08-s2",
+      "title": "Dinner with Sinners",
+      "location": "capernaum",
+      "timeOfDay": "dusk",
+      "passage": "Matthew 9:10-13",
+      "note": "Matthew's Gospel puts the Sermon on the Mount before Matthew's call, because Matthew groups Jesus' teaching together. This game follows the order in Mark and Luke.",
+      "lines": [
+        {
+          "id": "ch08-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 9:10"
+        },
+        {
+          "id": "ch08-s2-02",
+          "speaker": "pharisees",
+          "type": "scripture",
+          "ref": "Matthew 9:11",
+          "quote": {
+            "bsb": [
+              "Why does your Teacher eat with tax collectors and sinners?"
+            ],
+            "kjv": [
+              "Why eateth your Master with publicans and sinners?"
+            ]
+          }
+        },
+        {
+          "id": "ch08-s2-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 9:12-13",
+          "quote": {
+            "bsb": [
+              "It is not the healthy who need a doctor, but the sick. But go and learn what this means: ‘I desire mercy, not sacrifice.’ For I have not come to call the righteous, but sinners."
+            ],
+            "kjv": [
+              "They that be whole need not a physician, but they that are sick. But go ye and learn what that meaneth, I will have mercy, and not sacrifice: for I am not come to call the righteous, but sinners to repentance."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Matthew 9:12",
+        "blank": {
+          "bsb": "sick",
+          "kjv": "sick"
+        },
+        "decoys": [
+          "rich",
+          "strong",
+          "busy"
+        ],
+        "hint": "Who needs a doctor?",
+        "quote": {
+          "bsb": [
+            "It is not the healthy who need a doctor, but the sick."
+          ],
+          "kjv": [
+            "They that be whole need not a physician, but they that are sick."
+          ]
+        }
+      }
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 9:13",
+    "quote": {
+      "bsb": [
+        "For I have not come to call the righteous, but sinners."
+      ],
+      "kjv": [
+        "for I am not come to call the righteous, but sinners to repentance."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "I have not come to call the righteous, but sinners."
+        ],
+        "kjv": [
+          "I am not come to call the righteous, but sinners"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus calls people others look down on. No one is too far away for Him.",
+  "discuss": [
+    "Why were people surprised that Jesus chose a tax collector?",
+    "Jesus said the sick need a doctor. In what way do all of us need Jesus?",
+    "Is there someone people leave out whom you could be kind to this week?"
+  ],
+  "prayer": "Jesus, thank You for calling sinners like us. Help us show mercy to people others leave out. Amen."
+}

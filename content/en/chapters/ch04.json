@@ -1,0 +1,244 @@
+{
+  "id": "ch04",
+  "number": 4,
+  "title": "The Wedding at Cana",
+  "passage": "John 2:1-11",
+  "scenes": [
+    {
+      "id": "ch04-s1",
+      "title": "No More Wine",
+      "location": "cana",
+      "timeOfDay": "dusk",
+      "passage": "John 2:1-5",
+      "lines": [
+        {
+          "id": "ch04-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "A few days later, Jesus and His disciples went to a wedding in the village of Cana."
+        },
+        {
+          "id": "ch04-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:1-2"
+        },
+        {
+          "id": "ch04-s1-03",
+          "speaker": "mary",
+          "type": "scripture",
+          "ref": "John 2:3",
+          "quote": {
+            "bsb": [
+              "They have no more wine."
+            ],
+            "kjv": [
+              "They have no wine."
+            ]
+          }
+        },
+        {
+          "id": "ch04-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 2:4",
+          "quote": {
+            "bsb": [
+              "Woman, why does this concern us?",
+              "My hour has not yet come."
+            ],
+            "kjv": [
+              "Woman, what have I to do with thee? mine hour is not yet come."
+            ]
+          }
+        },
+        {
+          "id": "ch04-s1-05",
+          "speaker": "mary",
+          "type": "scripture",
+          "ref": "John 2:5",
+          "quote": {
+            "bsb": [
+              "Do whatever He tells you."
+            ],
+            "kjv": [
+              "Whatsoever he saith unto you, do it."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "What did Mary tell the servants?",
+        "choices": [
+          {
+            "text": "Do whatever He tells you",
+            "correct": true,
+            "icon": "👂"
+          },
+          {
+            "text": "Go and buy more wine",
+            "icon": "🛒"
+          },
+          {
+            "text": "Ask the master of the banquet",
+            "icon": "🍷"
+          }
+        ],
+        "hint": "Mary trusted Jesus. Listen to what she said.",
+        "ref": "John 2:5"
+      }
+    },
+    {
+      "id": "ch04-s2",
+      "title": "Water into Wine",
+      "location": "cana",
+      "timeOfDay": "dusk",
+      "passage": "John 2:6-11",
+      "lines": [
+        {
+          "id": "ch04-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:6"
+        },
+        {
+          "id": "ch04-s2-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 2:7",
+          "quote": {
+            "bsb": [
+              "Fill the jars with water."
+            ],
+            "kjv": [
+              "Fill the waterpots with water."
+            ]
+          }
+        },
+        {
+          "id": "ch04-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:7",
+          "quote": {
+            "bsb": [
+              "So they filled them to the brim."
+            ],
+            "kjv": [
+              "And they filled them up to the brim."
+            ]
+          }
+        },
+        {
+          "id": "ch04-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 2:8",
+          "quote": {
+            "bsb": [
+              "Now draw some out",
+              "and take it to the master of the banquet."
+            ],
+            "kjv": [
+              "Draw out now, and bear unto the governor of the feast."
+            ]
+          }
+        },
+        {
+          "id": "ch04-s2-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:9"
+        },
+        {
+          "id": "ch04-s2-06",
+          "speaker": "banquet-master",
+          "type": "scripture",
+          "ref": "John 2:10",
+          "quote": {
+            "bsb": [
+              "Everyone serves the fine wine first, and then the cheap wine after the guests are drunk. But you have saved the fine wine until now!"
+            ],
+            "kjv": [
+              "Every man at the beginning doth set forth good wine; and when men have well drunk, then that which is worse: but thou hast kept the good wine until now."
+            ]
+          }
+        },
+        {
+          "id": "ch04-s2-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:11"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "count",
+          "prompt": "Jesus told the servants to fill the stone water jars.",
+          "items": [
+            {
+              "icon": "🏺",
+              "n": 6
+            }
+          ],
+          "question": "How many stone water jars were there?",
+          "answer": 6,
+          "hint": "Count the jars again, one at a time.",
+          "ref": "John 2:6"
+        },
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "John 2:11",
+          "blank": {
+            "bsb": "glory",
+            "kjv": "glory"
+          },
+          "decoys": [
+            "house",
+            "money",
+            "anger"
+          ],
+          "hint": "Jesus showed who He really is.",
+          "quote": {
+            "bsb": [
+              "He thus revealed His glory, and His disciples believed in Him."
+            ],
+            "kjv": [
+              "and manifested forth his glory; and his disciples believed on him."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 2:11",
+    "quote": {
+      "bsb": [
+        "Jesus performed this, the first of His signs, at Cana in Galilee. He thus revealed His glory, and His disciples believed in Him."
+      ],
+      "kjv": [
+        "This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory; and his disciples believed on him."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "His disciples believed in Him."
+        ],
+        "kjv": [
+          "his disciples believed on him."
+        ]
+      }
+    }
+  },
+  "reflect": "Mary told the servants, “Do whatever He tells you.” We can trust Jesus the same way.",
+  "discuss": [
+    "Why do you think Jesus' first sign was at a wedding, a happy family celebration?",
+    "Mary didn't know exactly what Jesus would do, but she trusted Him. When is it hard for you to trust Jesus?",
+    "How did this sign help the disciples believe?"
+  ],
+  "prayer": "Dear Jesus, thank You that You care about our families and our happy days. Help us do whatever You tell us. Amen."
+}

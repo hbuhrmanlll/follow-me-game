@@ -1,0 +1,340 @@
+{
+  "id": "ch10",
+  "number": 10,
+  "title": "The Sermon on the Mount",
+  "passage": "Matthew 5:1-7:29",
+  "scenes": [
+    {
+      "id": "ch10-s1",
+      "title": "Blessed",
+      "location": "mountain",
+      "timeOfDay": "dawn",
+      "passage": "Matthew 5:1-12",
+      "note": "Luke 6:17-49 has a shorter sermon given on a level place. Robertson's Harmony treats it as the same sermon as Matthew 5–7; others think Jesus taught these things more than once.",
+      "lines": [
+        {
+          "id": "ch10-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 5:1-2"
+        },
+        {
+          "id": "ch10-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 5:3-5",
+          "quote": {
+            "bsb": [
+              "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted. Blessed are the meek, for they will inherit the earth."
+            ],
+            "kjv": [
+              "Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for they shall inherit the earth."
+            ]
+          }
+        },
+        {
+          "id": "ch10-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 5:6-7",
+          "quote": {
+            "bsb": [
+              "Blessed are those who hunger and thirst for righteousness, for they will be filled. Blessed are the merciful, for they will be shown mercy."
+            ],
+            "kjv": [
+              "Blessed are they which do hunger and thirst after righteousness: for they shall be filled. Blessed are the merciful: for they shall obtain mercy."
+            ]
+          }
+        },
+        {
+          "id": "ch10-s1-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 5:8-9",
+          "quote": {
+            "bsb": [
+              "Blessed are the pure in heart, for they will see God. Blessed are the peacemakers, for they will be called sons of God."
+            ],
+            "kjv": [
+              "Blessed are the pure in heart: for they shall see God. Blessed are the peacemakers: for they shall be called the children of God."
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "Matthew 5:9",
+        "blank": {
+          "bsb": "peacemakers",
+          "kjv": "peacemakers"
+        },
+        "decoys": [
+          "shoemakers",
+          "fighters",
+          "rulers"
+        ],
+        "hint": "These people help others stop quarreling.",
+        "quote": {
+          "bsb": [
+            "Blessed are the peacemakers, for they will be called sons of God."
+          ],
+          "kjv": [
+            "Blessed are the peacemakers: for they shall be called the children of God."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch10-s2",
+      "title": "The Light of the World",
+      "location": "mountain",
+      "timeOfDay": "midday",
+      "passage": "Matthew 5:14-44",
+      "lines": [
+        {
+          "id": "ch10-s2-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 5:14-15",
+          "quote": {
+            "bsb": [
+              "You are the light of the world. A city on a hill cannot be hidden. Neither do people light a lamp and put it under a basket. Instead, they set it on a stand, and it gives light to everyone in the house."
+            ],
+            "kjv": [
+              "Ye are the light of the world. A city that is set on an hill cannot be hid. Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house."
+            ]
+          }
+        },
+        {
+          "id": "ch10-s2-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 5:16"
+        },
+        {
+          "id": "ch10-s2-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 5:44",
+          "quote": {
+            "bsb": [
+              "But I tell you, love your enemies and pray for those who persecute you,"
+            ],
+            "kjv": [
+              "But I say unto you, Love your enemies,"
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "findHidden",
+        "prompt": "Someone hid a lamp! Can you find it?",
+        "hide": "🪔",
+        "spot": "🧺",
+        "others": [
+          "🏺",
+          "🪨",
+          "🌿"
+        ],
+        "hint": "Jesus said people don't hide a lamp under a basket.",
+        "ref": "Matthew 5:15"
+      }
+    },
+    {
+      "id": "ch10-s3",
+      "title": "How to Pray",
+      "location": "mountain",
+      "timeOfDay": "midday",
+      "passage": "Matthew 6:9-33",
+      "lines": [
+        {
+          "id": "ch10-s3-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 6:9-10",
+          "quote": {
+            "bsb": [
+              "So then, this is how you should pray: ‘Our Father in heaven, hallowed be Your name. Your kingdom come, Your will be done, on earth as it is in heaven."
+            ],
+            "kjv": [
+              "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name. Thy kingdom come. Thy will be done in earth, as it is in heaven."
+            ]
+          }
+        },
+        {
+          "id": "ch10-s3-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 6:11-13",
+          "quote": {
+            "bsb": [
+              "Give us this day our daily bread. And forgive us our debts, as we also have forgiven our debtors. And lead us not into temptation, but deliver us from the evil one."
+            ],
+            "kjv": [
+              "Give us this day our daily bread. And forgive us our debts, as we forgive our debtors. And lead us not into temptation, but deliver us from evil:"
+            ]
+          }
+        },
+        {
+          "id": "ch10-s3-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 6:26",
+          "quote": {
+            "bsb": [
+              "Look at the birds of the air: They do not sow or reap or gather into barns—and yet your heavenly Father feeds them. Are you not much more valuable than they?"
+            ],
+            "kjv": [
+              "Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them. Are ye not much better than they?"
+            ]
+          }
+        },
+        {
+          "id": "ch10-s3-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 6:33"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "verseOrder",
+          "prompt": "Put the beginning of the Lord's Prayer in order.",
+          "ref": "Matthew 6:9",
+          "quote": {
+            "bsb": [
+              "Our Father in heaven, hallowed be Your name."
+            ],
+            "kjv": [
+              "Our Father which art in heaven, Hallowed be thy name."
+            ]
+          },
+          "hint": "It begins by speaking to our Father."
+        },
+        {
+          "type": "fillBlank",
+          "prompt": "Fill in the missing word.",
+          "ref": "Matthew 6:33",
+          "blank": {
+            "bsb": "first",
+            "kjv": "first"
+          },
+          "decoys": [
+            "later",
+            "money",
+            "never"
+          ],
+          "hint": "Put God's kingdom ahead of everything else."
+        }
+      ]
+    },
+    {
+      "id": "ch10-s4",
+      "title": "The Wise Builder",
+      "location": "mountain",
+      "timeOfDay": "dusk",
+      "passage": "Matthew 7:24-29",
+      "lines": [
+        {
+          "id": "ch10-s4-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 7:24-25",
+          "quote": {
+            "bsb": [
+              "Therefore everyone who hears these words of Mine and acts on them is like a wise man who built his house on the rock. The rain fell, the torrents raged, and the winds blew and beat against that house; yet it did not fall, because its foundation was on the rock."
+            ],
+            "kjv": [
+              "Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock."
+            ]
+          }
+        },
+        {
+          "id": "ch10-s4-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Matthew 7:26-27",
+          "quote": {
+            "bsb": [
+              "But everyone who hears these words of Mine and does not act on them is like a foolish man who built his house on sand. The rain fell, the torrents raged, and the winds blew and beat against that house, and it fell—and great was its collapse!"
+            ],
+            "kjv": [
+              "And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell: and great was the fall of it."
+            ]
+          }
+        },
+        {
+          "id": "ch10-s4-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Matthew 7:28-29"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "Where did the wise man build his house?",
+          "choices": [
+            {
+              "text": "On the rock",
+              "correct": true,
+              "icon": "🪨"
+            },
+            {
+              "text": "On the sand",
+              "icon": "🏖️"
+            },
+            {
+              "text": "In the river",
+              "icon": "🌊"
+            }
+          ],
+          "hint": "The wise man's house did not fall.",
+          "ref": "Matthew 7:24"
+        },
+        {
+          "type": "multipleChoice",
+          "prompt": "Jesus said the wise man is the one who hears His words and…",
+          "choices": [
+            {
+              "text": "Acts on them",
+              "correct": true,
+              "icon": "✅"
+            },
+            {
+              "text": "Forgets them",
+              "icon": "💭"
+            },
+            {
+              "text": "Argues about them",
+              "icon": "🗣️"
+            }
+          ],
+          "hint": "The wise man doesn't just listen.",
+          "ref": "Matthew 7:24"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Matthew 6:33",
+    "kids": {
+      "quote": {
+        "bsb": [
+          "seek first the kingdom of God"
+        ],
+        "kjv": [
+          "seek ye first the kingdom of God"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus said the wise person doesn't just hear His words, but does them.",
+  "discuss": [
+    "Which “Blessed are…” saying do you like best? Why?",
+    "How can you let your light shine at home or at school this week?",
+    "Jesus told us not to worry, because our Father feeds even the birds. What do you worry about? Let's pray about it."
+  ],
+  "prayer": "Our Father in heaven, help us seek Your kingdom first, let our light shine, and build our lives on Your words. Amen."
+}

@@ -1,0 +1,415 @@
+{
+  "id": "ch05",
+  "number": 5,
+  "title": "Born Again and Living Water",
+  "passage": "John 2:13-4:42",
+  "scenes": [
+    {
+      "id": "ch05-s1",
+      "title": "My Father's House",
+      "location": "jerusalem",
+      "timeOfDay": "midday",
+      "passage": "John 2:13-17",
+      "note": "John tells of Jesus clearing the temple early in His ministry. Matthew, Mark and Luke tell of it in His last week. A.T. Robertson's Harmony, followed here, holds that it happened twice.",
+      "lines": [
+        {
+          "id": "ch05-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:13-14"
+        },
+        {
+          "id": "ch05-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:15"
+        },
+        {
+          "id": "ch05-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 2:16",
+          "quote": {
+            "bsb": [
+              "Get these out of here! How dare you turn My Father’s house into a marketplace!"
+            ],
+            "kjv": [
+              "Take these things hence; make not my Father’s house an house of merchandise."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 2:17"
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "Why did Jesus drive the sellers out of the temple?",
+        "choices": [
+          {
+            "text": "They turned God's house into a marketplace",
+            "correct": true,
+            "icon": "🏛️"
+          },
+          {
+            "text": "They were too noisy",
+            "icon": "📢"
+          },
+          {
+            "text": "They had come on the wrong day",
+            "icon": "📅"
+          }
+        ],
+        "hint": "Listen to what Jesus called the temple.",
+        "ref": "John 2:16"
+      }
+    },
+    {
+      "id": "ch05-s2",
+      "title": "Born Again",
+      "location": "jerusalem",
+      "timeOfDay": "night",
+      "passage": "John 3:1-17",
+      "note": "John 3:16 may be Jesus still speaking to Nicodemus, or John explaining Jesus' words. Bible scholars disagree, so the narrator reads it here. Either way, it is God's Word.",
+      "lines": [
+        {
+          "id": "ch05-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 3:1"
+        },
+        {
+          "id": "ch05-s2-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 3:2",
+          "quote": {
+            "bsb": [
+              "He came to Jesus at night and said,"
+            ],
+            "kjv": [
+              "The same came to Jesus by night, and said unto him,"
+            ]
+          }
+        },
+        {
+          "id": "ch05-s2-03",
+          "speaker": "nicodemus",
+          "type": "scripture",
+          "ref": "John 3:2",
+          "quote": {
+            "bsb": [
+              "Rabbi, we know that You are a teacher who has come from God. For no one could perform the signs You are doing if God were not with him."
+            ],
+            "kjv": [
+              "Rabbi, we know that thou art a teacher come from God: for no man can do these miracles that thou doest, except God be with him."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 3:3",
+          "quote": {
+            "bsb": [
+              "Truly, truly, I tell you, no one can see the kingdom of God unless he is born again."
+            ],
+            "kjv": [
+              "Verily, verily, I say unto thee, Except a man be born again, he cannot see the kingdom of God."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s2-05",
+          "speaker": "nicodemus",
+          "type": "scripture",
+          "ref": "John 3:4",
+          "quote": {
+            "bsb": [
+              "How can a man be born when he is old?",
+              "Can he enter his mother’s womb a second time to be born?"
+            ],
+            "kjv": [
+              "How can a man be born when he is old? can he enter the second time into his mother’s womb, and be born?"
+            ]
+          }
+        },
+        {
+          "id": "ch05-s2-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 3:5-6",
+          "quote": {
+            "bsb": [
+              "Truly, truly, I tell you, no one can enter the kingdom of God unless he is born of water and the Spirit. Flesh is born of flesh, but spirit is born of the Spirit."
+            ],
+            "kjv": [
+              "Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot enter into the kingdom of God. That which is born of the flesh is flesh; and that which is born of the Spirit is spirit."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s2-07",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 3:16"
+        }
+      ],
+      "puzzle": {
+        "type": "fillBlank",
+        "prompt": "Fill in the missing word.",
+        "ref": "John 3:16",
+        "blank": {
+          "bsb": "loved",
+          "kjv": "loved"
+        },
+        "decoys": [
+          "made",
+          "saw",
+          "called"
+        ],
+        "hint": "This is the reason God gave His Son."
+      },
+      "companions": false
+    },
+    {
+      "id": "ch05-s3",
+      "title": "Living Water",
+      "location": "sychar",
+      "timeOfDay": "midday",
+      "passage": "John 4:5-42",
+      "lines": [
+        {
+          "id": "ch05-s3-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "On the way back to Galilee, Jesus and His disciples went through Samaria."
+        },
+        {
+          "id": "ch05-s3-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 4:5-6"
+        },
+        {
+          "id": "ch05-s3-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 4:7",
+          "quote": {
+            "bsb": [
+              "When a Samaritan woman came to draw water, Jesus said to her,"
+            ],
+            "kjv": [
+              "There cometh a woman of Samaria to draw water: Jesus saith unto her,"
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 4:7",
+          "quote": {
+            "bsb": [
+              "Give Me a drink."
+            ],
+            "kjv": [
+              "Give me to drink."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-05",
+          "speaker": "samaritan-woman",
+          "type": "scripture",
+          "ref": "John 4:9",
+          "quote": {
+            "bsb": [
+              "You are a Jew",
+              "How can You ask for a drink from me, a Samaritan woman?"
+            ],
+            "kjv": [
+              "How is it that thou, being a Jew, askest drink of me, which am a woman of Samaria?"
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-06",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 4:10",
+          "quote": {
+            "bsb": [
+              "If you knew the gift of God and who is asking you for a drink, you would have asked Him, and He would have given you living water."
+            ],
+            "kjv": [
+              "If thou knewest the gift of God, and who it is that saith to thee, Give me to drink; thou wouldest have asked of him, and he would have given thee living water."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-07",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 4:13-14",
+          "quote": {
+            "bsb": [
+              "Everyone who drinks this water will be thirsty again. But whoever drinks the water I give him will never thirst. Indeed, the water I give him will become in him a fount of water springing up to eternal life."
+            ],
+            "kjv": [
+              "Whosoever drinketh of this water shall thirst again: But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-08",
+          "speaker": "samaritan-woman",
+          "type": "scripture",
+          "ref": "John 4:25",
+          "quote": {
+            "bsb": [
+              "I know that Messiah",
+              "is coming. When He comes, He will explain everything to us."
+            ],
+            "kjv": [
+              "I know that Messias cometh, which is called Christ: when he is come, he will tell us all things."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-09",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "John 4:26",
+          "quote": {
+            "bsb": [
+              "I who speak to you am He."
+            ],
+            "kjv": [
+              "I that speak unto thee am he."
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-10",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 4:28",
+          "quote": {
+            "bsb": [
+              "Then the woman left her water jar, went back into the town, and said to the people,"
+            ],
+            "kjv": [
+              "The woman then left her waterpot, and went her way into the city, and saith to the men,"
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-11",
+          "speaker": "samaritan-woman",
+          "type": "scripture",
+          "ref": "John 4:29",
+          "quote": {
+            "bsb": [
+              "Come, see a man who told me everything I ever did. Could this be the Christ?"
+            ],
+            "kjv": [
+              "Come, see a man, which told me all things that ever I did: is not this the Christ?"
+            ]
+          }
+        },
+        {
+          "id": "ch05-s3-12",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "John 4:41-42"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "whoSaid",
+          "prompt": "Who said it? Match each person to their words.",
+          "ref": "John 3:4-4:29",
+          "pairs": [
+            {
+              "speaker": "nicodemus",
+              "ref": "John 3:4",
+              "quote": {
+                "bsb": [
+                  "How can a man be born when he is old?"
+                ],
+                "kjv": [
+                  "How can a man be born when he is old?"
+                ]
+              }
+            },
+            {
+              "speaker": "samaritan-woman",
+              "ref": "John 4:29",
+              "quote": {
+                "bsb": [
+                  "Come, see a man who told me everything I ever did."
+                ],
+                "kjv": [
+                  "Come, see a man, which told me all things that ever I did"
+                ]
+              }
+            },
+            {
+              "speaker": "jesus",
+              "ref": "John 4:26",
+              "quote": {
+                "bsb": [
+                  "I who speak to you am He."
+                ],
+                "kjv": [
+                  "I that speak unto thee am he."
+                ]
+              }
+            }
+          ],
+          "hint": "Nicodemus came at night; the woman met Jesus at the well."
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Jacob's well was near Sychar, in Samaria. Tap Sychar on the map.",
+          "target": "sychar",
+          "choices": [
+            "sychar",
+            "jerusalem",
+            "nazareth",
+            "capernaum"
+          ],
+          "hint": "Samaria is in the middle, between Galilee in the north and Judea in the south.",
+          "ref": "John 4:5"
+        }
+      ],
+      "companions": false
+    }
+  ],
+  "memoryVerse": {
+    "ref": "John 3:16",
+    "kids": {
+      "quote": {
+        "bsb": [
+          "For God so loved the world"
+        ],
+        "kjv": [
+          "For God so loved the world"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus talked with a respected teacher at night and with a lonely woman at noon. He came for everyone.",
+  "discuss": [
+    "Nicodemus was an important leader. The woman at the well was an outsider. Why did Jesus talk with both of them?",
+    "What do you think Jesus meant by “living water”?",
+    "The woman ran to tell her whole town about Jesus. Who has told you about Jesus?"
+  ],
+  "prayer": "Thank You, God, for loving the whole world so much that You gave Your Son. Help us believe in Him and tell others. Amen."
+}

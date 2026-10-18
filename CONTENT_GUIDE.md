@@ -247,14 +247,22 @@ appear in every later scene. Each disciple needs `"disciple": true` in `characte
 ## Adding a new place
 
 1. In `content/en/locations.json`, add the name, region and summary. Add `"backdrop"` only if a
-   scene happens there. Backgrounds so far: `jordan`, `wilderness`, `jerusalem`, `galilee`.
+   scene happens there. Backgrounds so far: `jordan`, `wilderness`, `jerusalem`, `galilee`, `village`, `well`, `lake`, `mountain`.
 2. In `content/map.json`, under `"places"`, add `[latitude, longitude]`. You can look these up on
    any online map; for example Capernaum is `[32.88, 35.575]`.
 
 ## Chapter ending
 
-Each chapter has a `memoryVerse` (same format as a Scripture line: `ref`, plus `quote` if
-you want only part of the verse) and a one-line `reflect` thought.
+Each chapter has:
+- a `memoryVerse` (same format as a Scripture line: `ref`, plus `quote` if you want only part of the verse)
+- a one-line `reflect` thought
+- `discuss`: 2 or 3 questions a parent or Sunday school leader can talk through with kids
+- `prayer`: a short prayer, read aloud from the **💬 Talk Together** button
+
+## Scenes without the disciples
+
+Disciples who have joined appear in later scenes automatically. When the Bible says they weren't
+there (for example John 4:8: they had gone into town to buy food), add `"companions": false` to the scene.
 
 ## If something goes wrong
 

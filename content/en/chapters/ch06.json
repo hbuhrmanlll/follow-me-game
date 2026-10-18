@@ -1,0 +1,196 @@
+{
+  "id": "ch06",
+  "number": 6,
+  "title": "Rejected at Nazareth",
+  "passage": "Luke 4:16-30",
+  "scenes": [
+    {
+      "id": "ch06-s1",
+      "title": "Today This Scripture Is Fulfilled",
+      "location": "nazareth",
+      "timeOfDay": "dawn",
+      "passage": "Luke 4:16-22",
+      "lines": [
+        {
+          "id": "ch06-s1-01",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Jesus came home to Nazareth, the town where He grew up."
+        },
+        {
+          "id": "ch06-s1-02",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 4:16-17"
+        },
+        {
+          "id": "ch06-s1-03",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 4:18-19",
+          "quote": {
+            "bsb": [
+              "The Spirit of the Lord is on Me, because He has anointed Me to preach good news to the poor. He has sent Me to proclaim liberty to the captives and recovery of sight to the blind, to release the oppressed, to proclaim the year of the Lord’s favor."
+            ],
+            "kjv": [
+              "The Spirit of the Lord is upon me, because he hath anointed me to preach the gospel to the poor; he hath sent me to heal the brokenhearted, to preach deliverance to the captives, and recovering of sight to the blind, to set at liberty them that are bruised, To preach the acceptable year of the Lord."
+            ]
+          }
+        },
+        {
+          "id": "ch06-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 4:20"
+        },
+        {
+          "id": "ch06-s1-05",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 4:21",
+          "quote": {
+            "bsb": [
+              "Today this Scripture is fulfilled in your hearing."
+            ],
+            "kjv": [
+              "This day is this scripture fulfilled in your ears."
+            ]
+          }
+        },
+        {
+          "id": "ch06-s1-06",
+          "speaker": "townspeople",
+          "type": "scripture",
+          "ref": "Luke 4:22",
+          "quote": {
+            "bsb": [
+              "Isn’t this the son of Joseph?"
+            ],
+            "kjv": [
+              "Is not this Joseph’s son?"
+            ]
+          }
+        }
+      ],
+      "puzzle": {
+        "type": "verseOrder",
+        "prompt": "Put the words Jesus read back in order.",
+        "ref": "Luke 4:18",
+        "quote": {
+          "bsb": [
+            "The Spirit of the Lord is on Me, because He has anointed Me to preach good news to the poor."
+          ],
+          "kjv": [
+            "The Spirit of the Lord is upon me, because he hath anointed me to preach the gospel to the poor;"
+          ]
+        },
+        "hint": "It begins with “The Spirit of the Lord.”"
+      }
+    },
+    {
+      "id": "ch06-s2",
+      "title": "No Prophet Is Accepted",
+      "location": "nazareth",
+      "timeOfDay": "midday",
+      "passage": "Luke 4:23-30",
+      "lines": [
+        {
+          "id": "ch06-s2-01",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 4:24",
+          "quote": {
+            "bsb": [
+              "Truly I tell you, no prophet is accepted in his hometown."
+            ],
+            "kjv": [
+              "Verily I say unto you, No prophet is accepted in his own country."
+            ]
+          }
+        },
+        {
+          "id": "ch06-s2-02",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "Jesus reminded them how, long ago, God had sent His prophets Elijah and Elisha to help people from other nations."
+        },
+        {
+          "id": "ch06-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 4:28-29"
+        },
+        {
+          "id": "ch06-s2-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 4:30"
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "multipleChoice",
+          "prompt": "What did Jesus do when the crowd tried to throw Him off the cliff?",
+          "choices": [
+            {
+              "text": "He passed through the crowd and went on His way",
+              "correct": true,
+              "icon": "🚶"
+            },
+            {
+              "text": "He called down fire from heaven",
+              "icon": "🔥"
+            },
+            {
+              "text": "He hid in the synagogue",
+              "icon": "🏠"
+            }
+          ],
+          "hint": "His time had not yet come. Listen to the last verse.",
+          "ref": "Luke 4:30"
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Jesus grew up in Nazareth. Tap Nazareth on the map.",
+          "target": "nazareth",
+          "choices": [
+            "nazareth",
+            "jerusalem",
+            "capernaum",
+            "sychar"
+          ],
+          "hint": "Nazareth is in the hills of Galilee, west of the Sea of Galilee.",
+          "ref": "Luke 4:16"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Luke 4:18",
+    "quote": {
+      "bsb": [
+        "The Spirit of the Lord is on Me, because He has anointed Me to preach good news to the poor."
+      ],
+      "kjv": [
+        "The Spirit of the Lord is upon me, because he hath anointed me to preach the gospel to the poor;"
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "The Spirit of the Lord is on Me"
+        ],
+        "kjv": [
+          "The Spirit of the Lord is upon me"
+        ]
+      }
+    }
+  },
+  "reflect": "Jesus came with good news for the poor, the captives, the blind and the hurting.",
+  "discuss": [
+    "The people of Nazareth thought they already knew all about Jesus. How could that keep someone from listening to Him?",
+    "Jesus read that He came with good news for the poor. Who needs good news today?",
+    "How do you think Jesus felt when His hometown turned against Him?"
+  ],
+  "prayer": "Lord Jesus, You bring good news to the poor and freedom to people who are trapped. Open our ears to listen to You. Amen."
+}

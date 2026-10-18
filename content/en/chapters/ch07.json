@@ -1,0 +1,333 @@
+{
+  "id": "ch07",
+  "number": 7,
+  "title": "Fishers of Men",
+  "passage": "Luke 5:1-11",
+  "scenes": [
+    {
+      "id": "ch07-s1",
+      "title": "Put Out into Deep Water",
+      "location": "sea-of-galilee",
+      "timeOfDay": "dawn",
+      "passage": "Luke 5:1-7",
+      "note": "Matthew 4 and Mark 1 tell of Jesus calling these fishermen by the Sea of Galilee. Robertson's Harmony treats Luke 5:1-11 as the same event; some scholars think it was a second time.",
+      "lines": [
+        {
+          "id": "ch07-s1-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 5:1-3"
+        },
+        {
+          "id": "ch07-s1-02",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 5:4",
+          "quote": {
+            "bsb": [
+              "Put out into deep water and let down your nets for a catch."
+            ],
+            "kjv": [
+              "Launch out into the deep, and let down your nets for a draught."
+            ]
+          }
+        },
+        {
+          "id": "ch07-s1-03",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Luke 5:5",
+          "quote": {
+            "bsb": [
+              "Master",
+              "we have worked hard all night without catching anything. But because You say so, I will let down the nets."
+            ],
+            "kjv": [
+              "Master, we have toiled all the night, and have taken nothing: nevertheless at thy word I will let down the net."
+            ]
+          }
+        },
+        {
+          "id": "ch07-s1-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 5:6-7"
+        }
+      ],
+      "puzzle": {
+        "type": "multipleChoice",
+        "prompt": "Simon had caught nothing all night. What happened when he did what Jesus said?",
+        "choices": [
+          {
+            "text": "So many fish that the nets began to tear",
+            "correct": true,
+            "icon": "🐟🐟🐟"
+          },
+          {
+            "text": "Still not a single fish",
+            "icon": "🚫"
+          },
+          {
+            "text": "One very big fish",
+            "icon": "🐋"
+          }
+        ],
+        "hint": "Listen to what happened to the nets and the boats.",
+        "ref": "Luke 5:6"
+      }
+    },
+    {
+      "id": "ch07-s2",
+      "title": "Fishers of Men",
+      "location": "sea-of-galilee",
+      "timeOfDay": "midday",
+      "passage": "Luke 5:8-11",
+      "lines": [
+        {
+          "id": "ch07-s2-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 5:8",
+          "quote": {
+            "bsb": [
+              "When Simon Peter saw this, he fell at Jesus’ knees."
+            ],
+            "kjv": [
+              "When Simon Peter saw it, he fell down at Jesus’ knees, saying,"
+            ]
+          }
+        },
+        {
+          "id": "ch07-s2-02",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Luke 5:8",
+          "quote": {
+            "bsb": [
+              "Go away from me, Lord",
+              "for I am a sinful man."
+            ],
+            "kjv": [
+              "Depart from me; for I am a sinful man, O Lord."
+            ]
+          }
+        },
+        {
+          "id": "ch07-s2-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 5:9-10",
+          "quote": {
+            "bsb": [
+              "For he and his companions were astonished at the catch of fish they had taken, and so were his partners James and John, the sons of Zebedee."
+            ],
+            "kjv": [
+              "For he was astonished, and all that were with him, at the draught of the fishes which they had taken: And so was also James, and John, the sons of Zebedee, which were partners with Simon."
+            ]
+          }
+        },
+        {
+          "id": "ch07-s2-04",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Luke 5:10",
+          "quote": {
+            "bsb": [
+              "Do not be afraid",
+              "From now on you will catch men."
+            ],
+            "kjv": [
+              "Fear not; from henceforth thou shalt catch men."
+            ]
+          }
+        },
+        {
+          "id": "ch07-s2-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Luke 5:11",
+          "joins": [
+            "james",
+            "john"
+          ]
+        }
+      ],
+      "puzzle": {
+        "type": "whoSaid",
+        "prompt": "Who said it?",
+        "ref": "Luke 5:4-10",
+        "pairs": [
+          {
+            "speaker": "jesus",
+            "ref": "Luke 5:4",
+            "quote": {
+              "bsb": [
+                "Put out into deep water and let down your nets for a catch."
+              ],
+              "kjv": [
+                "Launch out into the deep, and let down your nets for a draught."
+              ]
+            }
+          },
+          {
+            "speaker": "peter",
+            "ref": "Luke 5:8",
+            "quote": {
+              "bsb": [
+                "Go away from me, Lord"
+              ],
+              "kjv": [
+                "Depart from me; for I am a sinful man, O Lord."
+              ]
+            }
+          }
+        ],
+        "hint": "One of them is a fisherman who felt sorry for his sins."
+      }
+    },
+    {
+      "id": "ch07-s3",
+      "title": "A Day in Capernaum",
+      "location": "capernaum",
+      "timeOfDay": "dusk",
+      "passage": "Mark 1:21-38",
+      "lines": [
+        {
+          "id": "ch07-s3-01",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 1:21-22"
+        },
+        {
+          "id": "ch07-s3-02",
+          "speaker": "narrator",
+          "type": "narration",
+          "text": "In the synagogue, Jesus commanded an evil spirit to leave a man, and it obeyed Him."
+        },
+        {
+          "id": "ch07-s3-03",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 1:27-28"
+        },
+        {
+          "id": "ch07-s3-04",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 1:29-31"
+        },
+        {
+          "id": "ch07-s3-05",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 1:32-34"
+        },
+        {
+          "id": "ch07-s3-06",
+          "speaker": "narrator",
+          "type": "scripture",
+          "ref": "Mark 1:35"
+        },
+        {
+          "id": "ch07-s3-07",
+          "speaker": "peter",
+          "type": "scripture",
+          "ref": "Mark 1:37",
+          "quote": {
+            "bsb": [
+              "Everyone is looking for You!"
+            ],
+            "kjv": [
+              "All men seek for thee."
+            ]
+          }
+        },
+        {
+          "id": "ch07-s3-08",
+          "speaker": "jesus",
+          "type": "scripture",
+          "ref": "Mark 1:38",
+          "quote": {
+            "bsb": [
+              "Let us go on to the neighboring towns so I can preach there as well, for that is why I have come."
+            ],
+            "kjv": [
+              "Let us go into the next towns, that I may preach there also: for therefore came I forth."
+            ]
+          }
+        }
+      ],
+      "puzzles": [
+        {
+          "type": "eventOrder",
+          "prompt": "Put Jesus' day in Capernaum in order.",
+          "ref": "Mark 1:21-35",
+          "events": [
+            {
+              "text": "Jesus teaches in the synagogue",
+              "icon": "📜",
+              "ref": "Mark 1:21"
+            },
+            {
+              "text": "Jesus heals Simon's mother-in-law",
+              "icon": "🤒",
+              "ref": "Mark 1:30-31"
+            },
+            {
+              "text": "The whole town gathers at the door at sunset",
+              "icon": "🌇",
+              "ref": "Mark 1:32-33"
+            },
+            {
+              "text": "Jesus prays early in the morning",
+              "icon": "🙏",
+              "ref": "Mark 1:35"
+            }
+          ],
+          "hint": "The day began in the synagogue on the Sabbath."
+        },
+        {
+          "type": "mapFind",
+          "prompt": "Tap Capernaum, the fishing town where Peter lived.",
+          "target": "capernaum",
+          "choices": [
+            "capernaum",
+            "nazareth",
+            "cana",
+            "jerusalem"
+          ],
+          "hint": "Capernaum is on the north shore of the Sea of Galilee.",
+          "ref": "Mark 1:21"
+        }
+      ]
+    }
+  ],
+  "memoryVerse": {
+    "ref": "Mark 1:17",
+    "quote": {
+      "bsb": [
+        "“Come, follow Me,” Jesus said, “and I will make you fishers of men.”"
+      ],
+      "kjv": [
+        "Come ye after me, and I will make you to become fishers of men."
+      ]
+    },
+    "kids": {
+      "quote": {
+        "bsb": [
+          "I will make you fishers of men."
+        ],
+        "kjv": [
+          "I will make you to become fishers of men."
+        ]
+      }
+    }
+  },
+  "reflect": "Peter did what Jesus said even when it didn't make sense, and then he left everything to follow Him.",
+  "discuss": [
+    "Peter had fished all night with nothing. Why do you think he obeyed Jesus anyway?",
+    "What do you think it means to “catch men” or be a “fisher of men”?",
+    "Even when everyone was looking for Him, Jesus got up early to pray. Why was prayer so important to Him?"
+  ],
+  "prayer": "Jesus, help us trust You like Peter did, and follow You wherever You lead. Make us fishers of people. Amen."
+}

@@ -80,7 +80,8 @@
           "song"
         ],
         "hint": "We live on everything God says."
-      }
+      },
+      "companions": false
     },
     {
       "id": "ch02-s2",
@@ -154,7 +155,8 @@
           "hint": "Jerusalem is in Judea, in the hills west of the Dead Sea.",
           "ref": "Matthew 4:5"
         }
-      ]
+      ],
+      "companions": false
     },
     {
       "id": "ch02-s3",
@@ -262,7 +264,8 @@
           "hint": "Listen for the words “It is written.”",
           "ref": "Matthew 4:1-11"
         }
-      ]
+      ],
+      "companions": false
     }
   ],
   "memoryVerse": {
@@ -286,5 +289,11 @@
       }
     }
   },
-  "reflect": "When we are tempted, God's Word helps us choose what is right."
+  "reflect": "When we are tempted, God's Word helps us choose what is right.",
+  "discuss": [
+    "Each time Jesus was tempted, He answered “It is written.” Why is it good to know Bible verses by heart?",
+    "Jesus was hungry and tired, but He still said no to the devil. When is it hardest for you to do what's right?",
+    "Which of the three temptations do you think was the hardest? Why?"
+  ],
+  "prayer": "Jesus, thank You for staying faithful when You were tempted. Help us learn Your Word and choose what is right. Amen."
 }

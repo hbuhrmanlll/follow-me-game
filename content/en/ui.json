@@ -77,5 +77,9 @@
   "family": "Family",
   "tradition": "Tradition",
   "laterInStory": "More about him later in the story…",
-  "orderPrompt": "Put the verse back in order."
+  "orderPrompt": "Put the verse back in order.",
+  "talkTogether": "Talk Together",
+  "discussIntro": "Questions to talk about together:",
+  "prayer": "Prayer",
+  "prayTogether": "Let's pray:"
 }

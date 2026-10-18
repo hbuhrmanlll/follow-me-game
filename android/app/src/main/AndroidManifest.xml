@@ -38,6 +38,8 @@
         </provider>
     </application>
 
-    <!-- No permissions: the game never uses the internet, the camera, the
-         microphone, location or contacts. Everything stays on the phone. -->
+    <!-- The only permission. Android's web view needs it to show the game, even
+         though the game never goes online. It isn't shown to players as a
+         request. No camera, microphone, location or contacts. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

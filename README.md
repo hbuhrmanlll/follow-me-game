@@ -35,6 +35,10 @@ in the bottom-left corner of the title screen.
 
 See **VOICES.md** to make real voices with ElevenLabs, or to use recordings of real people.
 
+## The Android app
+
+See **ANDROID.md** to install the test app on your phone. GitHub builds a new one after every change.
+
 ## Pictures, music and credits
 
 - **ART_GUIDE.md**: how to make finished pictures with AI tools (style text and a prompt for every background and main character) and drop them in.

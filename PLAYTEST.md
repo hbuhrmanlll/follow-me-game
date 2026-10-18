@@ -255,3 +255,33 @@ The music starts after your first tap, because phones don't allow sound before t
 - Is the music the right volume, and does it suit the game? Should it be quieter by default?
 - Are the cutscenes the right length (about 8–11 seconds)?
 - Would you like a setting to turn cutscenes off, or is the Skip button enough?
+
+## Phase 7, part A: the Android app
+
+Install the test app by following **ANDROID.md** (it takes about 2 minutes). The title
+screen should say **Phase 7 · v0.7.0**.
+
+**Installing**
+- [ ] The link downloads `follow-me-test.apk`, and it installs after you allow it
+- [ ] The app drawer shows **Follow Me (test)** with the sunrise icon
+- [ ] Opening it shows a dark start-up screen with the icon, then the title screen
+
+**Playing**
+- [ ] It's landscape and fills the whole screen, with no phone bars at the top or bottom
+- [ ] The **voice reads every line**. It may sound different from the website, because it's the
+      phone's own voice
+- [ ] Words light up as they're spoken. If the phone's voice doesn't report its position, the
+      highlight follows an estimate instead, which is fine
+- [ ] Music and sound effects play
+- [ ] **Back button**: opens the menu during the story, returns to the title screen elsewhere, and closes the game on the title screen
+- [ ] Press the Home button in the middle of a line: the voice stops. Come back: the line is read again
+- [ ] The screen doesn't turn off while a chapter plays by itself
+- [ ] Turn on **airplane mode**: everything still works, including the Scripture panel (📜)
+- [ ] Close the app completely and reopen it: **Continue** resumes exactly where you were
+
+**Updating**
+- [ ] After the next update, install the new test app over the old one: your players and progress are still there
+
+**Questions for you**
+- Is the phone's voice OK for now (until the recorded voices come)?
+- What contact email should the privacy policy and Play Store listing show?

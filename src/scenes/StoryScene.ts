@@ -78,6 +78,19 @@ export class StoryScene extends Phaser.Scene {
     this.showLeaderBadge();
     const run = ++this.run;
     this.events.once('shutdown', () => { this.run++; stopSpeaking(); });
+    // Android: the Back button opens the menu; leaving the app pauses the voice,
+    // and coming back reads the current line again.
+    const onBack = () => { if (this.box) this.openGameMenu(); };
+    const onHidden = () => this.box?.halt();
+    const onVisible = () => this.box?.replay();
+    this.game.events.on('app-back', onBack);
+    this.game.events.on('app-hidden', onHidden);
+    this.game.events.on('app-visible', onVisible);
+    this.events.once('shutdown', () => {
+      this.game.events.off('app-back', onBack);
+      this.game.events.off('app-hidden', onHidden);
+      this.game.events.off('app-visible', onVisible);
+    });
     loadTranslation(this.slot.translation).then(() => {
       if (run === this.run) void this.playFromSave(run);
     });
@@ -204,12 +217,7 @@ export class StoryScene extends Phaser.Scene {
     this.shadow = this.add.rectangle(0, 0, W, this.scale.height, 0x1a1028, 0.45).setOrigin(0).setAlpha(0);
 
     // Top bar: menu on the left, dialogue controls and Scripture on the right.
-    makeButton(this, 70, 54, '☰', () => {
-      stopSpeaking();
-      // Coming back from the menu redraws the scene (settings may have changed) and replays the line.
-      if (this.leader) { this.scene.start('Parents'); return; }
-      openMenu(this, this.slotIndex, () => this.scene.restart({ slot: this.slotIndex }));
-    }, { width: 100, height: 84, fontSize: 44 });
+    makeButton(this, 70, 54, '☰', () => this.openGameMenu(), { width: 100, height: 84, fontSize: 44 });
     this.add.text(140, 54, scene.title, {
       fontFamily: FONT, fontSize: '28px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 6,
     }).setOrigin(0, 0.5);
@@ -243,6 +251,13 @@ export class StoryScene extends Phaser.Scene {
     this.box.autoAdvance = this.settings.autoAdvance;
     this.box.speed = this.rate;
     this.box.setVisible(false);
+  }
+
+  private openGameMenu(): void {
+    stopSpeaking();
+    // Coming back from the menu redraws the scene (settings may have changed) and replays the line.
+    if (this.leader) { this.scene.start('Parents'); return; }
+    openMenu(this, this.slotIndex, () => this.scene.restart({ slot: this.slotIndex }));
   }
 
   // Each scene hides one small scroll piece somewhere on the stage.

@@ -87,6 +87,16 @@ export function applyVolumes(): void {
   for (const a of recordings) a.volume = s.musicVolume * 0.5 * duckLevel;
 }
 
+// Silence everything while the app is in the background.
+export function pauseAudio(paused: boolean): void {
+  if (!ctx) return;
+  void (paused ? ctx.suspend() : ctx.resume()).catch(() => undefined);
+  for (const a of recordings) {
+    if (paused) a.pause();
+    else void a.play().catch(() => undefined);
+  }
+}
+
 // Music gets quieter while someone is speaking.
 export function duckMusic(on: boolean): void {
   duckLevel = on ? 0.5 : 1;

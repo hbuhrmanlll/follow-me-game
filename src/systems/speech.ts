@@ -1,6 +1,14 @@
-// Temporary voice: the browser's built-in speech. Later, recorded audio files
-// will be played instead whenever one exists for a line.
+// The built-in voice, used for any line without a recording. In the web
+// version it is the browser's speech; in the Android app it is the phone's own
+// text-to-speech engine (Android's web view has no browser speech).
+import { Capacitor } from '@capacitor/core';
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
 import { loadSettings } from './save';
+
+const native = Capacitor.isNativePlatform();
+let nativeToken = 0; // which request is current, so a stopped one is ignored
+let nativeWord: ((charIndex: number) => void) | undefined;
+if (native) void TextToSpeech.addListener('onRangeStart', ({ start }) => nativeWord?.(start));
 
 export interface SpeakOptions {
   pitch?: number;
@@ -10,6 +18,7 @@ export interface SpeakOptions {
 }
 
 export function canSpeak(): boolean {
+  if (native) return true;
   return typeof window !== 'undefined' && 'speechSynthesis' in window;
 }
 
@@ -19,7 +28,13 @@ let endTimer: number | undefined;
 export function stopSpeaking(): void {
   current = null;
   window.clearTimeout(endTimer);
-  if (canSpeak()) window.speechSynthesis.cancel();
+  if (native) {
+    nativeToken++;
+    nativeWord = undefined;
+    void TextToSpeech.stop().catch(() => undefined);
+  } else if (canSpeak()) {
+    window.speechSynthesis.cancel();
+  }
 }
 
 // About how long the text takes to say, in milliseconds.
@@ -49,6 +64,10 @@ export function speak(text: string, opts: SpeakOptions = {}): void {
     return;
   }
   endTimer = window.setTimeout(finish, estimate * 1.8 + 2500);
+  if (native) {
+    speakNative(text, opts, rate, estimate, finish);
+    return;
+  }
 
   const u = new SpeechSynthesisUtterance(text);
   const voice = pickVoice();
@@ -74,4 +93,22 @@ export function speak(text: string, opts: SpeakOptions = {}): void {
   u.onerror = ended;
   current = u;
   window.speechSynthesis.speak(u);
+}
+
+function speakNative(text: string, opts: SpeakOptions, rate: number, estimate: number, finish: () => void): void {
+  const token = ++nativeToken;
+  nativeWord = opts.onWord;
+  const startedAt = performance.now();
+  const ended = () => {
+    if (token !== nativeToken) return;
+    nativeWord = undefined;
+    const elapsed = performance.now() - startedAt;
+    window.clearTimeout(endTimer);
+    // No voice installed or an error: keep the line up for about as long as it would take to say.
+    if (elapsed < estimate * 0.3) endTimer = window.setTimeout(finish, estimate - elapsed);
+    else finish();
+  };
+  TextToSpeech.speak({
+    text, lang: 'en-US', rate, pitch: opts.pitch ?? 1, volume: loadSettings().voiceVolume, category: 'playback',
+  }).then(ended, ended);
 }

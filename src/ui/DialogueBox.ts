@@ -107,6 +107,13 @@ export class DialogueBox {
     if (this.line && this.state !== 'idle') this.speakLine();
   }
 
+  // Stops the voice without moving on (the app went into the background).
+  halt(): void {
+    this.autoTimer?.remove();
+    this.stopPlayer();
+    stopSpeaking();
+  }
+
   skip(): void {
     if (this.state !== 'idle') this.finish();
   }

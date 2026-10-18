@@ -5,8 +5,9 @@ import { ui } from '../systems/content';
 import { showSettings } from '../ui/dom';
 import { askParent } from '../ui/parent';
 import { setMood } from '../systems/audio';
+import { isApp } from '../systems/native';
 
-export const VERSION = 'Phase 6B · v0.6.5';
+export const VERSION = 'Phase 7 · v0.7.0';
 
 export class TitleScene extends Phaser.Scene {
   private layers: Layer[] = [];
@@ -50,7 +51,8 @@ export class TitleScene extends Phaser.Scene {
   }
 
   private begin(): void {
-    if (!this.scale.isFullscreen && this.sys.game.device.input.touch) {
+    // The Android app is always full screen.
+    if (!isApp && !this.scale.isFullscreen && this.sys.game.device.input.touch) {
       this.scale.startFullscreen();
     }
     this.scene.start('Slots');

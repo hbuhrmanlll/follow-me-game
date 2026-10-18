@@ -1,0 +1,65 @@
+# Builds the Android app on GitHub's computers, so nothing needs installing.
+# It runs by itself after every change, or from the Actions tab → "Android app" → "Run workflow".
+# The finished test app is published at a fixed link (see ANDROID.md):
+# https://github.com/hbuhrmanlll/follow-me-game/releases/download/test-build/follow-me-test.apk
+name: Android app
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write # to publish the test app on the Releases page
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Build the game
+        run: |
+          npm ci
+          npm run build
+          npx cap sync android
+
+      - name: Build the test app (APK)
+        working-directory: android
+        env:
+          BUILD_NUMBER: ${{ github.run_number }}
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Name the file
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          mkdir -p out
+          cp android/app/build/outputs/apk/debug/app-debug.apk out/follow-me-test.apk
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      # Replaces the previous test app, so the download link never changes.
+      - name: Publish the test app
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete test-build --yes --cleanup-tag || true
+          gh release create test-build out/follow-me-test.apk \
+            --prerelease --target "${{ github.sha }}" \
+            --title "Test app: version ${VERSION}, build ${{ github.run_number }}" \
+            --notes "The newest test version of Follow Me for Android. Download follow-me-test.apk on your phone and open it to install. See ANDROID.md for help."

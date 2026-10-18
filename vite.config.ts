@@ -9,7 +9,7 @@ export default defineConfig({
     // add it to the home screen like an app.
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
+      injectRegister: null, // registered in src/main.ts, only for the web version
       includeAssets: ['icons/*.png'],
       manifest: {
         name: 'Follow Me: Walk with Jesus',

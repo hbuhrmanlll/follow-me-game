@@ -5,10 +5,12 @@ and the twelve disciples through His ministry, from His baptism to His ascension
 
 ## How to play the test version
 
+**Game link: https://followmegame.netlify.app**
+
 You don't need to install anything. Every time a new version is saved to GitHub,
 Netlify rebuilds the game and puts it at your game link (it takes about a minute).
 
-1. Open your Netlify game link on your Android phone in **Chrome** (or on your computer).
+1. Open the game link on your Android phone in **Chrome** (or on your computer).
 2. Turn the phone sideways.
 3. Tap **Begin**. On a phone this switches to full screen.
 
@@ -20,16 +22,21 @@ in the bottom-left corner of the title screen.
 ## Build phases
 
 1. ✅ Project setup and a title screen you can open
-2. Core systems: scenes from data files, dialogue with voice, one puzzle type, saving
+2. ✅ Core systems: scenes from data files, dialogue with voice, one puzzle type, saving
 3. Chapters 1–3, the map, and 3 puzzle types
 4. Remaining puzzle types, difficulty modes, Verse Journal, Disciple Cards
 5. The rest of the chapters
 6. Art, sound, voices, cutscenes, polish
 7. Android app and Google Play
 
+## Changing the story
+
+See **CONTENT_GUIDE.md**. Everything is in the `content/` folder, and no code is needed.
+
 ## For programmers (optional)
 
 The game uses Phaser 3, TypeScript and Vite. `npm install`, then `npm run dev`.
+`npm run check` runs the content checker (it also runs before every build).
 
 ## Bible translations
 

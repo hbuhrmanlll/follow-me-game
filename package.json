@@ -1,12 +1,13 @@
 {
   "name": "follow-me",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Follow Me: Walk with Jesus — a Bible game by Third Heaven Studios",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc --noEmit && vite build",
+    "check": "node tools/check-content.mjs",
+    "build": "node tools/check-content.mjs && tsc --noEmit && vite build",
     "preview": "vite preview --host"
   },
   "dependencies": {

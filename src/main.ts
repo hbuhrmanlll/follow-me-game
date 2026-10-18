@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { TitleScene } from './scenes/TitleScene';
+import { SlotScene } from './scenes/SlotScene';
+import { StoryScene } from './scenes/StoryScene';
 
 // The game is designed at 1280x720 (landscape) and scaled to fit any screen.
 new Phaser.Game({
@@ -12,5 +14,5 @@ new Phaser.Game({
     width: 1280,
     height: 720,
   },
-  scene: [TitleScene],
+  scene: [TitleScene, SlotScene, StoryScene],
 });

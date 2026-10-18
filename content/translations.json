@@ -1,0 +1,14 @@
+[
+  {
+    "id": "bsb",
+    "name": "Berean Standard Bible",
+    "short": "BSB",
+    "notice": "The Holy Bible, Berean Standard Bible, BSB. The BSB text has been dedicated to the public domain."
+  },
+  {
+    "id": "kjv",
+    "name": "King James Version",
+    "short": "KJV",
+    "notice": "King James Version (1769). Public domain."
+  }
+]

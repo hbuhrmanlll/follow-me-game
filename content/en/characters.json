@@ -1,0 +1,6 @@
+{
+  "narrator": { "name": "Narrator", "color": "#6b5a45", "initials": "📖", "voice": { "pitch": 1.0, "rate": 1.0 } },
+  "jesus": { "name": "Jesus", "color": "#b5432f", "initials": "J", "voice": { "pitch": 0.85, "rate": 0.9 } },
+  "john-baptist": { "name": "John the Baptist", "color": "#8a5a2b", "initials": "JB", "voice": { "pitch": 0.75, "rate": 1.0 } },
+  "voice-from-heaven": { "name": "A voice from heaven", "color": "#e6c45c", "initials": "✦", "voice": { "pitch": 0.7, "rate": 0.85 } }
+}

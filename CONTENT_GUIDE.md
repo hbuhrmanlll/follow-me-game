@@ -214,6 +214,16 @@ Facts are your own short words, so keep them true to the passage.
   "question": "How many loaves and fish in all?", "answer": 7, "hint": "Count again.", "ref": "John 6:9" }
 ```
 
+**Action mini-game.** A quick tap game that can't be lost. `game` is one of `fish` (catch the fish,
+Luke 5), `baskets` (gather the leftovers into twelve baskets, John 6), `climb` (help Zacchaeus up the
+tree, Luke 19) or `palms` (spread cloaks and branches on the road, Matthew 21). The `hint` is shown
+with the reference when the game is won, so write it as a short summary of the verse:
+
+```json
+{ "type": "minigame", "game": "fish", "prompt": "Help Simon catch the fish! Tap the fish as they jump.",
+  "hint": "They caught so many fish that their nets began to tear.", "ref": "Luke 5:6" }
+```
+
 ## Difficulty levels
 
 Each player picks **Kids**, **Family** or **Adult** (change it with the level button under their name).

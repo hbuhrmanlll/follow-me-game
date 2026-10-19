@@ -1,46 +1,241 @@
 {
-  "_help": "Which free Kokoro voice each character uses (see VOICES.md). A voice is a name like am_michael, or a mix of two such as [\"am_onyx\", 0.6, \"bm_george\", 0.4]. Names starting a_ are American, b_ British; m is a man's voice, f a woman's. speed 1 is normal.",
-  "default": { "voice": "am_eric", "speed": 0.95 },
+  "_help": "Which free Kokoro voice each character uses (see VOICES.md). A voice is a name like am_michael, or a mix of two such as [\"am_onyx\", 0.6, \"bm_george\", 0.4]. Names starting a_ are American, b_ British; m is a man's voice, f a woman's. speed 1 is normal. Optional: \"pitch\" below 1 makes a voice deeper (0.8 is much deeper), and \"echo\": true adds a gentle echo.",
+  "default": {
+    "voice": "am_eric",
+    "speed": 0.95
+  },
   "characters": {
-    "narrator": { "voice": "af_heart", "speed": 0.95 },
-    "jesus": { "voice": ["am_michael", 0.75, "am_onyx", 0.25], "speed": 0.9 },
-    "voice-from-heaven": { "voice": ["am_onyx", 0.7, "bm_george", 0.3], "speed": 0.82 },
-    "tempter": { "voice": "bm_lewis", "speed": 0.9 },
-    "john-baptist": { "voice": "am_fenrir", "speed": 1.0 },
-    "peter": { "voice": "bm_george", "speed": 1.0 },
-    "andrew": { "voice": "am_liam", "speed": 1.0 },
-    "james": { "voice": "am_eric", "speed": 0.97 },
-    "john": { "voice": "am_puck", "speed": 1.0 },
-    "beloved-disciple": { "voice": "am_puck", "speed": 1.0 },
-    "philip": { "voice": "bm_daniel", "speed": 1.0 },
-    "nathanael": { "voice": ["bm_fable", 0.6, "am_eric", 0.4], "speed": 0.98 },
-    "thomas": { "voice": "am_echo", "speed": 0.97 },
-    "matthew": { "voice": "bm_fable", "speed": 1.0 },
-    "james-alphaeus": { "voice": ["am_liam", 0.5, "am_eric", 0.5], "speed": 1.0 },
-    "thaddaeus": { "voice": ["am_echo", 0.5, "bm_daniel", 0.5], "speed": 1.0 },
-    "simon-zealot": { "voice": ["am_fenrir", 0.6, "am_onyx", 0.4], "speed": 1.02 },
-    "judas-iscariot": { "voice": ["am_echo", 0.6, "bm_lewis", 0.4], "speed": 0.97 },
-    "disciples": { "voice": ["am_liam", 0.5, "bm_george", 0.5], "speed": 1.0 },
-    "mary": { "voice": "af_sarah", "speed": 0.95 },
-    "mary-magdalene": { "voice": "af_bella", "speed": 1.0 },
-    "mary-bethany": { "voice": "af_sky", "speed": 0.97 },
-    "martha": { "voice": "af_nicole", "speed": 1.02 },
-    "samaritan-woman": { "voice": "af_jessica", "speed": 1.0 },
-    "healed-woman": { "voice": "af_river", "speed": 0.95 },
-    "servant-girl": { "voice": "af_kore", "speed": 1.05 },
-    "nicodemus": { "voice": ["bm_george", 0.5, "am_onyx", 0.5], "speed": 0.9 },
-    "jairus": { "voice": "am_adam", "speed": 1.0 },
-    "zacchaeus": { "voice": "am_puck", "speed": 1.08 },
-    "banquet-master": { "voice": "bm_daniel", "speed": 1.0 },
-    "caiaphas": { "voice": ["bm_lewis", 0.6, "am_onyx", 0.4], "speed": 0.92 },
-    "pilate": { "voice": "bm_lewis", "speed": 0.95 },
-    "centurion": { "voice": "am_onyx", "speed": 0.95 },
-    "criminal": { "voice": "am_fenrir", "speed": 0.92 },
-    "cleopas": { "voice": "am_adam", "speed": 0.98 },
-    "townspeople": { "voice": ["am_eric", 0.5, "af_nicole", 0.5], "speed": 1.0 },
-    "pharisees": { "voice": "bm_daniel", "speed": 0.95 },
-    "messengers": { "voice": "am_liam", "speed": 1.0 },
-    "angel": { "voice": ["am_michael", 0.5, "af_heart", 0.5], "speed": 0.92 },
-    "angels": { "voice": ["am_michael", 0.5, "af_heart", 0.5], "speed": 0.92 }
-  }
+    "narrator": {
+      "voice": "af_heart",
+      "speed": 0.95
+    },
+    "jesus": {
+      "voice": [
+        "am_michael",
+        0.75,
+        "am_onyx",
+        0.25
+      ],
+      "speed": 0.9
+    },
+    "voice-from-heaven": {
+      "voice": [
+        "am_onyx",
+        0.8,
+        "bm_george",
+        0.2
+      ],
+      "speed": 0.88,
+      "pitch": 0.8,
+      "echo": true
+    },
+    "tempter": {
+      "voice": "bm_lewis",
+      "speed": 0.9
+    },
+    "john-baptist": {
+      "voice": "am_fenrir",
+      "speed": 1.0
+    },
+    "peter": {
+      "voice": "bm_george",
+      "speed": 1.0
+    },
+    "andrew": {
+      "voice": "am_liam",
+      "speed": 1.0
+    },
+    "james": {
+      "voice": "am_eric",
+      "speed": 0.97
+    },
+    "john": {
+      "voice": "am_puck",
+      "speed": 1.0
+    },
+    "beloved-disciple": {
+      "voice": "am_puck",
+      "speed": 1.0
+    },
+    "philip": {
+      "voice": "bm_daniel",
+      "speed": 1.0
+    },
+    "nathanael": {
+      "voice": [
+        "bm_fable",
+        0.6,
+        "am_eric",
+        0.4
+      ],
+      "speed": 0.98
+    },
+    "thomas": {
+      "voice": "am_echo",
+      "speed": 0.97
+    },
+    "matthew": {
+      "voice": "bm_fable",
+      "speed": 1.0
+    },
+    "james-alphaeus": {
+      "voice": [
+        "am_liam",
+        0.5,
+        "am_eric",
+        0.5
+      ],
+      "speed": 1.0
+    },
+    "thaddaeus": {
+      "voice": [
+        "am_echo",
+        0.5,
+        "bm_daniel",
+        0.5
+      ],
+      "speed": 1.0
+    },
+    "simon-zealot": {
+      "voice": [
+        "am_fenrir",
+        0.6,
+        "am_onyx",
+        0.4
+      ],
+      "speed": 1.02
+    },
+    "judas-iscariot": {
+      "voice": [
+        "am_echo",
+        0.6,
+        "bm_lewis",
+        0.4
+      ],
+      "speed": 0.97
+    },
+    "disciples": {
+      "voice": [
+        "am_liam",
+        0.5,
+        "bm_george",
+        0.5
+      ],
+      "speed": 1.0
+    },
+    "mary": {
+      "voice": "af_sarah",
+      "speed": 0.95
+    },
+    "mary-magdalene": {
+      "voice": "af_bella",
+      "speed": 1.0
+    },
+    "mary-bethany": {
+      "voice": "af_sky",
+      "speed": 0.97
+    },
+    "martha": {
+      "voice": "af_nicole",
+      "speed": 1.02
+    },
+    "samaritan-woman": {
+      "voice": "af_jessica",
+      "speed": 1.0
+    },
+    "healed-woman": {
+      "voice": "af_river",
+      "speed": 0.95
+    },
+    "servant-girl": {
+      "voice": "af_kore",
+      "speed": 1.05
+    },
+    "nicodemus": {
+      "voice": [
+        "bm_george",
+        0.5,
+        "am_onyx",
+        0.5
+      ],
+      "speed": 0.9
+    },
+    "jairus": {
+      "voice": "am_adam",
+      "speed": 1.0
+    },
+    "zacchaeus": {
+      "voice": "am_puck",
+      "speed": 1.08
+    },
+    "banquet-master": {
+      "voice": "bm_daniel",
+      "speed": 1.0
+    },
+    "caiaphas": {
+      "voice": [
+        "bm_lewis",
+        0.6,
+        "am_onyx",
+        0.4
+      ],
+      "speed": 0.92
+    },
+    "pilate": {
+      "voice": "bm_lewis",
+      "speed": 0.95
+    },
+    "centurion": {
+      "voice": "am_onyx",
+      "speed": 0.95
+    },
+    "criminal": {
+      "voice": "am_fenrir",
+      "speed": 0.92
+    },
+    "cleopas": {
+      "voice": "am_adam",
+      "speed": 0.98
+    },
+    "townspeople": {
+      "voice": [
+        "am_eric",
+        0.5,
+        "af_nicole",
+        0.5
+      ],
+      "speed": 1.0
+    },
+    "pharisees": {
+      "voice": "bm_daniel",
+      "speed": 0.95
+    },
+    "messengers": {
+      "voice": "am_liam",
+      "speed": 1.0
+    },
+    "angel": {
+      "voice": [
+        "am_michael",
+        0.5,
+        "af_heart",
+        0.5
+      ],
+      "speed": 0.92
+    },
+    "angels": {
+      "voice": [
+        "am_michael",
+        0.5,
+        "af_heart",
+        0.5
+      ],
+      "speed": 0.92
+    }
+  },
+  "phrases": {
+    "voice": "af_heart",
+    "speed": 1.0
+  },
+  "_phrases": "phrases: the voice for puzzle questions, answers and other messages (everything outside the story lines)."
 }

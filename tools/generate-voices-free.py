@@ -38,11 +38,17 @@ def file_hash(path):
 # The lines come from the same list the game and the ElevenLabs maker use.
 cmd = ['node', 'tools/generate-voices.mjs', '--list'] + ([f"--only={args['only']}"] if 'only' in args else [])
 clips = json.loads(subprocess.run(cmd, capture_output=True, text=True, check=True).stdout)
+# Puzzle questions, answers and other messages, one recording per sentence.
+phrases = json.loads(subprocess.run(['node', 'tools/phrases.mjs'], capture_output=True, text=True, check=True).stdout)
+if 'only' not in args and 'no-phrases' not in args:
+    clips += [{'file': f"phrases/{p['key']}.mp3", 'speaker': '_phrases', 'text': p['text']} for p in phrases]
 voices = json.load(open('tools/voices-free.json'))
 manifest = json.load(open(MANIFEST)) if os.path.exists(MANIFEST) else {}
 
 
 def settings(speaker):
+    if speaker == '_phrases':
+        return voices['phrases']
     return voices['characters'].get(speaker, voices['default'])
 
 
@@ -60,6 +66,15 @@ for clip in clips:
         continue
     todo.append(clip)
 
+wanted = {c['file'] for c in clips}
+if 'only' not in args:
+    for name in [n for n, e in manifest.items() if n.startswith('phrases/') and n not in wanted and e.get('engine') == 'kokoro']:
+        if os.path.exists(os.path.join(OUT, name)):
+            os.remove(os.path.join(OUT, name))
+        del manifest[name]
+    with open(MANIFEST, 'w') as f:
+        json.dump(manifest, f, indent=1, sort_keys=True)
+        f.write('\n')
 print(f"{len(clips)} lines: {current} up to date, {kept} recorded by hand (kept), {len(todo)} to make.")
 if 'dry-run' in args:
     for c in todo:
@@ -110,11 +125,19 @@ for clip in todo:
     with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as tmp:
         sf.write(tmp.name, samples, rate)
     # Small files for phones: mono MP3 at 32 kbit/s, which is clear for speech.
-    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', tmp.name, '-af', 'loudnorm=I=-18:TP=-1.5:LRA=11', '-ac', '1', '-ar', '24000', '-b:a', '32k', full], check=True)
+    filters = []
+    if s.get('pitch'):
+        # Deeper (or higher) without changing the speed
+        filters += [f"asetrate={int(rate * s['pitch'])}", f'aresample={rate}', f"atempo={1 / s['pitch']:.4f}"]
+    if s.get('echo'):
+        filters.append('aecho=0.8:0.7:90|180:0.3|0.18')
+    filters.append('loudnorm=I=-18:TP=-1.5:LRA=11')
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', tmp.name, '-af', ','.join(filters), '-ac', '1', '-ar', '24000', '-b:a', '32k', full], check=True)
     os.unlink(tmp.name)
     seconds = len(samples) / rate
-    with open(full.replace('.mp3', '.json'), 'w') as f:
-        json.dump({'words': word_timings(clip['text'], seconds)}, f, separators=(',', ':'))
+    if clip['speaker'] != '_phrases':  # short messages don't highlight words
+        with open(full.replace('.mp3', '.json'), 'w') as f:
+            json.dump({'words': word_timings(clip['text'], seconds)}, f, separators=(',', ':'))
     manifest[clip['file']] = {'hash': clip['hash'], 'fileHash': file_hash(full), 'engine': 'kokoro'}
     made += 1
     if made % 20 == 0 or made == len(todo):

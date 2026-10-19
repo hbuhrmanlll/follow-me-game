@@ -196,6 +196,10 @@ function checkPuzzle(where, pz) {
     }
     if ((pz.decoys ?? []).length < 2) errors.push(`${where}: puzzle needs at least 2 "decoys" (wrong words)`);
     if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);
+  } else if (pz.type === 'minigame') {
+    need('prompt'); need('hint');
+    checkRef(`${where} puzzle`, pz.ref);
+    if (!['fish', 'baskets', 'climb', 'palms'].includes(pz.game)) errors.push(`${where}: "game" must be fish, baskets, climb or palms`);
   } else if (pz.type === 'mapFind') {
     if (!pz.prompt) errors.push(`${where}: puzzle needs a "prompt"`);
     if (!pz.hint) errors.push(`${where}: puzzle needs a "hint"`);

@@ -17,6 +17,8 @@ import { checkAchievements, totalScrolls } from '../systems/achievements';
 import { setMood, sfx, type Mood } from '../systems/audio';
 import { artTexture, backdropArt, queueArt } from '../systems/art';
 import { Figure, bustTexture, hasLook } from '../art/people';
+import { addAmbientLife } from '../art/ambient';
+import { confetti, popText, starRow } from '../ui/celebrate';
 import { playCutscene, type CutsceneId } from '../cutscenes';
 import { loadSettings, loadSlots, newSlot, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
 
@@ -163,7 +165,19 @@ export class StoryScene extends Phaser.Scene {
         this.save();
         this.box?.setVisible(false);
         const pz = puzzles[p.step - scene.lines.length];
-        await runPuzzle(this, pz, { tid: this.tid, rate: this.rate, difficulty: this.slot.difficulty });
+        let missed = false;
+        await runPuzzle(this, pz, {
+          tid: this.tid, rate: this.rate, difficulty: this.slot.difficulty,
+          onMistake: () => {
+            missed = true;
+            p.mistakes++;
+            p.streak = 0;
+            this.everyone((f) => f.ponder());
+          },
+        });
+        if (run !== this.run) return;
+        if (!missed) p.streak++;
+        await this.puzzleCheer(!missed, scene);
         if (run !== this.run) return;
         if (pz.type === 'fillBlank' || pz.type === 'verseOrder') addVerse(this.slot, pz.ref, pz.quote);
         p.step++;
@@ -185,6 +199,7 @@ export class StoryScene extends Phaser.Scene {
     const backdrop = scene.backdrop ?? locations[scene.location]?.backdrop ?? 'jordan';
     this.layers = drawBackdrop(this, backdrop, scene.timeOfDay);
     setMood(this.moodFor(scene, backdrop));
+    addAmbientLife(this, backdrop, scene.timeOfDay, scene.weather !== 'storm' && scene.staging !== 'cross' && this.moodFor(scene, backdrop) !== 'sorrow');
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 
@@ -389,6 +404,33 @@ export class StoryScene extends Phaser.Scene {
     return scene.timeOfDay === 'midday' ? 'journey' : 'peace';
   }
 
+  private everyone(fn: (f: Figure) => void): void {
+    for (const fig of [...this.figures.values(), ...this.backRow.values()]) {
+      const f = this.living(fig);
+      if (f) fn(f);
+    }
+  }
+
+  // After a puzzle: everyone on stage cheers, with confetti and a star, and a
+  // streak counter for answers right the first time.
+  private async puzzleCheer(firstTry: boolean, scene: SceneData): Promise<void> {
+    const W = this.scale.width;
+    const backdrop = scene.backdrop ?? locations[scene.location]?.backdrop ?? 'jordan';
+    if (this.moodFor(scene, backdrop) === 'sorrow') {
+      // At the cross and the burial, no cheering: just a quiet star.
+      await popText(this, W / 2, 230, '⭐', 64);
+      return;
+    }
+    this.everyone((f) => f.cheer());
+    sfx(firstTry ? 'achievement' : 'correct');
+    confetti(this, W * 0.3, 380);
+    confetti(this, W * 0.7, 380);
+    const streak = this.slot.progress.streak;
+    const msg = firstTry && streak >= 2 ? `🔥 ${fill(ui.streak, { n: streak })}` : `⭐ ${ui.wellDone}`;
+    speak(msg, { rate: this.rate });
+    await popText(this, W / 2, 230, msg);
+  }
+
   // The living person behind a stage figure, if it is drawn by the game.
   private living(fig?: Phaser.GameObjects.Container): Figure | undefined {
     return fig?.getData('figure') as Figure | undefined;
@@ -458,6 +500,10 @@ export class StoryScene extends Phaser.Scene {
     for (const other of [...this.figures.values(), ...this.backRow.values()]) {
       if (other !== fig && line.speaker !== 'narrator') this.living(other)?.lookToward(fig ? fig.x : null);
     }
+    // People react to what happens: amazement at a miracle, joy at good news.
+    const said = lineText(line, this.tid).toLowerCase();
+    if (/amazed|astonished|marvel|wonder|terrified|afraid|frightened/.test(said) && !/(not|don’t|don't) be afraid|do not fear/.test(said)) this.time.delayedCall(800, () => this.everyone((f) => f !== person && f.amazed()));
+    else if (/rejoic|glad|joy|praised god|praising god/.test(said)) this.time.delayedCall(800, () => this.everyone((f) => f.cheer()));
     if (line.speaker === 'voice-from-heaven') this.shine(true);
     if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 1, duration: 600 });
 
@@ -604,6 +650,10 @@ export class StoryScene extends Phaser.Scene {
   private chapterEnd(): void {
     const p = this.slot.progress;
     if (!p.completed.includes(this.chapter.id)) p.completed.push(this.chapter.id);
+    // Stars for the chapter: three for no wrong answers, two for one or two.
+    const stars = p.mistakes === 0 ? 3 : p.mistakes <= 2 ? 2 : 1;
+    p.stars[this.chapter.id] = Math.max(stars, p.stars[this.chapter.id] ?? 0);
+    p.mistakes = 0;
     const nextId = chapterOrder[chapterOrder.indexOf(this.chapter.id) + 1];
     if (nextId) {
       p.chapter = nextId;
@@ -639,14 +689,17 @@ export class StoryScene extends Phaser.Scene {
         fontFamily: FONT, fontSize: `${size}px`, color, fontStyle: style, align: 'center', wordWrap: { width: panelW - 100 },
       }).setOrigin(0.5);
 
-    text(90, `✦ ${done} ✦`, 46, '#2b1d12', 'bold');
-    text(160, ui.memoryVerse, 28, '#7a4f17', 'bold');
-    text(240, `“${verse}”`, 38, '#2b1d12', 'italic');
-    text(315, `${mv.ref} · ${short}`, 26, '#7a4f17', 'bold');
-    text(380, ui.reflect, 26, '#7a4f17', 'bold');
-    text(440, this.chapter.reflect, 28);
+    text(80, `✦ ${done} ✦`, 44, '#2b1d12', 'bold');
+    // Stars drop in one by one, with confetti for a perfect chapter.
+    starRow(this, W / 2, 140, stars, (i) => { if (i < stars) sfx('chime'); });
+    if (stars === 3) this.time.delayedCall(1700, () => { confetti(this, W * 0.25, 160); confetti(this, W * 0.75, 160); sfx('achievement'); });
+    text(190, ui.memoryVerse, 26, '#7a4f17', 'bold');
+    text(258, `“${verse}”`, 36, '#2b1d12', 'italic');
+    text(328, `${mv.ref} · ${short}`, 25, '#7a4f17', 'bold');
+    text(388, ui.reflect, 25, '#7a4f17', 'bold');
+    text(444, this.chapter.reflect, 27);
 
-    const readAll = () => speak(`${done} ${ui.memoryVerse}. ${mv.ref}. ${verse} ${ui.reflect}. ${this.chapter.reflect}`, { rate: this.rate });
+    const readAll = () => speak(`${done} ${fill(ui.stars, { n: stars })} ${ui.memoryVerse}. ${mv.ref}. ${verse} ${ui.reflect}. ${this.chapter.reflect}`, { rate: this.rate });
     // A row of buttons along the bottom, centered.
     const talk = () => {
       stopSpeaking();

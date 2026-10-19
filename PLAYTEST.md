@@ -320,3 +320,32 @@ The title screen should say **Phase 7 · v0.7.3**. Use the GitHub link: https://
 
 **Questions for you**
 - Does any character's voice sound wrong for them? Tell me which, and I'll change it in a minute.
+
+## Version 0.8: more fun, more life, better voices
+
+The title screen should say **Phase 7 · v0.8.0**. Play at https://hbuhrmanlll.github.io/follow-me-game/ or in the test app.
+
+**Voices**
+- [ ] Puzzle questions, answer choices, hints, "That's right!" and other messages are read by a natural AI voice (not the robot voice)
+- [ ] The voice from heaven (Chapters 1 and 16) is deep, with a gentle echo
+- [ ] The tempter in Chapter 2 is now named **Satan**
+
+**Fun**
+- [ ] After each puzzle, everyone on stage jumps and cheers, with confetti and "⭐ Well done!"
+- [ ] Answer several puzzles right the first time in a row: "🔥 3 in a row!" (a wrong answer starts the count again)
+- [ ] When someone gets something wrong, the people on stage scratch their chins
+- [ ] At sad moments (the cross, the burial) there's only a quiet ⭐, with no cheering
+- [ ] At the end of each chapter, 1 to 3 stars drop in (3 = no wrong answers), with confetti for a perfect chapter
+- [ ] People react to the story: amazed at miracles, cheering when people rejoice
+
+**Life in the scenes**
+- [ ] Birds fly across the sky, butterflies flutter, sheep graze on Galilee's hills, the water sparkles, and fireflies and twinkling stars come out at night
+
+**Mini-games** (Leader Mode can jump straight to each)
+- [ ] Chapter 7, scene 1: tap the jumping fish to fill Simon's net until it starts to tear
+- [ ] Chapter 14, scene 1: gather the leftover bread and fish into twelve baskets
+- [ ] Chapter 19, scene 1: tap the glowing branches to help Zacchaeus climb the sycamore, and then Jesus walks up
+- [ ] Chapter 20, scene 1: spread cloaks and palm branches on the road as Jesus rides the donkey and the crowd cheers
+
+**Faces**
+- [ ] Bigger eyes with color and a sparkle, rosy cheeks, and lips

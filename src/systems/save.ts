@@ -10,6 +10,9 @@ export interface Progress {
   disciples: string[]; // disciples who have joined so far
   departed: string[]; // disciples who have left the group (Judas)
   scrolls: string[]; // scenes whose hidden scroll piece was found
+  mistakes: number; // wrong answers in the current chapter (for its stars)
+  streak: number; // puzzles answered right the first time, in a row
+  stars: Record<string, number>; // best stars (1-3) earned in each finished chapter
 }
 
 export type Difficulty = 'kids' | 'family' | 'adult';
@@ -80,6 +83,9 @@ export function loadSlots(): (Slot | null)[] {
     s.progress.disciples ??= [];
     s.progress.departed ??= [];
     s.progress.scrolls ??= [];
+    s.progress.mistakes ??= 0; // added in v0.7.5
+    s.progress.streak ??= 0;
+    s.progress.stars ??= {};
     s.achievements ??= [];
     s.difficulty ??= 'family'; // added in Phase 4
     s.journal ??= [];
@@ -100,7 +106,7 @@ export function newSlot(name: string, difficulty: Difficulty): Slot {
     journal: [],
     achievements: [],
     translation: 'bsb',
-    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [], departed: [], scrolls: [] },
+    progress: { chapter: 'ch01', scene: 0, step: 0, completed: [], visited: [], disciples: [], departed: [], scrolls: [], mistakes: 0, streak: 0, stars: {} },
     updated: Date.now(),
   };
 }

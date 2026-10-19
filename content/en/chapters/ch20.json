@@ -96,6 +96,13 @@
       ],
       "puzzles": [
         {
+          "type": "minigame",
+          "game": "palms",
+          "prompt": "Jesus is coming! Tap the glowing places to spread cloaks and branches on the road.",
+          "hint": "Many spread their cloaks and branches on the road.",
+          "ref": "Matthew 21:8"
+        },
+        {
           "type": "multipleChoice",
           "prompt": "What did Jesus ride into Jerusalem?",
           "choices": [

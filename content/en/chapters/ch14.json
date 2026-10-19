@@ -122,6 +122,13 @@
       ],
       "puzzles": [
         {
+          "type": "minigame",
+          "game": "baskets",
+          "prompt": "Gather the leftover pieces so that nothing is wasted. Tap the bread and fish to fill the baskets.",
+          "hint": "They filled twelve baskets with the pieces that were left over.",
+          "ref": "John 6:13"
+        },
+        {
           "type": "count",
           "prompt": "The boy had a small lunch.",
           "items": [

@@ -88,6 +88,13 @@
       ],
       "puzzles": [
         {
+          "type": "minigame",
+          "game": "climb",
+          "prompt": "Zacchaeus was too short to see over the crowd. Tap the glowing branch to help him climb!",
+          "hint": "He ran ahead and climbed a sycamore tree to see Jesus.",
+          "ref": "Luke 19:4"
+        },
+        {
           "type": "findHidden",
           "prompt": "Zacchaeus was too short to see over the crowd. Can you find him?",
           "hide": "zacchaeus",

@@ -205,6 +205,8 @@ function drawHead(g: Phaser.GameObjects.Graphics, l: Look): void {
   g.fillStyle(skin, 1).fillEllipse(0, cy, 34, 42);
   g.fillStyle(skin, 1).fillEllipse(-17, cy + 1, 7, 11).fillEllipse(17, cy + 1, 7, 11); // ears
   g.fillStyle(darker(skin, 14), 0.5).fillEllipse(-10, cy + 4, 12, 22); // shade on one cheek
+  g.fillStyle(0xd0605a, l.sex === 'f' ? 0.22 : 0.12).fillCircle(-9, cy + 7, 5).fillCircle(9, cy + 7, 5); // rosy cheeks
+  g.fillStyle(lighter(skin, 10), 0.35).fillEllipse(4, cy - 12, 14, 6); // light on the forehead
   // Nose
   g.fillStyle(darker(skin, 18), 1).fillTriangle(1, cy - 1, 4, cy + 8, -1, cy + 9);
   g.fillStyle(darker(skin, 30), 1).fillCircle(-1, cy + 9, 1.3).fillCircle(3, cy + 9, 1.3);
@@ -354,10 +356,12 @@ export class Person {
     g.y = cy;
     const dx = this.gaze * 2;
     for (const ex of [-7, 7]) {
-      g.fillStyle(0xf4efe6, 1).fillEllipse(ex, 0, 9, 5);
-      g.fillStyle(0x2a1a10, 1).fillCircle(ex + dx, 0.3, 2.2);
-      g.fillStyle(0xffffff, 0.9).fillCircle(ex + dx + 0.8, -0.6, 0.7);
-      g.lineStyle(1.2, darker(this.look.skin, 35), 1).lineBetween(ex - 5, -2.2, ex + 5, -2.2); // eyelid
+      g.fillStyle(0xf6f1e8, 1).fillEllipse(ex, 0, 10.5, 6.2);
+      g.fillStyle(0x5a3a22, 1).fillCircle(ex + dx, 0.4, 2.9); // brown iris
+      g.fillStyle(0x1a0f08, 1).fillCircle(ex + dx, 0.4, 1.5);
+      g.fillStyle(0xffffff, 0.95).fillCircle(ex + dx + 1, -0.7, 0.9); // sparkle
+      g.lineStyle(1.6, 0x2a1a10, 1).lineBetween(ex - 5.4, -2.4, ex + 5.4, -2.4); // eyelid
+      if (this.look.sex === 'f') g.lineBetween(ex + 5 * Math.sign(ex), -2.4, ex + 6.8 * Math.sign(ex), -3.8); // lashes
     }
   }
 
@@ -365,7 +369,8 @@ export class Person {
     const g = this.mouth.clear();
     const y = -24 + 14 + (this.look.beard === 'none' || this.look.beard === 'stubble' ? 0 : 1);
     if (open < 0.15) {
-      g.lineStyle(1.8, darker(this.look.skin, 45), 1).lineBetween(-4, y, 4, y);
+      g.fillStyle(darker(this.look.skin, 22), 1).fillEllipse(0, y + 1, 9, 3); // lips
+      g.lineStyle(1.6, darker(this.look.skin, 50), 1).lineBetween(-4.5, y, 4.5, y);
     } else {
       g.fillStyle(0x4a1e18, 1).fillEllipse(0, y + open * 1.5, 8, 2 + open * 5);
       g.fillStyle(0xf4efe6, 0.8).fillRect(-3, y + open * 1.5 - (1 + open * 2.5), 6, 1.2);
@@ -419,6 +424,38 @@ export class Person {
     this.gestureTween?.stop();
     const lift = -0.5 - Math.random() * 0.7;
     this.gestureTween = this.scene.tweens.add({ targets: this.front, rotation: lift, duration: 450, yoyo: true, hold: 700 + Math.random() * 600, ease: 'Sine.easeInOut' });
+  }
+
+  // Joy: a little jump with both hands raised and a big smile.
+  cheer(delay = 0): void {
+    const s = this.scene;
+    s.time.delayedCall(delay, () => {
+      if (!this.root.scene || this.walking) return;
+      this.gestureTween?.stop();
+      this.drawMouth(1);
+      s.tweens.add({ targets: this.front, rotation: -2.5, duration: 220, yoyo: true, hold: 700, ease: 'Back.easeOut' });
+      s.tweens.add({ targets: this.back, rotation: 2.5, duration: 220, yoyo: true, hold: 700, ease: 'Back.easeOut' });
+      s.tweens.add({ targets: this.body, y: -26, duration: 200, yoyo: true, repeat: 1, ease: 'Quad.easeOut', onComplete: () => { this.body.y = 0; this.drawMouth(0); } });
+    });
+  }
+
+  // Thinking it over: head tilted, hand on chin.
+  ponder(): void {
+    if (this.walking) return;
+    const s = this.scene;
+    this.gestureTween?.stop();
+    s.tweens.add({ targets: this.head, angle: 9, duration: 300, yoyo: true, hold: 1100 });
+    s.tweens.add({ targets: this.front, rotation: -2.3, duration: 350, yoyo: true, hold: 1000 });
+  }
+
+  // Surprise: a quick hop back, eyebrows up, mouth open.
+  amazed(): void {
+    if (this.walking) return;
+    const s = this.scene;
+    this.drawMouth(1);
+    s.tweens.add({ targets: this.body, y: -10, scaleY: 1.04, duration: 160, yoyo: true, onComplete: () => this.drawMouth(0) });
+    s.tweens.add({ targets: [this.front], rotation: -1.4, duration: 200, yoyo: true, hold: 600 });
+    s.tweens.add({ targets: [this.back], rotation: 1.4, duration: 200, yoyo: true, hold: 600 });
   }
 
   private stepTimer?: Phaser.Time.TimerEvent;
@@ -522,6 +559,18 @@ export class Figure {
 
   shine(): void {
     for (const p of this.people) p.shine();
+  }
+
+  cheer(): void {
+    this.people.forEach((p, i) => p.cheer(i * 120 + Math.random() * 150));
+  }
+
+  ponder(): void {
+    for (const p of this.people) p.ponder();
+  }
+
+  amazed(): void {
+    for (const p of this.people) p.amazed();
   }
 }
 

@@ -8,6 +8,7 @@ import { runEventOrder, runVerseOrder } from './Order';
 import { runDiscipleMatch, runWhoSaid } from './Match';
 import { runFindHidden } from './FindHidden';
 import { runCount } from './Count';
+import { runMiniGame } from './MiniGame';
 
 export type { PuzzleContext } from './panel';
 
@@ -22,5 +23,6 @@ export function runPuzzle(scene: Phaser.Scene, puzzle: Puzzle, ctx: PuzzleContex
     case 'discipleMatch': return runDiscipleMatch(scene, puzzle, ctx);
     case 'findHidden': return runFindHidden(scene, puzzle, ctx);
     case 'count': return runCount(scene, puzzle, ctx);
+    case 'minigame': return runMiniGame(scene, puzzle, ctx);
   }
 }

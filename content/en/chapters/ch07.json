@@ -54,27 +54,36 @@
           "ref": "Luke 5:6-7"
         }
       ],
-      "puzzle": {
-        "type": "multipleChoice",
-        "prompt": "Simon had caught nothing all night. What happened when he did what Jesus said?",
-        "choices": [
-          {
-            "text": "So many fish that the nets began to tear",
-            "correct": true,
-            "icon": "🐟🐟🐟"
-          },
-          {
-            "text": "Still not a single fish",
-            "icon": "🚫"
-          },
-          {
-            "text": "One very big fish",
-            "icon": "🐋"
-          }
-        ],
-        "hint": "Listen to what happened to the nets and the boats.",
-        "ref": "Luke 5:6"
-      }
+      "puzzles": [
+        {
+          "type": "minigame",
+          "game": "fish",
+          "prompt": "Help Simon catch the fish! Tap the fish as they jump.",
+          "hint": "They caught so many fish that their nets began to tear.",
+          "ref": "Luke 5:6"
+        },
+        {
+          "type": "multipleChoice",
+          "prompt": "Simon had caught nothing all night. What happened when he did what Jesus said?",
+          "choices": [
+            {
+              "text": "So many fish that the nets began to tear",
+              "correct": true,
+              "icon": "🐟🐟🐟"
+            },
+            {
+              "text": "Still not a single fish",
+              "icon": "🚫"
+            },
+            {
+              "text": "One very big fish",
+              "icon": "🐋"
+            }
+          ],
+          "hint": "Listen to what happened to the nets and the boats.",
+          "ref": "Luke 5:6"
+        }
+      ]
     },
     {
       "id": "ch07-s2",

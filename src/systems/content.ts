@@ -53,9 +53,11 @@ export interface FindHiddenPuzzle extends PuzzleBase { type: 'findHidden'; hide:
 export interface CountPuzzle extends PuzzleBase {
   type: 'count'; items: { icon: string; n: number }[]; question: string; answer: number;
 }
+// An action game; its "hint" is shown with the reference when it's finished.
+export interface MiniGamePuzzle extends PuzzleBase { type: 'minigame'; game: 'fish' | 'baskets' | 'climb' | 'palms' }
 export type Puzzle =
   | MultipleChoicePuzzle | FillBlankPuzzle | MapFindPuzzle | VerseOrderPuzzle | EventOrderPuzzle
-  | WhoSaidPuzzle | DiscipleMatchPuzzle | FindHiddenPuzzle | CountPuzzle;
+  | WhoSaidPuzzle | DiscipleMatchPuzzle | FindHiddenPuzzle | CountPuzzle | MiniGamePuzzle;
 
 export function scenePuzzles(scene: SceneData): Puzzle[] {
   return scene.puzzles ?? (scene.puzzle ? [scene.puzzle] : []);

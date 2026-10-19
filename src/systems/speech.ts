@@ -4,6 +4,7 @@
 import { Capacitor } from '@capacitor/core';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 import { loadSettings } from './save';
+import { phraseParts } from './phrases';
 
 const native = Capacitor.isNativePlatform();
 let nativeToken = 0; // which request is current, so a stopped one is ignored
@@ -24,8 +25,12 @@ export function canSpeak(): boolean {
 
 let current: SpeechSynthesisUtterance | null = null;
 let endTimer: number | undefined;
+let sequence = 0; // which spoken message is current, so a stopped one goes quiet
+let player: HTMLAudioElement | undefined;
 
 export function stopSpeaking(): void {
+  sequence++;
+  if (player) { player.onended = null; player.onerror = null; player.pause(); player = undefined; }
   current = null;
   window.clearTimeout(endTimer);
   if (native) {
@@ -47,8 +52,34 @@ function pickVoice(): SpeechSynthesisVoice | undefined {
   return voices.find((v) => v.lang === 'en-US' && v.localService) ?? voices.find((v) => v.lang === 'en-US') ?? voices[0];
 }
 
+// Says something: with the recorded voice for each sentence that has a
+// recording, and the built-in voice for any sentence that doesn't.
 export function speak(text: string, opts: SpeakOptions = {}): void {
   stopSpeaking();
+  const parts = phraseParts(text);
+  if (!parts.some((p) => p.url)) { speakVoice(text, opts); return; }
+  const mine = sequence;
+  let i = 0;
+  const next = () => {
+    if (mine !== sequence) return;
+    const part = parts[i++];
+    if (!part) { opts.onEnd?.(); return; }
+    if (!part.url) { speakVoice(part.text, { ...opts, onWord: undefined, onEnd: next }); return; }
+    const a = new Audio(part.url);
+    a.playbackRate = opts.rate ?? 1;
+    a.volume = loadSettings().voiceVolume;
+    a.onended = next;
+    a.onerror = () => speakVoice(part.text, { ...opts, onWord: undefined, onEnd: next });
+    player = a;
+    a.play().catch(() => { if (player === a) speakVoice(part.text, { ...opts, onWord: undefined, onEnd: next }); });
+  };
+  next();
+}
+
+// The built-in voice (the browser's, or the phone's in the Android app).
+function speakVoice(text: string, opts: SpeakOptions = {}): void {
+  current = null;
+  window.clearTimeout(endTimer);
   const rate = opts.rate ?? 1;
   let finished = false;
   const finish = () => {

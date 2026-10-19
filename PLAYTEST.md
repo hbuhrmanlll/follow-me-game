@@ -323,7 +323,7 @@ The title screen should say **Phase 7 · v0.7.3**. Use the GitHub link: https://
 
 ## Version 0.8: more fun, more life, better voices
 
-The title screen should say **Phase 7 · v0.8.0**. Play at https://hbuhrmanlll.github.io/follow-me-game/ or in the test app.
+The title screen should say **Phase 7 · v0.8.1** (or later). Play at https://hbuhrmanlll.github.io/follow-me-game/ or in the test app.
 
 **Voices**
 - [ ] Puzzle questions, answer choices, hints, "That's right!" and other messages are read by a natural AI voice (not the robot voice)

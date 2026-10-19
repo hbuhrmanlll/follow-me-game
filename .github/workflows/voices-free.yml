@@ -5,6 +5,12 @@
 name: Generate voices (free)
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/en/**'
+      - 'tools/voices-free.json'
+      - 'tools/phrases.mjs'
   workflow_dispatch:
 
 permissions:

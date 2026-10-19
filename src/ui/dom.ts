@@ -41,7 +41,7 @@ export function askName(): Promise<string | null> {
       resolve(name);
     };
     row.append(button(ui.cancel, () => { close(); resolve(null); }, true), button(ui.done, done));
-    input.onkeydown = (e) => e.key === 'Enter' && done();
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') done(); });
     panel.append(title, input, row);
     input.focus();
   });

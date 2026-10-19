@@ -381,3 +381,9 @@ The title screen should say **Phase 8 · v0.9.0**.
 - [ ] Nobody stands on a roof, a wall or a table: every scene has a proper floor in front of the scenery (stone paving in towns and courtyards, wooden boards in the upper room, sand at the Jordan with the river behind, grass on the hills, rocky ground at Golgotha)
 - [ ] Quest items are drawn pictures (eggs, jars, bread, fish, lambs, grapes, lamps, olives, lilies), not emoji
 - [ ] The quest villager has a round badge: yellow "!" for a new quest, blue "?" while you search, and a green ✓ when you've finished
+
+### Version 0.9.2: depth (2.5D) in walk-around mode
+- [ ] Less ground: the scenery sits lower, so the town or hills fill more of the screen
+- [ ] Tap low on the screen and your character walks toward you and gets bigger; tap higher and they walk away and get smaller
+- [ ] Villagers and the things to find stand at different distances; you can walk in front of and behind people
+- [ ] While you walk, the distant scenery slides by more slowly than the ground (parallax)

@@ -22,7 +22,7 @@ export interface Hud {
 }
 
 export function makeHud(scene: Phaser.Scene, x: number, y: number, slot: Slot, onChange: () => void): Hud {
-  const c = scene.add.container(x, y).setDepth(80).setScrollFactor(0);
+  const c = scene.add.container(x, y).setDepth(3000).setScrollFactor(0);
   const w = 250;
   const h = 60;
   const bg = scene.add.graphics();
@@ -65,7 +65,7 @@ export function makeHud(scene: Phaser.Scene, x: number, y: number, slot: Slot, o
       const sx = (fromX ?? x) - cam.scrollX;
       const sy = (fromY ?? y + 80) - cam.scrollY;
       for (let i = 0; i < Math.min(n, 6); i++) {
-        const g = scene.add.graphics().setDepth(85).setScrollFactor(0);
+        const g = scene.add.graphics().setDepth(3001).setScrollFactor(0);
         drawCoin(g, 0, 0, 13);
         g.setPosition(sx + (Math.random() - 0.5) * 30, sy);
         scene.tweens.add({

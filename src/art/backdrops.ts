@@ -15,6 +15,11 @@ const PALETTES: Record<TimeOfDay, Palette> = {
   night: { skyTop: 0x0b1028, skyBottom: 0x2a3560, sun: 0xeef2ff, sunY: 0.16, far: 0x2a2f4a, mid: 0x1f2b2a, near: 0x16201a, water: 0x1c3048 },
 };
 
+// The color at the very top of the sky, for filling space above a lowered backdrop.
+export function skyTopColor(time: TimeOfDay): number {
+  return PALETTES[time].skyTop;
+}
+
 export interface Layer { obj: Phaser.GameObjects.Graphics | Phaser.GameObjects.RenderTexture; speed: number }
 
 // Colors for each place, blended with the time of day.

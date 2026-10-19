@@ -1,0 +1,48 @@
+{
+  "_about": "How each person looks on the stage. Colors are hex. hairStyle: short, curly, wavy, long, wild, bald. beard: none, stubble, short, full, long. head: scarf (women), cloth, turban, helmet, headband. build: slim, normal, broad. age: young, adult, old. group: how many people stand together for a crowd. Anything left out uses a sensible default; mantle defaults to the character's color in characters.json.",
+
+  "jesus": { "skin": "#ad7a52", "hair": "#2b1c12", "hairStyle": "long", "beard": "full", "tunic": "#e9dfca", "mantle": "#a8432f", "tassels": true },
+  "john-baptist": { "skin": "#946440", "hair": "#241810", "hairStyle": "wild", "beard": "long", "tunic": "#8a6a42", "mantle": null, "extra": "camelhair", "build": "slim" },
+
+  "peter": { "skin": "#9c6a45", "hair": "#1e1610", "hairStyle": "curly", "beard": "full", "tunic": "#c9b48f", "build": "broad", "tassels": true },
+  "andrew": { "skin": "#a8774e", "hair": "#3a2618", "hairStyle": "wavy", "beard": "short", "tunic": "#d6c6a2", "build": "slim", "tassels": true },
+  "james": { "skin": "#9a6844", "hair": "#1c1410", "hairStyle": "short", "beard": "full", "tunic": "#c4b08c", "build": "broad", "tassels": true },
+  "john": { "skin": "#b4845a", "hair": "#3e2818", "hairStyle": "wavy", "beard": "stubble", "tunic": "#e0d2b2", "age": "young", "build": "slim", "tassels": true },
+  "philip": { "skin": "#a67650", "hair": "#2e2014", "hairStyle": "short", "beard": "short", "tunic": "#d2c29e", "tassels": true },
+  "nathanael": { "skin": "#9e6c46", "hair": "#4a3020", "hairStyle": "curly", "beard": "full", "tunic": "#cdb994", "tassels": true },
+  "thomas": { "skin": "#a37350", "hair": "#241a12", "hairStyle": "curly", "beard": "short", "tunic": "#c8b896", "tassels": true },
+  "matthew": { "skin": "#b08058", "hair": "#2a1c12", "hairStyle": "short", "beard": "short", "tunic": "#e4d8bc", "tassels": true },
+  "james-alphaeus": { "skin": "#a26f4a", "hair": "#30221a", "hairStyle": "short", "beard": "short", "tunic": "#ccbc98", "build": "slim", "tassels": true },
+  "thaddaeus": { "skin": "#996642", "hair": "#2a1e14", "hairStyle": "wavy", "beard": "full", "tunic": "#d0be9a", "tassels": true },
+  "simon-zealot": { "skin": "#946442", "hair": "#1e1610", "hairStyle": "wild", "beard": "full", "tunic": "#c2ac86", "head": "headband", "headColor": "#a04a3a", "tassels": true },
+  "judas-iscariot": { "skin": "#a8784f", "hair": "#1c1410", "hairStyle": "short", "beard": "short", "tunic": "#bfae8e", "extra": "moneybag", "tassels": true },
+  "beloved-disciple": { "skin": "#b4845a", "hair": "#3e2818", "hairStyle": "wavy", "beard": "stubble", "tunic": "#e0d2b2", "mantle": "#c07a2a", "age": "young", "build": "slim", "tassels": true },
+
+  "mary": { "sex": "f", "skin": "#ad7c54", "hair": "#2e2016", "tunic": "#d8cbb0", "mantle": "#3a6aa8", "age": "adult" },
+  "mary-magdalene": { "sex": "f", "skin": "#a8774f", "hair": "#2a1a10", "tunic": "#ddd0b4", "mantle": "#7a4a8a" },
+  "mary-bethany": { "sex": "f", "skin": "#b08058", "hair": "#2e1e14", "tunic": "#e0d4b8", "mantle": "#5a7aa8", "age": "young" },
+  "martha": { "sex": "f", "skin": "#a07048", "hair": "#2a1c12", "tunic": "#d4c4a2", "mantle": "#b0603a" },
+  "samaritan-woman": { "sex": "f", "skin": "#a6744c", "hair": "#2a1c12", "tunic": "#d6c8a8", "mantle": "#a85a7a", "extra": "jar" },
+  "healed-woman": { "sex": "f", "skin": "#a07048", "hair": "#30221a", "tunic": "#c8b896", "mantle": "#9a6a8a" },
+  "servant-girl": { "sex": "f", "skin": "#a6744c", "hair": "#2a1c12", "tunic": "#cdbd9b", "mantle": "#8a7a5a", "age": "young" },
+
+  "nicodemus": { "skin": "#b08058", "hair": "#8e887e", "hairStyle": "short", "beard": "long", "beardColor": "#a8a298", "tunic": "#e2d8c2", "mantle": "#4a4a7a", "head": "cloth", "headColor": "#e8e0cc", "age": "old", "tassels": true },
+  "jairus": { "skin": "#a67650", "hair": "#2e2016", "hairStyle": "short", "beard": "full", "tunic": "#ddd0b2", "mantle": "#4a5a8a", "head": "cloth", "headColor": "#d8ccb0", "tassels": true },
+  "zacchaeus": { "skin": "#a8784f", "hair": "#241a12", "hairStyle": "short", "beard": "short", "tunic": "#e6d8b8", "mantle": "#8a5a2a", "height": 0.8, "build": "broad" },
+  "banquet-master": { "skin": "#ad7c54", "hair": "#7a7268", "hairStyle": "short", "beard": "short", "beardColor": "#8e887e", "tunic": "#e8dcc2", "mantle": "#8a3a5a", "age": "old" },
+  "caiaphas": { "skin": "#b08058", "hair": "#3a3028", "hairStyle": "short", "beard": "long", "beardColor": "#4a4038", "tunic": "#2e3e7a", "mantle": "#5a4a6a", "head": "turban", "headColor": "#f0ead8", "extra": "priest" },
+  "pilate": { "skin": "#d4a682", "hair": "#4a3424", "hairStyle": "short", "beard": "none", "tunic": "#f0ece2", "mantle": "#7a2a3a", "extra": "toga" },
+  "centurion": { "skin": "#c89a74", "hair": "#2e2016", "hairStyle": "short", "beard": "none", "tunic": "#9a3a2a", "mantle": "#8a2a1e", "head": "helmet", "extra": "armor", "build": "broad" },
+  "criminal": { "skin": "#9a6844", "hair": "#241a12", "hairStyle": "wild", "beard": "full", "tunic": "#8a7a62", "mantle": null },
+  "cleopas": { "skin": "#a67650", "hair": "#4a3a2c", "hairStyle": "short", "beard": "full", "beardColor": "#5a4a3c", "tunic": "#cdbd9b", "mantle": "#5a7a5a", "head": "cloth", "headColor": "#bfae8e", "tassels": true },
+
+  "moses": { "skin": "#b08058", "hair": "#e8e4dc", "hairStyle": "long", "beard": "long", "tunic": "#f6f2e8", "mantle": "#ece4d0", "head": "cloth", "headColor": "#f4efe4", "age": "old", "extra": "shine" },
+  "elijah": { "skin": "#a67650", "hair": "#d8d2c8", "hairStyle": "wild", "beard": "long", "tunic": "#f6f2e8", "mantle": "#e8e0c8", "age": "old", "extra": "shine" },
+  "angel": { "skin": "#c08e66", "hair": "#e8dcc0", "hairStyle": "wavy", "beard": "none", "tunic": "#fbf8f0", "mantle": "#f2ead8", "age": "young", "extra": "shine" },
+  "angels": { "skin": "#c08e66", "hair": "#e8dcc0", "hairStyle": "wavy", "beard": "none", "tunic": "#fbf8f0", "mantle": "#f2ead8", "age": "young", "extra": "shine", "group": 2 },
+
+  "disciples": { "group": 3, "tassels": true },
+  "townspeople": { "group": 3, "mixed": true },
+  "pharisees": { "group": 2, "head": "cloth", "headColor": "#e2d8c2", "beard": "long", "tunic": "#e2d8c2", "tassels": true, "age": "old" },
+  "messengers": { "group": 2, "head": "cloth", "headColor": "#c8b896" }
+}

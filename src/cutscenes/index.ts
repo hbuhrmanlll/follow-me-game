@@ -2,12 +2,15 @@ import Phaser from 'phaser';
 import cutscenesJson from '../../content/en/cutscenes.json';
 import { FONT, makeButton } from '../ui/common';
 import { characters, ui } from '../systems/content';
+import { Person } from '../art/people';
 import { currentMood, setMood, sfx, type Mood } from '../systems/audio';
 
 // Short wordless moments for the biggest events: the picture tells it, and the
 // story's own lines (with their Scripture) follow straight after.
 export type CutsceneId = keyof typeof cutscenesJson;
 export const cutscenes: Record<string, { title: string; ref: string }> = cutscenesJson;
+
+const ELEVEN = ['peter', 'andrew', 'james', 'john', 'philip', 'nathanael', 'matthew', 'thomas', 'james-alphaeus', 'thaddaeus', 'simon-zealot'];
 
 // Jesus wears the same color as on the stage.
 const JESUS = Phaser.Display.Color.HexStringToColor(characters.jesus.color).color;
@@ -100,13 +103,12 @@ function sky(k: Kit, top: number, bottom: number): Phaser.GameObjects.Graphics {
 }
 
 // A simple robed figure standing with its feet at (0, 0).
-function person(k: Kit, x: number, y: number, color: number, scale = 1): Phaser.GameObjects.Container {
-  const g = k.scene.add.graphics();
-  g.fillStyle(color, 1).fillTriangle(-30, 0, 30, 0, 0, -95).fillRoundedRect(-22, -88, 44, 44, 15);
-  g.fillStyle(0xc99a6e, 1).fillCircle(0, -102, 17);
-  const c = k.scene.add.container(x, y, [g]).setScale(scale);
-  k.layer.add(c);
-  return c;
+// A person, drawn the same way as on the stage (see src/art/people.ts).
+function person(k: Kit, x: number, y: number, who: string, scale = 1): Phaser.GameObjects.Container {
+  const p = new Person(k.scene, who, x, y);
+  p.root.setScale(p.root.scaleX * scale * 0.56);
+  k.layer.add(p.root);
+  return p.root.setData('person', p);
 }
 
 function cloud(g: Phaser.GameObjects.Graphics, x: number, y: number, s: number, color = 0xffffff, alpha = 1): void {
@@ -171,8 +173,8 @@ function baptism(k: Kit): void {
   const right = k.g();
   cloud(right, cx + 90, 90, 1.3);
 
-  const john = person(k, cx - 150, 560, 0x8a6a42, 1.4);
-  const jesus = person(k, cx + 40, 560, JESUS, 1.4);
+  const john = person(k, cx - 150, 560, 'john-baptist', 1.4);
+  const jesus = person(k, cx + 40, 560, 'jesus', 1.4);
   // The river is drawn over the people so they stand in it up to the waist.
   const water = k.g();
   water.fillStyle(0x3f8fb8, 1).fillRect(0, 500, W, H - 500);
@@ -309,13 +311,14 @@ function transfiguration(k: Kit): void {
   const light = glow(k, cx, 340, 340).setAlpha(0);
   const beams = rays(k, cx, 340, 700, 16).setAlpha(0);
   [cx - 330, cx - 260, cx + 280].forEach((x, i) => {
-    const p = person(k, x, 600, [0x6a5a8a, 0x8a5a3a, 0x5a7a4a][i], 0.8);
+    const p = person(k, x, 600, ['peter', 'james', 'john'][i], 0.8);
     p.angle = i === 2 ? 12 : -10;
   });
-  const jesus = person(k, cx, 455, JESUS, 1.2);
-  const white = person(k, cx, 455, 0xffffff, 1.2).setAlpha(0);
-  const moses = person(k, cx - 190, 470, 0xe8e2d0, 1.05).setAlpha(0);
-  const elijah = person(k, cx + 190, 470, 0xe8e2d0, 1.05).setAlpha(0);
+  const jesus = person(k, cx, 455, 'jesus', 1.2);
+  const white = person(k, cx, 455, 'jesus', 1.2).setAlpha(0);
+  (white.getData('person') as Person).shine();
+  const moses = person(k, cx - 190, 470, 'moses', 1.05).setAlpha(0);
+  const elijah = person(k, cx + 190, 470, 'elijah', 1.05).setAlpha(0);
   k.at(1200, () => {
     sfx('chime');
     k.tween({ targets: [light, white], alpha: 1, duration: 2200 });
@@ -363,7 +366,7 @@ function emptyTomb(k: Kit): void {
     sfx('rumble');
     k.tween({ targets: shake, x: { from: -10, to: 10 }, yoyo: true, repeat: 12, duration: 70, onComplete: () => { shake.x = 0; } });
   });
-  const angel = person(k, cx + 230, 120, 0xffffff, 1.2).setAlpha(0);
+  const angel = person(k, cx + 230, 120, 'angel', 1.2).setAlpha(0);
   const aura = glow(k, 0, 0, 150).setAlpha(0);
   k.at(2800, () => {
     sfx('chime');
@@ -391,12 +394,12 @@ function ascension(k: Kit): void {
   const cx = W / 2;
   const beams = rays(k, cx, -40, 900, 14).setAlpha(0.5);
   k.tween({ targets: beams, angle: 15, duration: 11000 });
-  const jesus = person(k, cx, 560, JESUS, 1.1);
+  const jesus = person(k, cx, 560, 'jesus', 1.1);
   const aura = glow(k, cx, 500, 110);
   // Eleven disciples watching, looking up.
   for (let i = 0; i < 11; i++) {
     const x = cx + (i < 6 ? -1 : 1) * (160 + (i % 6) * 70);
-    const p = person(k, x, 640 + (i % 2) * 18, [0x5a6a8a, 0x8a5a3a, 0x6a7a4a, 0x7a4a5a][i % 4], 0.75);
+    const p = person(k, x, 640 + (i % 2) * 18, ELEVEN[i], 0.75);
     p.angle = x < cx ? 6 : -6;
   }
   const veil = k.g().setAlpha(0);
@@ -407,7 +410,7 @@ function ascension(k: Kit): void {
   });
   k.at(4200, () => k.tween({ targets: veil, alpha: 1, duration: 1800 }));
   k.at(5600, () => k.tween({ targets: [jesus, aura], alpha: 0, duration: 1000 }));
-  const men = [cx - 110, cx + 110].map((x) => person(k, x, 600, 0xffffff, 0.95).setAlpha(0));
+  const men = [cx - 110, cx + 110].map((x) => person(k, x, 600, 'angel', 0.95).setAlpha(0));
   k.at(8000, () => {
     sfx('chime');
     k.tween({ targets: men, alpha: 1, duration: 1400 });

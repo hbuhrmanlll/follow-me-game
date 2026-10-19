@@ -285,3 +285,25 @@ screen should say **Phase 7 · v0.7.0**.
 **Questions for you**
 - Is the phone's voice OK for now (until the recorded voices come)?
 - What contact email should the privacy policy and Play Store listing show?
+
+## Phase 7, part A2: real-looking people and richer scenes
+
+The title screen should say **Phase 7 · v0.7.1**. Check it on the website or in the test app (ANDROID.md).
+
+**People**
+- [ ] Everyone has a face, hair, a beard where it fits, and the right clothes: robes with a mantle and tassels for the disciples, head coverings for the women, John's camel-hair garment, Caiaphas's turban and breastpiece, Pilate's toga, and the centurion's helmet and armor
+- [ ] People breathe and blink, and look toward whoever is speaking
+- [ ] The speaker's mouth moves, and they nod and lift a hand now and then
+- [ ] The round picture in the dialogue box shows the speaker's face
+- [ ] Groups ("The disciples", "The people", "The Pharisees", "Two men dressed in white") stand as a small group
+- [ ] New disciples **walk in** from the side when they start following Jesus (Chapters 3, 7, 8 and 9)
+- [ ] At the Last Supper (Chapter 21), Judas **walks away** and fades into the night
+- [ ] At the Transfiguration (Chapter 16), Jesus' clothes shine white; Moses and Elijah glow softly
+- [ ] The cutscenes use the same people
+
+**Scenes**
+- [ ] Soft clouds drift across the sky, and the sun or moon glows
+- [ ] Hills have olive trees, cypresses, grass and wildflowers, with distant hills fading into the haze
+- [ ] Villages have stone houses with roof beams, doorways, outside stairs and clay jars, and there's a date palm
+- [ ] Jerusalem has walls with towers and a gleaming white-and-gold Temple
+- [ ] The game feels at least as smooth as before on your phone

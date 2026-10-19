@@ -15,7 +15,7 @@ const PALETTES: Record<TimeOfDay, Palette> = {
   night: { skyTop: 0x0b1028, skyBottom: 0x2a3560, sun: 0xeef2ff, sunY: 0.16, far: 0x2a2f4a, mid: 0x1f2b2a, near: 0x16201a, water: 0x1c3048 },
 };
 
-export interface Layer { obj: Phaser.GameObjects.Graphics; speed: number }
+export interface Layer { obj: Phaser.GameObjects.Graphics | Phaser.GameObjects.RenderTexture; speed: number }
 
 // Colors for each place, blended with the time of day.
 const LAND: Record<string, { far: number; mid: number; near: number }> = {
@@ -45,7 +45,7 @@ export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOf
     return [];
   }
   const first = scene.children.list.length;
-  const layers = drawShapes(scene, backdrop, time);
+  const layers = flatten(scene, first, drawShapes(scene, backdrop, time));
   if (art) {
     const drawn = scene.children.list.slice(first);
     void loadArt(scene, [art.key]).then(() => {
@@ -58,6 +58,33 @@ export function drawBackdrop(scene: Phaser.Scene, backdrop: string, time: TimeOf
     });
   }
   return layers;
+}
+
+// The drawn backdrop is made of many shapes. Redrawing them every frame is slow
+// on cheap phones, so they are painted once into a few flat pictures. Only the
+// clouds keep drifting, and anything that flickers (like lamps) stays as it is.
+function flatten(scene: Phaser.Scene, first: number, layers: Layer[]): Layer[] {
+  const W = scene.scale.width;
+  const H = scene.scale.height;
+  const drifting = new Set(layers.filter((l) => l.obj.getData('drift')).map((l) => l.obj));
+  const drawn = scene.children.list.slice(first);
+  let run: Phaser.GameObjects.Graphics[] = [];
+  const bakeRun = () => {
+    if (!run.length) return;
+    const rt = scene.add.renderTexture(0, 0, W, H).setOrigin(0);
+    for (const g of run) rt.draw(g);
+    // Put the picture exactly where the shapes were in the drawing order.
+    scene.children.moveTo(rt, scene.children.getIndex(run[0]));
+    for (const g of run) g.destroy();
+    run = [];
+  };
+  for (const obj of drawn) {
+    const still = obj instanceof Phaser.GameObjects.Graphics && !drifting.has(obj) && scene.tweens.getTweensOf(obj).length === 0;
+    if (still) run.push(obj as Phaser.GameObjects.Graphics);
+    else bakeRun();
+  }
+  bakeRun();
+  return layers.filter((l) => drifting.has(l.obj));
 }
 
 // Tints for a picture that was painted for daytime but used at another time.
@@ -83,16 +110,17 @@ function drawShapes(scene: Phaser.Scene, backdrop: string, time: TimeOfDay): Lay
   const dim = time === 'night' ? 0.35 : time === 'dusk' ? 0.7 : 1;
   const tint = (c: number) => Phaser.Display.Color.ValueToColor(c).darken((1 - dim) * 60).color;
   const land = LAND[backdrop];
-  drawSky(scene, p, time);
-  const layers: Layer[] = [{ obj: hills(scene, 380, tint(land.far), 1, 2), speed: 3 }];
+  const sky = drawSky(scene, p, time);
+  const layers: Layer[] = [sky, { obj: hills(scene, 380, tint(land.far), 1, 2, 'trees'), speed: 3 }];
+  haze(scene, p.skyBottom, 370, 0.18);
   if (backdrop === 'jerusalem') {
-    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 1), speed: 0 });
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 1, 'trees'), speed: 0 });
     layers.push({ obj: city(scene, tint(0xd8c8a0)), speed: 0 });
   } else if (backdrop === 'village') {
-    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 1), speed: 4 });
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 1, 'trees'), speed: 4 });
     layers.push({ obj: houses(scene, tint(0xd9c9a0)), speed: 0 });
   } else if (backdrop === 'well') {
-    layers.push({ obj: hills(scene, 470, tint(land.mid), 3, 2), speed: 6 });
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 3, 2, 'trees'), speed: 6 });
     layers.push({ obj: well(scene, tint(0xb9a37a)), speed: 0 });
   } else if (backdrop === 'lake') {
     layers.push({ obj: lake(scene, p.water, 300, 140), speed: 0 });
@@ -100,7 +128,7 @@ function drawShapes(scene: Phaser.Scene, backdrop: string, time: TimeOfDay): Lay
     layers.push({ obj: shore(scene, tint(land.near)), speed: 0 });
     return layers;
   } else if (backdrop === 'olives') {
-    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 2), speed: 0 });
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 2, 2, 'trees'), speed: 0 });
     layers.push({ obj: oliveTrees(scene, tint(0x5a6a3a), tint(0x4a3a2a)), speed: 0 });
   } else if (backdrop === 'courtyard') {
     layers.push({ obj: courtyard(scene, tint(0xb9a98a), time === 'night'), speed: 0 });
@@ -115,13 +143,13 @@ function drawShapes(scene: Phaser.Scene, backdrop: string, time: TimeOfDay): Lay
     layers.push({ obj: bigHill(scene, tint(land.mid)), speed: 0 });
   } else if (backdrop === 'galilee') {
     layers.push({ obj: lake(scene, p.water), speed: 0 });
-    layers.push({ obj: hills(scene, 540, tint(land.mid), 2, 3), speed: 7 });
+    layers.push({ obj: hills(scene, 540, tint(land.mid), 2, 3, 'trees'), speed: 7 });
     layers.push({ obj: figTree(scene, tint(0x3d6b2c)), speed: 0 });
   } else {
-    layers.push({ obj: hills(scene, 470, tint(land.mid), 3, 1.5), speed: 7 });
+    layers.push({ obj: hills(scene, 470, tint(land.mid), 3, 1.5, 'rocks'), speed: 7 });
     layers.push({ obj: rocks(scene, tint(0x7a5c3a)), speed: 14 });
   }
-  layers.push({ obj: hills(scene, 600, tint(land.near), 3, 4), speed: 16 });
+  layers.push({ obj: hills(scene, 600, tint(land.near), 3, 4, 'grass'), speed: 16 });
   return layers;
 }
 
@@ -135,29 +163,79 @@ export function driftLayers(layers: Layer[], width: number, delta: number): void
 }
 
 function drawJordan(scene: Phaser.Scene, p: Palette, time: TimeOfDay): Layer[] {
-  drawSky(scene, p, time);
+  const sky = drawSky(scene, p, time);
+  const far = hills(scene, 400, p.far, 1, 0, 'trees');
+  haze(scene, p.skyBottom, 380, 0.18);
+  const mid = hills(scene, 470, p.mid, 2, 0, 'trees');
+  haze(scene, p.skyBottom, 470, 0.08);
   return [
-    { obj: hills(scene, 400, p.far, 1), speed: 3 },
-    { obj: hills(scene, 470, p.mid, 2), speed: 7 },
-    { obj: hills(scene, 560, p.near, 3), speed: 14 },
+    sky,
+    { obj: far, speed: 3 },
+    { obj: mid, speed: 7 },
+    { obj: hills(scene, 560, p.near, 3, 0, 'grass'), speed: 14 },
     { obj: river(scene, p.water), speed: 0 },
     { obj: reeds(scene), speed: 22 },
   ];
 }
 
-function drawSky(scene: Phaser.Scene, p: Palette, time: TimeOfDay): void {
+// Sky: a gradient, a glowing sun or moon, stars at night, and drifting clouds.
+function drawSky(scene: Phaser.Scene, p: Palette, time: TimeOfDay): Layer {
   const W = scene.scale.width;
   const H = scene.scale.height;
   const sky = scene.add.graphics();
   sky.fillGradientStyle(p.skyTop, p.skyTop, p.skyBottom, p.skyBottom, 1).fillRect(0, 0, W, H);
   if (time === 'night') {
-    sky.fillStyle(0xffffff, 0.8);
-    for (let i = 0; i < 60; i++) sky.fillCircle((i * 977) % W, (i * 331) % (H * 0.5), (i % 3) * 0.6 + 0.8);
+    for (let i = 0; i < 120; i++) {
+      sky.fillStyle(0xffffff, 0.35 + ((i * 37) % 60) / 100).fillCircle((i * 977) % W, (i * 331) % (H * 0.55), (i % 4) * 0.45 + 0.6);
+    }
   }
   const sunX = W * 0.72;
   const sunY = H * p.sunY;
-  sky.fillStyle(p.sun, 0.25).fillCircle(sunX, sunY, 110);
-  sky.fillStyle(p.sun, 0.95).fillCircle(sunX, sunY, time === 'night' ? 40 : 60);
+  for (let i = 7; i >= 1; i--) sky.fillStyle(p.sun, time === 'night' ? 0.035 : 0.06).fillCircle(sunX, sunY, 50 + i * 34);
+  sky.fillStyle(p.sun, 1).fillCircle(sunX, sunY, time === 'night' ? 34 : 54);
+  if (time === 'night') {
+    sky.fillStyle(0xd8dcea, 0.6).fillCircle(sunX - 10, sunY - 6, 7).fillCircle(sunX + 9, sunY + 8, 5).fillCircle(sunX + 4, sunY - 14, 4);
+  }
+  return { obj: clouds(scene, time), speed: 4 };
+}
+
+const CLOUD_COLORS: Record<TimeOfDay, [number, number, number]> = {
+  dawn: [0xffe2cc, 0xd9a3a0, 0.85], midday: [0xffffff, 0xd6e2ec, 0.95], dusk: [0xf6b08c, 0x9a6070, 0.85], night: [0x3c4670, 0x262c4a, 0.7],
+};
+
+// Soft clouds, drawn twice side by side so the layer can drift and wrap.
+function clouds(scene: Phaser.Scene, time: TimeOfDay): Phaser.GameObjects.RenderTexture {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  const [light, shade, alpha] = CLOUD_COLORS[time];
+  for (const offset of [0, W]) {
+    for (let i = 0; i < 5; i++) {
+      const x = offset + ((i * 0.21 + 0.05) % 1) * W;
+      const y = 70 + ((i * 53) % 110);
+      const s = 0.6 + ((i * 29) % 50) / 100;
+      const puffs: [number, number, number][] = [[-80, 10, 38], [-40, -12, 50], [10, -22, 60], [60, -6, 46], [100, 12, 32], [-10, 14, 44], [40, 16, 40]];
+      g.fillStyle(shade, alpha);
+      for (const [dx, dy, r] of puffs) g.fillEllipse(x + dx * s, y + (dy + 8) * s, r * 2.2 * s, r * 1.5 * s);
+      g.fillStyle(light, alpha);
+      for (const [dx, dy, r] of puffs) g.fillEllipse(x + dx * s, y + dy * s, r * 2 * s, r * 1.3 * s);
+      g.fillStyle(0xffffff, alpha * 0.35);
+      for (const [dx, dy, r] of puffs.slice(1, 4)) g.fillEllipse(x + dx * s - 6, y + (dy - 10) * s, r * 1.1 * s, r * 0.6 * s);
+    }
+  }
+  // Painted once into a picture twice the screen's width, which then drifts.
+  const rt = scene.add.renderTexture(0, 0, W * 2, 300).setOrigin(0);
+  rt.draw(g);
+  g.destroy();
+  return rt.setData('drift', true);
+}
+
+// Distance haze between hill layers: far things fade into the sky color.
+function haze(scene: Phaser.Scene, color: number, y: number, strength = 0.4): void {
+  const W = scene.scale.width;
+  const g = scene.add.graphics();
+  g.fillGradientStyle(color, color, color, color, 0, 0, strength, strength).fillRect(0, y - 160, W, 160);
+  g.fillStyle(color, strength).fillRect(0, y, W, 40);
+  g.fillGradientStyle(color, color, color, color, strength, strength, 0, 0).fillRect(0, y + 40, W, 60);
 }
 
 // Scattered stones for the wilderness (drawn twice so the layer can wrap).
@@ -176,25 +254,82 @@ function rocks(scene: Phaser.Scene, color: number): Phaser.GameObjects.Graphics 
   return g;
 }
 
-// Jerusalem on its hill: a wall, flat-roofed houses and the temple.
+// A flat-roofed stone house with depth: front, shaded side, roof, beam ends, door and window.
+function house(g: Phaser.GameObjects.Graphics, x: number, base: number, w: number, h: number, stone: number, k: number): void {
+  const C = Phaser.Display.Color;
+  const side = C.ValueToColor(stone).darken(22).color;
+  const d = Math.min(26, w * 0.22); // depth of the side wall
+  g.fillStyle(side, 1).fillPoints([{ x: x + w, y: base }, { x: x + w, y: base - h }, { x: x + w + d, y: base - h - d * 0.45 }, { x: x + w + d, y: base - d * 0.45 }], true);
+  g.fillStyle(stone, 1).fillRect(x, base - h, w, h);
+  // Stone courses
+  g.lineStyle(1, C.ValueToColor(stone).darken(12).color, 0.5);
+  for (let yy = base - h + 14; yy < base; yy += 14) g.lineBetween(x, yy, x + w, yy);
+  // Roof of beams and packed earth, with a low parapet
+  g.fillStyle(C.ValueToColor(stone).lighten(8).color, 1).fillPoints([{ x: x - 3, y: base - h }, { x: x + w + 3, y: base - h }, { x: x + w + d + 3, y: base - h - d * 0.45 }, { x: x + d - 3, y: base - h - d * 0.45 }], true);
+  g.fillStyle(0x4a3424, 1);
+  for (let bx = x + 8; bx < x + w - 4; bx += 16) g.fillRect(bx, base - h + 5, 5, 5); // beam ends
+  // Arched doorway and a small window
+  const dx = x + w * (0.3 + (k % 3) * 0.15);
+  g.fillStyle(0x2a1c12, 1).fillRoundedRect(dx - 12, base - 40, 24, 40, { tl: 12, tr: 12, bl: 0, br: 0 });
+  g.fillStyle(0x6a4a2a, 1).fillRect(dx - 12, base - 4, 24, 4);
+  if (w > 90) g.fillStyle(0x2a1c12, 0.85).fillRoundedRect(x + w - 34, base - h + 18, 14, 16, { tl: 7, tr: 7, bl: 0, br: 0 });
+  // Outside stairs up to the roof on some houses
+  if (k % 3 === 1) {
+    g.fillStyle(C.ValueToColor(stone).darken(8).color, 1);
+    for (let st = 0; st < 6; st++) g.fillRect(x - 10 - st * 7, base - h + 4 + st * (h / 6), 10 + st * 7, h / 6);
+  }
+  // Shadow at the foot of the wall
+  g.fillStyle(0x000000, 0.18).fillRect(x, base - 3, w + d, 6);
+  // A clay jar or two by the door
+  if (k % 2 === 0) {
+    g.fillStyle(0xa8643a, 1).fillEllipse(dx + 26, base - 10, 14, 18).fillRect(dx + 22, base - 22, 8, 5);
+  }
+}
+
+// Jerusalem on its hill: walls and towers, packed houses, and the gleaming Temple.
 function city(scene: Phaser.Scene, stone: number): Phaser.GameObjects.Graphics {
   const W = scene.scale.width;
   const g = scene.add.graphics();
+  const C = Phaser.Display.Color;
   const cx = W * 0.62;
-  const shade = Phaser.Display.Color.ValueToColor(stone).darken(18).color;
-  for (let i = 0; i < 16; i++) {
-    const x = cx - 520 + i * 62 + ((i * 17) % 20);
-    const h = 40 + ((i * 29) % 40);
-    g.fillStyle(i % 2 ? stone : shade, 1).fillRect(x, 440 - h, 54, h);
-    g.fillStyle(0x3a2a1a, 0.6).fillRect(x + 20, 440 - h + 14, 12, 14);
+  const shade = C.ValueToColor(stone).darken(18).color;
+  // Houses climbing the hill behind the wall
+  for (let i = 0; i < 22; i++) {
+    const x = cx - 560 + i * 52 + ((i * 17) % 20);
+    const h = 34 + ((i * 29) % 34);
+    const base = 410 - Math.max(0, 110 - Math.abs(x - cx) / 4) * 0.5;
+    house(g, x, base, 46 + ((i * 7) % 14), h, i % 2 ? stone : C.ValueToColor(stone).darken(8).color, i);
   }
-  g.fillStyle(shade, 1).fillRect(cx - 560, 420, 1100, 50);
-  for (let x = cx - 560; x < cx + 540; x += 36) g.fillRect(x, 408, 20, 14);
-  g.fillStyle(stone, 1).fillRect(cx - 120, 290, 240, 130);
-  g.fillStyle(0xe8d9b0, 1).fillRect(cx - 70, 230, 140, 70);
-  g.fillStyle(0xe2b84a, 1).fillRect(cx - 74, 222, 148, 10);
-  g.fillStyle(0x3a2a1a, 0.7).fillRect(cx - 18, 250, 36, 50);
-  g.fillStyle(stone, 1).fillRect(cx + 120, 250, 50, 170);
+  // The Temple: a great platform, colonnades, and the sanctuary faced with white stone and gold
+  const ty = 330;
+  g.fillStyle(shade, 1).fillRect(cx - 230, ty, 460, 90);
+  g.fillStyle(C.ValueToColor(stone).lighten(6).color, 1).fillRect(cx - 230, ty - 8, 460, 10);
+  g.fillStyle(0xe8dcc0, 1).fillRect(cx - 200, ty - 40, 400, 32);
+  g.fillStyle(0xb8a888, 1);
+  for (let x = cx - 196; x < cx + 200; x += 14) g.fillRect(x, ty - 36, 5, 26); // columns
+  g.fillStyle(0xf4ecd8, 1).fillRect(cx - 70, ty - 140, 140, 100);
+  g.fillStyle(0xf4ecd8, 1).fillRect(cx - 100, ty - 140, 200, 40);
+  g.fillStyle(0xd9b04a, 1).fillRect(cx - 104, ty - 146, 208, 8);
+  g.fillStyle(0xe8c45a, 1);
+  for (let x = cx - 100; x <= cx + 100; x += 10) g.fillTriangle(x - 2, ty - 146, x + 2, ty - 146, x, ty - 156); // golden spikes on the roof
+  g.fillStyle(0x3a2a1a, 0.85).fillRoundedRect(cx - 22, ty - 96, 44, 56, { tl: 6, tr: 6, bl: 0, br: 0 });
+  g.fillStyle(0xd9b04a, 0.9).fillRect(cx - 26, ty - 100, 52, 5);
+  // Smoke rising from the altar
+  g.fillStyle(0xdedad2, 0.35).fillEllipse(cx + 130, ty - 70, 20, 40).fillEllipse(cx + 138, ty - 110, 26, 40);
+  // The city wall with towers
+  const wy = 420;
+  g.fillStyle(shade, 1).fillRect(cx - 640, wy, 1280, 50);
+  g.lineStyle(1, C.ValueToColor(shade).darken(15).color, 0.6);
+  for (let yy = wy + 12; yy < wy + 50; yy += 12) g.lineBetween(cx - 640, yy, cx + 640, yy);
+  g.fillStyle(shade, 1);
+  for (let x = cx - 640; x < cx + 640; x += 30) g.fillRect(x, wy - 12, 16, 12);
+  for (const tx of [cx - 420, cx - 150, cx + 260, cx + 520]) {
+    g.fillStyle(C.ValueToColor(shade).lighten(5).color, 1).fillRect(tx - 28, wy - 60, 56, 110);
+    g.fillStyle(C.ValueToColor(shade).darken(20).color, 1).fillRect(tx + 18, wy - 60, 10, 110);
+    g.fillStyle(C.ValueToColor(shade).lighten(5).color, 1);
+    for (let x = tx - 28; x < tx + 28; x += 14) g.fillRect(x, wy - 70, 9, 10);
+    g.fillStyle(0x2a1c12, 0.8).fillRect(tx - 4, wy - 44, 8, 14);
+  }
   return g;
 }
 
@@ -217,22 +352,64 @@ function figTree(scene: Phaser.Scene, leaf: number): Phaser.GameObjects.Graphics
 
 // Rolling hills drawn twice side by side so the layer can wrap seamlessly.
 // seed must be a whole number so the two copies join without a seam; phase shifts the shape.
-function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number, phase = 0): Phaser.GameObjects.Graphics {
+// Hills can carry olive trees and cypresses, grass and flowers, or rocks along the top.
+function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number, phase = 0, detail?: 'trees' | 'grass' | 'rocks'): Phaser.GameObjects.Graphics {
   const W = scene.scale.width;
   const H = scene.scale.height;
   const g = scene.add.graphics();
-  g.fillStyle(color, 1);
+  const ridge = (x: number) => baseY
+    - 40 * Math.sin((x / W) * Math.PI * 2 * seed + seed + phase)
+    - 20 * Math.sin((x / W) * Math.PI * 2 * (seed + 2));
+  const near = Phaser.Math.Clamp((baseY - 360) / 260, 0, 1); // 0 far away … 1 close
+  const dark = Phaser.Display.Color.ValueToColor(color).darken(14).color;
+  const light = Phaser.Display.Color.ValueToColor(color).lighten(10).color;
   for (const offset of [0, W]) {
     const pts: Phaser.Types.Math.Vector2Like[] = [{ x: offset, y: H }];
     for (let i = 0; i <= 80; i++) {
       const x = (i / 80) * W;
-      const y = baseY
-        - 40 * Math.sin((x / W) * Math.PI * 2 * seed + seed + phase)
-        - 20 * Math.sin((x / W) * Math.PI * 2 * (seed + 2));
-      pts.push({ x: offset + x, y });
+      pts.push({ x: offset + x, y: ridge(x) });
     }
     pts.push({ x: offset + W, y: H });
-    g.fillPoints(pts, true);
+    g.fillStyle(color, 1).fillPoints(pts, true);
+    // Slopes: lighter where the sun catches them, darker further down.
+    const n = 200;
+    for (let i = 0; i < n; i++) {
+      const x0 = (i / n) * W;
+      const x1 = ((i + 1) / n) * W;
+      const slope = (ridge(x1) - ridge(x0)) * (80 / n);
+      const depth = 50 + near * 50;
+      g.fillStyle(slope > 0 ? dark : light, Math.min(0.35, Math.abs(slope) / 10));
+      g.fillPoints([{ x: offset + x0, y: ridge(x0) + 1 }, { x: offset + x1, y: ridge(x1) + 1 }, { x: offset + x1, y: ridge(x1) + depth }, { x: offset + x0, y: ridge(x0) + depth }], true);
+    }
+    g.fillGradientStyle(dark, dark, dark, dark, 0, 0, 0.7, 0.7).fillRect(offset, baseY + 30, W, 120);
+    if (!detail) continue;
+    const step = detail === 'grass' ? 26 : 46 - near * 10;
+    for (let x = 10, k = 0; x < W - 10; x += step + ((k * 37) % 23), k++) {
+      const y = ridge(x) + 2;
+      const r = (k * 53) % 100 / 100;
+      const sz = 0.45 + near * 0.9;
+      if (detail === 'trees') {
+        if (r < 0.28) {
+          // A cypress
+          g.fillStyle(Phaser.Display.Color.ValueToColor(color).darken(32).color, 1).fillEllipse(offset + x, y - 26 * sz, 12 * sz, 56 * sz);
+        } else if (r < 0.62) {
+          // An olive tree: grey-green, rounded, on a short trunk
+          g.fillStyle(0x4a3a2a, 1).fillRect(offset + x - 2 * sz, y - 14 * sz, 4 * sz, 14 * sz);
+          g.fillStyle(Phaser.Display.Color.ValueToColor(color).darken(22).color, 1).fillEllipse(offset + x, y - 20 * sz, 34 * sz, 20 * sz).fillEllipse(offset + x - 8 * sz, y - 26 * sz, 20 * sz, 14 * sz);
+          g.fillStyle(0xb8c2a0, 0.22).fillEllipse(offset + x + 4 * sz, y - 26 * sz, 14 * sz, 7 * sz);
+        }
+      } else if (detail === 'rocks') {
+        if (r < 0.5) {
+          g.fillStyle(Phaser.Display.Color.ValueToColor(color).darken(20).color, 1).fillEllipse(offset + x, y + 4, 26 * sz, 14 * sz);
+          g.fillStyle(0xffffff, 0.1).fillEllipse(offset + x - 4, y, 12 * sz, 5 * sz);
+        }
+      } else {
+        // Grass tufts and a few wildflowers (red anemones, white and yellow daisies)
+        g.lineStyle(2, Phaser.Display.Color.ValueToColor(color).darken(25).color, 1);
+        for (let b = -2; b <= 2; b++) g.lineBetween(offset + x + b * 3, y + 6, offset + x + b * 5, y - 8 - (b % 2 ? 4 : 8));
+        if (r < 0.35) g.fillStyle([0xc8323a, 0xf2eee0, 0xe8c84a][k % 3], 1).fillCircle(offset + x + 8, y - 4, 3);
+      }
+    }
   }
   return g;
 }
@@ -267,27 +444,34 @@ function reeds(scene: Phaser.Scene): Phaser.GameObjects.Graphics {
   return g;
 }
 
-// Flat-roofed stone houses, like a Galilean village.
+// A Galilean village: stone houses with flat roofs, a palm and a fig tree.
 function houses(scene: Phaser.Scene, stone: number): Phaser.GameObjects.Graphics {
   const W = scene.scale.width;
   const g = scene.add.graphics();
-  const shade = Phaser.Display.Color.ValueToColor(stone).darken(15).color;
-  for (let i = 0; i < 9; i++) {
-    const x = (i * W) / 9 + ((i * 37) % 40) - 20;
-    const w = 120 + ((i * 53) % 60);
-    const h = 70 + ((i * 31) % 50);
-    const base = 470 + ((i * 17) % 30);
-    g.fillStyle(i % 2 ? stone : shade, 1).fillRect(x, base - h, w, h);
-    g.fillStyle(0x6a4a2a, 1).fillRect(x - 6, base - h - 8, w + 12, 10); // flat roof
-    g.fillStyle(0x3a2a1a, 0.75).fillRect(x + w / 2 - 14, base - 46, 28, 46); // door
-    g.fillStyle(0x3a2a1a, 0.6).fillRect(x + 14, base - h + 18, 16, 14); // window
+  const C = Phaser.Display.Color;
+  // A row further back, smaller, then the nearer houses
+  for (let i = 0; i < 12; i++) {
+    const x = (i * W) / 12 + ((i * 41) % 30) - 20;
+    house(g, x, 400, 60 + ((i * 13) % 30), 34 + ((i * 11) % 20), C.ValueToColor(stone).darken(10).color, i + 1);
   }
-  // A palm tree
+  for (let i = 0; i < 7; i++) {
+    const x = (i * W) / 7 + ((i * 37) % 40) - 10;
+    const w = 110 + ((i * 53) % 60);
+    const h = 70 + ((i * 31) % 45);
+    house(g, x, 470 + ((i * 17) % 20), w, h, i % 2 ? stone : C.ValueToColor(stone).darken(6).color, i);
+  }
+  // A date palm
   const px = W * 0.86;
-  g.fillStyle(0x6a4a2a, 1).fillRect(px - 8, 300, 16, 180);
+  g.fillStyle(0x6a4a2a, 1);
+  for (let k = 0; k < 12; k++) g.fillEllipse(px + Math.sin(k / 3) * 4, 470 - k * 15, 18 - k * 0.4, 12);
   g.fillStyle(0x3d6b2c, 1);
-  for (const a of [-2.4, -1.9, -1.2, -0.7]) g.fillTriangle(px, 300, px + Math.cos(a) * 90, 300 + Math.sin(a) * 40 + 40, px + Math.cos(a) * 70, 300 + Math.sin(a) * 40 + 55);
-  for (const a of [-2.4, -1.9, -1.2, -0.7]) g.fillTriangle(px, 300, px - Math.cos(a) * 90, 300 + Math.sin(a) * 40 + 40, px - Math.cos(a) * 70, 300 + Math.sin(a) * 40 + 55);
+  for (let k = 0; k < 9; k++) {
+    const a = Math.PI * (1.05 + (k / 8) * 0.9);
+    const ex = px + Math.cos(a) * 95;
+    const ey = 300 + Math.sin(a) * 30 + 34;
+    g.fillTriangle(px, 296, ex, ey, (px + ex) / 2, (296 + ey) / 2 + 14);
+  }
+  g.fillStyle(0x8a5a1a, 1).fillCircle(px - 6, 304, 6).fillCircle(px + 6, 306, 6); // dates
   return g;
 }
 

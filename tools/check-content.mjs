@@ -275,6 +275,16 @@ if (ending) {
   if (!ending.invite || !ending.prayer) errors.push('ending.json: needs "invite" and "prayer"');
 }
 
+// How people look on the stage
+const looks = readJson('content/looks.json') ?? {};
+for (const [id, look] of Object.entries(looks)) {
+  if (id.startsWith('_')) continue;
+  if (!characters[id]) errors.push(`looks.json: no character has the id "${id}"`);
+  for (const key of ['skin', 'hair', 'beardColor', 'tunic', 'mantle', 'headColor']) {
+    if (look[key] != null && !/^#[0-9a-fA-F]{6}$/.test(look[key])) errors.push(`looks.json "${id}": "${key}" must be a color like #a8774e`);
+  }
+}
+
 // Finished pictures, music and sound effects dropped into the project.
 const artCount = {};
 for (const kind of ['backdrops', 'portraits', 'figures']) {

@@ -15,6 +15,7 @@ import { audioForLine } from '../systems/voice';
 import { checkAchievements, totalScrolls } from '../systems/achievements';
 import { setMood, sfx, type Mood } from '../systems/audio';
 import { artTexture, backdropArt, queueArt } from '../systems/art';
+import { Figure, bustTexture, hasLook } from '../art/people';
 import { playCutscene, type CutsceneId } from '../cutscenes';
 import { loadSettings, loadSlots, newSlot, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
 
@@ -185,8 +186,8 @@ export class StoryScene extends Phaser.Scene {
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 
-    // Placeholder figures. Everyone who speaks stands in front with a name;
-    // disciples who are just following along stand behind, smaller.
+    // Everyone who speaks stands in front with a name; disciples who are just
+    // following along stand behind, smaller.
     // Disciples following Jesus right now (Judas leaves at the Last Supper).
     const departed = this.slot.progress.departed;
     const joined = this.slot.progress.disciples.filter((d) => !departed.includes(d));
@@ -194,13 +195,15 @@ export class StoryScene extends Phaser.Scene {
     const speakers = [...new Set([...scene.lines.map((l) => l.speaker), ...joiners])].filter((id) => !OFFSTAGE.includes(id) && characters[id]);
     // A scene can leave the disciples out (false) or name just the ones who were there.
     const others = Array.isArray(scene.companions) ? scene.companions : scene.companions === false ? [] : joined;
-    const companions = others.filter((id) => !speakers.includes(id)).slice(0, 6);
+    // Anyone who leaves during the scene (Judas) is always among those shown.
+    const leavers = scene.lines.flatMap((l) => l.leaves ?? []);
+    const companions = [...new Set([...leavers.filter((id) => others.includes(id)), ...others])].filter((id) => !speakers.includes(id)).slice(0, 6);
     // People who are there but don't speak, like Moses and Elijah.
     for (const x of scene.extras ?? []) if (characters[x] && !speakers.includes(x)) speakers.push(x);
     this.backRow.clear();
     companions.forEach((id, i) => {
       const x = W * (0.15 + ((i + 0.5) / companions.length) * 0.7);
-      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, id, '').setScale(0.7).setAlpha(0.9));
+      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, id, '').setScale(0.7));
     });
     // At the cross, Jesus and the criminal beside Him aren't shown as standing figures; the crosses are part of the background.
     if (scene.staging === 'cross') speakers.splice(0, speakers.length, ...speakers.filter((id) => id !== 'jesus' && id !== 'criminal'));
@@ -318,7 +321,10 @@ export class StoryScene extends Phaser.Scene {
     glow.setPosition(fig.x, fig.y);
     this.children.moveBelow(glow as unknown as Phaser.GameObjects.GameObject, fig as unknown as Phaser.GameObjects.GameObject);
     const picture = fig.getData('picture') as Phaser.GameObjects.Image | undefined;
-    if (picture) {
+    const person = this.living(fig);
+    if (person) {
+      person.shine();
+    } else if (picture) {
       // His clothes became as white as the light: a white glow over the picture.
       const shine = this.add.image(picture.x, picture.y, picture.texture.key).setOrigin(0.5, 1).setScale(picture.scale);
       shine.setTintFill(0xfffbe6).setAlpha(0.55);
@@ -381,6 +387,11 @@ export class StoryScene extends Phaser.Scene {
     return scene.timeOfDay === 'midday' ? 'journey' : 'peace';
   }
 
+  // The living person behind a stage figure, if it is drawn by the game.
+  private living(fig?: Phaser.GameObjects.Container): Figure | undefined {
+    return fig?.getData('figure') as Figure | undefined;
+  }
+
   private makeFigure(x: number, feetY: number, id: string, name: string): Phaser.GameObjects.Container {
     const picture = artTexture(this, `figures/${id}`);
     if (picture) {
@@ -392,6 +403,15 @@ export class StoryScene extends Phaser.Scene {
         fontFamily: FONT, fontSize: '22px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 5,
       }).setOrigin(0.5, 1);
       return this.add.container(x, feetY, [shadow, img, label]).setData('picture', img);
+    }
+    if (hasLook(id)) {
+      const figure = new Figure(this, id, x, feetY);
+      if (name) {
+        figure.root.add(this.add.text(0, -236, name, {
+          fontFamily: FONT, fontSize: '22px', color: '#fff8e6', fontStyle: 'bold', stroke: '#2b1d12', strokeThickness: 5,
+        }).setOrigin(0.5, 1));
+      }
+      return figure.root.setData('figure', figure);
     }
     const c = Phaser.Display.Color.HexStringToColor(characters[id].color).color;
     const g = this.add.graphics();
@@ -428,8 +448,14 @@ export class StoryScene extends Phaser.Scene {
       await playCutscene(this, line.cutscene as CutsceneId);
       if (line.cutscene === 'calm') this.stormStop?.();
     }
+    // The speaker talks (or, for a picture, gently bobs); everyone else looks at them.
     const fig = this.figures.get(line.speaker);
-    const bob = fig && this.tweens.add({ targets: fig, y: fig.y - 10, yoyo: true, repeat: -1, duration: 420 });
+    const person = this.living(fig);
+    person?.talk(true);
+    const bob = fig && !person && this.tweens.add({ targets: fig, y: fig.y - 10, yoyo: true, repeat: -1, duration: 420 });
+    for (const other of [...this.figures.values(), ...this.backRow.values()]) {
+      if (other !== fig && line.speaker !== 'narrator') this.living(other)?.lookToward(fig ? fig.x : null);
+    }
     if (line.speaker === 'voice-from-heaven') this.shine(true);
     if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 1, duration: 600 });
 
@@ -439,7 +465,7 @@ export class StoryScene extends Phaser.Scene {
       speakerName: who.name,
       color: who.color,
       initials: who.initials,
-      portrait: artTexture(this, `portraits/${line.speaker}`),
+      portrait: artTexture(this, `portraits/${line.speaker}`) ?? bustTexture(this, line.speaker),
       text: lineText(line, this.tid),
       kind: line.type,
       refLabel: line.type === 'scripture' ? `${line.ref} · ${short}` : undefined,
@@ -448,6 +474,7 @@ export class StoryScene extends Phaser.Scene {
       audio: audioForLine(line.id, line.type === 'scripture', this.tid),
     });
 
+    person?.talk(false);
     if (bob) { bob.stop(); if (line.action !== 'ascend') fig!.y = FEET_Y; }
     if (line.speaker === 'voice-from-heaven') this.shine(false);
     if (line.speaker === 'tempter') this.tweens.add({ targets: this.shadow, alpha: 0, duration: 600 });
@@ -460,7 +487,14 @@ export class StoryScene extends Phaser.Scene {
     for (const id of ids) {
       if (!p.departed.includes(id)) p.departed.push(id);
       const fig = this.backRow.get(id) ?? this.figures.get(id);
-      if (fig) this.tweens.add({ targets: fig, alpha: 0, x: fig.x - 120, duration: 1500 });
+      const person = this.living(fig);
+      if (person) {
+        // He walks away into the night.
+        void person.walkTo(fig!.x - 360, 80);
+        this.tweens.add({ targets: fig, alpha: 0, delay: 1200, duration: 1800 });
+      } else if (fig) {
+        this.tweens.add({ targets: fig, alpha: 0, x: fig.x - 120, duration: 1500 });
+      }
     }
     this.save();
   }
@@ -486,7 +520,16 @@ export class StoryScene extends Phaser.Scene {
       p.disciples.push(id);
       this.save();
       const fig = this.figures.get(id);
-      if (fig) this.tweens.add({ targets: fig, alpha: 1, duration: 700 });
+      const person = this.living(fig);
+      if (fig && person && fig.alpha < 1) {
+        // They walk in from the side of the stage to join.
+        const spot = fig.x;
+        fig.x = spot < this.scale.width / 2 ? -80 : this.scale.width + 80;
+        fig.setAlpha(1);
+        void person.walkTo(spot, 160);
+      } else if (fig) {
+        this.tweens.add({ targets: fig, alpha: 1, duration: 700 });
+      }
       sfx('join');
       const msg = fill(ui.joined, { name: characters[id].name });
       const t = this.add.text(this.scale.width / 2, 200, `✦ ${msg} ✦`, {

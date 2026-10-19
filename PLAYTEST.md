@@ -307,3 +307,16 @@ The title screen should say **Phase 7 · v0.7.2** (or later). Check it on the we
 - [ ] Villages have stone houses with roof beams, doorways, outside stairs and clay jars, and there's a date palm
 - [ ] Jerusalem has walls with towers and a gleaming white-and-gold Temple
 - [ ] The game feels at least as smooth as before on your phone
+
+## Phase 7, part A3: free AI voices
+
+The title screen should say **Phase 7 · v0.7.3**. Use the GitHub link: https://hbuhrmanlll.github.io/follow-me-game/
+
+- [ ] Every story line is spoken by a natural-sounding AI voice (Kokoro), not the robot voice
+- [ ] Characters sound different: the narrator, Jesus, John the Baptist, Peter, Mary, Pilate and others
+- [ ] Words light up roughly in time with the voice
+- [ ] The 🐢 / 🚶 / 🐇 speed button still slows down or speeds up the voice
+- [ ] Short pop-ups and puzzle questions are still read by the phone's own voice (that's expected)
+
+**Questions for you**
+- Does any character's voice sound wrong for them? Tell me which, and I'll change it in a minute.

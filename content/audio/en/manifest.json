@@ -1,0 +1,4332 @@
+{
+ "bsb/ch01-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bcd17f9f67fb869e",
+  "hash": "f73f3ef2832c9acc"
+ },
+ "bsb/ch01-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "36e7a91faf8b2e9d",
+  "hash": "b813c1ab3834cfa0"
+ },
+ "bsb/ch01-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d17edb75ba74e213",
+  "hash": "471af07ac8e1aaec"
+ },
+ "bsb/ch01-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4e7f39a9938d7e21",
+  "hash": "4f9a9e5ed66f4515"
+ },
+ "bsb/ch01-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "676fb4a361cc160f",
+  "hash": "b8ca3e683826721b"
+ },
+ "bsb/ch01-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ea2897d6d90b6b24",
+  "hash": "61df03c39a931d8e"
+ },
+ "bsb/ch01-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6749a9bb7c16f17e",
+  "hash": "f2eba9cb4de039e4"
+ },
+ "bsb/ch01-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0480700cafb840a8",
+  "hash": "bb25b87440bad048"
+ },
+ "bsb/ch01-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2dd7da79c6fb2e78",
+  "hash": "fd1809bde9b24ac3"
+ },
+ "bsb/ch02-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c7b29ddff272bbf3",
+  "hash": "80d83a6011bc0feb"
+ },
+ "bsb/ch02-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7a936fc0caecc011",
+  "hash": "9778af6445cac8d1"
+ },
+ "bsb/ch02-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "65c10c78cd9275b4",
+  "hash": "3057f6feb871b68d"
+ },
+ "bsb/ch02-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "289f74ea55ba552c",
+  "hash": "83f2c3fd58863056"
+ },
+ "bsb/ch02-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9a8efc0dd72da784",
+  "hash": "5414eb880ef78583"
+ },
+ "bsb/ch02-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ef4d567f6ea7ae75",
+  "hash": "605e69e3ca16e737"
+ },
+ "bsb/ch02-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2bb2e905879050ac",
+  "hash": "b47cb178efb3deb4"
+ },
+ "bsb/ch02-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "95df1b03e7a69774",
+  "hash": "3b551182abb8923b"
+ },
+ "bsb/ch02-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "44ff76db3df2121c",
+  "hash": "a586dce36a3064c7"
+ },
+ "bsb/ch02-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b778bf9d8f1542ee",
+  "hash": "73344c90d48fa0ca"
+ },
+ "bsb/ch03-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ffd4b625ff839d3b",
+  "hash": "b5f7495ca0661c18"
+ },
+ "bsb/ch03-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2946d71fe9eb5b71",
+  "hash": "14c6de86a5db9050"
+ },
+ "bsb/ch03-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "885fc8fe614cb8a9",
+  "hash": "5341468dfcf9c97c"
+ },
+ "bsb/ch03-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "275a9f21b617f980",
+  "hash": "ad440660d963cbc8"
+ },
+ "bsb/ch03-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "38a3a73f8e6e5295",
+  "hash": "8004f1e6a7b3331d"
+ },
+ "bsb/ch03-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2c57c3071025d616",
+  "hash": "ec954d19f1ae2e55"
+ },
+ "bsb/ch03-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "21a324a956045428",
+  "hash": "5a925ffb0bac2c9b"
+ },
+ "bsb/ch03-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4f17c9f2cf015935",
+  "hash": "36206f3594b8b90c"
+ },
+ "bsb/ch03-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "abe0bd1562e5130d",
+  "hash": "163dfa4197a9a657"
+ },
+ "bsb/ch03-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0e65cfd94c0ea69e",
+  "hash": "99f850e1a842392d"
+ },
+ "bsb/ch03-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "79f09ad59c09a37d",
+  "hash": "fe9a356da8c215b5"
+ },
+ "bsb/ch03-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fac4f30262e02a4f",
+  "hash": "31569a4173ff3954"
+ },
+ "bsb/ch03-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "da887a51f8fa0ad2",
+  "hash": "1f8d33679243e11f"
+ },
+ "bsb/ch03-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a8448e94f1f7460b",
+  "hash": "2d55273637642744"
+ },
+ "bsb/ch03-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a0aea22132acbbe8",
+  "hash": "0cf958c861e8ba29"
+ },
+ "bsb/ch03-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d7ca41a4bf7a5fea",
+  "hash": "ed7667fcb67be871"
+ },
+ "bsb/ch03-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7a31f085998d2cfb",
+  "hash": "d70825bdf2972c71"
+ },
+ "bsb/ch03-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4dd4a9ae2d3cc298",
+  "hash": "8492c87172d4840b"
+ },
+ "bsb/ch03-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9b004eea6664e043",
+  "hash": "e980083b7ad87573"
+ },
+ "bsb/ch03-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "11e63507e9f8e952",
+  "hash": "d0bc083b103f420c"
+ },
+ "bsb/ch03-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "03474e478836feca",
+  "hash": "1967ed63abf8232e"
+ },
+ "bsb/ch03-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f6378d20b402f688",
+  "hash": "174ec51ae7049465"
+ },
+ "bsb/ch04-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b3b430053e0ea2e0",
+  "hash": "e7f7de6fd4894a43"
+ },
+ "bsb/ch04-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5e54530bdf4835b5",
+  "hash": "d83f23b16433700b"
+ },
+ "bsb/ch04-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "273f07a16f979a8f",
+  "hash": "205613a397b8f85e"
+ },
+ "bsb/ch04-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bd547350141cb4ed",
+  "hash": "dacc187fc0cde071"
+ },
+ "bsb/ch04-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "85fd57e41fc3bcc1",
+  "hash": "abd6cb06a0ed89e7"
+ },
+ "bsb/ch04-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2aea12fc3de93d79",
+  "hash": "19150f0b07092589"
+ },
+ "bsb/ch04-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a02f7f5687cea2a0",
+  "hash": "4bce0aa38d4c9142"
+ },
+ "bsb/ch04-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "089db178876ec897",
+  "hash": "a75965667c45cd7e"
+ },
+ "bsb/ch04-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5b0e6561a47a0750",
+  "hash": "01077493d3c8fc00"
+ },
+ "bsb/ch04-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "60c47d9121394cf6",
+  "hash": "257a7c7421568bac"
+ },
+ "bsb/ch04-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9cd6b2ec78a17724",
+  "hash": "48124d5f2843cb96"
+ },
+ "bsb/ch05-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ba12ee34ed3ba609",
+  "hash": "9c9b5432d4077fbe"
+ },
+ "bsb/ch05-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "620eab5c8fc87fd4",
+  "hash": "ed2d94c2d954a0a3"
+ },
+ "bsb/ch05-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2955b8d6d2525e21",
+  "hash": "39a58e56842ebf82"
+ },
+ "bsb/ch05-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "09398cb27e3387ec",
+  "hash": "c36f9015d56d4703"
+ },
+ "bsb/ch05-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4f77a3a6d8ce736a",
+  "hash": "2bde8b96d9874e8b"
+ },
+ "bsb/ch05-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "38b60a1fce487d2e",
+  "hash": "482da16174f2f82a"
+ },
+ "bsb/ch05-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "de2bbf2d943d6d00",
+  "hash": "8da468e67da6d8eb"
+ },
+ "bsb/ch05-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5fb219073efbb164",
+  "hash": "4cdeb43723ded9e7"
+ },
+ "bsb/ch05-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4ae063997a76ae50",
+  "hash": "b01a1b4a4818bff5"
+ },
+ "bsb/ch05-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7de6065b9db36895",
+  "hash": "82a79323215312c2"
+ },
+ "bsb/ch05-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b67e1c27bbb84165",
+  "hash": "2f9ebd3883f072fa"
+ },
+ "bsb/ch05-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "aa1f3acbe94c597f",
+  "hash": "e5549e8245748ff7"
+ },
+ "bsb/ch05-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0f43c3505a2ffae8",
+  "hash": "0bca5061f01b8cba"
+ },
+ "bsb/ch05-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "08e51833eb7d82d6",
+  "hash": "ad77aef37b74e6ac"
+ },
+ "bsb/ch05-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cc17fdff51e0459e",
+  "hash": "81d7cddebfbf1ae5"
+ },
+ "bsb/ch05-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0ac8ea63074f9479",
+  "hash": "e3eccef94e071c59"
+ },
+ "bsb/ch05-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "40b5a7b29e414ada",
+  "hash": "525db110811c83f3"
+ },
+ "bsb/ch05-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "eb614452211c8191",
+  "hash": "0893a0739cf752b7"
+ },
+ "bsb/ch05-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "282696bb26bbd037",
+  "hash": "8bf6e73bfc8c0c4e"
+ },
+ "bsb/ch05-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "19149766f2f060a3",
+  "hash": "bf558d68fc5003dd"
+ },
+ "bsb/ch05-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "21616f05ef2c2417",
+  "hash": "e01d2931151f3204"
+ },
+ "bsb/ch05-s3-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "10ece19de63e8ab0",
+  "hash": "119099c2a9d338f2"
+ },
+ "bsb/ch06-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e701779668e263c3",
+  "hash": "a2ceb668ff66c6ce"
+ },
+ "bsb/ch06-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d6ec7b4603c75de4",
+  "hash": "4afcab201dc844c0"
+ },
+ "bsb/ch06-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c6833d680ee56fab",
+  "hash": "b55e146a73b41b67"
+ },
+ "bsb/ch06-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e6d059ef3c53ec3c",
+  "hash": "8276f737d8bb6b92"
+ },
+ "bsb/ch06-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3337c79349c11a22",
+  "hash": "5abe06017c6a023c"
+ },
+ "bsb/ch06-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bba290334f75082e",
+  "hash": "57abd2b8b637ec4d"
+ },
+ "bsb/ch06-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "da309e328d80be3e",
+  "hash": "4874b6db2aa887e5"
+ },
+ "bsb/ch06-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7b3d4e43d00e160c",
+  "hash": "f77f4d9d63714187"
+ },
+ "bsb/ch07-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0ecbe78c34ad1b38",
+  "hash": "1563f17ebc41e7d4"
+ },
+ "bsb/ch07-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5df15005279603f6",
+  "hash": "60af77c25323d47f"
+ },
+ "bsb/ch07-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dc949e92953136fb",
+  "hash": "6591cc220aec9dd9"
+ },
+ "bsb/ch07-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "866ff1fb10df7649",
+  "hash": "cbf03563893d280d"
+ },
+ "bsb/ch07-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bbd9339c55e25cc5",
+  "hash": "305a142b9b3965ca"
+ },
+ "bsb/ch07-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "eaafc17b6404be36",
+  "hash": "72e9936eb0005269"
+ },
+ "bsb/ch07-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "06770719f8f7c582",
+  "hash": "bda61cbc451cd99e"
+ },
+ "bsb/ch07-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a95fdeef49067aae",
+  "hash": "e5e84ba3860acfbd"
+ },
+ "bsb/ch07-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d01f67138d7ff2f3",
+  "hash": "9b64661a79afe4b9"
+ },
+ "bsb/ch07-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "49e8a19601183d23",
+  "hash": "18097ff7eb22875d"
+ },
+ "bsb/ch07-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5c69fa939ef17e42",
+  "hash": "bb0c0b4537659b14"
+ },
+ "bsb/ch07-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7d3abbaa0a33eb3c",
+  "hash": "69de8e6ab5f6c40d"
+ },
+ "bsb/ch07-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0627576eea35cb9e",
+  "hash": "7074d25566792610"
+ },
+ "bsb/ch07-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b130395b9279619f",
+  "hash": "6bb70e8bb87a25ee"
+ },
+ "bsb/ch07-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0ec2a8f64707c9a7",
+  "hash": "c33d7ae1df4d3b9d"
+ },
+ "bsb/ch07-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "966fdb24c16b4ac9",
+  "hash": "36f7d954900da748"
+ },
+ "bsb/ch08-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d94556c66d09af37",
+  "hash": "c70da8b6b7a1ab46"
+ },
+ "bsb/ch08-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f1f51da0f42999c8",
+  "hash": "ef2ff40a8a5cdfd9"
+ },
+ "bsb/ch08-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0dbc6b7de330f30d",
+  "hash": "7a2180106cb63151"
+ },
+ "bsb/ch08-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e6410383a9eed615",
+  "hash": "5d823ac67fd72cbc"
+ },
+ "bsb/ch08-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1184f1aeef2bd7e9",
+  "hash": "ef9696bf01797c84"
+ },
+ "bsb/ch08-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7ff044ca04d22037",
+  "hash": "e2000f14cb23f348"
+ },
+ "bsb/ch09-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bd7905ebdefd9977",
+  "hash": "4a5aad30b08179ff"
+ },
+ "bsb/ch09-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "05cdc512ce251168",
+  "hash": "eb64d47fe5bedc12"
+ },
+ "bsb/ch09-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "94b0ef05e235a884",
+  "hash": "cd98e510abf05016"
+ },
+ "bsb/ch09-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "15851b94e9056475",
+  "hash": "cd162deada981c6c"
+ },
+ "bsb/ch09-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0e7aed3814e24bef",
+  "hash": "a7355af59fc2005b"
+ },
+ "bsb/ch10-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b29dd9dc1e4e3e57",
+  "hash": "722eab6e03252ae9"
+ },
+ "bsb/ch10-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "66cf11ae4d57af96",
+  "hash": "fdc9a306de280610"
+ },
+ "bsb/ch10-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "49d2672fb90e55df",
+  "hash": "0374fbd817b01d08"
+ },
+ "bsb/ch10-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8e445f1b970f5eb5",
+  "hash": "ec8f02ad09d32db0"
+ },
+ "bsb/ch10-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f079d98c4accd324",
+  "hash": "d4add75fa5221b06"
+ },
+ "bsb/ch10-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1c554301a23e0366",
+  "hash": "935f5122887cfd40"
+ },
+ "bsb/ch10-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f0d6449a1d390ddc",
+  "hash": "04d219e931b8df8b"
+ },
+ "bsb/ch10-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "99f91ea7951924e8",
+  "hash": "e843425b204e7797"
+ },
+ "bsb/ch10-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "89421f7c7e19b2e2",
+  "hash": "067421b273d1abb4"
+ },
+ "bsb/ch10-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "eac2a2e3c8f2d0dc",
+  "hash": "9963b6641e4d5ead"
+ },
+ "bsb/ch10-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3bae08fa6f8a87b4",
+  "hash": "a5285214e36eb237"
+ },
+ "bsb/ch10-s4-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a8933caebea287a9",
+  "hash": "6100ca7b048d191b"
+ },
+ "bsb/ch10-s4-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6620f696d57514a7",
+  "hash": "6ae231b8b72327d9"
+ },
+ "bsb/ch10-s4-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "093d0aa1f6588516",
+  "hash": "c952a283b63a3bfc"
+ },
+ "bsb/ch11-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "73bec036d2ca8eb6",
+  "hash": "1e8787c7ac5d988d"
+ },
+ "bsb/ch11-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7ea9cc0f9b12773c",
+  "hash": "604a4798ae6ecacc"
+ },
+ "bsb/ch11-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4f7ca1e0810e7276",
+  "hash": "923c0fc2ecf1aa0f"
+ },
+ "bsb/ch11-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9d81f2a2960cbd04",
+  "hash": "cf661a209e83e4ed"
+ },
+ "bsb/ch11-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2a1878de29d1eb67",
+  "hash": "d0383fe9eec64d73"
+ },
+ "bsb/ch11-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "312f617da74c280a",
+  "hash": "6e51020f988a5f6b"
+ },
+ "bsb/ch11-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7eb8676b6b7f8b05",
+  "hash": "5a0b16a7eee2e7a8"
+ },
+ "bsb/ch11-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7d7771a4cff34b0f",
+  "hash": "4631f687d11eb65a"
+ },
+ "bsb/ch11-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "328db4b3f6f14f6e",
+  "hash": "7cd2b63edfde4414"
+ },
+ "bsb/ch11-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "62f502123c26c76a",
+  "hash": "688cdff81117aae6"
+ },
+ "bsb/ch11-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2b1c2773463e4523",
+  "hash": "ad884db154844366"
+ },
+ "bsb/ch11-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "83953b2cac053db1",
+  "hash": "e7edd73c55f0c6b4"
+ },
+ "bsb/ch11-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "038b0ba6afa3a99b",
+  "hash": "3f8c9854b11317e5"
+ },
+ "bsb/ch11-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "33f4bbbde482a515",
+  "hash": "68d2fa5006ecf09e"
+ },
+ "bsb/ch11-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "51d885dd6bfd6abc",
+  "hash": "be98f5b4705184ef"
+ },
+ "bsb/ch11-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "33c928406c60ffcc",
+  "hash": "57b5ac9b6b779df0"
+ },
+ "bsb/ch12-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "65ceee5fb1c6a4a6",
+  "hash": "10bda0b2e6ea6d97"
+ },
+ "bsb/ch12-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f1d33c84d05ad870",
+  "hash": "2c33f54689dd1f63"
+ },
+ "bsb/ch12-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c1ad2dbe934ed2e6",
+  "hash": "664683f20b5e49fe"
+ },
+ "bsb/ch12-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2c7090fbb1300cda",
+  "hash": "9bb189ffa4c088f4"
+ },
+ "bsb/ch12-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ffdfcbb43ca06938",
+  "hash": "60514531cb5f9359"
+ },
+ "bsb/ch12-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9ed3955d5ce3d73c",
+  "hash": "5cbd4c8782a90304"
+ },
+ "bsb/ch12-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c913c4e555e71538",
+  "hash": "e4b22d566544d2ea"
+ },
+ "bsb/ch12-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0d696994c64bc339",
+  "hash": "f15867bc8a23c9bc"
+ },
+ "bsb/ch12-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "461f83a994e188dc",
+  "hash": "3284dea5884b6fae"
+ },
+ "bsb/ch12-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fe6377e52ceda823",
+  "hash": "f7905b8fee86a150"
+ },
+ "bsb/ch12-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "48ed2b6ab1885cae",
+  "hash": "d7f67d9b5e87d9c0"
+ },
+ "bsb/ch12-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e48155bda74ca922",
+  "hash": "2108793c88a69c02"
+ },
+ "bsb/ch12-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c6052d3ced66f942",
+  "hash": "60c0e1b2926e5c1b"
+ },
+ "bsb/ch12-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f2bbb5d4b8b59e67",
+  "hash": "e16f62a33babb9e5"
+ },
+ "bsb/ch12-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6a19c901ebfc6f48",
+  "hash": "3ea108238f8bc55c"
+ },
+ "bsb/ch12-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3b7e1ec55fd86afe",
+  "hash": "7a75ea06dc21aee2"
+ },
+ "bsb/ch12-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cd17d04d48ad21d9",
+  "hash": "f8b10c7d7999f477"
+ },
+ "bsb/ch13-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "59054ce7625f0fc1",
+  "hash": "c0e655afa6870a0a"
+ },
+ "bsb/ch13-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9e0dbd63104d3073",
+  "hash": "adb68057a61fff19"
+ },
+ "bsb/ch13-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6d8814ce42ed2041",
+  "hash": "1596be8ec0bff7d5"
+ },
+ "bsb/ch13-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2a69bc71b776b2ee",
+  "hash": "d188e432dbd2f1c6"
+ },
+ "bsb/ch13-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "482e0a5f32f8503f",
+  "hash": "cbc62cce2592775c"
+ },
+ "bsb/ch13-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "12c45538559ad706",
+  "hash": "8879b3e08cfa0ff1"
+ },
+ "bsb/ch13-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "62dcc478584869d4",
+  "hash": "a0484390b3ea045c"
+ },
+ "bsb/ch14-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f800830fe27917e8",
+  "hash": "00dec2e4fab87888"
+ },
+ "bsb/ch14-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d6b6b3d62d4fd9b1",
+  "hash": "7a8de06a963dbdc0"
+ },
+ "bsb/ch14-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5f561396f7a4fce2",
+  "hash": "20c6546b355a2476"
+ },
+ "bsb/ch14-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dcd9179570d62b19",
+  "hash": "4496401af357d4a1"
+ },
+ "bsb/ch14-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1bdfb9479071ac89",
+  "hash": "f44b21066d4e7e6a"
+ },
+ "bsb/ch14-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5c10a1db77d6c614",
+  "hash": "0f939245ef4ca888"
+ },
+ "bsb/ch14-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b8e0a3880ed6d5af",
+  "hash": "60bfc772732f170f"
+ },
+ "bsb/ch14-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7615b49178b6489b",
+  "hash": "d2cc63064285da0a"
+ },
+ "bsb/ch14-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "86c2647b673ea00f",
+  "hash": "10c02b7e219e0031"
+ },
+ "bsb/ch14-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "368720463ce320cb",
+  "hash": "6770cff350b99fd6"
+ },
+ "bsb/ch14-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b61d3c9be9b0b12c",
+  "hash": "c9d88081037e97d1"
+ },
+ "bsb/ch14-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1def2b77d7da384d",
+  "hash": "954250bc2f151de2"
+ },
+ "bsb/ch14-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b14b07a7b434929c",
+  "hash": "7ce6fec5c5fe35e3"
+ },
+ "bsb/ch14-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "974006f47e8e6562",
+  "hash": "a3c2850f6182db94"
+ },
+ "bsb/ch14-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "73c4b288a6dac75a",
+  "hash": "d636776189586df1"
+ },
+ "bsb/ch14-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b827044c70a8d544",
+  "hash": "162f196f1079a883"
+ },
+ "bsb/ch14-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3a0f1aa68835d133",
+  "hash": "c70ddcee8879aaf1"
+ },
+ "bsb/ch14-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b1b6bbf6d7f705e8",
+  "hash": "6554d27b4e40f14a"
+ },
+ "bsb/ch14-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bdfd70afa9fdc2c2",
+  "hash": "72fe95c6fe3ebdb8"
+ },
+ "bsb/ch14-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6cf22be0531fa907",
+  "hash": "62bcc89a8cd940e9"
+ },
+ "bsb/ch14-s2-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6ef68f6829d2fd48",
+  "hash": "d3376f566301961c"
+ },
+ "bsb/ch14-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3469639e77ba2291",
+  "hash": "a393b0506b481174"
+ },
+ "bsb/ch14-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b425b9bf85fa5561",
+  "hash": "ce6ff2c003c84584"
+ },
+ "bsb/ch15-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "53a8fb0ae6a38f86",
+  "hash": "5a8704387e048824"
+ },
+ "bsb/ch15-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1e6ce72edf9f8c4e",
+  "hash": "38396b7e8a425742"
+ },
+ "bsb/ch15-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "19bd36016ebbffb3",
+  "hash": "06c2783fcd0cf88c"
+ },
+ "bsb/ch15-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9f675f74236485e3",
+  "hash": "5c5c7bd6adcac7cd"
+ },
+ "bsb/ch15-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c98f37d2751e49ab",
+  "hash": "e465b735a151aef4"
+ },
+ "bsb/ch15-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6669333e28f86750",
+  "hash": "fc38d3d6b3ba1a60"
+ },
+ "bsb/ch15-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1fbc57a5c74965d5",
+  "hash": "a6af065e20a6b2cf"
+ },
+ "bsb/ch15-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b4e69b1b31acad29",
+  "hash": "49e86564b321489d"
+ },
+ "bsb/ch16-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "57493c4b2889b186",
+  "hash": "8d104f873780abe0"
+ },
+ "bsb/ch16-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f81cf04925b38520",
+  "hash": "9860817a8e16ee11"
+ },
+ "bsb/ch16-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6dda92f5d03157d4",
+  "hash": "e498832eecaa803a"
+ },
+ "bsb/ch16-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7601536427010a6d",
+  "hash": "757ac02735bd4d19"
+ },
+ "bsb/ch16-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1fe676c4fcd3bdd9",
+  "hash": "68a6bdeeaa97ce10"
+ },
+ "bsb/ch16-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b63669bf3538472a",
+  "hash": "7ae9b7fca530cf3e"
+ },
+ "bsb/ch16-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cbd502307f8d2b75",
+  "hash": "1f2d7f9699899265"
+ },
+ "bsb/ch16-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b97d0565928b1240",
+  "hash": "9f7c7e447056a7cd"
+ },
+ "bsb/ch16-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "98f9b7f9fc851d39",
+  "hash": "c6d2e46f2ffe4f89"
+ },
+ "bsb/ch17-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4fd42292ab2853f9",
+  "hash": "f40db64728dc9601"
+ },
+ "bsb/ch17-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "34b5acc921823763",
+  "hash": "38b74d587e74a7e5"
+ },
+ "bsb/ch17-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "abf552f24905a29d",
+  "hash": "1d8d0ee9298a3e2d"
+ },
+ "bsb/ch17-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0eb637c376ebfd55",
+  "hash": "a9607c7f675511f4"
+ },
+ "bsb/ch17-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8d7da7d6c42114f4",
+  "hash": "558471e12b85b037"
+ },
+ "bsb/ch18-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bdfa0b3126a28992",
+  "hash": "767f80a35a9d3839"
+ },
+ "bsb/ch18-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "24013d209e75084a",
+  "hash": "e567982df2a65e9e"
+ },
+ "bsb/ch18-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dc3056a945dc44b9",
+  "hash": "29cef21e6010b373"
+ },
+ "bsb/ch18-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7e2c420d583fefca",
+  "hash": "7265d08d3073b2da"
+ },
+ "bsb/ch18-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7eb0c112f2cc0ae1",
+  "hash": "6093c1c6bc5b1c11"
+ },
+ "bsb/ch18-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5ec9cb095510ddb5",
+  "hash": "9788d421e121c141"
+ },
+ "bsb/ch18-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cdbafa5857ca1054",
+  "hash": "cc180b4fdcbb11fa"
+ },
+ "bsb/ch18-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c536f5da70ffe651",
+  "hash": "695202868c77fb67"
+ },
+ "bsb/ch18-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "01cbb389b2699129",
+  "hash": "7af89df6cf9abcdd"
+ },
+ "bsb/ch18-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dc0a47bbae4122c7",
+  "hash": "84371611e0cbf4d2"
+ },
+ "bsb/ch18-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8a2161552f2780ed",
+  "hash": "d154e2a380ceadd3"
+ },
+ "bsb/ch18-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "aad3f41c026c2312",
+  "hash": "f0c96a707d633a2d"
+ },
+ "bsb/ch18-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6f6c4cb86becd580",
+  "hash": "a158fd75135768d9"
+ },
+ "bsb/ch18-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "41646b3f2bc3d1d8",
+  "hash": "0b58d60b88bf0f8e"
+ },
+ "bsb/ch18-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "814145d94e66dc01",
+  "hash": "80b4e80cf7157e72"
+ },
+ "bsb/ch18-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b0a303e26708806c",
+  "hash": "bc72c5562bf615ff"
+ },
+ "bsb/ch18-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "275c1b0f871ec47a",
+  "hash": "cc4b7764b59cdba2"
+ },
+ "bsb/ch18-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "56b85d188566a44a",
+  "hash": "563c1153447767c0"
+ },
+ "bsb/ch18-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a65964a1b16bcc5b",
+  "hash": "a3831ab387486d8a"
+ },
+ "bsb/ch18-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "937c330eddb52702",
+  "hash": "6d513836ebf37a23"
+ },
+ "bsb/ch18-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fa120da4811383cc",
+  "hash": "06aa984260b27e14"
+ },
+ "bsb/ch18-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "787bcc90f844d4a5",
+  "hash": "be106589e6ad246f"
+ },
+ "bsb/ch18-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "678fa1b25b97e6b2",
+  "hash": "1994e800bb6aab87"
+ },
+ "bsb/ch18-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "335811fabf1ed6ec",
+  "hash": "fef8d102b06da919"
+ },
+ "bsb/ch18-s3-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "74384ef50b54cad0",
+  "hash": "e508c321080b9432"
+ },
+ "bsb/ch18-s3-13.mp3": {
+  "engine": "kokoro",
+  "fileHash": "19fd818bbef2ac77",
+  "hash": "f5e80aff22573db0"
+ },
+ "bsb/ch18-s3-14.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c8f6461fe441b501",
+  "hash": "4f7c55214a55945e"
+ },
+ "bsb/ch19-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e73de600e25d3f11",
+  "hash": "ffbe329e4681e7cc"
+ },
+ "bsb/ch19-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3aa4b24ef1e43b88",
+  "hash": "e3f03a5eb57168ec"
+ },
+ "bsb/ch19-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "561947c4a6f02d37",
+  "hash": "6203c643b8a4ea47"
+ },
+ "bsb/ch19-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6e9440150f16bc3c",
+  "hash": "b26e9f418a3370af"
+ },
+ "bsb/ch19-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "aae2c10834973a95",
+  "hash": "b506764fe0980e89"
+ },
+ "bsb/ch19-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d153508be29632be",
+  "hash": "659227cdc552a8b7"
+ },
+ "bsb/ch19-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fd91037141dd8c9f",
+  "hash": "b1d6052ca3e2b3d7"
+ },
+ "bsb/ch20-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "354a11e1e2ee6227",
+  "hash": "d4a700c02905e2d0"
+ },
+ "bsb/ch20-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e1d2f687857b7f4e",
+  "hash": "13c6d04a0a535b17"
+ },
+ "bsb/ch20-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "95482159f6cb9774",
+  "hash": "e0946ddf74e0cd9e"
+ },
+ "bsb/ch20-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b7f7d26ab4745a41",
+  "hash": "b60d65f444c60219"
+ },
+ "bsb/ch20-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "17a5416a914b858d",
+  "hash": "4b8785a5cca1356c"
+ },
+ "bsb/ch20-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "be7976cb1674d40d",
+  "hash": "f3ec826bd30cfc76"
+ },
+ "bsb/ch20-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a77a9224f870fecc",
+  "hash": "c8f047f63253c2ae"
+ },
+ "bsb/ch20-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ed31f3530814623d",
+  "hash": "44c264fdcd38f64f"
+ },
+ "bsb/ch20-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c2bf5f9d30932c4a",
+  "hash": "e8bacf6d3a29f3d5"
+ },
+ "bsb/ch20-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b32e9ada1c80e735",
+  "hash": "435e56253cd5ef98"
+ },
+ "bsb/ch21-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7162f4055fe3706e",
+  "hash": "5ddd5a0fbfc81e45"
+ },
+ "bsb/ch21-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1be74664354a41e7",
+  "hash": "5bba0169b6dcd2e9"
+ },
+ "bsb/ch21-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5990ee55e207a6d0",
+  "hash": "3567ded3b1a75e4e"
+ },
+ "bsb/ch21-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0494b64dd0d3128d",
+  "hash": "d84930658c641430"
+ },
+ "bsb/ch21-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2f8ae2ca18155e2b",
+  "hash": "3c65564afe97972f"
+ },
+ "bsb/ch21-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "440abc0c43d80aa0",
+  "hash": "b1e18c188c023aa0"
+ },
+ "bsb/ch21-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1ad24dd21785b0d8",
+  "hash": "a577e7c0ded8de02"
+ },
+ "bsb/ch21-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "30263d0dcea9a6e1",
+  "hash": "76766d1eae038a07"
+ },
+ "bsb/ch21-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d18dc0ff9507b671",
+  "hash": "fec62357d65dce51"
+ },
+ "bsb/ch21-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "eab0cb45dd7b17c7",
+  "hash": "f2a49ab157c9606a"
+ },
+ "bsb/ch21-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8f2c204f906b6494",
+  "hash": "6aec31a4b64fd17e"
+ },
+ "bsb/ch21-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f4a23b2efe82c387",
+  "hash": "584038c5689cd0ae"
+ },
+ "bsb/ch21-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c9309004f9a05709",
+  "hash": "3ae19dc8ee6ad350"
+ },
+ "bsb/ch21-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "740cb268c49bb486",
+  "hash": "595093a89b92138c"
+ },
+ "bsb/ch21-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0bf85135bf020d67",
+  "hash": "4495bd99ebce6b5d"
+ },
+ "bsb/ch21-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "11ae461c1417d427",
+  "hash": "6919fd82ab4234bd"
+ },
+ "bsb/ch21-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9bdba367c3956f96",
+  "hash": "dbda217c7a7150ca"
+ },
+ "bsb/ch21-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d79c5102719d2d78",
+  "hash": "4a26a12e9177c13a"
+ },
+ "bsb/ch21-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fbaa629ca3b515b7",
+  "hash": "e397390d0324eebe"
+ },
+ "bsb/ch21-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b9f19b4f6df406ab",
+  "hash": "af5df23be77272c7"
+ },
+ "bsb/ch21-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8ffd66bb1cc2c759",
+  "hash": "5dcbb1999fc74547"
+ },
+ "bsb/ch22-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "00769bb6b048429e",
+  "hash": "99e87e8d3d240e55"
+ },
+ "bsb/ch22-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a39f991aa71bb20b",
+  "hash": "4a027e4d07935229"
+ },
+ "bsb/ch22-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "295bc16fae970c99",
+  "hash": "3cd3b28c47e8afd0"
+ },
+ "bsb/ch22-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cfe56e5b6b2576c9",
+  "hash": "157181b0adb067eb"
+ },
+ "bsb/ch22-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f42d5279ec59bb72",
+  "hash": "aeb59e294997311a"
+ },
+ "bsb/ch22-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ae9873847c4ad112",
+  "hash": "4b85ab56bb8958f3"
+ },
+ "bsb/ch22-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "125f295be1be7ea7",
+  "hash": "463af38e0122b619"
+ },
+ "bsb/ch22-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c8904f2e064ee58e",
+  "hash": "65b42ca0ca593248"
+ },
+ "bsb/ch22-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f8340824b24d19c2",
+  "hash": "8d601ba7161f0c08"
+ },
+ "bsb/ch22-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "45273a78dbf8ddd3",
+  "hash": "05159a62db4a062e"
+ },
+ "bsb/ch22-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8cdd3a421a6b11e7",
+  "hash": "a45611a8e3070f63"
+ },
+ "bsb/ch22-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4385d68a31e00f83",
+  "hash": "7ec1c56a706e7e29"
+ },
+ "bsb/ch22-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fc288a6ef80a08c8",
+  "hash": "e22c750a7be5a92c"
+ },
+ "bsb/ch22-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a8afc9588dcb3a9f",
+  "hash": "a804e67657c523cb"
+ },
+ "bsb/ch22-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a7955405103ee4ca",
+  "hash": "4ecfacf189850351"
+ },
+ "bsb/ch22-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9a7152cab4d176df",
+  "hash": "fa33055312b7ad09"
+ },
+ "bsb/ch22-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7ea08ea7d1961d6e",
+  "hash": "d9ae2cb618b45aa7"
+ },
+ "bsb/ch22-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0bbc311c958b22ce",
+  "hash": "389a43fe1c129b6d"
+ },
+ "bsb/ch22-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "19c1c5f76cdc6ce6",
+  "hash": "039ab0ecc6071d4b"
+ },
+ "bsb/ch23-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6568b4daa4cac01a",
+  "hash": "e15b14f1482cdc17"
+ },
+ "bsb/ch23-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "66acd1d75de2c311",
+  "hash": "5f1aa470bcbe7332"
+ },
+ "bsb/ch23-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d62baa753ffd386c",
+  "hash": "84b8bbbfadda31db"
+ },
+ "bsb/ch23-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "292d6586f3f68987",
+  "hash": "b4ae020135a2f471"
+ },
+ "bsb/ch23-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c4695bff740c7fe4",
+  "hash": "b7d7837b71885d8e"
+ },
+ "bsb/ch23-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "171b43304f5d8241",
+  "hash": "dbbbed5e1322303e"
+ },
+ "bsb/ch23-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "de42915fed5e16d1",
+  "hash": "34ec710d1a994d89"
+ },
+ "bsb/ch23-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bbde37535e931247",
+  "hash": "e1ba32fd33982ccd"
+ },
+ "bsb/ch23-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a8b5e831d45b0af1",
+  "hash": "a250b5f58f8ea76e"
+ },
+ "bsb/ch23-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9d01e3199d70d5f6",
+  "hash": "472a64d4ac0d95a7"
+ },
+ "bsb/ch23-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1f1a505c3360024c",
+  "hash": "698901df75a18a96"
+ },
+ "bsb/ch23-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c906f154b147e924",
+  "hash": "1d6d740d8380a1ce"
+ },
+ "bsb/ch23-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1f1a505c3360024c",
+  "hash": "698901df75a18a96"
+ },
+ "bsb/ch23-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "48a60d0f18e4c385",
+  "hash": "d68dfc16682e65d0"
+ },
+ "bsb/ch23-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b61ad400524af255",
+  "hash": "d0d5eb4bfbe10701"
+ },
+ "bsb/ch23-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "feb85738def64850",
+  "hash": "b22d06bc985a36e9"
+ },
+ "bsb/ch23-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "96bfb2f12b49aec8",
+  "hash": "d28e253493ed221d"
+ },
+ "bsb/ch23-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7bf1f6601054cd08",
+  "hash": "2b3bd904b35c205e"
+ },
+ "bsb/ch23-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b798be257f7647c9",
+  "hash": "201593ca12f29905"
+ },
+ "bsb/ch23-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3c882e6c14e1e08e",
+  "hash": "ff0c8d2263a456c1"
+ },
+ "bsb/ch23-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "da7bc8a56507718c",
+  "hash": "52125d7778bded15"
+ },
+ "bsb/ch23-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "949d2cf001e5a43e",
+  "hash": "02cd06787dfd17c0"
+ },
+ "bsb/ch23-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9cc4c862998f8de3",
+  "hash": "f8e1c7ea13edba62"
+ },
+ "bsb/ch23-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "373a8f84c3606f5a",
+  "hash": "751945ef2dd8a088"
+ },
+ "bsb/ch23-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "03fc2decb8ed8cbe",
+  "hash": "6a8e0b7ee586783d"
+ },
+ "bsb/ch23-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6c84183e682a1f6e",
+  "hash": "7d38585d694f081b"
+ },
+ "bsb/ch23-s3-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ac9ca8b267ab2b31",
+  "hash": "d055e536dec45e90"
+ },
+ "bsb/ch24-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e47af07fb40178df",
+  "hash": "e8eb79825cb61ed3"
+ },
+ "bsb/ch24-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3926779c8b24f1c1",
+  "hash": "c13b6a2e5b7e8b10"
+ },
+ "bsb/ch24-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "74a22b69f6a8e380",
+  "hash": "f4f49c8bf6623071"
+ },
+ "bsb/ch24-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e66b2e492fd031dc",
+  "hash": "ff9ef937dff0c233"
+ },
+ "bsb/ch24-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a8c8c73a97e06df6",
+  "hash": "0054debf0b11bcfe"
+ },
+ "bsb/ch24-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "34e29a051f30072c",
+  "hash": "3e72af5e1e6c77c0"
+ },
+ "bsb/ch24-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3f5f1e5742abc413",
+  "hash": "6a33082b7a221aa3"
+ },
+ "bsb/ch24-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d3959915ab2f592c",
+  "hash": "94ad53e938872b1b"
+ },
+ "bsb/ch24-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5117b5bcf0d2f1ca",
+  "hash": "0e8fa331a0c1f2d4"
+ },
+ "bsb/ch24-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5f7c967342a042cf",
+  "hash": "f84c6f4c2d4ae243"
+ },
+ "bsb/ch24-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "86e181bc6bfdff54",
+  "hash": "e5f27c3091dcc319"
+ },
+ "bsb/ch24-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "28b3699d92cfd7c0",
+  "hash": "b7def33baeda5fbb"
+ },
+ "bsb/ch24-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "91f83045b3a4f382",
+  "hash": "29fa90f48f894af2"
+ },
+ "bsb/ch24-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5942b7086e2a58a5",
+  "hash": "b1c81b2bafd23464"
+ },
+ "bsb/ch24-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a0c46100c8615efe",
+  "hash": "16a90798ed6ae115"
+ },
+ "bsb/ch24-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "069a55c21c240536",
+  "hash": "eedf4091283e78fa"
+ },
+ "bsb/ch24-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "57686775f2941cc0",
+  "hash": "09e498d20d7ce8df"
+ },
+ "bsb/ch24-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3b8d356bb0eb97b3",
+  "hash": "f368c7079a5f9356"
+ },
+ "bsb/ch24-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8de08863380bad0e",
+  "hash": "7af1ecf43d33fe61"
+ },
+ "bsb/ch24-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2ce851eb88823114",
+  "hash": "5b6a9bb8b448141f"
+ },
+ "bsb/ch24-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "20c40c31eced0355",
+  "hash": "c4be61a41f4e210f"
+ },
+ "bsb/ch24-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7e6f4fe356085625",
+  "hash": "c7049268e967994c"
+ },
+ "bsb/ch25-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6e498b96895a190a",
+  "hash": "ce18bdf74e73e353"
+ },
+ "bsb/ch25-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "03b5ddc9715e20d1",
+  "hash": "9e09197dc59a7163"
+ },
+ "bsb/ch25-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7502c31d462b6c68",
+  "hash": "b8abd50d1ecc2119"
+ },
+ "bsb/ch25-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3215030799fffcc2",
+  "hash": "6a8ffb5434df3e7c"
+ },
+ "bsb/ch25-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f4297eaab6247c48",
+  "hash": "85fc0ddd9d70162f"
+ },
+ "bsb/ch25-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4ccc60f99c661670",
+  "hash": "2fa237e3865cd9a1"
+ },
+ "bsb/ch25-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b5689e9566bef054",
+  "hash": "300b889caa753846"
+ },
+ "bsb/ch25-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fa3473a9dd2fce4a",
+  "hash": "41d5a8b43b0a7163"
+ },
+ "bsb/ch25-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b6aece1b2919f394",
+  "hash": "e125f10adbf158e8"
+ },
+ "bsb/ch25-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ffa14e04577a360c",
+  "hash": "59443a0e62fda20e"
+ },
+ "bsb/ch25-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "02db09fdfc486c6c",
+  "hash": "f397348f6a56dde6"
+ },
+ "bsb/ch25-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "949c37123409c9ba",
+  "hash": "02219bd4d9f61104"
+ },
+ "bsb/ch25-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9a1544a4ce7c695b",
+  "hash": "51e9eb1a37656b50"
+ },
+ "bsb/ch25-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "176568b6d4c8350b",
+  "hash": "365fc007cc0b7386"
+ },
+ "bsb/ch25-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5fc323b425390943",
+  "hash": "c62eb5caef83d5e9"
+ },
+ "bsb/ch26-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "269af75f790d76f4",
+  "hash": "c139d4a369dd27c0"
+ },
+ "bsb/ch26-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "368179a577f9cf30",
+  "hash": "b915c31ce5ee495d"
+ },
+ "bsb/ch26-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6037ba4b6af10232",
+  "hash": "786e3b95a9290efe"
+ },
+ "bsb/ch26-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "413443e49acd67fb",
+  "hash": "e6ef77e0c48bb419"
+ },
+ "bsb/ch26-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "64b056da2d2bda19",
+  "hash": "7086a0d4eedc4d19"
+ },
+ "bsb/ch26-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "87362391900a9a1c",
+  "hash": "270797178249b91e"
+ },
+ "bsb/ch26-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "379992e4c305585e",
+  "hash": "3b1866e2608f365b"
+ },
+ "bsb/ch26-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c02a636deb28593c",
+  "hash": "8ac99bbf81c8a975"
+ },
+ "bsb/ch26-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7aa22d884ff6c933",
+  "hash": "e3c3a709381ec1c0"
+ },
+ "bsb/ch26-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ac9006f5f4953cb8",
+  "hash": "369e2a678fd5626b"
+ },
+ "bsb/ch26-s1-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "355cd0cef0b20ace",
+  "hash": "acecfdc64b03cbd3"
+ },
+ "bsb/ch26-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c9509c6eff36d8dd",
+  "hash": "16276b317bfebcf4"
+ },
+ "bsb/ch26-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "766500dc157a7bdf",
+  "hash": "e6472755d34aa9c7"
+ },
+ "bsb/ch26-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "da58cf90c20086ba",
+  "hash": "a76e3b5fa704099d"
+ },
+ "bsb/ch26-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fb08a4fc2011b2d3",
+  "hash": "192761849e3c5c89"
+ },
+ "bsb/ch26-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "31a2e089f578bf49",
+  "hash": "ddb3078ea337824d"
+ },
+ "bsb/ch26-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d21b522a38803ccb",
+  "hash": "c206e80c1c320b31"
+ },
+ "bsb/ch26-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b154e0502bad5a78",
+  "hash": "972f9614c79d0eb4"
+ },
+ "bsb/ch26-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d98bae64ea2ce57b",
+  "hash": "e90b76c61625e6ba"
+ },
+ "bsb/ch26-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "61de1f0430585d6f",
+  "hash": "422713a3810c3525"
+ },
+ "bsb/ch26-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e067f22adf0c1bb3",
+  "hash": "c88be2584555501b"
+ },
+ "bsb/ch26-s2-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d73327900d13d2e8",
+  "hash": "e77be359bdae1822"
+ },
+ "bsb/ch26-s2-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9f056cfa9299545b",
+  "hash": "2cb013168847ac8b"
+ },
+ "bsb/ch27-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2059e6de813d1a98",
+  "hash": "687cd093eaf52a2e"
+ },
+ "bsb/ch27-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f015d7b738bd29cb",
+  "hash": "b17d8b16ec79a531"
+ },
+ "bsb/ch27-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3f93fca08c3ed1c5",
+  "hash": "26a239bf6adbf137"
+ },
+ "bsb/ch27-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2529b3443c4904c7",
+  "hash": "5b60411a6a506f99"
+ },
+ "bsb/ch27-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a62fbdafefcb3d68",
+  "hash": "73dca1ba303386ca"
+ },
+ "bsb/ch27-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ad3c37b0d39efb1c",
+  "hash": "a0f8f50e4b193f96"
+ },
+ "bsb/ch27-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "57ebc6b7c572eabe",
+  "hash": "a4ac2c9a2ec47343"
+ },
+ "bsb/ch27-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4993be99c0431f23",
+  "hash": "55bf2ec13fbc93f6"
+ },
+ "bsb/ch27-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0a38cd7ebb063dd2",
+  "hash": "0a94b958288c2284"
+ },
+ "bsb/ch27-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bece1d926983db31",
+  "hash": "5f2055afe654aae6"
+ },
+ "bsb/ch27-s1-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a4f32ec5b6d01ba7",
+  "hash": "cfbcf006ea0d33e0"
+ },
+ "bsb/ch27-s1-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c5f29e635d42fafc",
+  "hash": "000563c7725438ae"
+ },
+ "bsb/ch27-s1-13.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1651d47a8566c951",
+  "hash": "ca85b8e2254f83b5"
+ },
+ "bsb/ch27-s1-14.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a29f93a61224f6e5",
+  "hash": "4e070edcd4124bdf"
+ },
+ "bsb/ch27-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6addabf820e979a3",
+  "hash": "b6586a5c3dae29ef"
+ },
+ "bsb/ch27-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7b053a30625e9952",
+  "hash": "e5cce780846057af"
+ },
+ "bsb/ch27-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "46bb08fdfcb820b6",
+  "hash": "6fdb470610796cc5"
+ },
+ "bsb/ch27-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3ffc3f7bfeb5ef88",
+  "hash": "9e27dc45bdae51f4"
+ },
+ "bsb/ch27-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7b053a30625e9952",
+  "hash": "e5cce780846057af"
+ },
+ "bsb/ch27-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bd685e6bde108caa",
+  "hash": "ed0878abd5f303a4"
+ },
+ "bsb/ch27-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3ffc3f7bfeb5ef88",
+  "hash": "9e27dc45bdae51f4"
+ },
+ "bsb/ch27-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8ee267e6833964f7",
+  "hash": "1e7d20ad30f01eb8"
+ },
+ "bsb/ch27-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d9b40ff09afd95b8",
+  "hash": "f68f439517038677"
+ },
+ "bsb/ch27-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "27cbb83c91d519ee",
+  "hash": "effaf1f35eea701f"
+ },
+ "bsb/ch28-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "19c0bebfce8feca7",
+  "hash": "11a5075291f0f748"
+ },
+ "bsb/ch28-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d820b4a64ff665fd",
+  "hash": "34199ae5f13fcb64"
+ },
+ "bsb/ch28-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a4dc61e91fb71149",
+  "hash": "d0b25950493a9b77"
+ },
+ "bsb/ch28-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "087b7ab0cd248ad7",
+  "hash": "7a4f86cb6fb56d72"
+ },
+ "bsb/ch28-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "95c569f9000acf9e",
+  "hash": "02ccdb7a721bb1ef"
+ },
+ "bsb/ch28-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7c34edee9291c3e7",
+  "hash": "aef0e06b3d82db44"
+ },
+ "ch01-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dbdece4f78ac26f0",
+  "hash": "f2b4e9c0e2863cfc"
+ },
+ "ch01-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a39be329c21046f8",
+  "hash": "98a3c4eabdd06bc1"
+ },
+ "ch02-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b4c47346551d90a6",
+  "hash": "2ed8b7458e07a5e4"
+ },
+ "ch02-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8e8acf48dce18a0b",
+  "hash": "f2a77e9079422320"
+ },
+ "ch02-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "79b3f77f18571ae5",
+  "hash": "2b613a0761ac6a45"
+ },
+ "ch02-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "37c92a1c06c3a1b3",
+  "hash": "25cd8f4b7c9d64a9"
+ },
+ "ch03-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5f95fa406120652b",
+  "hash": "2acc8d203794b4a9"
+ },
+ "ch03-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6d8a7c372f98dacc",
+  "hash": "37c4492645cad586"
+ },
+ "ch03-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "adeaf8ad9a02255b",
+  "hash": "f1bba5529c427430"
+ },
+ "ch03-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b18128ae0861cee7",
+  "hash": "acdb7355ae292c04"
+ },
+ "ch03-s4-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1165697ff89a8897",
+  "hash": "6ae900556e572267"
+ },
+ "ch04-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c73da04aa1843cfd",
+  "hash": "d76815c968ad3689"
+ },
+ "ch05-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3f88f401be6e47c6",
+  "hash": "3b1fca94f652e93a"
+ },
+ "ch05-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b26c86b9581deb44",
+  "hash": "45747bfb54930ade"
+ },
+ "ch05-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e744c26bd9ccf055",
+  "hash": "0a1dc52badbc45f6"
+ },
+ "ch06-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ebc6eced220ddd65",
+  "hash": "5dd5c71ea465b46f"
+ },
+ "ch06-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1031d0427a2f8db3",
+  "hash": "20feabe4bb052f8d"
+ },
+ "ch07-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "50f99f790710e6ea",
+  "hash": "7d64234d2b62034e"
+ },
+ "ch07-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "44f77d7b5cb7da6c",
+  "hash": "ff0e9fc6ceea26aa"
+ },
+ "ch08-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "705736ba69701102",
+  "hash": "12424e874736c4c4"
+ },
+ "ch08-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ebbd0272bb94416a",
+  "hash": "32b465237b3aba42"
+ },
+ "ch09-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "aed090cfa2793356",
+  "hash": "37e22bba6cfe7be9"
+ },
+ "ch09-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8c0505986121e1bf",
+  "hash": "c28544a68e15921f"
+ },
+ "ch10-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b55a2ee62a1ce03e",
+  "hash": "bfb25c19dce3d52d"
+ },
+ "ch11-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c39683e7a5aa2956",
+  "hash": "1c587f917119a899"
+ },
+ "ch11-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "57a719a7785c96c5",
+  "hash": "12fd0a02db0519f7"
+ },
+ "ch11-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2c20c52e46aaa2ff",
+  "hash": "1f4ae6404ae0e5f0"
+ },
+ "ch11-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e06b0d226b986654",
+  "hash": "9f100893b0d1fbe6"
+ },
+ "ch14-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8c66f245d3841365",
+  "hash": "48fa662f47857433"
+ },
+ "ch16-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ee9bc6dd2306b350",
+  "hash": "22d8d7495bce521b"
+ },
+ "ch17-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b7de7051fd13ab21",
+  "hash": "f6f7166e4dae2647"
+ },
+ "ch18-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6464a364853534f3",
+  "hash": "da314d16374c9184"
+ },
+ "ch20-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3a437bc20aa20ff2",
+  "hash": "fd31681c85ea9826"
+ },
+ "ch20-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5b4df73a4ad21302",
+  "hash": "f95bd363f61af272"
+ },
+ "ch20-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9604c2764055379c",
+  "hash": "b62f414308249fbc"
+ },
+ "ch21-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f117a6a95801a2b0",
+  "hash": "bd4374e4a4f386ff"
+ },
+ "ch21-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "17e46ac40e6be6fa",
+  "hash": "d0a3fa568282951b"
+ },
+ "ch21-s3-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "29092117d49d8158",
+  "hash": "65ae393e71895918"
+ },
+ "ch22-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0c261b43ce8a04a5",
+  "hash": "bf68dcc8f4fc6559"
+ },
+ "ch23-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "095236951aed378f",
+  "hash": "fcdfc1ab0f2af274"
+ },
+ "ch23-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0e346e24b3bf2f8a",
+  "hash": "1c43f39dff3abe35"
+ },
+ "ch24-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b8a5e7002c4ae737",
+  "hash": "7d8e4190282f2cb1"
+ },
+ "ch24-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "af4156233b8e38eb",
+  "hash": "fe9d8d06869e87d5"
+ },
+ "ch24-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8bb44951bba7ed95",
+  "hash": "0052f4a695708b52"
+ },
+ "ch25-s1-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5407736b3b5e0a94",
+  "hash": "dc0b11c44400c5ac"
+ },
+ "ch26-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ef278379ac12b848",
+  "hash": "4cbb00832f0a5b72"
+ },
+ "ch27-s2-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c7386682d6344c9f",
+  "hash": "fdfceb1b62348880"
+ },
+ "ch28-s2-note.mp3": {
+  "engine": "kokoro",
+  "fileHash": "74a5224797882c9e",
+  "hash": "73fe6365ce43b736"
+ },
+ "kjv/ch01-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d4cab26ed472f18b",
+  "hash": "f8acf84e84f79f2f"
+ },
+ "kjv/ch01-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ca34c06fa590a4a7",
+  "hash": "1e8aa735294ed88d"
+ },
+ "kjv/ch01-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "39891cbb72e8fbe5",
+  "hash": "aa58bfeeeaa34906"
+ },
+ "kjv/ch01-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fb8788e535ceaf49",
+  "hash": "6b92ad350293b6b2"
+ },
+ "kjv/ch01-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "66a2ff88dd5f8f50",
+  "hash": "67a573b909d537ba"
+ },
+ "kjv/ch01-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2f29ffadde547528",
+  "hash": "ee0719fd2b077332"
+ },
+ "kjv/ch01-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7388da4794c29e2d",
+  "hash": "ec87353c3f0e76cc"
+ },
+ "kjv/ch01-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "005806eb0a120530",
+  "hash": "830e8a677fe3e10c"
+ },
+ "kjv/ch01-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a95775e74bbc043f",
+  "hash": "2b41ec242363c15e"
+ },
+ "kjv/ch02-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "859b780b290c32b7",
+  "hash": "a92038f86efc7363"
+ },
+ "kjv/ch02-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ac01a5781de30b27",
+  "hash": "327139e37d94f73d"
+ },
+ "kjv/ch02-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "57453364ed1e55dc",
+  "hash": "ef03da9677e4a0aa"
+ },
+ "kjv/ch02-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a35d3dacb8e973f8",
+  "hash": "db757f191041d550"
+ },
+ "kjv/ch02-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "96dee71552c12b80",
+  "hash": "3fe8b83a28a43e85"
+ },
+ "kjv/ch02-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3fb84e040a697055",
+  "hash": "ddea39fc2d792482"
+ },
+ "kjv/ch02-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "08e53327b8f3a6c3",
+  "hash": "e0bf47bb23d18f24"
+ },
+ "kjv/ch02-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bd90af9056ddbc54",
+  "hash": "cddf01a408a717e3"
+ },
+ "kjv/ch02-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c3559b4929a5cca1",
+  "hash": "0fd9f5810e5ca14d"
+ },
+ "kjv/ch02-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "25449e40a8b1c9a2",
+  "hash": "b39c3fa4bca810fd"
+ },
+ "kjv/ch03-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6eb88ce1c68e6bbe",
+  "hash": "69d43fa2e1c60ad6"
+ },
+ "kjv/ch03-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "08b11696dc8d7ae1",
+  "hash": "65b9c55994f8a55b"
+ },
+ "kjv/ch03-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ffff557ceae87e61",
+  "hash": "f039c46bb7b20f9b"
+ },
+ "kjv/ch03-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "397471ec831de79c",
+  "hash": "de5a1794327c9b5a"
+ },
+ "kjv/ch03-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "97d16b97ca3f0153",
+  "hash": "b042a16d9a06b3e4"
+ },
+ "kjv/ch03-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "806fb6d99a044df6",
+  "hash": "d349ecb17fdd4e53"
+ },
+ "kjv/ch03-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9a742c1cd9e07210",
+  "hash": "1b818d12dfb0f40f"
+ },
+ "kjv/ch03-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "acb385f77c00b9cb",
+  "hash": "b6edbbff4d0a0d62"
+ },
+ "kjv/ch03-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4dd84254e1e69760",
+  "hash": "fb042f4725a5af88"
+ },
+ "kjv/ch03-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7a5b58b4c38f9c24",
+  "hash": "e6698e0355ee2cd0"
+ },
+ "kjv/ch03-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2d7cd1fa1f08c1c8",
+  "hash": "a231ec44e3055c19"
+ },
+ "kjv/ch03-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f7a195ec2609bce2",
+  "hash": "b9a67891e592fa11"
+ },
+ "kjv/ch03-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "da887a51f8fa0ad2",
+  "hash": "eddc102de32dbb8b"
+ },
+ "kjv/ch03-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0aa2bdeaebb5f554",
+  "hash": "fc5195182ff94f9e"
+ },
+ "kjv/ch03-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ea46ac10558aa772",
+  "hash": "6fca2fc518dcff3f"
+ },
+ "kjv/ch03-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "75797a3cc5887c14",
+  "hash": "7aa3f239ebe70a0c"
+ },
+ "kjv/ch03-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a276f5b8bce831a8",
+  "hash": "c8c6a0db7ec2b709"
+ },
+ "kjv/ch03-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e1007127607839cd",
+  "hash": "6cc3728f7328c8a9"
+ },
+ "kjv/ch03-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "99e0e68e1673237b",
+  "hash": "82f603d47ddbcae7"
+ },
+ "kjv/ch03-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4e1fceeccb66ffd5",
+  "hash": "4f7f6de3ec55c9b1"
+ },
+ "kjv/ch03-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5a95cc6b8ca6bdb6",
+  "hash": "a3e55da2ea6e0190"
+ },
+ "kjv/ch03-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "697abfc9c52fbb19",
+  "hash": "c35071184f127844"
+ },
+ "kjv/ch04-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d35ea5d27f15d7a5",
+  "hash": "42d0dc944d453bbb"
+ },
+ "kjv/ch04-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "14ac5a4b4ea0692d",
+  "hash": "f533f2e6661b5072"
+ },
+ "kjv/ch04-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3df2cff26425f95b",
+  "hash": "404bad2fe809cebd"
+ },
+ "kjv/ch04-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ec7150c5ad522510",
+  "hash": "39ed7f52b3eb049f"
+ },
+ "kjv/ch04-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4504058dc1adaf78",
+  "hash": "4be6203c08a5e9f9"
+ },
+ "kjv/ch04-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ef448b07861085de",
+  "hash": "be3df355d2bab55e"
+ },
+ "kjv/ch04-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1b662b823c697312",
+  "hash": "cf5da90c1aa06658"
+ },
+ "kjv/ch04-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "938641981436ea70",
+  "hash": "d1fd3e4e63ff0c3b"
+ },
+ "kjv/ch04-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dad78f6554adaccc",
+  "hash": "8e3050368ba17b2f"
+ },
+ "kjv/ch04-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dfc688cfe6bd5a09",
+  "hash": "43b4e04a7a112509"
+ },
+ "kjv/ch04-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c5fb23c8c04540a5",
+  "hash": "7d8ff525491a0cf5"
+ },
+ "kjv/ch05-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "50e94abd7bd538fe",
+  "hash": "28b6f1d97afb69f4"
+ },
+ "kjv/ch05-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4c4966345cd3a2ef",
+  "hash": "5b8cc6555be02186"
+ },
+ "kjv/ch05-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8656f5ad60d3eb6c",
+  "hash": "aab3a8d5593c41fc"
+ },
+ "kjv/ch05-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "af588fb362b554fa",
+  "hash": "72b0b292eca4c569"
+ },
+ "kjv/ch05-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9b70d1996539a108",
+  "hash": "a0d3da9080786b6b"
+ },
+ "kjv/ch05-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5bb9a7f1144b478c",
+  "hash": "68a06662aba8f0ef"
+ },
+ "kjv/ch05-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "65238a3016ddb62b",
+  "hash": "eb78ce3804a8acf7"
+ },
+ "kjv/ch05-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "00e174ca2ee995ef",
+  "hash": "07f2e3b0dee4c466"
+ },
+ "kjv/ch05-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d76601469271367c",
+  "hash": "9d7022a018cffc8c"
+ },
+ "kjv/ch05-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "de1f0f5390d0a187",
+  "hash": "7d710a56710cfa45"
+ },
+ "kjv/ch05-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d298ac0b13549b8b",
+  "hash": "1db790d2fe6ea243"
+ },
+ "kjv/ch05-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5468460f7a32161e",
+  "hash": "42fd14cd93ee747a"
+ },
+ "kjv/ch05-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "024dcd7a66584730",
+  "hash": "61a62900447f5afc"
+ },
+ "kjv/ch05-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3aeb1c496fb7cf65",
+  "hash": "db0fa4039ae36edf"
+ },
+ "kjv/ch05-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f4ba03a18e50a659",
+  "hash": "963ba1230c46d816"
+ },
+ "kjv/ch05-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6caf53cbb58773fe",
+  "hash": "aef709ee98aab7f2"
+ },
+ "kjv/ch05-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0ba20b5a7852b1a4",
+  "hash": "908607691714c5e3"
+ },
+ "kjv/ch05-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d54a6b6a6c6c9fc6",
+  "hash": "146ac4f045e8ce3a"
+ },
+ "kjv/ch05-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "79c5b0c1fa61f756",
+  "hash": "909224d8bb05676c"
+ },
+ "kjv/ch05-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "52d9cdf056f962bd",
+  "hash": "c8dd731209dc8858"
+ },
+ "kjv/ch05-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "306021250cdade18",
+  "hash": "028db57898a822d0"
+ },
+ "kjv/ch05-s3-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "250d1f52f247e736",
+  "hash": "3b3df86e3ce476d9"
+ },
+ "kjv/ch06-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "974711cced07813d",
+  "hash": "458162dda9c1dc45"
+ },
+ "kjv/ch06-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "288cc77b5cb4081d",
+  "hash": "bb3c09b155bf29bc"
+ },
+ "kjv/ch06-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b90bbed0a426fd58",
+  "hash": "ed83c50c184ca59c"
+ },
+ "kjv/ch06-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7aae727559b78011",
+  "hash": "dfed8d6a0cffe7cc"
+ },
+ "kjv/ch06-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "17ea5d1fad976381",
+  "hash": "dea73c42e14577b8"
+ },
+ "kjv/ch06-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f62aec39b898cbe2",
+  "hash": "9803337e666381ef"
+ },
+ "kjv/ch06-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1232b42eba379765",
+  "hash": "b1b9ed3e82536d5e"
+ },
+ "kjv/ch06-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b53ddbf1d8cd593b",
+  "hash": "327cd5b3fae8cb1e"
+ },
+ "kjv/ch07-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "212702defa062d9c",
+  "hash": "efdab971c0a5269f"
+ },
+ "kjv/ch07-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "df3331d155f7e7c6",
+  "hash": "4fc258b03f0b546e"
+ },
+ "kjv/ch07-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "51e04bb1c59c9801",
+  "hash": "11ca5448f9e8115f"
+ },
+ "kjv/ch07-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "65a3ba0ae23f684d",
+  "hash": "bde5f33f6894a39c"
+ },
+ "kjv/ch07-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d9e04574d0c28d37",
+  "hash": "d5a9f5ebfb48de25"
+ },
+ "kjv/ch07-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "caf7a1e9647a6d8a",
+  "hash": "fdbc4c4d11849dd3"
+ },
+ "kjv/ch07-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9d323bdd9cae0aae",
+  "hash": "282e5db5b129ac03"
+ },
+ "kjv/ch07-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9c1e4f26697a7961",
+  "hash": "92c33fa797d17053"
+ },
+ "kjv/ch07-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ad330518c68e0858",
+  "hash": "9577f6f86c881db4"
+ },
+ "kjv/ch07-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "97aa687d8584cf35",
+  "hash": "defcc750ae75d6b6"
+ },
+ "kjv/ch07-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0c19c5ebe6fedc76",
+  "hash": "ed6f700fd3fb0ae3"
+ },
+ "kjv/ch07-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f24941f2c3d63a61",
+  "hash": "b76dd81a8cb696df"
+ },
+ "kjv/ch07-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cd0276742b6e7c93",
+  "hash": "2b3f156073bac3d0"
+ },
+ "kjv/ch07-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3dd8a111d1cebcdd",
+  "hash": "9fc124938b1969c7"
+ },
+ "kjv/ch07-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e505406adcca93b5",
+  "hash": "86a6c3cadb1567db"
+ },
+ "kjv/ch07-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "56f63ba8fdc16b26",
+  "hash": "87bbaae52f9a091b"
+ },
+ "kjv/ch08-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "97c4e355fe7786a0",
+  "hash": "99f4160e800e7528"
+ },
+ "kjv/ch08-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "da887a51f8fa0ad2",
+  "hash": "eddc102de32dbb8b"
+ },
+ "kjv/ch08-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "672179fb591e62bb",
+  "hash": "4185be09d2bf04c7"
+ },
+ "kjv/ch08-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "92dba4a0ae8c36fa",
+  "hash": "48b260923765361c"
+ },
+ "kjv/ch08-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b5b8c5a39437a779",
+  "hash": "508650dc9d15338e"
+ },
+ "kjv/ch08-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e35ca23f556e6468",
+  "hash": "7a20723821de4c43"
+ },
+ "kjv/ch09-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1a3e896956df4359",
+  "hash": "45aceaea520fd685"
+ },
+ "kjv/ch09-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c0792a687cb36b9d",
+  "hash": "314c9b6d0c4b814e"
+ },
+ "kjv/ch09-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "37e993cdf6867b06",
+  "hash": "337cd14e38c7ccaf"
+ },
+ "kjv/ch09-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "563cd2ed1eb96b91",
+  "hash": "34baff67a9c55a19"
+ },
+ "kjv/ch09-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6c563f946007fe3a",
+  "hash": "2598ce690c4672bf"
+ },
+ "kjv/ch10-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7f443646d7e057fb",
+  "hash": "eb0916cc375cc609"
+ },
+ "kjv/ch10-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "50035105c5aeb974",
+  "hash": "e2a24633aca717fe"
+ },
+ "kjv/ch10-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b7a13db36c1ec042",
+  "hash": "7f6553ce3b03cde3"
+ },
+ "kjv/ch10-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d62562a3e4b3c588",
+  "hash": "b8c16461897ac084"
+ },
+ "kjv/ch10-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "44f76b7800fba789",
+  "hash": "743ac268c54973bc"
+ },
+ "kjv/ch10-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c0b00156594843d0",
+  "hash": "f58f6a055edfbb2f"
+ },
+ "kjv/ch10-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "16d8b984f39a0d6c",
+  "hash": "ef20a8470b0c76e8"
+ },
+ "kjv/ch10-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "99dc5454bbe60752",
+  "hash": "d3f2eb07a0fc4bb0"
+ },
+ "kjv/ch10-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b4c0457b90aa2409",
+  "hash": "480a8ba5c77e2f77"
+ },
+ "kjv/ch10-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7f4a34075ed9ec28",
+  "hash": "acae7828474e8e38"
+ },
+ "kjv/ch10-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "16892005dcb39757",
+  "hash": "71b8a4e06ba9ee19"
+ },
+ "kjv/ch10-s4-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "339967a5d155bbbb",
+  "hash": "6a66ff0f03ec8a7e"
+ },
+ "kjv/ch10-s4-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c4aa32e6da251948",
+  "hash": "db2855412428fe08"
+ },
+ "kjv/ch10-s4-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1a0e62bdca988f40",
+  "hash": "80bf70b7f75183a0"
+ },
+ "kjv/ch11-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f1c037869ac75331",
+  "hash": "44b3f316e3e9ddde"
+ },
+ "kjv/ch11-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d618ea81f18ac56b",
+  "hash": "fa5fe795aef44f85"
+ },
+ "kjv/ch11-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "abf6d20a64125e41",
+  "hash": "f98ab69ef520bc94"
+ },
+ "kjv/ch11-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e0478bf097be77b4",
+  "hash": "a73521302fa9027f"
+ },
+ "kjv/ch11-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9a52e81ab3c5a4c5",
+  "hash": "517a1d727943827f"
+ },
+ "kjv/ch11-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6e3e8e214c4e0330",
+  "hash": "2cb11a975a482156"
+ },
+ "kjv/ch11-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a61868dca29d1b22",
+  "hash": "d138a78e16c83d42"
+ },
+ "kjv/ch11-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3cba352683a9b070",
+  "hash": "ad11b5ae7edcfc89"
+ },
+ "kjv/ch11-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fb13a3860c65d9aa",
+  "hash": "7d7c8768c1794977"
+ },
+ "kjv/ch11-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5b29f96c06dec042",
+  "hash": "ea288d362688ca01"
+ },
+ "kjv/ch11-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2b956b144596b8c4",
+  "hash": "4a03beb379769f1b"
+ },
+ "kjv/ch11-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "268a321cc8385543",
+  "hash": "f5a1a98a13bab97c"
+ },
+ "kjv/ch11-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "667c93e813602b0d",
+  "hash": "d57c5b919e1b1cc0"
+ },
+ "kjv/ch11-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3c3a5952d1f41dec",
+  "hash": "2a21f707db9a38b1"
+ },
+ "kjv/ch11-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bbe88d745ce3d67c",
+  "hash": "0278479b3a4a2f9f"
+ },
+ "kjv/ch11-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f8abaf2adec2dc30",
+  "hash": "7b7d70f81da39806"
+ },
+ "kjv/ch12-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2da2519e5dd3b562",
+  "hash": "a018013d5f375ad2"
+ },
+ "kjv/ch12-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a710c06441cff34d",
+  "hash": "cc607379fab71c5f"
+ },
+ "kjv/ch12-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bcfd5194973b8391",
+  "hash": "d691d1fed3b9384d"
+ },
+ "kjv/ch12-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7036e30672d35393",
+  "hash": "15d5758e4b82eaeb"
+ },
+ "kjv/ch12-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5160dfcf2513e40f",
+  "hash": "67e7242b7a7cc7a4"
+ },
+ "kjv/ch12-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "44b107ad87519e06",
+  "hash": "15addd95bec7f37e"
+ },
+ "kjv/ch12-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2837e158ebb31f90",
+  "hash": "9a456666f807608e"
+ },
+ "kjv/ch12-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "efa9f511d9c8a8f7",
+  "hash": "2f4ee98b3d78e6a2"
+ },
+ "kjv/ch12-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "83e25e9c3dacfbeb",
+  "hash": "d0e0038582642a60"
+ },
+ "kjv/ch12-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e704f7729445d374",
+  "hash": "73a1253647c8b5dc"
+ },
+ "kjv/ch12-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c10ef26fcc494246",
+  "hash": "258a4441a8e66191"
+ },
+ "kjv/ch12-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "05ac61d065c42fb2",
+  "hash": "debdbb55e92ef72d"
+ },
+ "kjv/ch12-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "311dd24ac3d5ab89",
+  "hash": "c6a30432844247af"
+ },
+ "kjv/ch12-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1e29d846cfdb8b73",
+  "hash": "c1a3baac1b093623"
+ },
+ "kjv/ch12-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ab0204d44351a516",
+  "hash": "d67786022aebfdde"
+ },
+ "kjv/ch12-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "96ae598f6a63eb1d",
+  "hash": "09e76556a0de110f"
+ },
+ "kjv/ch12-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "53d32d208dbcb36b",
+  "hash": "9c611dc0e64b3725"
+ },
+ "kjv/ch13-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "093ebc3c0aca105f",
+  "hash": "2153fc2eaca43e1a"
+ },
+ "kjv/ch13-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1387ac4dce9dcb19",
+  "hash": "fc26a8dc96957a66"
+ },
+ "kjv/ch13-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cccdc50134f1a4ae",
+  "hash": "ea59a3dcd86ee153"
+ },
+ "kjv/ch13-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "debcd6658ad03b4a",
+  "hash": "70c1a4bfe40f3f00"
+ },
+ "kjv/ch13-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7735b6958ceda263",
+  "hash": "9cc43b844d4a2b6d"
+ },
+ "kjv/ch13-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "37ee59c8ba4b2243",
+  "hash": "1e33822c5e4ac435"
+ },
+ "kjv/ch13-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b4d122942d6dc1c7",
+  "hash": "54665c5e5990691b"
+ },
+ "kjv/ch14-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "361d98e9dd8d415e",
+  "hash": "17963a38a0bdca7d"
+ },
+ "kjv/ch14-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7046efde79621617",
+  "hash": "52427634edca4e86"
+ },
+ "kjv/ch14-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "db44628923e66e32",
+  "hash": "a21b4ec9c1b423fb"
+ },
+ "kjv/ch14-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ff5e490efd0e87e3",
+  "hash": "7963908372fe5970"
+ },
+ "kjv/ch14-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "18886a480c83d8a5",
+  "hash": "51c3cb68c8de8324"
+ },
+ "kjv/ch14-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "47648b9c819cdd08",
+  "hash": "a843893eacbabf65"
+ },
+ "kjv/ch14-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "52534c4cd9e668b9",
+  "hash": "5c8aef1659bf29ab"
+ },
+ "kjv/ch14-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "141514d4eafe0f46",
+  "hash": "9662c686297ae0e9"
+ },
+ "kjv/ch14-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "06e890d768e5cc75",
+  "hash": "fc0c8fc96a81d69a"
+ },
+ "kjv/ch14-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "93d84cfb16016aef",
+  "hash": "9d99e860e2ca2aa0"
+ },
+ "kjv/ch14-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "70e49e31dfc57af6",
+  "hash": "c719b2896cb446a7"
+ },
+ "kjv/ch14-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ca7544b0183c2032",
+  "hash": "84de2fff1f9da9ca"
+ },
+ "kjv/ch14-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8fa6300e976c1953",
+  "hash": "4c00d45a9f65c60b"
+ },
+ "kjv/ch14-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2a4672a1b1a27c84",
+  "hash": "2f78ba38e9cd8657"
+ },
+ "kjv/ch14-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5839931f6d5d5212",
+  "hash": "52a982596dfc4dab"
+ },
+ "kjv/ch14-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fa040695174be716",
+  "hash": "e835f3ca52fae545"
+ },
+ "kjv/ch14-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e61ea3cea1903a61",
+  "hash": "150f39392ccd47f7"
+ },
+ "kjv/ch14-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "de8d379cb40a4e16",
+  "hash": "97d48af0f0b22f5f"
+ },
+ "kjv/ch14-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3ca6bfb14bbe6923",
+  "hash": "8208be838d6e3bed"
+ },
+ "kjv/ch14-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4812dbaa53cf8e41",
+  "hash": "b921cc254f1db51c"
+ },
+ "kjv/ch14-s2-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "77dd1cdad7578ab7",
+  "hash": "3c3600b09d2b9b64"
+ },
+ "kjv/ch14-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "861bee08e697565f",
+  "hash": "efedaa5003d2389f"
+ },
+ "kjv/ch14-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8829e8cc3cb2a077",
+  "hash": "88acf071f2d7ac2b"
+ },
+ "kjv/ch15-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c890ed7f6571b15d",
+  "hash": "12e2b4cdcbd49d21"
+ },
+ "kjv/ch15-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e989a569cb0e8420",
+  "hash": "40d020a4db30c070"
+ },
+ "kjv/ch15-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "043b450b996997d8",
+  "hash": "af43297e369a7858"
+ },
+ "kjv/ch15-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b9d840bb8d7fe904",
+  "hash": "e04714b04c215029"
+ },
+ "kjv/ch15-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "df624e8d74c4fe44",
+  "hash": "2ac4646a50ea7152"
+ },
+ "kjv/ch15-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3e4f2d99ac39c511",
+  "hash": "bb1a8c6886e1285b"
+ },
+ "kjv/ch15-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bcb89915b7f5bde2",
+  "hash": "1f8dd9bd31fb595c"
+ },
+ "kjv/ch15-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8d34cc56f75271e7",
+  "hash": "e528c462cfd96f8b"
+ },
+ "kjv/ch16-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "45861fccfb27e3e8",
+  "hash": "f7d75ef40178ebd6"
+ },
+ "kjv/ch16-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ff9b7a7bbd5bb581",
+  "hash": "e5aedb09e07515bc"
+ },
+ "kjv/ch16-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ab5a060224bf508e",
+  "hash": "de804a88fb97a167"
+ },
+ "kjv/ch16-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "27673bdf54b274e7",
+  "hash": "e2b01c62cf513861"
+ },
+ "kjv/ch16-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7183bae1f56b6a22",
+  "hash": "157e75e615216d18"
+ },
+ "kjv/ch16-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "364d031d0dd62ea4",
+  "hash": "197a0f2560e00bf1"
+ },
+ "kjv/ch16-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "56b707a41883ee66",
+  "hash": "8d4f9e6831f1016f"
+ },
+ "kjv/ch16-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "add1baf3d7ea6669",
+  "hash": "d41984447d8c564b"
+ },
+ "kjv/ch16-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dd2ed554bb1f6a24",
+  "hash": "5db307f83f9e36f8"
+ },
+ "kjv/ch17-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7228d78a1743bf37",
+  "hash": "563e1d95de99cabb"
+ },
+ "kjv/ch17-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6aa62b9178d3b2a5",
+  "hash": "1d506f28998f0e6f"
+ },
+ "kjv/ch17-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7655baad94ec840f",
+  "hash": "2786e0d3e0ba6eaf"
+ },
+ "kjv/ch17-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "895046a62cd41d02",
+  "hash": "4a92d74a1fc0d962"
+ },
+ "kjv/ch17-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e3d1b06c0a00c778",
+  "hash": "09dc4304d36c2a48"
+ },
+ "kjv/ch18-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2eb3cf09539eb737",
+  "hash": "59df59c47fe2e33b"
+ },
+ "kjv/ch18-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6e208952b61794be",
+  "hash": "65e9539f73286ee9"
+ },
+ "kjv/ch18-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4870df32b23e6c8c",
+  "hash": "82c866c89fa09c59"
+ },
+ "kjv/ch18-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f53ace55c1dcd67d",
+  "hash": "77599ccbc4855aa4"
+ },
+ "kjv/ch18-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "34596d5f8ace07fb",
+  "hash": "e7777e2b916ff32e"
+ },
+ "kjv/ch18-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c00b2dabd8be3235",
+  "hash": "cc4d1bf4f37028f1"
+ },
+ "kjv/ch18-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3dc4822f7389d3d3",
+  "hash": "1dbf03db6c4d6880"
+ },
+ "kjv/ch18-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bfe3b885e61597c2",
+  "hash": "9610cf308a7b7f3e"
+ },
+ "kjv/ch18-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "855dea0e4dbe0c5a",
+  "hash": "b551c8b2bb7857f1"
+ },
+ "kjv/ch18-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0d38d74c5f44216c",
+  "hash": "89a4bf2ac2679b14"
+ },
+ "kjv/ch18-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1b0f7d58d28b0b80",
+  "hash": "4d780192626ce990"
+ },
+ "kjv/ch18-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "879bd0f4055c48c3",
+  "hash": "127ba2b3d3df5913"
+ },
+ "kjv/ch18-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "df910622a1dc946c",
+  "hash": "634222dbe6fab6f4"
+ },
+ "kjv/ch18-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cc06dd134b471a2f",
+  "hash": "d2c04d4f32317798"
+ },
+ "kjv/ch18-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5e1bc68ed50c9a49",
+  "hash": "cad828575038e4cf"
+ },
+ "kjv/ch18-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cc4af14e1bf1be2f",
+  "hash": "05360b158bfdb10a"
+ },
+ "kjv/ch18-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "275c1b0f871ec47a",
+  "hash": "cc4b7764b59cdba2"
+ },
+ "kjv/ch18-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bd068af1cd4eda2b",
+  "hash": "5e3dedd233582b1a"
+ },
+ "kjv/ch18-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0fdf20347fa8dcf2",
+  "hash": "5d356772afca1385"
+ },
+ "kjv/ch18-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "39f46b6dfb35b792",
+  "hash": "3f577967f68884fb"
+ },
+ "kjv/ch18-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "284c0a6ecf9689f6",
+  "hash": "01fde4353b40b209"
+ },
+ "kjv/ch18-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2be12cde03aa27fb",
+  "hash": "0f495c734fd6c9fb"
+ },
+ "kjv/ch18-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b319fe05726acb9c",
+  "hash": "5eff83ede303e14b"
+ },
+ "kjv/ch18-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "041e5a9209cc239a",
+  "hash": "ef0da727783f804e"
+ },
+ "kjv/ch18-s3-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "eb33591d59956427",
+  "hash": "9debacfee6672146"
+ },
+ "kjv/ch18-s3-13.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3050128de4272e84",
+  "hash": "5a1eb9c26c7742eb"
+ },
+ "kjv/ch18-s3-14.mp3": {
+  "engine": "kokoro",
+  "fileHash": "74d1a18d3fbb26ef",
+  "hash": "22d42287c41b8ec1"
+ },
+ "kjv/ch19-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "50d8162913653aa4",
+  "hash": "c607f48749b9c31b"
+ },
+ "kjv/ch19-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7aa68973cb2159fb",
+  "hash": "6965a04b1625791f"
+ },
+ "kjv/ch19-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "801f3e96e948045a",
+  "hash": "20a2f4356981e17e"
+ },
+ "kjv/ch19-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "96b6dcfe7cd25406",
+  "hash": "0089ef263b7bec82"
+ },
+ "kjv/ch19-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a7b24b4c8734719e",
+  "hash": "baa4ed5ecc96b648"
+ },
+ "kjv/ch19-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7b7dd434aacb44ac",
+  "hash": "b01c9506360e3885"
+ },
+ "kjv/ch19-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "70f2ebbfe91c0fc5",
+  "hash": "779ed92a3c78d7de"
+ },
+ "kjv/ch20-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0d2694c0bdd62f8d",
+  "hash": "cd85be5dcc83d6f7"
+ },
+ "kjv/ch20-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6db08609f2560978",
+  "hash": "eb9991e7afe6be57"
+ },
+ "kjv/ch20-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6aa5df2270ab0f42",
+  "hash": "0e3fe3f51bbfe7e7"
+ },
+ "kjv/ch20-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "314df45075fcd8bf",
+  "hash": "7d1b57f434656b33"
+ },
+ "kjv/ch20-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "614b3511b4144a1e",
+  "hash": "d5a682fcac4447bf"
+ },
+ "kjv/ch20-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e6b877b5819a5494",
+  "hash": "649425d54ec813fa"
+ },
+ "kjv/ch20-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "31bb56d1fa3065e2",
+  "hash": "864baf7912a6d9bd"
+ },
+ "kjv/ch20-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2996badd0ae631f0",
+  "hash": "a763b817166e864b"
+ },
+ "kjv/ch20-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b4e4809eb53d32ac",
+  "hash": "5886cd5ae2411567"
+ },
+ "kjv/ch20-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8df4a583c2db1c2e",
+  "hash": "ddca3f7e79ebd206"
+ },
+ "kjv/ch21-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9c9b553511cadc37",
+  "hash": "82856330a1df1b33"
+ },
+ "kjv/ch21-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d2093a3f017dd009",
+  "hash": "d5a4ee151ece9025"
+ },
+ "kjv/ch21-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "90df90eb4608dbad",
+  "hash": "85227ed8a68cd61c"
+ },
+ "kjv/ch21-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d202e9af743551b5",
+  "hash": "30f75843e9325ea2"
+ },
+ "kjv/ch21-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "751dea5447c7a02a",
+  "hash": "9f53ca37a2575a71"
+ },
+ "kjv/ch21-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1859961178b3e125",
+  "hash": "d801329145c7dcec"
+ },
+ "kjv/ch21-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b81bdd6cb9193326",
+  "hash": "5a31a26e64bbe7b2"
+ },
+ "kjv/ch21-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "53ae61d377af03f9",
+  "hash": "24b6e12c2c686b8f"
+ },
+ "kjv/ch21-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a1be891c8a666f2b",
+  "hash": "d7a9ba9f21c67bff"
+ },
+ "kjv/ch21-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "21cef92eb0c0644f",
+  "hash": "5b534d459a5eb265"
+ },
+ "kjv/ch21-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c50f357d551d8981",
+  "hash": "ad6cc07c26f64dfd"
+ },
+ "kjv/ch21-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f4a23b2efe82c387",
+  "hash": "584038c5689cd0ae"
+ },
+ "kjv/ch21-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8be4bb546e8fe2b1",
+  "hash": "d1a421f0e1cec5d6"
+ },
+ "kjv/ch21-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2902194c28c622fe",
+  "hash": "b7c3bc66bfd338ae"
+ },
+ "kjv/ch21-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "74286d789b62fe2d",
+  "hash": "3662bbabdb10c11c"
+ },
+ "kjv/ch21-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "234b18e8e8b9348d",
+  "hash": "a9e1bfcd948f97e0"
+ },
+ "kjv/ch21-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8274221d8b4b84f0",
+  "hash": "23cad2f17ccadc67"
+ },
+ "kjv/ch21-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3201a1c746d4bd48",
+  "hash": "e7125408ffebc7fc"
+ },
+ "kjv/ch21-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8369deedfe3b560c",
+  "hash": "1acd3c3c4e1b8bfd"
+ },
+ "kjv/ch21-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b3f70a8e5b66091e",
+  "hash": "5327262aa55967b4"
+ },
+ "kjv/ch21-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "517e262b7c5c1b1b",
+  "hash": "7b6b3cbd867e3941"
+ },
+ "kjv/ch22-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "691f0d4004fd6f83",
+  "hash": "f69781167292a0ee"
+ },
+ "kjv/ch22-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d82a4cc57d3bc11a",
+  "hash": "f22b9a01edf44d3b"
+ },
+ "kjv/ch22-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fa0ee44e9ec3517c",
+  "hash": "c555190088976b80"
+ },
+ "kjv/ch22-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9ef30d636b311a96",
+  "hash": "406cb5fe84ce2349"
+ },
+ "kjv/ch22-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1fef55807d283cba",
+  "hash": "886a036bc57d9c8c"
+ },
+ "kjv/ch22-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f04e6d4d68e67719",
+  "hash": "fbbaa0e7605b6559"
+ },
+ "kjv/ch22-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "73d6c36ad20cffe1",
+  "hash": "540b084cc5addc9f"
+ },
+ "kjv/ch22-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5429a14e2d49abcf",
+  "hash": "0e14ff85cc2c309f"
+ },
+ "kjv/ch22-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "95fa3538d8e389bc",
+  "hash": "298fa994f7f5b71b"
+ },
+ "kjv/ch22-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d6e513247a145b0b",
+  "hash": "2da5cf230235fb10"
+ },
+ "kjv/ch22-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b7f47a7f1674f394",
+  "hash": "fcac4af6f68eb569"
+ },
+ "kjv/ch22-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b29edf88b5809fbe",
+  "hash": "2feeed705649045d"
+ },
+ "kjv/ch22-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "32cdb88a10bb46ec",
+  "hash": "877130fcfe9299bc"
+ },
+ "kjv/ch22-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f3419b5936e6a665",
+  "hash": "d9e583035be2f6b8"
+ },
+ "kjv/ch22-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "37fe61b5e13d9a89",
+  "hash": "55f85f8ad43d9d13"
+ },
+ "kjv/ch22-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "045bcf7677c67150",
+  "hash": "91ac0824444fb74a"
+ },
+ "kjv/ch22-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "30e67e3762e127a4",
+  "hash": "43e571dfd4e1662b"
+ },
+ "kjv/ch22-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b062c7857f6a4e40",
+  "hash": "e87b25cabb9b4a60"
+ },
+ "kjv/ch22-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e041c4cdd5e227ba",
+  "hash": "bd7a9d41ccaaf7b4"
+ },
+ "kjv/ch23-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "52ba28980025bff4",
+  "hash": "82539ddbe52af29a"
+ },
+ "kjv/ch23-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8e58a563bf4b0ccb",
+  "hash": "6382402e69e94e29"
+ },
+ "kjv/ch23-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4ddc5386f6a65e42",
+  "hash": "af4f309bb3ef47c0"
+ },
+ "kjv/ch23-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d0265e44dec3354b",
+  "hash": "066dde0da76e592a"
+ },
+ "kjv/ch23-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f78e6eee2e211d15",
+  "hash": "dca78c23064c6329"
+ },
+ "kjv/ch23-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0acfb21e886aa817",
+  "hash": "bbf9a34ac33556f5"
+ },
+ "kjv/ch23-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "38da8b58ea4aa978",
+  "hash": "69fce1da52d6de0e"
+ },
+ "kjv/ch23-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "078ecf5e1f51f163",
+  "hash": "2960bc3765d8050a"
+ },
+ "kjv/ch23-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "43036220b3fa421b",
+  "hash": "9bc42ee9b3cbd6a9"
+ },
+ "kjv/ch23-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6a0a25c4b9406d6d",
+  "hash": "c5e7d37d76e9fc3c"
+ },
+ "kjv/ch23-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "482b56cbf89ffdc5",
+  "hash": "18cdd60b99ce7256"
+ },
+ "kjv/ch23-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f13b42b8e474a597",
+  "hash": "96e55bde4a30f8d8"
+ },
+ "kjv/ch23-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "53af59956e773968",
+  "hash": "b56e09821ddaab14"
+ },
+ "kjv/ch23-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "248683864ab9bc8f",
+  "hash": "7e684acbb44f89cc"
+ },
+ "kjv/ch23-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4c8990f58259c0aa",
+  "hash": "bd2c191df95b15c8"
+ },
+ "kjv/ch23-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ec232fc5a6f93774",
+  "hash": "028b9c3fbc4c009d"
+ },
+ "kjv/ch23-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b09bfc68ac6c2d0b",
+  "hash": "40b233ce7f7860d9"
+ },
+ "kjv/ch23-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "012fe699db16789a",
+  "hash": "dc4d5126b5a4f76f"
+ },
+ "kjv/ch23-s3-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bbc2300bef54f662",
+  "hash": "d6b4f8776a65cb27"
+ },
+ "kjv/ch23-s3-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5407d18e06877cab",
+  "hash": "f364600ff52b26f6"
+ },
+ "kjv/ch23-s3-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "63772c5dd3071c6a",
+  "hash": "b2882daac41f2fa2"
+ },
+ "kjv/ch23-s3-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5b720d3e8f069bfa",
+  "hash": "f2bb10ac0e59a537"
+ },
+ "kjv/ch23-s3-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9cc4c862998f8de3",
+  "hash": "f8e1c7ea13edba62"
+ },
+ "kjv/ch23-s3-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "25ba290154083058",
+  "hash": "4119da2afe28f7f5"
+ },
+ "kjv/ch23-s3-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "651a6b4d69b2602d",
+  "hash": "daa5fe3f2f04f625"
+ },
+ "kjv/ch23-s3-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "54bd65af8e456a95",
+  "hash": "3a90896ceb2a7c43"
+ },
+ "kjv/ch23-s3-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6bb34d1ed2d0d5b5",
+  "hash": "6551d9c83564f4bc"
+ },
+ "kjv/ch24-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "55e739a0a09253c9",
+  "hash": "72955e4f1ffb1af9"
+ },
+ "kjv/ch24-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "88c79a40bca8f2d7",
+  "hash": "b6a6e0c725ced690"
+ },
+ "kjv/ch24-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9637920a7c4e27a2",
+  "hash": "ad0622a140d84a01"
+ },
+ "kjv/ch24-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b1b4605fdf0ecaa5",
+  "hash": "6dfabb914f2775d4"
+ },
+ "kjv/ch24-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "32536de0358c5ce2",
+  "hash": "9205336861d4cf52"
+ },
+ "kjv/ch24-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0ca2bd825bbdd45d",
+  "hash": "aa59fa94ad5f19c8"
+ },
+ "kjv/ch24-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "39ca45bffa7c18df",
+  "hash": "2875195fdcc69468"
+ },
+ "kjv/ch24-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0524e65dc3496e0d",
+  "hash": "0cc0f9003d287404"
+ },
+ "kjv/ch24-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "388ee9346dc480ce",
+  "hash": "05a1308ec3489236"
+ },
+ "kjv/ch24-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cdc0432963f17f61",
+  "hash": "83b7feb171c44215"
+ },
+ "kjv/ch24-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f24d7271b72edc31",
+  "hash": "63f0168d3a6c823b"
+ },
+ "kjv/ch24-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "013d8430c6fb4ced",
+  "hash": "e424c00df1562c8d"
+ },
+ "kjv/ch24-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5aabacee62a49970",
+  "hash": "a025ecad47cfe884"
+ },
+ "kjv/ch24-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6c859456bdbe15cb",
+  "hash": "d5d569cd4449dfdf"
+ },
+ "kjv/ch24-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dba5705b8834e162",
+  "hash": "54942f59f50a1827"
+ },
+ "kjv/ch24-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fd692edb3f4bfa19",
+  "hash": "ffd0bcaad924c740"
+ },
+ "kjv/ch24-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9ae4790e34c0a5b8",
+  "hash": "946398c25f6edcc1"
+ },
+ "kjv/ch24-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3b8d356bb0eb97b3",
+  "hash": "f368c7079a5f9356"
+ },
+ "kjv/ch24-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "771b0dcb74f2ae26",
+  "hash": "d8c1192b38e98bda"
+ },
+ "kjv/ch24-s3-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fda5e0eed4ed5b1a",
+  "hash": "54677de2332bf98e"
+ },
+ "kjv/ch24-s3-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "128d3af79f4e1b18",
+  "hash": "51e8bfde80182d69"
+ },
+ "kjv/ch24-s3-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "13eea2a575b24558",
+  "hash": "59fbcee554e1e0a9"
+ },
+ "kjv/ch25-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "e8fdcfe41052365b",
+  "hash": "2556c1f83519b0ef"
+ },
+ "kjv/ch25-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bb9f1a56c8524cb1",
+  "hash": "e8f86a7a810a3a79"
+ },
+ "kjv/ch25-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1868d96fe0d7db29",
+  "hash": "99a1e3f475bcc9ab"
+ },
+ "kjv/ch25-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "432c229c5397025b",
+  "hash": "d20b06c2389f64f0"
+ },
+ "kjv/ch25-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ea3b73d7aee3699c",
+  "hash": "74fde8c4c7644c03"
+ },
+ "kjv/ch25-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d5829bd2fb010775",
+  "hash": "e9f15937c8b808fd"
+ },
+ "kjv/ch25-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0b1f8c3f9334fba9",
+  "hash": "317cce76576f19d4"
+ },
+ "kjv/ch25-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "96a76d1d4e49c681",
+  "hash": "91e6c4787a9177a2"
+ },
+ "kjv/ch25-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "aad96481bba21d5c",
+  "hash": "d73454512c9969a8"
+ },
+ "kjv/ch25-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9e508d529d40b7d1",
+  "hash": "22091de340e0f22a"
+ },
+ "kjv/ch25-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "dcd2af830a43de8b",
+  "hash": "dda98931819a7e87"
+ },
+ "kjv/ch25-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "949c37123409c9ba",
+  "hash": "02219bd4d9f61104"
+ },
+ "kjv/ch25-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "601d9ca8ecf9fd4c",
+  "hash": "21e1662dcfead595"
+ },
+ "kjv/ch25-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "06f5efcbf32801d5",
+  "hash": "52b21765406786c1"
+ },
+ "kjv/ch25-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "95ff883cb88f8d65",
+  "hash": "f68314a00af979fc"
+ },
+ "kjv/ch26-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "3b6dccf8969a21e4",
+  "hash": "c65f1b6ff3654bd9"
+ },
+ "kjv/ch26-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ff1f1fc23f305ace",
+  "hash": "2c09506f8dd26581"
+ },
+ "kjv/ch26-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "146a95c266ec8c73",
+  "hash": "20ba7845b77eb643"
+ },
+ "kjv/ch26-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "28cab1f76a6d0ece",
+  "hash": "e2743511e0c35e95"
+ },
+ "kjv/ch26-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "03cff663a5077315",
+  "hash": "1178f6d4c6887930"
+ },
+ "kjv/ch26-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "127b16d9659247b2",
+  "hash": "f1ee94a647cea47b"
+ },
+ "kjv/ch26-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fdff19bb70ebfd74",
+  "hash": "83f7ff1c1d00e783"
+ },
+ "kjv/ch26-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5cff12233ced26c0",
+  "hash": "a4510dfc602bcc13"
+ },
+ "kjv/ch26-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a16e72d9925d3313",
+  "hash": "79fed2079778771e"
+ },
+ "kjv/ch26-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "1ab191381b2f8eac",
+  "hash": "f318597a3a43bcf3"
+ },
+ "kjv/ch26-s1-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8d84ce26758c495f",
+  "hash": "33d996495517cf3a"
+ },
+ "kjv/ch26-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a295da349584d6af",
+  "hash": "d80c7262d3cf00f1"
+ },
+ "kjv/ch26-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a71ff8e630f4b29f",
+  "hash": "7e1286a1411bc0bb"
+ },
+ "kjv/ch26-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cecf696d2775b0d4",
+  "hash": "b19d7cd5e6d16bb5"
+ },
+ "kjv/ch26-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5745dceb20b628a2",
+  "hash": "178991a399750b74"
+ },
+ "kjv/ch26-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "90a1c3a4b56a04b0",
+  "hash": "3c4cdc4cf28817dd"
+ },
+ "kjv/ch26-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "f150a035ff7c7712",
+  "hash": "f33dade87ce4a1ae"
+ },
+ "kjv/ch26-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "7aed689b57a05b25",
+  "hash": "3fafc7c6103628a4"
+ },
+ "kjv/ch26-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ed2b6dedea55a9a9",
+  "hash": "6b0ed296c0fe21aa"
+ },
+ "kjv/ch26-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "cecf696d2775b0d4",
+  "hash": "b19d7cd5e6d16bb5"
+ },
+ "kjv/ch26-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a48477f3e1f18f10",
+  "hash": "6259c6d4c8063d43"
+ },
+ "kjv/ch26-s2-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a12e1ba515862a70",
+  "hash": "6675c15234270ba3"
+ },
+ "kjv/ch26-s2-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d188917a53ce86db",
+  "hash": "d0792345d7de5800"
+ },
+ "kjv/ch27-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "bb1b237d7291d836",
+  "hash": "1b74059eae97fe5d"
+ },
+ "kjv/ch27-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "6dbaa2be20eae88a",
+  "hash": "e50092f4c83279b5"
+ },
+ "kjv/ch27-s1-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8900dfb5ae42a30c",
+  "hash": "3f4316fc7eb5722a"
+ },
+ "kjv/ch27-s1-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5fe16711cce8a9c4",
+  "hash": "4393bfce8756bfd6"
+ },
+ "kjv/ch27-s1-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "2e3c2f5dc8c80917",
+  "hash": "639297cad9ff281b"
+ },
+ "kjv/ch27-s1-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "4da13e2d34f6ea8a",
+  "hash": "c3feb0a3100958a1"
+ },
+ "kjv/ch27-s1-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a3f8255062a7d5a4",
+  "hash": "1404f9d02a70b2d7"
+ },
+ "kjv/ch27-s1-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "0f6371840b8d7c73",
+  "hash": "7c373e77ccb2f462"
+ },
+ "kjv/ch27-s1-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fa5f20af2961aaa8",
+  "hash": "6c8ed77f49b45419"
+ },
+ "kjv/ch27-s1-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d7085a6fdb8bc610",
+  "hash": "5e3609b00e2394e9"
+ },
+ "kjv/ch27-s1-11.mp3": {
+  "engine": "kokoro",
+  "fileHash": "fe36c571e90b5bd1",
+  "hash": "e939c868afa7522d"
+ },
+ "kjv/ch27-s1-12.mp3": {
+  "engine": "kokoro",
+  "fileHash": "35ffb29f58cdd672",
+  "hash": "7977adbf732f2d42"
+ },
+ "kjv/ch27-s1-13.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ddc5885295062aff",
+  "hash": "eb87a1842d9c7bfd"
+ },
+ "kjv/ch27-s1-14.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b92c4251ce410375",
+  "hash": "159fad5f8cbacc01"
+ },
+ "kjv/ch27-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "ef0ff349b59b1d62",
+  "hash": "d554899122add9ee"
+ },
+ "kjv/ch27-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b88ad5aece7214b9",
+  "hash": "ca56f00f505ab4a0"
+ },
+ "kjv/ch27-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "46bb08fdfcb820b6",
+  "hash": "46460e5aca625b34"
+ },
+ "kjv/ch27-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "36c7ab6886a2bce9",
+  "hash": "4648a0269e4cea94"
+ },
+ "kjv/ch27-s2-05.mp3": {
+  "engine": "kokoro",
+  "fileHash": "b88ad5aece7214b9",
+  "hash": "ca56f00f505ab4a0"
+ },
+ "kjv/ch27-s2-06.mp3": {
+  "engine": "kokoro",
+  "fileHash": "27cbb83c91d519ee",
+  "hash": "4ed0e7e2c658585c"
+ },
+ "kjv/ch27-s2-07.mp3": {
+  "engine": "kokoro",
+  "fileHash": "36c7ab6886a2bce9",
+  "hash": "4648a0269e4cea94"
+ },
+ "kjv/ch27-s2-08.mp3": {
+  "engine": "kokoro",
+  "fileHash": "9806aa7cf3434238",
+  "hash": "11f101ae66589e00"
+ },
+ "kjv/ch27-s2-09.mp3": {
+  "engine": "kokoro",
+  "fileHash": "a2b19fc2397c609c",
+  "hash": "8676a947e2a1ed5c"
+ },
+ "kjv/ch27-s2-10.mp3": {
+  "engine": "kokoro",
+  "fileHash": "27cbb83c91d519ee",
+  "hash": "4ed0e7e2c658585c"
+ },
+ "kjv/ch28-s1-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "8064c44663d1b041",
+  "hash": "11262dcc01f5a1cd"
+ },
+ "kjv/ch28-s1-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "d43645e8cf0afb1a",
+  "hash": "376bf83cd6205495"
+ },
+ "kjv/ch28-s2-01.mp3": {
+  "engine": "kokoro",
+  "fileHash": "40bd503eb820ec27",
+  "hash": "ead9a9b066b1f193"
+ },
+ "kjv/ch28-s2-02.mp3": {
+  "engine": "kokoro",
+  "fileHash": "5430a615344cf194",
+  "hash": "73efd8154268602c"
+ },
+ "kjv/ch28-s2-03.mp3": {
+  "engine": "kokoro",
+  "fileHash": "47a9eda7050b21dc",
+  "hash": "2c24d9d2ba6c20d0"
+ },
+ "kjv/ch28-s2-04.mp3": {
+  "engine": "kokoro",
+  "fileHash": "c28595c11887428b",
+  "hash": "2303a13d1bcc9b82"
+ }
+}

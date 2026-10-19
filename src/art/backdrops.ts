@@ -168,6 +168,12 @@ function drawJordan(scene: Phaser.Scene, p: Palette, time: TimeOfDay): Layer[] {
   haze(scene, p.skyBottom, 380, 0.18);
   const mid = hills(scene, 470, p.mid, 2, 0, 'trees');
   haze(scene, p.skyBottom, 470, 0.08);
+  // The Jordan, flowing behind the people on its bank
+  const water = scene.add.graphics();
+  const W = scene.scale.width;
+  water.fillStyle(p.water, 1).fillRect(0, 352, W, 42);
+  water.fillStyle(0xffffff, 0.3).fillRect(W * 0.12, 362, 110, 3).fillRect(W * 0.48, 374, 140, 3).fillRect(W * 0.8, 366, 90, 3);
+  water.fillStyle(Phaser.Display.Color.ValueToColor(p.near).darken(10).color, 1).fillRect(0, 348, W, 5);
   return [
     sky,
     { obj: far, speed: 3 },
@@ -332,14 +338,15 @@ function city(scene: Phaser.Scene, stone: number): Phaser.GameObjects.Graphics {
     for (let x = tx - 28; x < tx + 28; x += 14) g.fillRect(x, wy - 70, 9, 10);
     g.fillStyle(0x2a1c12, 0.8).fillRect(tx - 4, wy - 44, 8, 14);
   }
+  g.y = -78; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
-function lake(scene: Phaser.Scene, color: number, top = 420, height = 120): Phaser.GameObjects.Graphics {
+function lake(scene: Phaser.Scene, color: number, top = 330, height = 64): Phaser.GameObjects.Graphics {
   const W = scene.scale.width;
   const g = scene.add.graphics();
   g.fillStyle(color, 1).fillRect(0, top, W, height);
-  g.fillStyle(0xffffff, 0.35).fillRect(W * 0.2, 445, 90, 3).fillRect(W * 0.55, 470, 120, 3).fillRect(W * 0.8, 455, 70, 3);
+  g.fillStyle(0xffffff, 0.35).fillRect(W * 0.2, top + height * 0.25, 90, 3).fillRect(W * 0.55, top + height * 0.6, 120, 3).fillRect(W * 0.8, top + height * 0.4, 70, 3);
   return g;
 }
 
@@ -349,6 +356,7 @@ function figTree(scene: Phaser.Scene, leaf: number): Phaser.GameObjects.Graphics
   g.fillStyle(0x5a3d22, 1).fillRect(x - 12, 330, 24, 160);
   g.fillStyle(leaf, 1);
   for (const [dx, dy, r] of [[0, 300, 80], [-60, 330, 60], [60, 330, 60], [-30, 260, 55], [35, 265, 55]]) g.fillCircle(x + dx, dy, r);
+  g.y = -90; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -476,6 +484,7 @@ function houses(scene: Phaser.Scene, stone: number): Phaser.GameObjects.Graphics
     g.fillTriangle(px, 296, ex, ey, (px + ex) / 2, (296 + ey) / 2 + 14);
   }
   g.fillStyle(0x8a5a1a, 1).fillCircle(px - 6, 304, 6).fillCircle(px + 6, 306, 6); // dates
+  g.y = -82; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -488,6 +497,7 @@ function well(scene: Phaser.Scene, stone: number): Phaser.GameObjects.Graphics {
   g.fillStyle(0x2a2a3a, 1).fillEllipse(x, 392, 190, 34);
   g.fillStyle(0x6a4a2a, 1).fillRect(x - 90, 300, 12, 95).fillRect(x + 78, 300, 12, 95).fillRect(x - 95, 296, 190, 12);
   g.fillStyle(0xb06a3a, 1).fillRoundedRect(x + 20, 330, 40, 50, 12); // a water jar
+  g.y = -78; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -532,6 +542,7 @@ function bigHill(scene: Phaser.Scene, grass: number): Phaser.GameObjects.Graphic
     const y = 420 + ((i * 29) % 70);
     g.fillStyle([0xb5432f, 0x3a6aa8, 0xd9c9a0, 0x7a4a8a][i % 4], 0.8).fillCircle(x, y, 5);
   }
+  g.y = -50; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -548,6 +559,7 @@ function cliff(scene: Phaser.Scene, rock: number): Phaser.GameObjects.Graphics {
   g.lineStyle(3, dark, 0.6);
   for (let i = 0; i < 8; i++) g.lineBetween(W * (0.5 + i * 0.06), 180 + (i % 3) * 20, W * (0.52 + i * 0.06), 480);
   g.fillStyle(0x6fa6c2, 1).fillEllipse(W * 0.66, 510, 260, 30); // the spring below
+  g.y = -115; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -563,6 +575,7 @@ function oliveTrees(scene: Phaser.Scene, leaf: number, bark: number): Phaser.Gam
     for (const [dx, dy, r] of [[0, -140, 60], [-50, -125, 45], [50, -120, 48], [-20, -175, 40], [30, -170, 42]]) g.fillCircle(x + dx * s, base + dy * s, r * s);
     g.fillStyle(0xb8c0a0, 0.25).fillCircle(x - 15 * s, base - 160 * s, 20 * s); // silvery leaves
   }
+  g.y = -80; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -573,12 +586,14 @@ function drawRoom(scene: Phaser.Scene): Layer[] {
   const g = scene.add.graphics();
   g.fillGradientStyle(0x3a2a1c, 0x3a2a1c, 0x5a4430, 0x5a4430, 1).fillRect(0, 0, W, H);
   g.lineStyle(2, 0x2a1c12, 0.6);
-  for (let y = 40; y < 470; y += 46) for (let x = (y / 46) % 2 ? 0 : 60; x < W; x += 120) g.strokeRect(x, y, 120, 46);
+  for (let y = 40; y < 392; y += 46) for (let x = (y / 46) % 2 ? 0 : 60; x < W; x += 120) g.strokeRect(x, y, 120, 46);
   g.fillStyle(0x2a1c12, 1).fillRect(W * 0.62, 150, 120, 150); // window
   g.fillStyle(0x0b1028, 1).fillRect(W * 0.62 + 10, 160, 100, 130);
   g.fillStyle(0xeef2ff, 0.9).fillCircle(W * 0.62 + 70, 190, 14);
-  g.fillStyle(0x4a3424, 1).fillRect(0, 470, W, H - 470); // floor
-  g.fillStyle(0x6a4a2a, 1).fillRoundedRect(W * 0.2, 440, W * 0.6, 30, 8); // low table
+  g.fillStyle(0x4a3424, 1).fillRect(0, 392, W, H - 392); // floor
+  g.fillStyle(0x6a4a2a, 1).fillRoundedRect(W * 0.2, 352, W * 0.6, 28, 8); // low table, behind the people
+  g.fillStyle(0x4a321c, 1).fillRect(W * 0.22, 380, 16, 14).fillRect(W * 0.78 - 16, 380, 16, 14);
+  g.lineStyle(2, 0x2a1c12, 0.7).strokeRoundedRect(W * 0.2, 352, W * 0.6, 28, 8);
   for (const fx of [0.12, 0.88]) {
     const x = W * fx;
     const lamp = scene.add.graphics();
@@ -608,6 +623,7 @@ function courtyard(scene: Phaser.Scene, stone: number, night: boolean): Phaser.G
     g.fillStyle(0xffb04a, 1).fillTriangle(x - 26, 468, x + 26, 468, x, 420);
     g.fillStyle(0xffe08a, 1).fillTriangle(x - 12, 466, x + 12, 466, x, 436);
   }
+  g.y = -88; // stands behind the floor where people walk (see drawFloor)
   return g;
 }
 
@@ -652,5 +668,71 @@ function tomb(scene: Phaser.Scene, rock: number, open: boolean, dawn: boolean): 
   }
   g.fillStyle(0x7f9a52, 1);
   for (let i = 0; i < 6; i++) g.fillCircle(W * (0.12 + i * 0.05), 470 - (i % 2) * 20, 30); // garden bushes
+  g.y = -100; // stands behind the floor where people walk (see drawFloor)
   return g;
+}
+
+// The ground in front of the scenery, where everyone stands. Everything in a
+// backdrop sits behind its top edge, so people never seem to stand on roofs.
+export const FLOOR_Y = 392;
+type FloorKind = 'stone' | 'wood' | 'sand' | 'grass' | 'rock' | 'shore';
+const FLOORS: Record<string, FloorKind> = {
+  village: 'stone', jerusalem: 'stone', courtyard: 'stone', well: 'stone', room: 'wood',
+  wilderness: 'sand', jordan: 'sand', lake: 'shore', golgotha: 'rock',
+  galilee: 'grass', mountain: 'grass', olives: 'grass', cliff: 'grass', tomb: 'grass', 'tomb-open': 'grass',
+};
+const FLOOR_COLORS: Record<FloorKind, [number, number]> = {
+  stone: [0xc2ae8a, 0x9a8668], wood: [0x6a4a2e, 0x4a3220], sand: [0xd8c08e, 0xb89e6e],
+  grass: [0x7a9a4e, 0x5a7a38], rock: [0x6a5a4a, 0x4a3e32], shore: [0xc8b48e, 0xa8946e],
+};
+
+export function drawFloor(scene: Phaser.Scene, backdrop: string, time: TimeOfDay, width = scene.scale.width, top = FLOOR_Y): Phaser.GameObjects.RenderTexture | null {
+  if (backdropArt(backdrop, time)) return null; // a finished picture has its own ground
+  const H = scene.scale.height;
+  const kind = FLOORS[backdrop] ?? 'grass';
+  const dim = time === 'night' ? 45 : time === 'dusk' ? 18 : 0;
+  const shade = (c: number) => Phaser.Display.Color.ValueToColor(c).darken(dim).color;
+  const [a, b] = FLOOR_COLORS[kind].map(shade);
+  const g = scene.add.graphics();
+  g.fillGradientStyle(a, a, b, b, 1).fillRect(0, top, width, H - top);
+  g.fillStyle(0x000000, 0.18).fillRect(0, top, width, 5); // a soft line where the ground meets the scenery
+  const dark = Phaser.Display.Color.ValueToColor(b).darken(12).color;
+  const light = Phaser.Display.Color.ValueToColor(a).lighten(8).color;
+  if (kind === 'stone') {
+    // Paving stones in rows, smaller toward the back
+    for (let row = 0, y = top + 6; y < H; row++) {
+      const h = 16 + row * 6;
+      const w = 54 + row * 18;
+      for (let x = (row % 2) * -w / 2; x < width; x += w) {
+        g.fillStyle(row % 3 === 1 ? light : a, 0.45).fillRoundedRect(x + 2, y + 2, w - 4, h - 4, 4);
+        g.lineStyle(2, dark, 0.5).strokeRoundedRect(x + 2, y + 2, w - 4, h - 4, 4);
+      }
+      y += h;
+    }
+  } else if (kind === 'wood') {
+    for (let y = top + 8, k = 0; y < H; y += 22 + k * 4, k++) {
+      g.lineStyle(2, dark, 0.7).lineBetween(0, y, width, y);
+      for (let x = (k * 97) % 160; x < width; x += 240) g.lineBetween(x, y, x, y + 22 + k * 4);
+    }
+  } else {
+    // Pebbles, grass tufts and flowers scattered over the ground
+    for (let i = 0; i < width / 18; i++) {
+      const x = (i * 137) % width;
+      const y = top + 10 + ((i * 53) % (H - top - 10));
+      const near = (y - top) / (H - top);
+      if (kind === 'grass') {
+        g.lineStyle(2, dark, 0.8);
+        g.lineBetween(x, y, x - 3, y - 8 - near * 6).lineBetween(x + 4, y, x + 6, y - 7 - near * 6);
+        if (i % 7 === 0) g.fillStyle([0xc8323a, 0xf2eee0, 0xe8c84a][i % 3], 1).fillCircle(x + 8, y - 4, 2.5 + near * 2);
+      } else {
+        g.fillStyle(i % 3 ? dark : light, 0.55).fillEllipse(x, y, 6 + near * 10, 3 + near * 5);
+        if (kind === 'rock' && i % 4 === 0) g.fillStyle(dark, 1).fillEllipse(x, y, 20 + near * 20, 10 + near * 10);
+      }
+    }
+  }
+  // Painted once into a flat picture, so it costs nothing to show.
+  const rt = scene.add.renderTexture(0, top, width, H - top).setOrigin(0);
+  rt.draw(g, 0, -top);
+  g.destroy();
+  return rt;
 }

@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { COLORS, FONT, makeButton, restartOnResize, whenTapped } from '../ui/common';
-import { drawBackdrop, driftLayers, type Layer } from '../art/backdrops';
+import { drawBackdrop, drawFloor, driftLayers, type Layer } from '../art/backdrops';
 import { DialogueBox } from '../ui/DialogueBox';
 import { runPuzzle } from '../puzzles';
 import { showPassage, showTalkTogether, type PassageView } from '../ui/dom';
@@ -210,6 +210,7 @@ export class StoryScene extends Phaser.Scene {
     this.layers = drawBackdrop(this, backdrop, scene.timeOfDay);
     setMood(this.moodFor(scene, backdrop));
     addAmbientLife(this, backdrop, scene.timeOfDay, scene.weather !== 'storm' && scene.staging !== 'cross' && this.moodFor(scene, backdrop) !== 'sorrow');
+    drawFloor(this, backdrop, scene.timeOfDay);
 
     this.heavenLight = this.add.graphics().setAlpha(0);
 

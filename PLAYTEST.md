@@ -376,3 +376,8 @@ The title screen should say **Phase 8 · v0.9.0**.
 **Better-looking people**
 - [ ] Everyone clearly has two arms
 - [ ] Clean cartoon outlines, slightly bigger heads and faces
+
+### Version 0.9.1: tidier scenes
+- [ ] Nobody stands on a roof, a wall or a table: every scene has a proper floor in front of the scenery (stone paving in towns and courtyards, wooden boards in the upper room, sand at the Jordan with the river behind, grass on the hills, rocky ground at Golgotha)
+- [ ] Quest items are drawn pictures (eggs, jars, bread, fish, lambs, grapes, lamps, olives, lilies), not emoji
+- [ ] The quest villager has a round badge: yellow "!" for a new quest, blue "?" while you search, and a green ✓ when you've finished

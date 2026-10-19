@@ -285,7 +285,9 @@ if (explore) {
   for (const [bd, pl] of Object.entries(explore.places ?? {})) {
     if (!BACKDROPS.includes(bd)) errors.push(`explore.json: no backdrop is called "${bd}"`);
     if (!Array.isArray(pl.villagers) || pl.villagers.length < 2) errors.push(`explore.json "${bd}": needs at least 2 villager lines`);
-    if (!pl.quest?.ask || !pl.quest?.item || !(pl.quest?.count >= 1 && pl.quest.count <= 6)) errors.push(`explore.json "${bd}": quest needs "ask", "item" and a "count" from 1 to 6`);
+    if (!pl.quest?.ask || !(pl.quest?.count >= 1 && pl.quest.count <= 6)) errors.push(`explore.json "${bd}": quest needs "ask" and a "count" from 1 to 6`);
+    const kinds = ['egg', 'jar', 'flatbread', 'lamb', 'fish', 'bread', 'grapes', 'lamp', 'olive', 'lily'];
+    if (!kinds.includes(pl.quest?.item)) errors.push(`explore.json "${bd}": quest "item" must be one of ${kinds.join(', ')}`);
   }
 }
 

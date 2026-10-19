@@ -6,7 +6,7 @@ import type { TimeOfDay } from '../systems/content';
 // They are few and simple, so they cost almost nothing on a cheap phone.
 
 const OUTDOOR_GREEN = ['jordan', 'galilee', 'mountain', 'village', 'olives', 'lake', 'well', 'cliff', 'tomb-open'];
-const WATER: Record<string, [number, number]> = { lake: [300, 420], galilee: [420, 520], jordan: [640, 700] };
+const WATER: Record<string, [number, number]> = { lake: [300, 390], galilee: [330, 392], jordan: [354, 392] };
 
 export function addAmbientLife(scene: Phaser.Scene, backdrop: string, time: TimeOfDay, calm = true): void {
   const W = scene.scale.width;
@@ -70,7 +70,7 @@ function butterflies(scene: Phaser.Scene, W: number, n: number): void {
 // Sheep grazing on the hillside, now and then taking a few steps.
 function sheep(scene: Phaser.Scene, W: number): void {
   for (let i = 0; i < 4; i++) {
-    const s = scene.add.container(W * (0.08 + i * 0.27 + Math.random() * 0.08), 420 - Math.random() * 30).setScale(0.55 + Math.random() * 0.2);
+    const s = scene.add.container(W * (0.08 + i * 0.27 + Math.random() * 0.08), 372 - Math.random() * 40).setScale(0.55 + Math.random() * 0.2);
     const g = scene.add.graphics();
     g.fillStyle(0x3a2e26, 1).fillRect(-12, 6, 4, 12).fillRect(8, 6, 4, 12);
     g.fillStyle(0xf2eee4, 1);

@@ -1,13 +1,14 @@
 import Phaser from 'phaser';
 import exploreJson from '../../content/en/explore.json';
 import { FONT, makeButton } from '../ui/common';
-import { drawBackdrop } from '../art/backdrops';
+import { drawBackdrop, drawFloor } from '../art/backdrops';
 import { addAmbientLife } from '../art/ambient';
 import { Figure, Person, setPlayerLook } from '../art/people';
 import { characters, ui, type SceneData } from '../systems/content';
 import { speak } from '../systems/speech';
 import { sfx } from '../systems/audio';
 import { confetti } from '../ui/celebrate';
+import { drawItem, questMark, type ItemKind } from '../art/items';
 import type { Hud } from '../ui/hud';
 import type { Slot } from '../systems/save';
 
@@ -16,7 +17,7 @@ import type { Slot } from '../systems/save';
 // person talks to them, and tapping a found thing picks it up. One villager
 // has a small quest. Reaching the glowing star starts the story.
 
-interface Place { villagers: string[]; quest: { ask: string; item: string; count: number } }
+interface Place { villagers: string[]; quest: { ask: string; item: ItemKind; count: number } }
 const data = exploreJson as unknown as { hint: string; storySign: string; questDone: string; places: Record<string, Place> };
 
 export function canExplore(backdrop: string): boolean {
@@ -44,7 +45,8 @@ export function explore(scene: Phaser.Scene, opts: {
     drawBackdrop(scene, opts.backdrop, opts.sceneData.timeOfDay);
     addAmbientLife(scene, opts.backdrop, opts.sceneData.timeOfDay);
     for (const o of scene.children.list.slice(first)) (o as unknown as Phaser.GameObjects.Components.ScrollFactor).setScrollFactor?.(0);
-    path(scene, worldW, H);
+    drawFloor(scene, opts.backdrop, opts.sceneData.timeOfDay, worldW);
+    foreground(scene, worldW, H);
 
     // The story's people wait at the far end, by a glowing star.
     const storyX = worldW - W * 0.42;
@@ -71,8 +73,8 @@ export function explore(scene: Phaser.Scene, opts: {
       return { p, zone, line, talked: false };
     });
     const giver = villagers[0];
-    const mark = scene.add.text(giver.p.root.x, LANE - 250, '❗', { fontSize: '44px' }).setOrigin(0.5);
-    scene.tweens.add({ targets: mark, y: LANE - 266, yoyo: true, repeat: -1, duration: 500 });
+    const mark = questMark(scene, giver.p.root.x, LANE - 268);
+    scene.tweens.add({ targets: mark.obj, y: LANE - 282, yoyo: true, repeat: -1, duration: 500, ease: 'Sine.easeInOut' });
 
     // The player
     setPlayerLook(opts.slot.look);
@@ -161,7 +163,7 @@ export function explore(scene: Phaser.Scene, opts: {
           for (const pp of player.people) pp.root.scaleX = Math.abs(pp.root.scaleX) * -side;
           if (v === giver && !questStarted) {
             questStarted = true;
-            mark.setText('❔');
+            mark.set('looking');
             say(v.p.root.x, place.quest.ask);
             spawnItems();
           } else if (v === giver && found >= place.quest.count) {
@@ -183,12 +185,13 @@ export function explore(scene: Phaser.Scene, opts: {
     const spawnItems = () => {
       for (let i = 0; i < place.quest.count; i++) {
         const x = W * 0.3 + Math.random() * (storyX - W * 0.75);
-        const item = scene.add.text(x, LANE - 20 + Math.random() * 30, place.quest.item, { fontSize: '52px' }).setOrigin(0.5, 1);
-        const shine = scene.add.circle(x, item.y - 26, 38, 0xfff3a0, 0.35);
+        const item = drawItem(scene, place.quest.item, x, LANE - 10 + Math.random() * 30);
+        item.setScale(1.2);
+        const shine = scene.add.circle(x, item.y - 24, 40, 0xfff3a0, 0.35);
         scene.children.moveBelow(shine as unknown as Phaser.GameObjects.GameObject, item as unknown as Phaser.GameObjects.GameObject);
         scene.tweens.add({ targets: shine, scale: 1.3, alpha: 0.1, yoyo: true, repeat: -1, duration: 600 });
         scene.tweens.add({ targets: item, y: item.y - 8, yoyo: true, repeat: -1, duration: 700 + i * 90 });
-        item.setInteractive({ useHandCursor: true });
+        item.setInteractive({ useHandCursor: true, hitArea: new Phaser.Geom.Circle(0, -22, 42), hitAreaCallback: Phaser.Geom.Circle.Contains });
         item.on('pointerdown', () => walk(x, () => {
           if (!item.active) return;
           item.disableInteractive();
@@ -198,7 +201,7 @@ export function explore(scene: Phaser.Scene, opts: {
           hud.earn(2, x, item.y - 40);
           scene.tweens.add({ targets: item, y: item.y - 120, scale: 1.5, alpha: 0, duration: 600, onComplete: () => item.destroy() });
           if (found === place.quest.count) {
-            mark.setText('✔').setColor('#7fd06a');
+            mark.set('done');
             timers.push(scene.time.delayedCall(700, () => {
               say(giver.p.root.x, data.questDone);
               giver.p.cheer();
@@ -242,26 +245,8 @@ export function explore(scene: Phaser.Scene, opts: {
   });
 }
 
-// A dirt path the whole width of the place, with stones and grass along it.
-function path(scene: Phaser.Scene, worldW: number, H: number): void {
-  const g = scene.add.graphics();
-  g.fillStyle(0x6f8f48, 1).fillRect(0, LANE - 70, worldW, H - LANE + 70);
-  g.fillStyle(0xc9b086, 1).fillRect(0, LANE - 40, worldW, 90);
-  g.fillStyle(0xb39a72, 1).fillRect(0, LANE + 44, worldW, 8);
-  g.fillStyle(0xd8c49a, 0.8);
-  for (let i = 0; i < worldW / 40; i++) g.fillEllipse((i * 137) % worldW, LANE - 30 + ((i * 53) % 80), 10 + (i % 4) * 4, 5);
-  g.fillStyle(0x8a7a5a, 1);
-  for (let i = 0; i < worldW / 90; i++) g.fillEllipse((i * 211) % worldW, LANE - 36 + ((i * 71) % 84), 14, 8);
-  g.lineStyle(3, 0x4f7a32, 1);
-  for (let x = 0; x < worldW; x += 22) {
-    const y = LANE - 40;
-    g.lineBetween(x, y + 4, x - 4, y - 10 - (x % 3) * 4).lineBetween(x + 6, y + 4, x + 9, y - 8);
-  }
-  g.fillStyle(0xc8323a, 1);
-  for (let i = 0; i < worldW / 160; i++) g.fillCircle((i * 263) % worldW, LANE + 80 + ((i * 41) % 30), 4);
-  g.fillStyle(0xf2eee0, 1);
-  for (let i = 0; i < worldW / 140; i++) g.fillCircle((i * 197 + 60) % worldW, LANE + 70 + ((i * 29) % 40), 3.5);
-  // Bushes in front, which slide past a little faster for depth
+// Bushes in the very front, which slide past a little faster for depth.
+function foreground(scene: Phaser.Scene, worldW: number, H: number): void {
   const front = scene.add.graphics().setScrollFactor(1.25).setDepth(55);
   for (let i = 0; i < worldW / 380; i++) {
     const x = i * 380 + 120;

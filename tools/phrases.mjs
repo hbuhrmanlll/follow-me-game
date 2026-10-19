@@ -88,6 +88,11 @@ export function collectPhrases() {
   for (let n = 2; n <= 40; n++) add(fill(ui.streak, { n }));
   for (let n = 1; n <= 3; n++) add(fill(ui.stars, { n }));
   add('Hosanna! Hosanna!');
+  // Walk-around mode: villagers, quests and hints
+  const explore = read(`content/${LANG}/explore.json`);
+  add(explore.hint); add(explore.questDone);
+  for (const pl of Object.values(explore.places)) { pl.villagers.forEach(add); add(pl.quest.ask); }
+  for (let n = 1; n <= 100; n++) add(fill(ui.needCoins, { n }));
   for (const c of Object.values(characters)) add(c.name);
   for (const l of Object.values(locations)) { add(`${l.name}. ${l.summary}`); add(l.name); }
   for (const d of Object.values(disciples.cards ?? disciples)) {

@@ -278,8 +278,10 @@ function house(g: Phaser.GameObjects.Graphics, x: number, base: number, w: numbe
     g.fillStyle(C.ValueToColor(stone).darken(8).color, 1);
     for (let st = 0; st < 6; st++) g.fillRect(x - 10 - st * 7, base - h + 4 + st * (h / 6), 10 + st * 7, h / 6);
   }
-  // Shadow at the foot of the wall
+  // Shadow at the foot of the wall, and a clean outline like an illustration
   g.fillStyle(0x000000, 0.18).fillRect(x, base - 3, w + d, 6);
+  g.lineStyle(2, 0x3a2a1c, 0.55).strokeRect(x, base - h, w, h);
+  g.strokePoints([{ x: x + w, y: base }, { x: x + w + d, y: base - d * 0.45 }, { x: x + w + d, y: base - h - d * 0.45 }, { x: x + d - 3, y: base - h - d * 0.45 }, { x: x - 3, y: base - h }], false);
   // A clay jar or two by the door
   if (k % 2 === 0) {
     g.fillStyle(0xa8643a, 1).fillEllipse(dx + 26, base - 10, 14, 18).fillRect(dx + 22, base - 22, 8, 5);
@@ -371,6 +373,7 @@ function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number, 
     }
     pts.push({ x: offset + W, y: H });
     g.fillStyle(color, 1).fillPoints(pts, true);
+    g.lineStyle(2.5, Phaser.Display.Color.ValueToColor(color).darken(28).color, 0.55).strokePoints(pts.slice(1, -1), false);
     // Slopes: lighter where the sun catches them, darker further down.
     const n = 200;
     for (let i = 0; i < n; i++) {
@@ -396,6 +399,7 @@ function hills(scene: Phaser.Scene, baseY: number, color: number, seed: number, 
           // An olive tree: grey-green, rounded, on a short trunk
           g.fillStyle(0x4a3a2a, 1).fillRect(offset + x - 2 * sz, y - 14 * sz, 4 * sz, 14 * sz);
           g.fillStyle(Phaser.Display.Color.ValueToColor(color).darken(22).color, 1).fillEllipse(offset + x, y - 20 * sz, 34 * sz, 20 * sz).fillEllipse(offset + x - 8 * sz, y - 26 * sz, 20 * sz, 14 * sz);
+          g.lineStyle(1.5, Phaser.Display.Color.ValueToColor(color).darken(40).color, 0.6).strokeEllipse(offset + x, y - 20 * sz, 34 * sz, 20 * sz);
           g.fillStyle(0xb8c2a0, 0.22).fillEllipse(offset + x + 4 * sz, y - 26 * sz, 14 * sz, 7 * sz);
         }
       } else if (detail === 'rocks') {

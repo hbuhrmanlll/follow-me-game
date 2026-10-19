@@ -31,7 +31,23 @@ export interface Slot {
   journal: JournalEntry[];
   achievements: string[]; // ids of achievements earned
   progress: Progress;
+  coins: number; // earned by exploring, quests, puzzles and mini-games
+  xp: number; // everything ever earned; sets the player's level
+  look: PlayerLook; // how the player's own character looks
+  unlocked: string[]; // cloak colors bought with coins
   updated: number;
+}
+
+// The player's own character, walking around in each place.
+export interface PlayerLook { sex: 'm' | 'f'; skin: string; hair: string; tunic: string; mantle: string }
+export const DEFAULT_LOOKS: PlayerLook[] = [
+  { sex: 'm', skin: '#b08058', hair: '#3a2618', tunic: '#e0d2b2', mantle: '#4a7aa8' },
+  { sex: 'f', skin: '#a8774e', hair: '#2a1a10', tunic: '#e4d6b8', mantle: '#c0603a' },
+];
+
+export function levelOf(xp: number): { level: number; into: number; need: number } {
+  const per = 40;
+  return { level: 1 + Math.floor(xp / per), into: xp % per, need: per };
 }
 
 export type Speed = 'slow' | 'normal' | 'fast';
@@ -45,10 +61,11 @@ export interface Settings {
   textSize: TextSize;
   highContrast: boolean;
   subtitles: boolean;
+  shortStory: boolean; // Kids and Family: skip the narrator's in-between lines
 }
 
 const DEFAULT_SETTINGS: Settings = {
-  autoAdvance: true, speed: 'normal', voiceVolume: 1, musicVolume: 0.6, sfxVolume: 0.8,
+  autoAdvance: true, shortStory: true, speed: 'normal', voiceVolume: 1, musicVolume: 0.6, sfxVolume: 0.8,
   textSize: 'normal', highContrast: false, subtitles: true,
 };
 
@@ -89,6 +106,10 @@ export function loadSlots(): (Slot | null)[] {
     s.achievements ??= [];
     s.difficulty ??= 'family'; // added in Phase 4
     s.journal ??= [];
+    s.coins ??= 0; // added in v0.9
+    s.xp ??= 0;
+    s.look ??= DEFAULT_LOOKS[s.name.length % 2];
+    s.unlocked ??= [];
     return s;
   });
 }
@@ -103,6 +124,10 @@ export function newSlot(name: string, difficulty: Difficulty): Slot {
   return {
     name,
     difficulty,
+    coins: 0,
+    xp: 0,
+    look: DEFAULT_LOOKS[name.length % 2],
+    unlocked: [],
     journal: [],
     achievements: [],
     translation: 'bsb',

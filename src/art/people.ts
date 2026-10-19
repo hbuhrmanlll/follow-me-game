@@ -27,6 +27,19 @@ interface Look {
 }
 
 const looks = looksJson as unknown as Record<string, LookJson>;
+
+// A short tag for how someone looks, so a changed look gets freshly drawn pictures.
+function lookSig(id: string): string {
+  const t = JSON.stringify(looks[id] ?? {});
+  let h = 0;
+  for (let i = 0; i < t.length; i++) h = (Math.imul(h, 31) + t.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+
+// The player's own character: a young follower whose look the player chooses.
+export function setPlayerLook(l: { sex: 'm' | 'f'; skin: string; hair: string; tunic: string; mantle: string }): void {
+  looks.player = { sex: l.sex, age: 'young', height: 0.86, build: 'slim', skin: l.skin, hair: l.hair, hairStyle: l.sex === 'f' ? undefined : 'wavy', beard: 'none', tunic: l.tunic, mantle: l.mantle, tassels: l.sex === 'm' };
+}
 const hex = (s: string) => Phaser.Display.Color.HexStringToColor(s).color;
 const darker = (c: number, n: number) => Phaser.Display.Color.ValueToColor(c).darken(n).color;
 const lighter = (c: number, n: number) => Phaser.Display.Color.ValueToColor(c).lighten(n).color;
@@ -69,6 +82,11 @@ function resolveLook(id: string, member = 0): Look {
 const NECK = -168; // where the head joins the body
 const SHOULDER_Y = -160;
 const RES = 2; // pictures are saved at double size so they stay sharp
+const INK = 0x2a1a10; // the outline around every shape, like a cartoon
+
+function outline(g: Phaser.GameObjects.Graphics, pts: Phaser.Types.Math.Vector2Like[], width = 2.4): void {
+  g.lineStyle(width, INK, 0.9).strokePoints(pts, true, true);
+}
 
 function bake(scene: Phaser.Scene, key: string, x: number, y: number, w: number, h: number, draw: (g: Phaser.GameObjects.Graphics) => void): Phaser.GameObjects.Image {
   if (!scene.textures.exists(key)) {
@@ -101,6 +119,7 @@ function drawBody(g: Phaser.GameObjects.Graphics, l: Look): void {
     { x: -s - 3, y: SHOULDER_Y + 10 },
   ];
   g.fillStyle(tunic, 1).fillPoints(robe, true);
+  outline(g, robe);
   g.fillStyle(darker(tunic, 18), 0.55).fillPoints([{ x: -s - 3, y: SHOULDER_Y + 10 }, { x: -w - 2, y: -110 }, { x: -h, y: hemY }, { x: -h * 0.45, y: hemY }, { x: -w * 0.5, y: -110 }, { x: -s * 0.55, y: SHOULDER_Y }], true);
   g.lineStyle(1.6, darker(tunic, 26), 0.6);
   for (const fx of [-0.55, -0.15, 0.25, 0.6]) g.lineBetween(w * fx, -100, h * fx * 1.15, hemY - 2);
@@ -147,11 +166,16 @@ function drawBody(g: Phaser.GameObjects.Graphics, l: Look): void {
     const m = l.mantle;
     if (l.sex === 'f') {
       // Women's mantle falls from the shoulders like a long shawl.
-      g.fillStyle(m, 1).fillPoints([{ x: -s - 3, y: SHOULDER_Y - 2 }, { x: -10, y: NECK + 4 }, { x: -w * 0.2, y: -60 }, { x: -h * 0.6, y: -24 }, { x: -h - 2, y: -40 }], true);
-      g.fillPoints([{ x: s + 3, y: SHOULDER_Y - 2 }, { x: 10, y: NECK + 4 }, { x: w * 0.25, y: -70 }, { x: h * 0.65, y: -30 }, { x: h + 2, y: -46 }], true);
+      const left = [{ x: -s - 3, y: SHOULDER_Y - 2 }, { x: -10, y: NECK + 4 }, { x: -w * 0.2, y: -60 }, { x: -h * 0.6, y: -24 }, { x: -h - 2, y: -40 }];
+      const right = [{ x: s + 3, y: SHOULDER_Y - 2 }, { x: 10, y: NECK + 4 }, { x: w * 0.25, y: -70 }, { x: h * 0.65, y: -30 }, { x: h + 2, y: -46 }];
+      g.fillStyle(m, 1).fillPoints(left, true).fillPoints(right, true);
+      outline(g, left);
+      outline(g, right);
       g.fillStyle(darker(m, 20), 0.6).fillPoints([{ x: -s - 3, y: SHOULDER_Y + 4 }, { x: -h - 2, y: -40 }, { x: -h * 0.8, y: -32 }], true);
     } else if (l.extra === 'toga') {
-      g.fillStyle(0xf6f2e8, 1).fillPoints([{ x: -s - 3, y: SHOULDER_Y - 2 }, { x: -6, y: NECK + 4 }, { x: w + 4, y: -96 }, { x: h - 4, y: -30 }, { x: -h, y: -24 }, { x: -h - 1, y: -60 }], true);
+      const toga = [{ x: -s - 3, y: SHOULDER_Y - 2 }, { x: -6, y: NECK + 4 }, { x: w + 4, y: -96 }, { x: h - 4, y: -30 }, { x: -h, y: -24 }, { x: -h - 1, y: -60 }];
+      g.fillStyle(0xf6f2e8, 1).fillPoints(toga, true);
+      outline(g, toga);
       g.lineStyle(5, m, 1).lineBetween(-6, NECK + 6, w + 4, -96).lineBetween(w + 4, -96, h - 4, -30);
       g.lineStyle(1.5, 0xd8d0c0, 1);
       for (const fx of [-0.6, -0.2, 0.2]) g.lineBetween(-s * 0.6 + fx * 20, SHOULDER_Y + 10, h * fx, -30);
@@ -161,6 +185,7 @@ function drawBody(g: Phaser.GameObjects.Graphics, l: Look): void {
         { x: w + 4, y: -100 }, { x: h - 2, y: -44 }, { x: h * 0.4, y: -26 }, { x: -h - 3, y: -32 }, { x: -s - 6, y: SHOULDER_Y + 30 },
       ];
       g.fillStyle(m, 1).fillPoints(drape, true);
+      outline(g, drape);
       g.fillStyle(darker(m, 22), 0.75).fillPoints([{ x: -s - 6, y: SHOULDER_Y + 30 }, { x: -h - 3, y: -32 }, { x: -h * 0.5, y: -30 }, { x: -s * 0.4, y: SHOULDER_Y + 20 }], true);
       g.fillStyle(lighter(m, 10), 0.35).fillPoints([{ x: -9, y: NECK + 1 }, { x: 4, y: SHOULDER_Y + 18 }, { x: w - 2, y: -100 }, { x: -6, y: SHOULDER_Y + 14 }], true);
       g.lineStyle(1.6, darker(m, 30), 0.7);
@@ -182,10 +207,13 @@ function drawBody(g: Phaser.GameObjects.Graphics, l: Look): void {
 function drawArm(g: Phaser.GameObjects.Graphics, l: Look, cloth: number): void {
   // Drawn hanging down from the shoulder joint at (0, 0).
   const big = l.build === 'broad' ? 1.12 : 1;
-  g.fillStyle(cloth, 1).fillPoints([{ x: -9 * big, y: -4 }, { x: 9 * big, y: -4 }, { x: 10 * big, y: 40 }, { x: 8, y: 66 }, { x: -8, y: 66 }, { x: -10 * big, y: 40 }], true);
+  const sleeve = [{ x: -9 * big, y: -4 }, { x: 9 * big, y: -4 }, { x: 10 * big, y: 40 }, { x: 8, y: 66 }, { x: -8, y: 66 }, { x: -10 * big, y: 40 }];
+  g.fillStyle(cloth, 1).fillPoints(sleeve, true);
+  outline(g, sleeve, 2.2);
   g.fillStyle(darker(cloth, 20), 0.5).fillPoints([{ x: -9 * big, y: -4 }, { x: -2, y: -4 }, { x: -2, y: 66 }, { x: -8, y: 66 }, { x: -10 * big, y: 40 }], true);
   g.fillStyle(darker(cloth, 30), 1).fillRect(-8, 62, 16, 4);
   g.fillStyle(l.skin, 1).fillEllipse(0, 74, 13, 16); // hand
+  g.lineStyle(2, INK, 0.85).strokeEllipse(0, 74, 13, 16);
   g.fillStyle(darker(l.skin, 15), 1).fillEllipse(-3, 76, 5, 9);
 }
 
@@ -202,8 +230,10 @@ function drawHead(g: Phaser.GameObjects.Graphics, l: Look): void {
   }
   // Neck and head
   g.fillStyle(darker(skin, 12), 1).fillRect(-7, -6, 14, 10);
-  g.fillStyle(skin, 1).fillEllipse(0, cy, 34, 42);
   g.fillStyle(skin, 1).fillEllipse(-17, cy + 1, 7, 11).fillEllipse(17, cy + 1, 7, 11); // ears
+  g.lineStyle(2, INK, 0.85).strokeEllipse(-17, cy + 1, 7, 11).strokeEllipse(17, cy + 1, 7, 11);
+  g.fillStyle(skin, 1).fillEllipse(0, cy, 34, 42);
+  g.lineStyle(2.4, INK, 0.9).strokeEllipse(0, cy, 34, 42);
   g.fillStyle(darker(skin, 14), 0.5).fillEllipse(-10, cy + 4, 12, 22); // shade on one cheek
   g.fillStyle(0xd0605a, l.sex === 'f' ? 0.22 : 0.12).fillCircle(-9, cy + 7, 5).fillCircle(9, cy + 7, 5); // rosy cheeks
   g.fillStyle(lighter(skin, 10), 0.35).fillEllipse(4, cy - 12, 14, 6); // light on the forehead
@@ -223,7 +253,9 @@ function drawHead(g: Phaser.GameObjects.Graphics, l: Look): void {
     g.fillStyle(darker(skin, 22), 0.45).fillEllipse(0, cy + 13, 26, 16);
   } else if (l.beard !== 'none') {
     const len = l.beard === 'long' ? 26 : l.beard === 'full' ? 16 : 9;
-    g.fillStyle(bc, 1).fillPoints([{ x: -16, y: cy + 1 }, { x: -14, y: cy + 12 }, { x: -8, y: cy + 17 + len * 0.6 }, { x: 0, y: cy + 18 + len }, { x: 8, y: cy + 17 + len * 0.6 }, { x: 14, y: cy + 12 }, { x: 16, y: cy + 1 }, { x: 12, y: cy + 8 }, { x: 6, y: cy + 15 }, { x: -6, y: cy + 15 }, { x: -12, y: cy + 8 }], true);
+    const beard = [{ x: -16, y: cy + 1 }, { x: -14, y: cy + 12 }, { x: -8, y: cy + 17 + len * 0.6 }, { x: 0, y: cy + 18 + len }, { x: 8, y: cy + 17 + len * 0.6 }, { x: 14, y: cy + 12 }, { x: 16, y: cy + 1 }, { x: 12, y: cy + 8 }, { x: 6, y: cy + 15 }, { x: -6, y: cy + 15 }, { x: -12, y: cy + 8 }];
+    g.fillStyle(bc, 1).fillPoints(beard, true);
+    outline(g, beard, 2);
     g.fillStyle(bc, 1).fillEllipse(-4, cy + 13, 11, 4).fillEllipse(4, cy + 13, 11, 4); // moustache
     g.lineStyle(1, darker(bc, 20), 0.6).lineBetween(-4, cy + 20, -3, cy + 18 + len).lineBetween(4, cy + 20, 3, cy + 18 + len);
   }
@@ -249,7 +281,9 @@ function drawHead(g: Phaser.GameObjects.Graphics, l: Look): void {
     } else {
       g.fillStyle(hair, 1).fillEllipse(0, cy - 15, 30, 10);
     }
-    g.fillStyle(c, 1).fillPoints([{ x: -22, y: cy - 6 }, { x: -18, y: cy - 22 }, { x: 0, y: cy - 30 }, { x: 18, y: cy - 22 }, { x: 22, y: cy - 6 }, { x: 25, y: cy + 16 }, { x: 18, y: cy + 16 }, { x: 15, y: cy - 10 }, { x: 0, y: cy - 18 }, { x: -15, y: cy - 10 }, { x: -18, y: cy + 16 }, { x: -25, y: cy + 16 }], true);
+    const cover = [{ x: -22, y: cy - 6 }, { x: -18, y: cy - 22 }, { x: 0, y: cy - 30 }, { x: 18, y: cy - 22 }, { x: 22, y: cy - 6 }, { x: 25, y: cy + 16 }, { x: 18, y: cy + 16 }, { x: 15, y: cy - 10 }, { x: 0, y: cy - 18 }, { x: -15, y: cy - 10 }, { x: -18, y: cy + 16 }, { x: -25, y: cy + 16 }];
+    g.fillStyle(c, 1).fillPoints(cover, true);
+    outline(g, cover);
     g.fillStyle(darker(c, 18), 0.6).fillPoints([{ x: -22, y: cy - 6 }, { x: -15, y: cy - 10 }, { x: -18, y: cy + 16 }, { x: -25, y: cy + 16 }], true);
     if (l.sex === 'm') g.fillStyle(darker(c, 40), 1).fillRect(-17, cy - 21, 34, 3); // cord
     return;
@@ -258,7 +292,9 @@ function drawHead(g: Phaser.GameObjects.Graphics, l: Look): void {
     g.fillStyle(hair, 1).fillEllipse(-15, cy - 4, 6, 12).fillEllipse(15, cy - 4, 6, 12);
     return;
   }
-  g.fillStyle(hair, 1).fillPoints([{ x: -17, y: cy + 1 }, { x: -18, y: cy - 14 }, { x: -8, y: cy - 23 }, { x: 8, y: cy - 23 }, { x: 18, y: cy - 14 }, { x: 17, y: cy + 1 }, { x: 14, y: cy - 8 }, { x: 4, y: cy - 13 }, { x: -6, y: cy - 12 }, { x: -14, y: cy - 7 }], true);
+  const top = [{ x: -17, y: cy + 1 }, { x: -18, y: cy - 14 }, { x: -8, y: cy - 23 }, { x: 8, y: cy - 23 }, { x: 18, y: cy - 14 }, { x: 17, y: cy + 1 }, { x: 14, y: cy - 8 }, { x: 4, y: cy - 13 }, { x: -6, y: cy - 12 }, { x: -14, y: cy - 7 }];
+  g.fillStyle(hair, 1).fillPoints(top, true);
+  if (l.hairStyle !== 'curly' && l.hairStyle !== 'wild') outline(g, top, 2);
   if (l.hairStyle === 'curly' || l.hairStyle === 'wild') {
     const r = l.hairStyle === 'wild' ? 7 : 5;
     for (let i = 0; i < 9; i++) {
@@ -294,7 +330,7 @@ export class Person {
 
   constructor(readonly scene: Phaser.Scene, readonly id: string, x: number, y: number, member = 0) {
     const l = (this.look = resolveLook(id, member));
-    const key = `person:${id}:${member}`;
+    const key = `person:${id}:${member}:${lookSig(id)}`;
     const scale = l.height * (l.age === 'young' ? 0.97 : 1);
     this.root = scene.add.container(x, y).setScale(scale);
 
@@ -311,8 +347,8 @@ export class Person {
     this.body = scene.add.container(0, 0);
     const { shoulder } = widths(l);
     const cloth = l.mantle !== null && l.sex !== 'f' && l.extra !== 'toga' ? l.mantle : l.tunic;
-    this.back = scene.add.container(-shoulder + 2, SHOULDER_Y + 2, [bake(scene, `${key}:armB`, -14, -6, 28, 92, (g) => drawArm(g, l, l.sex === 'f' && l.mantle !== null ? l.mantle : cloth))]);
-    this.front = scene.add.container(shoulder - 2, SHOULDER_Y + 2, [bake(scene, `${key}:armF`, -14, -6, 28, 92, (g) => drawArm(g, l, l.sex === 'f' && l.mantle !== null ? l.mantle : l.tunic))]);
+    this.back = scene.add.container(-shoulder - 1, SHOULDER_Y + 2, [bake(scene, `${key}:armB`, -14, -6, 28, 92, (g) => drawArm(g, l, l.sex === 'f' && l.mantle !== null ? l.mantle : cloth))]);
+    this.front = scene.add.container(shoulder + 1, SHOULDER_Y + 2, [bake(scene, `${key}:armF`, -14, -6, 28, 92, (g) => drawArm(g, l, l.sex === 'f' && l.mantle !== null ? l.mantle : l.tunic))]);
     const torso = bake(scene, `${key}:body`, -46, -176, 92, 178, (g) => drawBody(g, l));
     this.head = scene.add.container(0, NECK);
     this.head.add(bake(scene, `${key}:head`, -34, -64, 68, 90, (g) => drawHead(g, l)));
@@ -321,7 +357,11 @@ export class Person {
     this.head.add([this.eyes, this.mouth]);
     this.drawEyes();
     this.drawMouth(0);
-    this.body.add([this.back, torso, this.front, this.head]);
+    // Both arms hang in front of the body, so everyone clearly has two arms.
+    this.back.setAngle(5);
+    this.front.setAngle(-5);
+    this.head.setScale(1.14);
+    this.body.add([torso, this.back, this.front, this.head]);
     this.root.add([shadow, this.feet, this.body]);
     if (l.extra === 'jar') {
       const jar = scene.add.graphics();
@@ -494,9 +534,9 @@ export class Person {
       const w = s.add.image(img.x, img.y, img.texture.key).setOrigin(img.originX, img.originY).setScale(img.scaleX).setTintFill(0xfffdf4).setAlpha(part === this.head ? 0 : 0.8);
       part.addAt(w, 1);
     }
-    const torso = this.body.list[1] as Phaser.GameObjects.Image;
+    const torso = this.body.list[0] as Phaser.GameObjects.Image;
     const w = s.add.image(torso.x, torso.y, torso.texture.key).setOrigin(torso.originX, torso.originY).setScale(torso.scaleX).setTintFill(0xfffdf4).setAlpha(0.85);
-    this.body.addAt(w, 2);
+    this.body.addAt(w, 1);
     const glow = s.add.graphics();
     for (let i = 5; i >= 1; i--) glow.fillStyle(0xfff6d8, 0.12).fillEllipse(0, -110, 90 * i * 0.5, 150 * i * 0.42);
     this.root.addAt(glow, 0);
@@ -577,7 +617,7 @@ export class Figure {
 // A head-and-shoulders picture for the dialogue box, made from the same drawing.
 export function bustTexture(scene: Phaser.Scene, id: string): string | null {
   if (!looks[id] && !characters[id]?.disciple) return null;
-  const key = `person:${id}:bust`;
+  const key = `person:${id}:bust:${lookSig(id)}`;
   if (!scene.textures.exists(key)) {
     const l = resolveLook(id, 0);
     const g = scene.make.graphics({}, false);

@@ -9,6 +9,7 @@ import { DisciplesScene } from './scenes/DisciplesScene';
 import { EndingScene } from './scenes/EndingScene';
 import { ParentScene } from './scenes/ParentScene';
 import { ProgressScene } from './scenes/ProgressScene';
+import { CharacterScene } from './scenes/CharacterScene';
 import { unlockAudioOnFirstTouch } from './systems/audio';
 import { isApp, setUpDevice } from './systems/native';
 import { registerSW } from 'virtual:pwa-register';
@@ -29,7 +30,7 @@ const game = new Phaser.Game({
   // Only listen for taps on the game itself, so taps on pop-up windows never
   // reach game buttons underneath them.
   input: { windowEvents: false },
-  scene: [TitleScene, SlotScene, StoryScene, MapScene, JournalScene, PracticeScene, DisciplesScene, EndingScene, ParentScene, ProgressScene],
+  scene: [TitleScene, SlotScene, StoryScene, MapScene, JournalScene, PracticeScene, DisciplesScene, EndingScene, ParentScene, ProgressScene, CharacterScene],
 });
 
 unlockAudioOnFirstTouch();

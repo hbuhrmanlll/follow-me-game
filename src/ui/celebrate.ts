@@ -25,7 +25,7 @@ export function popText(scene: Phaser.Scene, x: number, y: number, text: string,
   return new Promise((done) => {
     const t = scene.add.text(x, y, text, {
       fontFamily: FONT, fontSize: `${size}px`, color, fontStyle: 'bold', stroke: '#3b2410', strokeThickness: 10, align: 'center',
-    }).setOrigin(0.5).setDepth(depth).setScale(0.2).setAlpha(0);
+    }).setOrigin(0.5).setDepth(depth).setScale(0.2).setAlpha(0).setScrollFactor(0);
     scene.tweens.add({ targets: t, scale: 1, alpha: 1, duration: 380, ease: 'Back.easeOut' });
     scene.tweens.add({ targets: t, angle: { from: -4, to: 4 }, yoyo: true, repeat: 2, duration: 160, delay: 380 });
     scene.tweens.add({ targets: t, y: y - 70, alpha: 0, delay: 1500, duration: 600, onComplete: () => { t.destroy(); done(); } });

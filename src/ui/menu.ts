@@ -23,6 +23,7 @@ export function openMenu(scene: Phaser.Scene, slot: number, onResume: () => void
   go(`📖  ${ui.journal}`, () => scene.scene.start('Journal', { slot }));
   go(`👥  ${ui.disciplesTitle}`, () => scene.scene.start('Disciples', { slot }));
   go(`📊  ${ui.progress}`, () => scene.scene.start('Progress', { slot }));
+  go(`🎨  ${ui.myCharacter}`, () => scene.scene.start('Character', { slot, next: 'Story' }));
   go(`⚙  ${ui.settings}`, () => void showSettings().then(onResume));
   go(`👤  ${ui.players}`, () => scene.scene.start('Slots'), true);
   root.appendChild(panel);

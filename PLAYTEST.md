@@ -349,3 +349,30 @@ The title screen should say **Phase 7 · v0.8.1** (or later). Play at https://hb
 
 **Faces**
 - [ ] Bigger eyes with color and a sparkle, rosy cheeks, and lips
+
+## Version 0.9: a real game
+
+The title screen should say **Phase 8 · v0.9.0**.
+
+**Your character**
+- [ ] A new player goes to **Your Character**: choose Boy or Girl, skin, tunic and cloak, with a big preview that cheers when you change something
+- [ ] Four special cloaks are locked and cost coins (🪙 25, 50, 75 and 100). Without enough coins it tells you how many more you need; with enough, it unlocks with confetti
+- [ ] ☰ → **My Character** changes your look at any time
+
+**Walk around and explore** (at the start of each chapter, and whenever the story moves somewhere new)
+- [ ] Tap anywhere to walk, and the screen follows you
+- [ ] Tap a villager to talk to them (🪙 +1 the first time)
+- [ ] The villager with ❗ has a small quest, like "find 3 eggs". The things glow on the path; tap them to pick them up (🪙 +2 each, then 🪙 +5 when you've found them all)
+- [ ] Walk to the glowing ⭐ (or tap **Go to the story ⭐**) and the story starts, with **you** standing among Jesus' followers, with your name above your head
+- [ ] No exploring at night, in storms, or at the cross and the burial
+
+**Coins and levels**
+- [ ] The coin counter and level badge are at the top. Coins fly into it, and the green bar fills toward the next level, with a "Level 2!" celebration
+- [ ] Coins for puzzles (5 for right the first time, 2 otherwise, +5 more for a mini-game) and for each chapter's stars (5 per star)
+
+**Less reading**
+- [ ] Kids and Family: the narrator's in-between lines are skipped. Everything people say is kept. To hear everything, turn off **Shorter story parts** in ⚙ Settings (Adult mode always has the full text)
+
+**Better-looking people**
+- [ ] Everyone clearly has two arms
+- [ ] Clean cartoon outlines, slightly bigger heads and faces

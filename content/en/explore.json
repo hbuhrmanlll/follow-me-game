@@ -1,0 +1,91 @@
+{
+  "_about": "Walk-around mode: what villagers say in each kind of place, and one small quest. These are everyday first-century people, not Bible quotes. item is an emoji; count is how many to find.",
+  "hint": "Walk to the star to see what happens!",
+  "storySign": "Story",
+  "questDone": "Thank you, friend!",
+  "places": {
+    "jordan": {
+      "villagers": [
+        "Crowds come from Jerusalem and all Judea to hear John preach!",
+        "The river is cool today. Many are being baptized.",
+        "John wears camel's hair and eats locusts and wild honey."
+      ],
+      "quest": { "ask": "My water jars rolled away down the bank. Can you find 3 of them?", "item": "🏺", "count": 3 }
+    },
+    "wilderness": {
+      "villagers": [
+        "It is hot and dry out here. Few people live in the wilderness.",
+        "Watch your step. There are rocks everywhere!"
+      ],
+      "quest": { "ask": "I dropped my flatbread along the path. Can you find 3 pieces?", "item": "🫓", "count": 3 }
+    },
+    "village": {
+      "villagers": [
+        "Shalom! Welcome to our village.",
+        "Have you heard about the teacher from Nazareth?",
+        "My fig tree gave so much fruit this year!",
+        "The well is at the end of the street, if you are thirsty."
+      ],
+      "quest": { "ask": "My hens got out of their pen! Can you find 3 eggs they laid?", "item": "🥚", "count": 3 }
+    },
+    "well": {
+      "villagers": [
+        "This is Jacob's well. It is very deep.",
+        "People come here to draw water in the morning, when it is cool."
+      ],
+      "quest": { "ask": "I need water for my animals. Can you find 3 empty jars?", "item": "🏺", "count": 3 }
+    },
+    "galilee": {
+      "villagers": [
+        "Look at the lake! Galilee is beautiful in the spring.",
+        "The fishermen go out on the lake at night.",
+        "The flowers on these hills are lovely."
+      ],
+      "quest": { "ask": "My sheep have wandered off. Can you find my 3 lambs?", "item": "🐑", "count": 3 }
+    },
+    "lake": {
+      "villagers": [
+        "We fish at night, when the fish come up near the surface.",
+        "Mending nets takes all morning!",
+        "Storms can come up suddenly on this lake."
+      ],
+      "quest": { "ask": "Some fish fell out of my basket. Can you find 4 of them?", "item": "🐟", "count": 4 }
+    },
+    "mountain": {
+      "villagers": [
+        "So many people came to hear Him teach!",
+        "Find a good place to sit on the grass."
+      ],
+      "quest": { "ask": "My little brother lost his loaves. Can you find 3 of them?", "item": "🍞", "count": 3 }
+    },
+    "cliff": {
+      "villagers": [
+        "The springs here flow down to the Jordan River.",
+        "This town is far to the north, near Mount Hermon."
+      ],
+      "quest": { "ask": "I dropped my grapes on the rocks. Can you find 3 bunches?", "item": "🍇", "count": 3 }
+    },
+    "jerusalem": {
+      "villagers": [
+        "Look at the Temple! Its white stones shine in the sun.",
+        "Many people travel to Jerusalem for the feasts.",
+        "The city is so crowded at Passover!"
+      ],
+      "quest": { "ask": "I am selling oil lamps, and some fell off my cart. Can you find 3?", "item": "🪔", "count": 3 }
+    },
+    "olives": {
+      "villagers": [
+        "These olive trees are very old.",
+        "From the Mount of Olives you can see all of Jerusalem."
+      ],
+      "quest": { "ask": "The olives are ripe! Can you help me gather 4 of them?", "item": "🫒", "count": 4 }
+    },
+    "tomb-open": {
+      "villagers": [
+        "The sun is just coming up over the garden.",
+        "Something wonderful has happened here!"
+      ],
+      "quest": { "ask": "Can you find 3 lilies for the garden?", "item": "🌸", "count": 3 }
+    }
+  }
+}

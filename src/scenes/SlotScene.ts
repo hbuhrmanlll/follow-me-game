@@ -58,7 +58,8 @@ export class SlotScene extends Phaser.Scene {
     const level = await askDifficulty();
     if (!level) return;
     saveSlot(i, newSlot(name, level));
-    this.play(i);
+    // Next, the player makes their own character.
+    this.scene.start('Character', { slot: i, next: 'Story' });
   }
 
   // Changing a level or erasing a player needs a grown-up.

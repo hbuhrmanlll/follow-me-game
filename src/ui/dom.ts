@@ -201,7 +201,7 @@ export function showSettings(): Promise<void> {
       draw();
       return wrap;
     };
-    const toggle = (key: 'highContrast' | 'subtitles' | 'autoAdvance') =>
+    const toggle = (key: 'highContrast' | 'subtitles' | 'autoAdvance' | 'shortStory') =>
       choice<'on' | 'off'>([['on', ui.on], ['off', ui.off]], () => (st[key] ? 'on' : 'off'), (v) => { st[key] = v === 'on'; });
 
     const voice = document.createElement('div');
@@ -216,6 +216,7 @@ export function showSettings(): Promise<void> {
     row(`💬 ${ui.subtitles}`, toggle('subtitles'));
     row(`◐ ${ui.highContrast}`, toggle('highContrast'));
     row(`▶ ${ui.autoAdvance}`, toggle('autoAdvance'));
+    row(`✂ ${ui.shortStory}`, toggle('shortStory'));
 
     panel.append(h, body, button(ui.close, () => { close(); resolve(); }));
   });

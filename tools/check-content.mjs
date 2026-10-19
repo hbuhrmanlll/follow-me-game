@@ -279,6 +279,16 @@ if (ending) {
   if (!ending.invite || !ending.prayer) errors.push('ending.json: needs "invite" and "prayer"');
 }
 
+// Walk-around mode
+const explore = readJson(`content/${LANG}/explore.json`);
+if (explore) {
+  for (const [bd, pl] of Object.entries(explore.places ?? {})) {
+    if (!BACKDROPS.includes(bd)) errors.push(`explore.json: no backdrop is called "${bd}"`);
+    if (!Array.isArray(pl.villagers) || pl.villagers.length < 2) errors.push(`explore.json "${bd}": needs at least 2 villager lines`);
+    if (!pl.quest?.ask || !pl.quest?.item || !(pl.quest?.count >= 1 && pl.quest.count <= 6)) errors.push(`explore.json "${bd}": quest needs "ask", "item" and a "count" from 1 to 6`);
+  }
+}
+
 // How people look on the stage
 const looks = readJson('content/looks.json') ?? {};
 for (const [id, look] of Object.entries(looks)) {

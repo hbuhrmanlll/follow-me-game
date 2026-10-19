@@ -16,8 +16,10 @@ import { isApp } from '../systems/native';
 import { checkAchievements, totalScrolls } from '../systems/achievements';
 import { setMood, sfx, type Mood } from '../systems/audio';
 import { artTexture, backdropArt, queueArt } from '../systems/art';
-import { Figure, bustTexture, hasLook } from '../art/people';
+import { Figure, bustTexture, hasLook, setPlayerLook } from '../art/people';
 import { addAmbientLife } from '../art/ambient';
+import { canExplore, explore } from './explore';
+import { makeHud, type Hud } from '../ui/hud';
 import { confetti, popText, starRow } from '../ui/celebrate';
 import { playCutscene, type CutsceneId } from '../cutscenes';
 import { loadSettings, loadSlots, newSlot, saveSettings, saveSlot, type Settings, type Slot, type Speed } from '../systems/save';
@@ -44,6 +46,7 @@ export class StoryScene extends Phaser.Scene {
   private backRow = new Map<string, Phaser.GameObjects.Container>();
   private run = 0; // bumps when the scene restarts so old loops stop
   private stormStop?: () => void;
+  private hud?: Hud;
 
   constructor() {
     super('Story');
@@ -144,6 +147,11 @@ export class StoryScene extends Phaser.Scene {
     while (run === this.run && p.scene < this.chapter.scenes.length) {
       const scene = this.chapter.scenes[p.scene];
       if (p.visited[p.visited.length - 1] !== scene.location) p.visited.push(scene.location);
+      // First, walk around the place (when arriving somewhere new).
+      if (p.step === 0 && this.shouldExplore(p.scene)) {
+        await this.runExplore(scene);
+        if (run !== this.run) return;
+      }
       this.buildStage(scene);
       // Coming back after the storm was stilled: keep it calm.
       if (scene.lines.slice(0, p.step).some((l) => l.cutscene === 'calm')) { this.stormStop?.(); setMood('peace'); }
@@ -153,6 +161,7 @@ export class StoryScene extends Phaser.Scene {
       }
       while (run === this.run && p.step < scene.lines.length) {
         this.save();
+        if (this.skipLine(scene, p.step)) { p.step++; continue; }
         await this.playLine(scene, p.step);
         if (run !== this.run) return;
         await this.welcome(scene.lines[p.step].joins ?? []);
@@ -177,6 +186,7 @@ export class StoryScene extends Phaser.Scene {
         });
         if (run !== this.run) return;
         if (!missed) p.streak++;
+        this.hud?.earn((missed ? 2 : 5) + (pz.type === 'minigame' ? 5 : 0), this.scale.width / 2, 300);
         await this.puzzleCheer(!missed, scene);
         if (run !== this.run) return;
         if (pz.type === 'fillBlank' || pz.type === 'verseOrder') addVerse(this.slot, pz.ref, pz.quote);
@@ -215,12 +225,17 @@ export class StoryScene extends Phaser.Scene {
     // Anyone who leaves during the scene (Judas) is always among those shown.
     const leavers = scene.lines.flatMap((l) => l.leaves ?? []);
     const companions = [...new Set([...leavers.filter((id) => others.includes(id)), ...others])].filter((id) => !speakers.includes(id)).slice(0, 6);
+    // The player is there too, among Jesus' followers.
+    if (!this.leader && scene.companions === undefined) {
+      setPlayerLook(this.slot.look);
+      companions.splice(Math.min(2, companions.length), 0, 'player');
+    }
     // People who are there but don't speak, like Moses and Elijah.
     for (const x of scene.extras ?? []) if (characters[x] && !speakers.includes(x)) speakers.push(x);
     this.backRow.clear();
     companions.forEach((id, i) => {
       const x = W * (0.15 + ((i + 0.5) / companions.length) * 0.7);
-      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, id, '').setScale(0.7));
+      this.backRow.set(id, this.makeFigure(x, FEET_Y - 30, id, id === 'player' ? this.slot.name : '').setScale(0.7));
     });
     // At the cross, Jesus and the criminal beside Him aren't shown as standing figures; the crosses are part of the background.
     if (scene.staging === 'cross') speakers.splice(0, speakers.length, ...speakers.filter((id) => id !== 'jesus' && id !== 'criminal'));
@@ -267,6 +282,7 @@ export class StoryScene extends Phaser.Scene {
     x -= bw + 12;
     makeButton(this, x, 54, '⟲', () => this.box?.replay(), { ...opts, fontSize: 44 });
 
+    if (!this.leader) this.hud = makeHud(this, 265, 126, this.slot, () => this.save());
     this.box = new DialogueBox(this);
     this.box.autoAdvance = this.settings.autoAdvance;
     this.box.speed = this.rate;
@@ -402,6 +418,41 @@ export class StoryScene extends Phaser.Scene {
     if (backdrop === 'tomb-open') return 'joy';
     if (scene.timeOfDay === 'night') return 'night';
     return scene.timeOfDay === 'midday' ? 'journey' : 'peace';
+  }
+
+  // Shorter story parts: for Kids and Family, the narrator's in-between lines
+  // are left out. The first and last narration of each scene stay, and so does
+  // everything anyone says, every cutscene and every disciple joining or leaving.
+  private skipLine(scene: SceneData, i: number): boolean {
+    if (this.slot.difficulty === 'adult' || !this.settings.shortStory) return false;
+    const line = scene.lines[i];
+    if (line.speaker !== 'narrator' || line.joins || line.leaves || line.cutscene || line.action) return false;
+    const narr = scene.lines.map((l, k) => (l.speaker === 'narrator' ? k : -1)).filter((k) => k >= 0);
+    return i !== narr[0] && i !== narr[narr.length - 1];
+  }
+
+  private shouldExplore(index: number): boolean {
+    const sc = this.chapter.scenes[index];
+    const backdrop = sc.backdrop ?? locations[sc.location]?.backdrop ?? 'jordan';
+    if (this.leader || !canExplore(backdrop) || sc.weather === 'storm' || sc.timeOfDay === 'night') return false;
+    if (this.moodFor(sc, backdrop) === 'sorrow') return false;
+    return index === 0 || this.chapter.scenes[index - 1].location !== sc.location;
+  }
+
+  private async runExplore(scene: SceneData): Promise<void> {
+    this.tweens.killAll();
+    this.children.removeAll(true);
+    this.figures.clear();
+    this.backRow.clear();
+    this.box = undefined;
+    const backdrop = scene.backdrop ?? locations[scene.location]?.backdrop ?? 'jordan';
+    setMood(this.moodFor(scene, backdrop));
+    await explore(this, {
+      sceneData: scene, backdrop, slot: this.slot, rate: this.rate,
+      makeHud: () => (this.hud = makeHud(this, this.scale.width / 2, 54, this.slot, () => this.save())),
+      onMenu: () => this.openGameMenu(),
+      save: () => this.save(),
+    });
   }
 
   private everyone(fn: (f: Figure) => void): void {
@@ -654,6 +705,7 @@ export class StoryScene extends Phaser.Scene {
     const stars = p.mistakes === 0 ? 3 : p.mistakes <= 2 ? 2 : 1;
     p.stars[this.chapter.id] = Math.max(stars, p.stars[this.chapter.id] ?? 0);
     p.mistakes = 0;
+    if (!this.leader) { this.slot.coins += stars * 5; this.slot.xp += stars * 5; }
     const nextId = chapterOrder[chapterOrder.indexOf(this.chapter.id) + 1];
     if (nextId) {
       p.chapter = nextId;
@@ -692,6 +744,12 @@ export class StoryScene extends Phaser.Scene {
     text(80, `✦ ${done} ✦`, 44, '#2b1d12', 'bold');
     // Stars drop in one by one, with confetti for a perfect chapter.
     starRow(this, W / 2, 140, stars, (i) => { if (i < stars) sfx('chime'); });
+    if (!this.leader) {
+      const reward = this.add.text(W / 2 + 175, 140, `🪙 +${stars * 5}`, {
+        fontFamily: FONT, fontSize: '30px', color: '#a8742a', fontStyle: 'bold',
+      }).setOrigin(0, 0.5).setAlpha(0);
+      this.tweens.add({ targets: reward, alpha: 1, x: reward.x + 10, delay: 1700, duration: 400 });
+    }
     if (stars === 3) this.time.delayedCall(1700, () => { confetti(this, W * 0.25, 160); confetti(this, W * 0.75, 160); sfx('achievement'); });
     text(190, ui.memoryVerse, 26, '#7a4f17', 'bold');
     text(258, `“${verse}”`, 36, '#2b1d12', 'italic');

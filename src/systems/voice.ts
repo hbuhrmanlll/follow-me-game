@@ -29,3 +29,13 @@ export function audioForLine(id: string, scripture: boolean, tid: TranslationId)
 export function audioForNote(sceneId: string): LineAudio | null {
   return find(`${sceneId}-note`);
 }
+
+// The web version saves a chapter's recordings for offline play when the
+// chapter starts (the Android app already has them all inside it).
+export function saveChapterAudio(lines: { id: string; type: string }[], tid: TranslationId): void {
+  if (!navigator.onLine || !('serviceWorker' in navigator)) return;
+  for (const line of lines) {
+    const a = audioForLine(line.id, line.type === 'scripture', tid);
+    if (a) void fetch(a.url).catch(() => undefined);
+  }
+}

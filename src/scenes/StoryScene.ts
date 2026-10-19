@@ -11,7 +11,8 @@ import {
 } from '../systems/content';
 import { addVerse } from '../systems/journal';
 import { openMenu } from '../ui/menu';
-import { audioForLine } from '../systems/voice';
+import { audioForLine, saveChapterAudio } from '../systems/voice';
+import { isApp } from '../systems/native';
 import { checkAchievements, totalScrolls } from '../systems/achievements';
 import { setMood, sfx, type Mood } from '../systems/audio';
 import { artTexture, backdropArt, queueArt } from '../systems/art';
@@ -92,6 +93,7 @@ export class StoryScene extends Phaser.Scene {
       this.game.events.off('app-hidden', onHidden);
       this.game.events.off('app-visible', onVisible);
     });
+    if (!isApp) saveChapterAudio(this.chapter.scenes.flatMap((sc) => sc.lines), this.slot.translation);
     loadTranslation(this.slot.translation).then(() => {
       if (run === this.run) void this.playFromSave(run);
     });

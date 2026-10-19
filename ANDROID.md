@@ -46,7 +46,7 @@ and click the **Actions** tab: a green ✓ next to "Android app" means it's read
 ## The privacy policy
 
 Google Play needs a web address for the privacy policy. It's part of the website:
-**https://followmegame.netlify.app/privacy.html**
+**https://hbuhrmanlll.github.io/follow-me-game/privacy.html**
 
 ## For a developer
 

@@ -5,10 +5,18 @@ and the twelve disciples through His ministry, from His baptism to His ascension
 
 ## How to play the test version
 
-**Game link: https://followmegame.netlify.app**
+**Game link: https://hbuhrmanlll.github.io/follow-me-game/**
 
-You don't need to install anything. Every time a new version is saved to GitHub,
-Netlify rebuilds the game and puts it at your game link (it takes about a minute).
+You don't need to install anything. Every time a new version is saved to GitHub, GitHub
+rebuilds the game and puts it at the game link. It takes about 3 minutes, and you can watch
+it under the **Actions** tab ("Website").
+
+**One-time setup:** on GitHub, open the project's **Settings → Pages**. Under **Build and
+deployment → Source**, choose **GitHub Actions**. Then, under the **Actions** tab, click
+**Website** and **Run workflow** once.
+
+The old link, https://followmegame.netlify.app, only updates while Netlify's free monthly
+allowance lasts, so use the GitHub link for testing.
 
 1. Open the game link on your Android phone in **Chrome** (or on your computer).
 2. Turn the phone sideways.
@@ -28,8 +36,8 @@ in the bottom-left corner of the title screen.
 3. ✅ Chapters 1–3, the map, and 3 puzzle types
 4. ✅ Remaining puzzle types, difficulty modes, Verse Journal, Disciple Cards, voice script
 5. ✅ The rest of the chapters (all 28, plus The Good News ending)
-6. Art, sound, voices, cutscenes, polish
-7. Android app and Google Play
+6. ✅ Art, sound, voices, cutscenes, polish
+7. Android app (✅ test app) and Google Play
 
 ## Voices
 

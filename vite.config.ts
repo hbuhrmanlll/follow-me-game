@@ -28,7 +28,19 @@ export default defineConfig({
       },
       workbox: {
         // Save everything the game needs, including Scripture and any voice recordings.
-        globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,webp,svg,json,mp3,ogg}'],
+        globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,webp,svg,json}'],
+        // Voice recordings are many megabytes, so they aren't all downloaded at
+        // once: each chapter's recordings are saved when the chapter starts.
+        runtimeCaching: [{
+          urlPattern: /\.(mp3|ogg)$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'voices',
+            rangeRequests: true,
+            cacheableResponse: { statuses: [200] },
+            expiration: { maxEntries: 3000 },
+          },
+        }],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         cleanupOutdatedCaches: true,
       },

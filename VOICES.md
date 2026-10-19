@@ -1,5 +1,32 @@
 # Voices: how the game gets its spoken lines
 
+## Free AI voices (in use now)
+
+Every line is recorded with **Kokoro**, a free AI voice. Its license (Apache 2.0) allows use in
+an app you sell or give away. GitHub's computers make the recordings, so nothing is paid and
+nothing needs installing:
+
+- **When you change a line** in a chapter file, the **"Generate voices (free)"** action
+  re-records just that line. It takes a few minutes. Then the website and the Android test
+  app rebuild themselves with the new recording.
+- **To change a character's voice**, edit `tools/voices-free.json` on GitHub.
+  - Each character has a `voice`. Names starting with `am_` or `bm_` are American or British
+    men, and `af_` or `bf_` are women.
+  - A voice can be a mix of two voices, like `["am_onyx", 0.6, "bm_george", 0.4]`, which gives
+    a character their own sound.
+  - Each character also has a `speed`, where 1 is normal.
+- **Kokoro voices to try:** `am_michael`, `am_onyx`, `am_eric`, `am_liam`, `am_fenrir`,
+  `am_puck`, `am_echo`, `am_adam`, `bm_george`, `bm_lewis`, `bm_daniel`, `bm_fable`;
+  `af_heart`, `af_bella`, `af_sarah`, `af_nicole`, `af_sky`, `af_jessica`, `af_river`, `af_kore`,
+  `bf_emma`, `bf_isabella`.
+- Short pop-up messages, puzzle questions and buttons are still read by the phone's built-in
+  voice.
+
+ElevenLabs (below) is still an option later for even more expressive voices. Its recordings
+simply replace the free ones.
+
+## ElevenLabs (optional, paid)
+
 Right now every line is read by your phone's **built-in voice**. That works offline, but it
 sounds robotic and the same for everyone. This guide explains how to make real voices
 with **ElevenLabs** when you're ready (a future release), and how to use recordings from

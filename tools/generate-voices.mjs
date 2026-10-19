@@ -4,6 +4,7 @@
 //   node tools/generate-voices.mjs                   make everything that is new or changed
 //   node tools/generate-voices.mjs --only=ch02       just one chapter
 //   node tools/generate-voices.mjs --translation=bsb just one translation's Scripture lines
+//   node tools/generate-voices.mjs --list            print every line to record, as JSON
 //
 // Needs the ELEVENLABS_API_KEY environment variable (a GitHub secret when run
 // from the "Generate voices" action). Character voices are set in tools/voices.json.
@@ -68,6 +69,12 @@ for (const ch of chapters) {
       }
     }
   }
+}
+
+// The free voice maker (tools/generate-voices-free.py) uses this same list.
+if (args.list) {
+  fs.writeSync(1, JSON.stringify(clips));
+  process.exit(0);
 }
 
 const settingsFor = (speaker) => voices.characters[speaker] ?? voices.default;

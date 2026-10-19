@@ -1,0 +1,54 @@
+# Makes the spoken lines with Kokoro, a free AI voice, on GitHub's computers.
+# It runs by itself whenever a chapter or the voice choices change, and only
+# re-makes the lines that changed. It can also be run from the Actions tab →
+# "Generate voices (free)" → "Run workflow". See VOICES.md.
+name: Generate voices (free)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write # to start the website and Android builds afterwards
+
+concurrency:
+  group: voices
+  cancel-in-progress: false
+
+jobs:
+  voices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Get Kokoro
+        run: |
+          pip install kokoro-onnx soundfile
+          sudo apt-get install -y ffmpeg > /dev/null
+          mkdir -p kokoro-model
+          curl -sSL -o kokoro-model/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+          curl -sSL -o kokoro-model/voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+      - name: Make recordings
+        run: python tools/generate-voices-free.py
+      - name: Save them to the project
+        run: |
+          git config user.name "Follow Me voices"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/audio
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git commit -m "New voice recordings"
+          git push
+      # Recordings saved by this workflow don't start the other workflows on their own.
+      - name: Rebuild the website and the Android app
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run website.yml || true
+          gh workflow run android.yml || true

@@ -36,7 +36,19 @@ unlockAudioOnFirstTouch();
 setUpDevice(game);
 // The web version saves itself for offline play. The Android app already has
 // everything inside it, so it doesn't need this.
-if (!isApp) registerSW({ immediate: true });
+if (!isApp) {
+  registerSW({
+    immediate: true,
+    // Look for a newer version whenever the game is opened again or every half
+    // hour, so an update shows up without having to close the game twice.
+    onRegisteredSW(_url, registration) {
+      if (!registration) return;
+      const check = () => { if (navigator.onLine) void registration.update().catch(() => undefined); };
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) check(); });
+      window.setInterval(check, 30 * 60 * 1000);
+    },
+  });
+}
 
 // Lets automated tests look at the game's state.
 (window as unknown as { __followMe: Phaser.Game }).__followMe = game;

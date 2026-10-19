@@ -288,7 +288,7 @@ screen should say **Phase 7 · v0.7.0**.
 
 ## Phase 7, part A2: real-looking people and richer scenes
 
-The title screen should say **Phase 7 · v0.7.1**. Check it on the website or in the test app (ANDROID.md).
+The title screen should say **Phase 7 · v0.7.2** (or later). Check it on the website or in the test app (ANDROID.md).
 
 **People**
 - [ ] Everyone has a face, hair, a beard where it fits, and the right clothes: robes with a mantle and tassels for the disciples, head coverings for the women, John's camel-hair garment, Caiaphas's turban and breastpiece, Pilate's toga, and the centurion's helmet and armor

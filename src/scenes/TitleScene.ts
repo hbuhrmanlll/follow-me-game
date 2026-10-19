@@ -7,7 +7,7 @@ import { askParent } from '../ui/parent';
 import { setMood } from '../systems/audio';
 import { isApp } from '../systems/native';
 
-export const VERSION = 'Phase 7 · v0.7.1';
+export const VERSION = 'Phase 7 · v0.7.2';
 
 export class TitleScene extends Phaser.Scene {
   private layers: Layer[] = [];

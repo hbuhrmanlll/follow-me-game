@@ -1,7 +1,7 @@
 {
   "name": "follow-me",
   "private": true,
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Follow Me: Walk with Jesus — a Bible game by Third Heaven Studios",
   "type": "module",
   "scripts": {

@@ -1,5 +1,7 @@
 # Publishes the web version of the game on GitHub Pages after every change:
 # https://hbuhrmanlll.github.io/follow-me-game/
+# The 3D test version (made with Godot) goes in the same site:
+# https://hbuhrmanlll.github.io/follow-me-game/3d/
 # One-time setup: Settings → Pages → Source: "GitHub Actions" (see README.md).
 name: Website
 
@@ -30,6 +32,14 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci && npm run build
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/godot-4.7-stable
+            ~/.local/share/godot/export_templates
+          key: godot-4.7-stable-web
+      - name: Build the 3D test version
+        run: bash tools/godot-build.sh web
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

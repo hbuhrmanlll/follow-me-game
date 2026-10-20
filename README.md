@@ -7,6 +7,11 @@ and the twelve disciples through His ministry, from His baptism to His ascension
 
 **Game link: https://hbuhrmanlll.github.io/follow-me-game/**
 
+**New: 3D test (Chapter 1, made with the Godot game engine):**
+https://hbuhrmanlll.github.io/follow-me-game/3d/ · Android app:
+https://github.com/hbuhrmanlll/follow-me-game/releases/download/test-build-3d/follow-me-3d-test.apk
+(see [GODOT.md](GODOT.md)).
+
 You don't need to install anything. Every time a new version is saved to GitHub, GitHub
 rebuilds the game and puts it at the game link. It takes about 3 minutes, and you can watch
 it under the **Actions** tab ("Website").

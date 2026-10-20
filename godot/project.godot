@@ -1,0 +1,32 @@
+; Follow Me: Walk with Jesus — the 3D version, built with Godot.
+; Everything here is text, so it can be edited and reviewed like the rest of the project.
+config_version=5
+
+[application]
+config/name="Follow Me 3D"
+config/description="Walk with Jesus and His disciples. A Bible game by Third Heaven Studios."
+run/main_scene="res://scenes/main.tscn"
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.105, 0.078, 0.063, 1)
+boot_splash/show_image=false
+
+[autoload]
+Content="*res://scripts/content.gd"
+Sound="*res://scripts/sound.gd"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=4
+
+[input_devices]
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=2

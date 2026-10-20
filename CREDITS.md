@@ -23,3 +23,10 @@
 - AI voices (when added): made with ElevenLabs.
 - Recorded voices (add the names of the people who recorded lines):
   - *(none yet)*
+
+## 3D version (godot/)
+
+- **Godot Engine 4.7**: MIT License, © Juan Linietsky, Ariel Manzur and contributors. https://godotengine.org/license
+- **Lilita One** font: SIL Open Font License 1.1 (godot/fonts/LilitaOne-OFL.txt).
+- **DejaVu Serif** fonts: Bitstream Vera / DejaVu free license (godot/fonts/DejaVu-LICENSE.txt).
+- All 3D models, scenery and sound effects are made in code for this game.

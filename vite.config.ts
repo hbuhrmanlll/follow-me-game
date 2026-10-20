@@ -29,6 +29,9 @@ export default defineConfig({
       workbox: {
         // Save everything the game needs, including Scripture and any voice recordings.
         globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,webp,svg,json}'],
+        // The 3D test version in /3d/ is a separate Godot game with its own files.
+        globIgnores: ['3d/**'],
+        navigateFallbackDenylist: [/\/3d\//],
         // Voice recordings are many megabytes, so they aren't all downloaded at
         // once: each chapter's recordings are saved when the chapter starts.
         runtimeCaching: [{

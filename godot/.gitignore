@@ -1,0 +1,6 @@
+# Godot's own working files
+.godot/
+# Copied in from ../content by tools/godot-content.sh before each build
+content/
+# Builds
+build/

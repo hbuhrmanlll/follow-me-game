@@ -43,6 +43,9 @@ var fade_rect: ColorRect
 var flash_rect: ColorRect
 var quiz: Control
 var _shown_coins := 0
+## Reads text aloud with the recorded voices (set by the game). Puzzles and
+## mini-games call ui.speak.call("...").
+var speak: Callable = func(_text: String) -> void: pass
 var _t := 0.0
 
 

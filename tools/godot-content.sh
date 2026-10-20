@@ -10,11 +10,10 @@ cp content/looks.json content/translations.json content/map.json "$OUT/"
 cp content/en/*.json "$OUT/en/"
 cp content/en/chapters/*.json "$OUT/en/chapters/"
 cp -r content/scripture/bsb content/scripture/kjv "$OUT/scripture/"
-# The 3D test chapter needs Chapter 1's recordings and the shared phrases.
-for t in bsb kjv; do
-  mkdir -p "$OUT/audio/en/$t"
-  cp content/audio/en/$t/ch01-* "$OUT/audio/en/$t/" 2>/dev/null || true
+cp content/en/chapters/index.json "$OUT/en/chapters/" 2>/dev/null || true
+# All the voice recordings (only .mp3 files, not the .json timing files).
+( cd content/audio/en && find . -name '*.mp3' ) | while read -r f; do
+  mkdir -p "$OUT/audio/en/$(dirname "$f")"
+  cp "content/audio/en/$f" "$OUT/audio/en/$f"
 done
-cp content/audio/en/ch01-* "$OUT/audio/en/" 2>/dev/null || true
-cp -r content/audio/en/phrases "$OUT/audio/en/"
 echo "Copied content into $OUT"

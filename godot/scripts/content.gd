@@ -7,6 +7,17 @@ var characters := {}
 var looks := {}
 var ui := {}
 var explore := {}
+var locations := {}
+var disciples = []
+var ending := {}
+var chapter_ids: Array = []
+var _chapters := {}
+# On the web the voice recordings are downloaded when needed instead of being
+# packed into the game, so the first load is small.
+var web := OS.has_feature("web")
+var _audio := {} # path -> AudioStream (downloaded)
+var _fetching := {}
+var _base_url := ""
 var scripture := {} # translation -> book -> chapters
 var translation := "bsb"
 
@@ -24,6 +35,13 @@ func _ready() -> void:
 	looks = read("res://content/looks.json")
 	ui = read("res://content/en/ui.json")
 	explore = read("res://content/en/explore.json")
+	locations = read("res://content/en/locations.json")
+	disciples = read("res://content/en/disciples.json")
+	ending = read("res://content/en/ending.json")
+	chapter_ids = read("res://content/en/chapters/index.json")
+	if web:
+		var href = JavaScriptBridge.eval("window.location.href")
+		_base_url = str(href).get_base_dir() + "/" if href != null else ""
 	for t in ["bsb", "kjv"]:
 		scripture[t] = {}
 		for b in BOOKS:
@@ -40,7 +58,45 @@ func read(path: String):
 
 
 func chapter(id: String) -> Dictionary:
-	return read("res://content/en/chapters/%s.json" % id)
+	if not _chapters.has(id):
+		_chapters[id] = read("res://content/en/chapters/%s.json" % id)
+	return _chapters[id]
+
+
+func next_chapter(id: String) -> String:
+	var i := chapter_ids.find(id)
+	return chapter_ids[i + 1] if i >= 0 and i + 1 < chapter_ids.size() else ""
+
+
+## The kind of place a scene happens in (jordan, village, lake ...).
+func backdrop_of(scene: Dictionary) -> String:
+	if scene.has("backdrop"):
+		return scene["backdrop"]
+	var b = locations.get(scene.get("location", ""), {}).get("backdrop")
+	return b if b is String else "village"
+
+
+func place_name(location: String) -> String:
+	return locations.get(location, {}).get("name", location.capitalize())
+
+
+func ui_text(key: String, fill := {}) -> String:
+	var t: String = str(ui.get(key, key))
+	for k in fill:
+		t = t.replace("{%s}" % k, str(fill[k]))
+	return t
+
+
+## Every puzzle of a scene, in order.
+func scene_puzzles(scene: Dictionary) -> Array:
+	var out := []
+	for k in ["puzzle", "puzzles"]:
+		var v = scene.get(k)
+		if v is Dictionary:
+			out.append(v)
+		elif v is Array:
+			out.append_array(v)
+	return out
 
 
 ## How a character looks: their own entry in looks.json, or a varied everyday
@@ -107,7 +163,89 @@ func verse_text(ref: String, quote) -> String:
 func line_audio(line: Dictionary) -> AudioStream:
 	var id: String = line.get("id", "")
 	var path := "res://content/audio/en/%s/%s.mp3" % [translation, id] if line.get("type") == "scripture" else "res://content/audio/en/%s.mp3" % id
-	return load(path) if ResourceLoader.exists(path) else null
+	return _stream(path)
+
+
+func _stream(path: String) -> AudioStream:
+	if not web:
+		return load(path) if ResourceLoader.exists(path) else null
+	if _audio.has(path):
+		return _audio[path]
+	fetch([path])
+	return null
+
+
+## Downloads recordings ahead of time (web only; elsewhere they are already
+## in the game). Waits until they have all arrived or failed.
+func fetch(paths: Array) -> void:
+	if not web:
+		return
+	var waiting := []
+	for path in paths:
+		if _audio.has(path):
+			continue
+		if not _fetching.has(path):
+			_fetching[path] = true
+			_download(path)
+		waiting.append(path)
+	var t := 0.0
+	while t < 20.0:
+		var left := 0
+		for path in waiting:
+			if _fetching.has(path):
+				left += 1
+		if left == 0:
+			return
+		await get_tree().create_timer(0.1).timeout
+		t += 0.1
+
+
+func _download(path: String) -> void:
+	var req := HTTPRequest.new()
+	add_child(req)
+	var url := _base_url + path.trim_prefix("res://content/")
+	req.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, body: PackedByteArray) -> void:
+		if result == HTTPRequest.RESULT_SUCCESS and code == 200 and body.size() > 0:
+			var mp3 := AudioStreamMP3.new()
+			mp3.data = body
+			_audio[path] = mp3
+		else:
+			_audio[path] = null
+		_fetching.erase(path)
+		req.queue_free())
+	if req.request(url) != OK:
+		_audio[path] = null
+		_fetching.erase(path)
+		req.queue_free()
+
+
+## The recordings a chapter needs: its story lines, and the sentences of its
+## puzzles and of the places it visits (for the web version to download).
+func chapter_audio(id: String) -> Array:
+	var c := chapter(id)
+	var out := []
+	var texts := []
+	for sc in c.get("scenes", []):
+		for line in sc.get("lines", []):
+			var lid: String = line.get("id", "")
+			out.append("res://content/audio/en/%s/%s.mp3" % [translation, lid] if line.get("type") == "scripture" else "res://content/audio/en/%s.mp3" % lid)
+		for pz in scene_puzzles(sc):
+			for k in ["prompt", "hint", "intro", "text"]:
+				if pz.get(k) is String:
+					texts.append(pz[k])
+			for ch in pz.get("choices", []):
+				if ch is Dictionary and ch.get("text") is String:
+					texts.append(ch["text"])
+		var place: Dictionary = explore.get("places", {}).get(backdrop_of(sc), {})
+		texts.append_array(place.get("villagers", []))
+		if place.has("quest"):
+			texts.append(place["quest"].get("ask", ""))
+	for k in ["hint", "questDone"]:
+		texts.append(str(explore.get(k, "")))
+	for t in texts:
+		for snt in sentences(str(t)):
+			out.append("res://content/audio/en/phrases/%s.mp3" % phrase_key(snt))
+	return out
 
 
 ## Recorded sentences for everything outside the story lines. They are split
@@ -115,9 +253,9 @@ func line_audio(line: Dictionary) -> AudioStream:
 func phrase_streams(text: String) -> Array:
 	var out := []
 	for s in sentences(text):
-		var path := "res://content/audio/en/phrases/%s.mp3" % phrase_key(s)
-		if ResourceLoader.exists(path):
-			out.append(load(path))
+		var st := _stream("res://content/audio/en/phrases/%s.mp3" % phrase_key(s))
+		if st:
+			out.append(st)
 	return out
 
 

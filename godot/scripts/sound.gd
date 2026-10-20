@@ -14,6 +14,10 @@ var _wants_music := false
 
 
 func _ready() -> void:
+	for b in ["Music", "Voice", "Sfx"]:
+		if AudioServer.get_bus_index(b) < 0:
+			AudioServer.add_bus()
+			AudioServer.set_bus_name(AudioServer.bus_count - 1, b)
 	sounds["tap"] = _tones([[700, 0.04]], 0.18)
 	sounds["coin"] = _tones([[988, 0.06], [1319, 0.18]], 0.26)
 	sounds["correct"] = _tones([[523, 0.1], [659, 0.1], [784, 0.1], [1047, 0.3]], 0.26)
@@ -28,13 +32,16 @@ func _ready() -> void:
 	sounds["bird1"] = _chirp([3100, 2500, 3300, 2700], 0.055)
 	for i in 8:
 		var p := AudioStreamPlayer.new()
+		p.bus = "Sfx"
 		add_child(p)
 		players.append(p)
 	music = AudioStreamPlayer.new()
 	music.volume_db = -11.0
+	music.bus = "Music"
 	add_child(music)
 	river = AudioStreamPlayer.new()
 	river.volume_db = -20.0
+	river.bus = "Music"
 	add_child(river)
 	var m: AudioStreamOggVorbis = load("res://audio/music_jordan.ogg")
 	m.loop = true
@@ -57,6 +64,27 @@ func play(id: String, volume_db := 0.0) -> void:
 
 func step() -> void:
 	play("step%d" % (randi() % 3), -8.0)
+
+
+## Sets the volume of music, voices and sound effects (0 to 1 each).
+func set_volumes(music_v: float, voice_v: float, sfx_v: float) -> void:
+	for pair in [["Music", music_v], ["Voice", voice_v], ["Sfx", sfx_v]]:
+		var i := AudioServer.get_bus_index(pair[0])
+		var v: float = pair[1]
+		AudioServer.set_bus_mute(i, v <= 0.01)
+		AudioServer.set_bus_volume_db(i, linear_to_db(max(v, 0.01)))
+
+
+## Changes the background sound for a place: the river by water, wind elsewhere,
+## nothing indoors. Music keeps playing.
+func set_ambience(kind: String) -> void:
+	match kind:
+		"water":
+			river.volume_db = -20.0
+		"wind":
+			river.volume_db = -30.0
+		_:
+			river.volume_db = -60.0
 
 
 ## Starts the music and the river.

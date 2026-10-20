@@ -21,9 +21,15 @@ Both are rebuilt by GitHub automatically after every change (workflows
 
 ## How it is made
 
-- Everything in 3D is built from simple shapes in code: the people, palms,
-  reeds, river, tents, hills, jars, the dove and the light from heaven.
+- Everything in 3D is built from shapes in code: the people (smooth robes,
+  open cloaks with woven stripes, friendly faces), date palms, acacia trees,
+  oleander bushes, reeds, wildflowers, rocks, goat-hair tents, birds, the
+  river, the mountains, the jars, the dove and the light from heaven.
   No downloaded models, so there are no licenses to worry about.
+- Scenery is merged into a few big meshes, so it runs smoothly on phones,
+  and the plants sway in the wind.
+- The music (strings, harp and flute) and the river sound are made by
+  `tools/make-3d-music.py`, also with nothing downloaded.
 - It reads the same files as the 2D game (`content/`): Bible text, chapters,
   character looks, villager lines and voice recordings. `tools/godot-content.sh`
   copies them into `godot/content/` before building.
@@ -38,7 +44,8 @@ Both are rebuilt by GitHub automatically after every change (workflows
 | `godot/scripts/props.gd` | The star, water jars, dove and light from heaven |
 | `godot/scripts/game_ui.gd` | Coins, speech bubbles, the story box, questions, title and end screens |
 | `godot/scripts/content.gd` | Reads the shared game content and finds the voice recordings |
-| `godot/scripts/sound.gd` | Small sound effects made in code |
+| `godot/scripts/sound.gd` | Sound effects made in code, music, river sounds and birdsong |
+| `tools/make-3d-music.py` | Makes the music and river sound files in `godot/audio/` |
 | `tools/godot-build.sh` | Builds the web version or the Android app |
 
 To check the whole chapter automatically, run Godot with `-- autoplay`. It

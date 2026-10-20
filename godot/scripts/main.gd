@@ -20,7 +20,8 @@ var walking := false
 var talk_after_walk: Dictionary = {}
 var villagers: Array[Dictionary] = []
 var giver: Dictionary = {}
-var quest_mark: Label3D
+var markers := {} # Node3D -> [marker on screen, height above it]
+var _step_t := 0.0
 var jars: Array[Node3D] = []
 var found := 0
 var quest_started := false
@@ -49,6 +50,7 @@ func _ready() -> void:
 	cam.far = 300
 	add_child(cam)
 	voice = AudioStreamPlayer.new()
+	voice.volume_db = 1.0
 	add_child(voice)
 	ui = GameUI.new()
 	add_child(ui)
@@ -58,6 +60,13 @@ func _ready() -> void:
 		bot.game = self
 		add_child(bot)
 	await ui.title_screen("Follow Me", "Chapter 1 · " + chapter.get("title", ""))
+	Sound.start_music()
+	Sound.play("whoosh", -6.0)
+	await ui.fade_out(0.4)
+	mode = "explore"
+	cam.position = Vector3(player.position.x, 0, max(player.position.z, 1.5)) + CAM_OFFSET
+	_follow_camera(1.0)
+	ui.fade_in(0.6)
 	_start_explore()
 
 
@@ -84,17 +93,6 @@ func _cast() -> void:
 		var v := {"p": p, "line": lines[i % lines.size()] if lines.size() else "Shalom!", "talked": false}
 		villagers.append(v)
 	giver = villagers[1]
-	quest_mark = Label3D.new()
-	quest_mark.text = "!"
-	quest_mark.font = load("res://fonts/lilita_one_regular.ttf")
-	quest_mark.font_size = 160
-	quest_mark.modulate = Color("ffd23a")
-	quest_mark.outline_size = 28
-	quest_mark.outline_modulate = Color("2a1a10")
-	quest_mark.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	quest_mark.no_depth_test = true
-	quest_mark.position = Vector3(0, 2.45, 0)
-	giver.p.add_child(quest_mark)
 	for pos in [Vector3(3, 0, 6.0), Vector3(15.5, 0, -0.6), Vector3(31, 0, 5.4)]:
 		var j := Props.jar()
 		j.position = pos
@@ -126,8 +124,34 @@ func _start_explore() -> void:
 	mode = "explore"
 	ui.show_hud(true)
 	ui.set_coins(coins, false)
-	ui.hint(Content.explore.get("hint", "Walk to the star!"))
+	ui.objective(Content.explore.get("hint", "Walk to the star!"), "star")
 	_speak_phrase(Content.explore.get("hint", ""))
+	# Little signs over the people to talk to, and over the story star
+	for v in villagers:
+		markers[v.p] = [ui.marker("!" if v == giver else "", "jar" if v == giver else "talk"), 2.3]
+	markers[star] = [ui.marker(Content.explore.get("storySign", "Story"), "star"), 2.5]
+
+
+# Keeps each marker over its thing; the star's marker stays at the edge of the
+# screen when the star is out of sight, so you always know where to go.
+func _place_markers() -> void:
+	var vp := get_viewport().get_visible_rect().size
+	for n in markers.keys():
+		var m: Control = markers[n][0]
+		if not is_instance_valid(n) or not is_instance_valid(m):
+			markers.erase(n)
+			continue
+		m.visible = mode == "explore"
+		var at3: Vector3 = n.global_position + Vector3(0, markers[n][1] + sin(_t * 3.0 + n.position.x) * 0.06, 0)
+		var behind := cam.is_position_behind(at3)
+		var at := cam.unproject_position(at3)
+		var edge: bool = n == star
+		if edge:
+			at.x = clamp(at.x, 70.0, vp.x - 70.0 - m.size.x / 2.0)
+			at.y = clamp(at.y, 110.0, vp.y - 90.0)
+		elif behind:
+			m.visible = false
+		m.position = at - Vector2(m.size.x / 2.0, m.size.y)
 
 
 func _process(delta: float) -> void:
@@ -136,13 +160,13 @@ func _process(delta: float) -> void:
 		star.get_node("Star").rotation.y += delta * 1.8
 		star.get_node("Star").position.y = 1.4 + sin(_t * 2.0) * 0.12
 		star.get_node("Ring").scale = Vector3.ONE * (1.0 + sin(_t * 3.0) * 0.08)
-	if quest_mark:
-		quest_mark.position.y = 2.45 + sin(_t * 3.0) * 0.08
 	for j in jars:
 		j.get_node("Glow").scale = Vector3.ONE * (1.0 + sin(_t * 4.0 + j.position.x) * 0.15)
 	if dove:
 		Props.flap(dove, _t)
 	_place_bubbles()
+	_place_markers()
+	Sound.duck(voice.playing)
 	match mode:
 		"title":
 			var a := _t * 0.12
@@ -158,8 +182,14 @@ func _process(delta: float) -> void:
 			cam.look_at(cam.position + look_now.lerp(want, min(1.0, delta * 2.0)))
 
 
+var _lead := 0.0
 func _follow_camera(delta: float) -> void:
-	var goal := Vector3(player.position.x, 0, max(player.position.z, 1.5)) + CAM_OFFSET
+	# The camera looks a little ahead of where you're walking
+	var dir := 0.0
+	if walking:
+		dir = sign(target.x - player.position.x)
+	_lead = lerp(_lead, dir * 1.6, min(1.0, delta * 1.5))
+	var goal := Vector3(player.position.x + _lead, 0, max(player.position.z, 1.5)) + CAM_OFFSET
 	cam.position = cam.position.lerp(goal, min(1.0, delta * 3.0)) if cam.position.distance_to(goal) < 30 else goal
 	cam.look_at(Vector3(cam.position.x, 1.25, player.position.z - 4.5))
 
@@ -181,6 +211,10 @@ func _walk(delta: float) -> void:
 	var stepv: Vector3 = d.normalized() * min(d.length(), WALK_SPEED * delta)
 	player.position += stepv
 	player.speed = WALK_SPEED
+	_step_t -= delta
+	if _step_t <= 0.0:
+		_step_t = 0.34
+		Sound.step()
 	player.rotation.y = lerp_angle(player.rotation.y, atan2(d.x, d.z), min(1.0, delta * 12.0))
 	# Pick up jars
 	for j in jars.duplicate():
@@ -247,15 +281,19 @@ func _talk(v: Dictionary) -> void:
 		if not quest_started:
 			quest_started = true
 			text = place.get("quest", {}).get("ask", text)
-			quest_mark.text = "?"
-			ui.hint("Find the 3 water jars!  0 / 3")
+			ui.objective("Find the water jars  0 / 3", "jar")
+			for j in jars:
+				markers[j] = [ui.marker("", "jar"), 0.9]
 		elif found >= 3:
 			text = Content.explore.get("questDone", "Thank you!")
 		else:
 			text = place.get("quest", {}).get("ask", text)
 	if not v.talked:
 		v.talked = true
-		_earn(1, p.position)
+		_earn(1, p.position + Vector3(0, 1.8, 0))
+		if v != giver and markers.has(p):
+			markers[p][0].queue_free()
+			markers.erase(p)
 	_bubble(p, text)
 
 
@@ -318,23 +356,33 @@ func _collect(j: Node3D) -> void:
 	tw.tween_property(j, "scale", Vector3.ZERO, 0.2)
 	tw.tween_callback(j.queue_free)
 	found += 1
-	_earn(5, j.position)
+	if markers.has(j):
+		markers[j][0].queue_free()
+		markers.erase(j)
+	_earn(5, j.position + Vector3(0, 0.6, 0))
 	ui.pop("Jar %d of 3!" % found)
-	ui.hint("Find the 3 water jars!  %d / 3" % found)
+	ui.objective("Find the water jars  %d / 3" % found, "jar")
 	if found >= 3:
-		ui.hint(Content.explore.get("hint", "Walk to the star!"))
-		quest_mark.queue_free()
-		quest_mark = null
+		ui.objective(Content.explore.get("hint", "Walk to the star!"), "star")
+		if markers.has(giver.p):
+			markers[giver.p][0].queue_free()
+			markers.erase(giver.p)
 		await get_tree().create_timer(0.8).timeout
 		giver.p.cheer()
 		_bubble(giver.p, Content.explore.get("questDone", "Thank you!"))
-		_earn(10, giver.p.position)
+		_earn(10, giver.p.position + Vector3(0, 1.8, 0))
 		Sound.play("fanfare")
+		ui.confetti(cam.unproject_position(giver.p.position + Vector3(0, 1.8, 0)), 50)
 
 
-func _earn(n: int, _from: Vector3) -> void:
+# Coins fly from where they were earned to the counter. from = null means the
+# middle of the screen.
+func _earn(n: int, from = null) -> void:
 	coins += n
-	ui.set_coins(coins)
+	var at := get_viewport().get_visible_rect().size / 2.0
+	if from is Vector3 and not cam.is_position_behind(from):
+		at = cam.unproject_position(from)
+	ui.fly_coins(at, n, coins)
 
 
 # ---------------------------------------------------------------- the story
@@ -350,11 +398,21 @@ func _story() -> void:
 	tw.tween_property(star, "scale", Vector3.ZERO, 0.4)
 	tw.tween_callback(star.queue_free)
 	star = null
-	ui.hint("")
+	ui.objective("")
+	for n in markers.keys():
+		markers[n][0].queue_free()
+	markers.clear()
+	await get_tree().create_timer(0.5).timeout
+	await ui.fade_out(0.5)
 	# The player joins the crowd
 	player.position = WorldJordan.STORY_POINT + Vector3(-2.4, 0, 3.0)
 	player.face(WorldJordan.STORY_POINT)
 	_shot(WorldJordan.STORY_POINT + Vector3(0.6, 2.4, 7.5), WorldJordan.STORY_POINT + Vector3(0, 1.1, 0))
+	cam.position = WorldJordan.STORY_POINT + Vector3(-1.5, 3.2, 10.0) # starts wide, then drifts in
+	cam.look_at(WorldJordan.STORY_POINT + Vector3(0, 1.1, 0))
+	ui.cinematic(true)
+	ui.fade_in(0.8)
+	await get_tree().create_timer(0.9).timeout
 	var scenes: Array = chapter.get("scenes", [])
 	# Scene 1: John preaching
 	for line in scenes[0].get("lines", []):
@@ -406,8 +464,8 @@ func _line(line: Dictionary) -> void:
 	var text := Content.line_text(line)
 	var ref: String = line.get("ref", "")
 	var color := Color(Content.characters.get(who, {}).get("color", "#6b5a45"))
-	await ui.show_line(Content.name_of(who), text, ref, color)
 	var p := _speaker(who)
+	await ui.show_line(Content.name_of(who), text, ref, color, p if p and p.visible else null, "heaven" if who == "voice-from-heaven" else "book")
 	if p:
 		p.talking = true
 	if who == "voice-from-heaven":
@@ -436,12 +494,14 @@ func _line(line: Dictionary) -> void:
 func _puzzle(pz: Dictionary) -> void:
 	if pz.is_empty():
 		return
+	ui.cinematic(false)
+	ui.show_hud(true)
 	_speak_phrase(pz.get("prompt", ""))
 	var wrong := await ui.ask(pz.get("prompt", ""), pz.get("choices", []), pz.get("hint", ""), pz.get("ref", ""))
 	voice.stop()
 	mistakes += wrong
 	var n := 10 if wrong == 0 else 5
-	_earn(n, Vector3.ZERO)
+	_earn(n)
 	ui.pop("That's right!  +%d" % n, Color("bff0a8"))
 	_speak_phrase("That's right!")
 	for p in crowd:
@@ -449,6 +509,7 @@ func _puzzle(pz: Dictionary) -> void:
 			p.cheer()
 	player.cheer()
 	await get_tree().create_timer(1.4).timeout
+	ui.cinematic(true)
 
 
 # The baptism: Jesus and John wade in, Jesus goes under the water and comes
@@ -480,6 +541,9 @@ func _baptism() -> void:
 	light.position = jesus.position
 	light.scale = Vector3(0.01, 1, 0.01)
 	add_child(light)
+	Sound.play("whoosh")
+	Sound.play("fanfare", -6.0)
+	create_tween().tween_property(world.env, "tonemap_exposure", 1.25, 2.0) # heaven's light fills the scene
 	create_tween().tween_property(light, "scale", Vector3.ONE, 1.6).set_trans(Tween.TRANS_SINE)
 	ui.flash(Color.WHITE, 0.7, 1.6)
 	_shot(WorldJordan.STORY_POINT + Vector3(1.0, 1.2, 3.0), jesus.position + Vector3(0, 3.2, 0))
@@ -498,8 +562,9 @@ func _baptism() -> void:
 func _end() -> void:
 	mode = "done"
 	ui.hide_line()
+	ui.cinematic(false)
 	var stars := 3 if mistakes == 0 else (2 if mistakes <= 2 else 1)
-	_earn(stars * 5, Vector3.ZERO)
+	_earn(stars * 5)
 	Sound.play("fanfare")
 	for p in crowd:
 		p.cheer()
